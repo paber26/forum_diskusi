@@ -37978,7 +37978,7 @@ var render = function() {
           "router-link",
           {
             staticClass:
-              "bg-yellow-300 p-1.5 m-1 rounded-md hover:bg-yellow-300",
+              "bg-yellow-300 p-1.5 m-1.5 rounded-md hover:bg-yellow-300",
             attrs: { to: "" }
           },
           [_vm._v("Beranda")]

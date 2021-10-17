@@ -7,7 +7,7 @@
     </div>
     <div class="w-full border-solid border-2 border-gray-300"></div>
     <div class="flex flex-col font-semibold mt-3">
-        <router-link to="" class="bg-yellow-300 p-1.5 m-1 rounded-md hover:bg-yellow-300">Beranda</router-link>
+        <router-link to="" class="bg-yellow-300 p-1.5 m-1.5 rounded-md hover:bg-yellow-300">Beranda</router-link>
         <router-link to="/modul" class="p-1.5 m-1 rounded-md hover:bg-yellow-300">Modul</router-link>
         <router-link to="/arsipsoal" class="p-1.5 m-1 rounded-md hover:bg-yellow-300">Arsip Soal</router-link>
         <router-link to="/forum" class="p-1.5 m-1 rounded-md hover:bg-yellow-300">Forum Tanya Jawab</router-link>
