@@ -1,3 +1,3 @@
 <template>
-    <h1>Ini adalah Footer</h1>
+    <div class="bg-blue-200 p-2 font-semibold">Politeknik Statistika STIS</div>
 </template>
