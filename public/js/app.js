@@ -38515,166 +38515,161 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex flex-col justify-center" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "flex w-full justify-center" }, [
-      _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "grid grid-cols-12 gap-2 mt-2 font-semibold text-white py-2"
-          },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Aljabar Linear")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Kalkulus I")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Metode Statistik I")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Pengantar Teknologi Informasi")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Pengantar Teori Peluang")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Metode Penarikan Contoh")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Analisis Data Eksploratif")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Statistika Matematika I")]
-            ),
-            _vm._v(" "),
-            _c(
-              "router-link",
-              {
-                staticClass:
-                  "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
-                attrs: { to: "/" }
-              },
-              [_vm._v("Kalkulus II")]
-            )
-          ],
-          1
-        )
-      ])
-    ])
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex w-full justify-center" }, [
-      _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
-        _c("div", { staticClass: "font-bold text-xl" }, [
-          _vm._v("D-4 Komputasi Statistik")
+    return _c("div", { staticClass: "flex flex-col justify-center" }, [
+      _c("div", { staticClass: "flex w-full justify-center" }, [
+        _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+          _c("div", { staticClass: "font-bold text-xl" }, [
+            _vm._v("D-4 Komputasi Statistik")
+          ])
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex items-center" }, [
-      _c("div", { staticClass: "font-bold text-base" }, [_vm._v("Kategori")]),
+      ]),
       _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass:
-            "ml-3 p-1.5 bg-white rounded-xl w-2/5 flex items-center justify-between"
-        },
-        [
-          _c("option", { attrs: { disabled: "", selected: "" } }, [
-            _vm._v("Isi Kategori")
+      _c("div", { staticClass: "flex w-full justify-center" }, [
+        _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+          _c("div", { staticClass: "flex items-center" }, [
+            _c("div", { staticClass: "font-bold text-base" }, [
+              _vm._v("Kategori")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                staticClass:
+                  "ml-3 p-1.5 bg-white rounded-xl w-2/5 flex items-center justify-between"
+              },
+              [
+                _c("option", { attrs: { disabled: "", selected: "" } }, [
+                  _vm._v("Isi Kategori")
+                ]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Aljabar Linear")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kalkulus I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Metode Statistik I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Pengantar Teori Peluang")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Metode Penarikan Contoh")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Analisis Data Eksploratif")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Statistika Matematika I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kalkulus II")])
+              ]
+            )
           ]),
           _vm._v(" "),
-          _c("option", [_vm._v("Aljabar Linear")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Kalkulus I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Metode Statistik I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Pengantar Teori Peluang")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Metode Penarikan Contoh")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Analisis Data Eksploratif")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Statistika Matematika I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Kalkulus II")])
-        ]
-      )
+          _c(
+            "div",
+            {
+              staticClass:
+                "grid grid-cols-12 gap-2 mt-2 font-semibold text-white py-2"
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/aljabar-linear" }
+                },
+                [_vm._v("Aljabar Linear")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Kalkulus I")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Metode Statistik I")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Pengantar Teknologi Informasi")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Pengantar Teori Peluang")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Metode Penarikan Contoh")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Analisis Data Eksploratif")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Statistika Matematika I")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Kalkulus II")]
+              )
+            ]
+          )
+        ])
+      ])
     ])
   }
 ]

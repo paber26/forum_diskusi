@@ -28,15 +28,15 @@
 
             </div>
             <div class="grid grid-cols-12 gap-2 mt-2 font-semibold text-white py-2">
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Aljabar Linear</router-link>
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Kalkulus I</router-link>
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Metode Statistik I</router-link>
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Pengantar Teknologi Informasi</router-link>
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Pengantar Teori Peluang</router-link>
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Metode Penarikan Contoh</router-link>
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Analisis Data Eksploratif</router-link>
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Statistika Matematika I</router-link>
-                <router-link to="/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Kalkulus II</router-link>
+                <a href="/modul/aljabar-linear" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Aljabar Linear</a>
+                <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Kalkulus I</a>
+                <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Metode Statistik I</a>
+                <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Pengantar Teknologi Informasi</a>
+                <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Pengantar Teori Peluang</a>
+                <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Metode Penarikan Contoh</a>
+                <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Analisis Data Eksploratif</a>
+                <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Statistika Matematika I</a>
+                <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Kalkulus II</a>
             </div>
         </div>
     </div>
