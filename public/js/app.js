@@ -2142,7 +2142,7 @@ var Beranda = __webpack_require__(/*! ../pages/Beranda.vue */ "./resources/js/pa
 var Modul = __webpack_require__(/*! ../pages/Modul.vue */ "./resources/js/pages/Modul.vue")["default"];
 
 var routes = [{
-  path: '',
+  path: '/',
   component: Beranda
 }, {
   path: '/modul',
@@ -37977,9 +37977,8 @@ var render = function() {
         _c(
           "router-link",
           {
-            staticClass:
-              "bg-yellow-300 p-1.5 m-1.5 rounded-md hover:bg-yellow-300",
-            attrs: { to: "" }
+            staticClass: "p-1.5 m-1.5 rounded-md hover:bg-yellow-300",
+            attrs: { to: "/" }
           },
           [_vm._v("Beranda")]
         ),

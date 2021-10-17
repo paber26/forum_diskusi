@@ -9,7 +9,7 @@ const Modul = require('../pages/Modul.vue').default;
 
 const routes = [
     {
-        path: '',
+        path: '/',
         component: Beranda
     },
     {
