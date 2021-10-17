@@ -3,7 +3,11 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        kebiruan: '#A7C5EB'
+      },  
+    },
   },
   variants: {
     extend: {},
