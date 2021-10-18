@@ -17,6 +17,10 @@ Route::get('/modul/{any}', function () {
     return view('modul');
 })->where('any', '.*');
 
+Route::get('/arsipsoal/{any}', function () {
+    return view('arsipsoal');
+})->where('any', '.*');
+
 Route::get('/{any}', function () {
     return view('home');
 })->where('any', '.*');
