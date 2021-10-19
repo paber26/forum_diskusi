@@ -2,7 +2,7 @@
 <div class="flex flex-col justify-center">
     <div class="flex w-full justify-center">
         <div class="bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl">
-            <div class="font-bold text-base">Modul</div>
+            <div class="font-bold text-base">Arsip Soal</div>
             <div class="font-bold text-xl">D-4 Komputasi Statistik</div>
         </div>
     </div>
@@ -29,7 +29,7 @@
 
             </div>
             <div class="grid grid-cols-12 gap-2 mt-2 font-semibold text-white py-2">
-                <a href="/modul/aljabar-linear" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Aljabar Linear</a>
+                <a href="/arsipsoal/aljabar-linear" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Aljabar Linear</a>
                 <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Kalkulus I</a>
                 <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Metode Statistik I</a>
                 <a href="/modul/" class="p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">Pengantar Teknologi Informasi</a>

@@ -2095,16 +2095,105 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      showmodul: false
+      showmodul: false,
+      showarsipsoal: false
     };
   },
   methods: {
     klikmodul: function klikmodul() {
       this.showmodul = !this.showmodul;
-      console.log(this.showmodul);
+      this.showarsipsoal = false;
+    },
+    klikarsipsoal: function klikarsipsoal() {
+      this.showarsipsoal = !this.showarsipsoal;
+      this.showmodul = false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      showisikategori: false
+    };
+  },
+  methods: {
+    klikisikategori: function klikisikategori() {
+      this.showisikategori = !this.showisikategori;
+      console.log(this.showisikategori);
     }
   }
 });
@@ -2122,6 +2211,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -2268,11 +2358,14 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 var Beranda = __webpack_require__(/*! ../pages/Beranda.vue */ "./resources/js/pages/Beranda.vue")["default"];
 
-var Modul = __webpack_require__(/*! ../pages/Modul.vue */ "./resources/js/pages/Modul.vue")["default"];
+var Modul = __webpack_require__(/*! ../pages/Modul.vue */ "./resources/js/pages/Modul.vue")["default"]; // const ArsipSoal = require('../pages/ArsipSoal.vue').default;
+
 
 var ModulD3Statistika = __webpack_require__(/*! ../pages/modul/D3-Statistika */ "./resources/js/pages/modul/D3-Statistika.vue")["default"];
 
 var ModulD4KomputasiStatistik = __webpack_require__(/*! ../pages/modul/D4-KomputasiStatistik */ "./resources/js/pages/modul/D4-KomputasiStatistik.vue")["default"];
+
+var ArsipSoalD4KomputasiStatistik = __webpack_require__(/*! ../pages/arsipSoal/D4-KomputasiStatistik.vue */ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue")["default"];
 
 var routes = [{
   path: '/',
@@ -2281,11 +2374,14 @@ var routes = [{
   path: '/modul',
   component: Modul
 }, {
-  path: '/d3-statistika',
+  path: '/listmodul/d3-statistika',
   component: ModulD3Statistika
 }, {
-  path: '/d4-komputasi-statistik',
+  path: '/listmodul/d4-komputasi-statistik',
   component: ModulD4KomputasiStatistik
+}, {
+  path: '/listarsipsoal/d4-komputasi-statistik',
+  component: ArsipSoalD4KomputasiStatistik
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
@@ -37878,6 +37974,45 @@ component.options.__file = "resources/js/pages/Modul.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8& */ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8&");
+/* harmony import */ var _D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./D4-KomputasiStatistik.vue?vue&type=script&lang=js& */ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/modul/D3-Statistika.vue":
 /*!****************************************************!*\
   !*** ./resources/js/pages/modul/D3-Statistika.vue ***!
@@ -37967,6 +38102,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4-KomputasiStatistik.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -38067,6 +38218,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Modul_vue_vue_type_template_id_455a90e0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Modul_vue_vue_type_template_id_455a90e0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Modul.vue?vue&type=template&id=455a90e0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Modul.vue?vue&type=template&id=455a90e0&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8&");
 
 
 /***/ }),
@@ -38316,8 +38484,9 @@ var render = function() {
                   _c(
                     "router-link",
                     {
-                      staticClass: "p-1.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/d3-statistika" }
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/listmodul/d3-statistika" }
                     },
                     [_vm._v("D-3 Statistika")]
                   ),
@@ -38325,8 +38494,9 @@ var render = function() {
                   _c(
                     "router-link",
                     {
-                      staticClass: "p-1.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/d4-statistika" }
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/listmodul/d4-statistika" }
                     },
                     [_vm._v("D-4 Statistika")]
                   ),
@@ -38334,8 +38504,9 @@ var render = function() {
                   _c(
                     "router-link",
                     {
-                      staticClass: "p-1.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/d4-komputasi-statistik" }
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/listmodul/d4-komputasi-statistik" }
                     },
                     [_vm._v("D-4 Komputasi Statistik")]
                   )
@@ -38345,15 +38516,88 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass:
-              "p-1.5 m-1 rounded-md hover:bg-yellow-300 font-semibold",
-            attrs: { to: "/arsipsoal" }
-          },
-          [_vm._v("Arsip Soal")]
-        ),
+        _c("div", { staticClass: "m-1" }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "p-1.5 rounded-md hover:bg-yellow-300 flex justify-between items-center w-full",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.klikarsipsoal()
+                }
+              }
+            },
+            [
+              _c("div", { staticClass: "font-semibold" }, [
+                _vm._v("Arsip Soal")
+              ]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "h-4 w-4",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M19 9l-7 7-7-7"
+                    }
+                  })
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _vm.showarsipsoal
+            ? _c(
+                "div",
+                { staticClass: "ml-3 flex flex-col" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/listarsipsoal/d3-statistika" }
+                    },
+                    [_vm._v("D-3 Statistika")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/listarsipsoal/d4-statistika" }
+                    },
+                    [_vm._v("D-4 Statistika")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/listarsipsoal/d4-komputasi-statistik" }
+                    },
+                    [_vm._v("D-4 Komputasi Statistik")]
+                  )
+                ],
+                1
+              )
+            : _vm._e()
+        ]),
         _vm._v(" "),
         _c(
           "router-link",
@@ -38474,6 +38718,190 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex flex-col justify-center" }, [
+      _c("div", { staticClass: "flex w-full justify-center" }, [
+        _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+          _c("div", { staticClass: "font-bold text-base" }, [
+            _vm._v("Arsip Soal")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "font-bold text-xl" }, [
+            _vm._v("D-4 Komputasi Statistik")
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex w-full justify-center" }, [
+        _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+          _c("div", { staticClass: "flex items-center" }, [
+            _c("div", { staticClass: "font-bold text-base" }, [
+              _vm._v("Kategori")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                staticClass:
+                  "ml-3 p-1.5 bg-white rounded-xl w-2/5 flex items-center justify-between"
+              },
+              [
+                _c("option", { attrs: { disabled: "", selected: "" } }, [
+                  _vm._v("Isi Kategori")
+                ]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Aljabar Linear")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kalkulus I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Metode Statistik I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Pengantar Teori Peluang")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Metode Penarikan Contoh")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Analisis Data Eksploratif")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Statistika Matematika I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kalkulus II")])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "grid grid-cols-12 gap-2 mt-2 font-semibold text-white py-2"
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/arsipsoal/aljabar-linear" }
+                },
+                [_vm._v("Aljabar Linear")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Kalkulus I")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Metode Statistik I")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Pengantar Teknologi Informasi")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Pengantar Teori Peluang")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Metode Penarikan Contoh")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Analisis Data Eksploratif")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Statistika Matematika I")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                  attrs: { href: "/modul/" }
+                },
+                [_vm._v("Kalkulus II")]
+              )
+            ]
+          )
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/modul/D3-Statistika.vue?vue&type=template&id=6328c978&":
 /*!**************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/modul/D3-Statistika.vue?vue&type=template&id=6328c978& ***!
@@ -38525,6 +38953,8 @@ var staticRenderFns = [
     return _c("div", { staticClass: "flex flex-col justify-center" }, [
       _c("div", { staticClass: "flex w-full justify-center" }, [
         _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+          _c("div", { staticClass: "font-bold text-base" }, [_vm._v("Modul")]),
+          _vm._v(" "),
           _c("div", { staticClass: "font-bold text-xl" }, [
             _vm._v("D-4 Komputasi Statistik")
           ])

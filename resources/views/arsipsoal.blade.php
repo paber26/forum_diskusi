@@ -35,7 +35,7 @@
                 <div class="grid grid-cols-12 gap-3">
                     <div
                         class="col-span-12 sm:col-span-3 lg:col-span-2 p-2 -mt-4 mb-4 sm:mt-16 order-last sm:order-first">
-                        <h1 class="font-bold text-xl text-blue-500">Materi</h1>
+                        <h1 class="font-bold text-xl text-blue-500">Tahun Pelajaran</h1>
                         <div class="ml-2">
                             <div class="flex flex-row items-center">
                                 <div class="w-5">
@@ -129,14 +129,20 @@
                     </div>
                     <div class="col-span-12 sm:col-span-9 lg:col-span-10 m-2 p-2 rounded-2xl">
                         <div class="flex flex-row justify-between">
-                            <div class="font-bold text-xl w-72">Ruang Vektor</div>
-                            <div class="flex flex-row-reverse items-center w-72">
-                                <div class="">Home/Materi/D-IV KS</div>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                    fill="currentColor">
-                                    <path
-                                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                                </svg>
+                            <div class="font-bold text-xl w-72">UAS 2017/208</div>
+                            <div class="flex flex-row-reverse items-center w-80">
+                                <a href="/d4-komputasi-statistik" class="hover:bg-yellow-200 rounded-md p-1">
+                                    Arsip Soal D-IV KS
+                                </a>
+                                <span>/</span>
+                                <a href="/" class="flex items-center hover:bg-yellow-200 rounded-md p-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path
+                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0    001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                                    </svg>
+                                    <div>Home</div>
+                                </a>
                             </div>
                         </div>
                         <div class="bg-birumodul w-full h-0.5 rounded-3xl"></div>
