@@ -2127,79 +2127,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      showisikategori: false
-    };
-  },
-  methods: {
-    klikisikategori: function klikisikategori() {
-      this.showisikategori = !this.showisikategori;
-      console.log(this.showisikategori);
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/modul/D4-KomputasiStatistik.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/modul/D4-KomputasiStatistik.vue?vue&type=script&lang=js& ***!
@@ -38028,17 +37955,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8& */ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=template&id=dc1564a8&");
-/* harmony import */ var _D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./D4-KomputasiStatistik.vue?vue&type=script&lang=js& */ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-
-
+var script = {}
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
   _D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__.render,
   _D4_KomputasiStatistik_vue_vue_type_template_id_dc1564a8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -38144,22 +38069,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4-KomputasiStatistik.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4-KomputasiStatistik.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -38768,9 +38677,181 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("Ini Forum")])
+  return _c("div", { staticClass: "flex flex-col justify-center" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c("div", { staticClass: "bg-gray-200 w-11/12 mt-3 rounded-lg" }, [
+        _c("div", { staticClass: "p-2" }, [
+          _c("div", [
+            _c("div", { staticClass: "font-bold text-blue-600" }, [
+              _vm._v("Aljabar Linear")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-10 w-10",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor"
+                  }
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d:
+                        "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(2)
+            ]),
+            _vm._v(" "),
+            _vm._m(3)
+          ])
+        ])
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
+        _c("div", { staticClass: "font-bold text-xl" }, [
+          _vm._v("Forum Tanya Jawab")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c("div", { staticClass: "w-11/12 mt-2.5" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "bg-gray-400 rounded-t-lg p-1.5 font-semibold text-base"
+          },
+          [_vm._v("Filter")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "bg-gray-200 rounded-b-lg grid grid-cols-12 gap-2 p-2"
+          },
+          [
+            _c("div", { staticClass: "col-span-12 md:col-span-6" }, [
+              _c("div", [_vm._v("Program Studi")]),
+              _vm._v(" "),
+              _c("select", { staticClass: "p-1 bg-white rounded-lg w-full" }, [
+                _c("option", { attrs: { disabled: "", selected: "" } }, [
+                  _vm._v("Isi Kategori")
+                ]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Aljabar Linear")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kalkulus I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Metode Statistik I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Pengantar Teori Peluang")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Metode Penarikan Contoh")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Analisis Data Eksploratif")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Statistika Matematika I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kalkulus II")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-span-12 md:col-span-6" }, [
+              _c("div", [_vm._v("Kategori")]),
+              _vm._v(" "),
+              _c("select", { staticClass: "p-1 bg-white rounded-lg w-full" }, [
+                _c("option", { attrs: { disabled: "", selected: "" } }, [
+                  _vm._v("Isi Kategori")
+                ]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Aljabar Linear")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kalkulus I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Metode Statistik I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Pengantar Teori Peluang")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Metode Penarikan Contoh")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Analisis Data Eksploratif")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Statistika Matematika I")]),
+                _vm._v(" "),
+                _c("option", [_vm._v("Kalkulus II")])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex flex-col" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("Bernaldo Napitupulu")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xxs" }, [_vm._v("19 Oktober 2021")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-4" }, [
+      _vm._v("\r\n                        Diketahui bentuk kuadrat"),
+      _c("br"),
+      _vm._v(
+        "\r\n                        a. Tuliskan bentuk kuadrat q dalam bentuk matriks"
+      ),
+      _c("br"),
+      _vm._v(
+        "\r\n                        b. SEderhanakan persamaan q(x) menjadi bentuk persamaan yang setara, melalui transformasi x=By dimana B adalah matriks non singular, sedemikian sehingga B^TAB=D dimana dij=0 untuk i/=j"
+      ),
+      _c("br"),
+      _vm._v(
+        "\r\n                        c. Periksa bentuk kedefinitan bentuk kuadrat q\r\n                    "
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
