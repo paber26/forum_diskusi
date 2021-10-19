@@ -9,7 +9,7 @@
     <div class="flex w-full justify-center">
         <div class="w-11/12 mt-2.5">
             <div class="bg-gray-400 rounded-t-lg p-1.5 font-semibold text-base">Filter</div>
-            <div class="bg-gray-200 rounded-b-lg grid grid-cols-12 gap-2 p-2">
+            <div class="bg-gray-200 rounded-b-lg grid grid-cols-12 gap-6 p-2">
                 <div class="col-span-12 md:col-span-6">
                     <div>Program Studi</div>
                     <select class="p-1 bg-white rounded-lg w-full">

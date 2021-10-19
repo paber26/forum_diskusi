@@ -38756,7 +38756,7 @@ var staticRenderFns = [
         _c(
           "div",
           {
-            staticClass: "bg-gray-200 rounded-b-lg grid grid-cols-12 gap-2 p-2"
+            staticClass: "bg-gray-200 rounded-b-lg grid grid-cols-12 gap-6 p-2"
           },
           [
             _c("div", { staticClass: "col-span-12 md:col-span-6" }, [
@@ -38908,7 +38908,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex flex-col justify-center" }, [
       _c("div", { staticClass: "flex w-full justify-center" }, [
-        _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+        _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
           _c("div", { staticClass: "font-bold text-base" }, [
             _vm._v("Arsip Soal")
           ]),
@@ -38920,7 +38920,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "flex w-full justify-center" }, [
-        _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+        _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
           _c("div", { staticClass: "flex items-center" }, [
             _c("div", { staticClass: "font-bold text-base" }, [
               _vm._v("Kategori")
@@ -39117,7 +39117,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex flex-col justify-center" }, [
       _c("div", { staticClass: "flex w-full justify-center" }, [
-        _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+        _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
           _c("div", { staticClass: "font-bold text-base" }, [_vm._v("Modul")]),
           _vm._v(" "),
           _c("div", { staticClass: "font-bold text-xl" }, [
@@ -39127,7 +39127,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "flex w-full justify-center" }, [
-        _c("div", { staticClass: "bg-gray-300 w-11/12 mt-4 p-2 rounded-2xl" }, [
+        _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
           _c("div", { staticClass: "flex items-center" }, [
             _c("div", { staticClass: "font-bold text-base" }, [
               _vm._v("Kategori")

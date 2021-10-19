@@ -31,7 +31,7 @@
                 <div class="text-white font-semibold text-xl ml-3 -mt-1">D-IV KS</div>
                 <div class="text-white font-semibold text-xl ml-3 -mt-2">Aljabar Linear</div>
             </div>
-            <div class="bg-gray-300 flex-1">
+            <div class="bg-gray-200 flex-1">
                 <div class="grid grid-cols-12 gap-1">
                     <div
                         class="col-span-12 sm:col-span-3 lg:col-span-2 p-2 -mt-4 mb-4 sm:mt-16 order-last sm:order-first">
