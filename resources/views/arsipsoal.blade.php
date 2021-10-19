@@ -32,7 +32,7 @@
                 <div class="text-white font-semibold text-xl ml-3 -mt-2">Aljabar Linear</div>
             </div>
             <div class="bg-gray-300 flex-1">
-                <div class="grid grid-cols-12 gap-3">
+                <div class="grid grid-cols-12 gap-1">
                     <div
                         class="col-span-12 sm:col-span-3 lg:col-span-2 p-2 -mt-4 mb-4 sm:mt-16 order-last sm:order-first">
                         <h1 class="font-bold text-xl text-blue-500">Tahun Pelajaran</h1>
@@ -46,7 +46,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <div class="font-semibold">Ruang Vektor</div>
+                                <div class="font-semibold">2016/2017</div>
                             </div>
                             <div class="flex flex-row items-center">
                                 <div class="w-5">
@@ -57,7 +57,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <div class="font-semibold">Ortogonalisasi dan Proses Gram Schmidt</div>
+                                <div class="font-semibold">2017/2018</div>
                             </div>
                             <div class="flex flex-row items-center">
                                 <div class="w-5">
@@ -68,7 +68,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <div class="font-semibold">Nilai Eigen dan Vektor Eigen</div>
+                                <div class="font-semibold">2019/2020</div>
                             </div>
                             <div class="flex flex-row items-center">
                                 <div class="w-5">
@@ -79,51 +79,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <div class="font-semibold">Bentuk Bilinear dan Kuadrat</div>
-                            </div>
-                            <div class="flex flex-row items-center">
-                                <div class="w-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="font-semibold">Matriks Partisi</div>
-                            </div>
-                            <div class="flex flex-row items-center">
-                                <div class="w-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="font-semibold">Kronecker Product</div>
-                            </div>
-                            <div class="flex flex-row items-center">
-                                <div class="w-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="font-semibold">General Invers</div>
-                            </div>
-                            <div class="flex flex-row items-center">
-                                <div class="w-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                                <div class="font-semibold">Conditional Invers</div>
+                                <div class="font-semibold">2020/2021</div>
                             </div>
                         </div>
                     </div>
@@ -147,39 +103,39 @@
                         </div>
                         <div class="bg-birumodul w-full h-0.5 rounded-3xl"></div>
                         <div class="bg-white mt-2 p-3 rounded-2xl">
-                            <div><b>A. Dimensi, Ruang Baris dan Ruang Kolom</b><br>Dimensi adalah jumlah vektor
-                                dalam suatu
-                                baris untuk suatu ruang vektor berdimensi
-                                terhingga. Ruang vektor nol mempunyai dimensi nol
-                                Ruang baris matriks terbentuk dari baris-baris A yang kita sebut vektor-vektor baris A.
-                                Yaitu vektor r_1=[a11, a12, ..., a1n] (dalam latex)<br><br>Ruang baris matriks terbentuk
-                                dari kolom-kolom A yang kita sebut vektor-vektor kolom A.<br><br>Operasi baris elementer
-                                tidak mengubah ruang baris sebuah matriks.<br><br>Jika A adalah sembarang matriks, ruang
-                                baris
-                                dan ruang kolom dari A mempunyai dimensi
-                                yang sama <br><br>Vektor-vektor baris tak nol berbentuk eselon baris dari matriks A
-                                membentuk
-                                basis untuk
-                                ruang baris A.
+                            <div>
+                                <b>Nomor 1</b><br>
+                                Diketahui sebuah matriks:<br><br>
+                                a. Tentukan rank dan kekosongan dari matriks A<br>
+                                b. Sebutkan basis untuk ruang baris dann basis untuk ruang kolom dari matriks A<br>
+                                c. Tentukan nilai eigen dan matriks P yang mendiagonalkan matriks A secara ortogonal<br>
+                                d. Tunjukkan bahwa matriks P hasil jawaban dari (c) adalah matriks yang ortogonal
                             </div>
-                        </div>
-                        <div class="grid grid-cols-12 gap-1 mt-2.5">
-                            <div class="col-span-12 sm:col-span-6 flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
-                                </svg>
-                                <div class="font-bold text-blue-500">Kronecker Product</div>
-                            </div>
-                            <div class="col-span-12 sm:col-span-6 flex justify-end items-center">
-                                <div class="font-bold text-blue-500 text-right">Ortogonalisasi dan Proses Gram Schmidt
+                            <div class="bg-birumodul w-full h-0.5 rounded-3xl"></div>
+                            <div class="mt-1">
+                                <div class="flex flex-row items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <div class="font-semibold">Irene Savira</div>
                                 </div>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
+                                <div class="ml-4">
+                                    Diketahui:<br>
+                                    <img class="flex justify-center items-center"
+                                        src="https://latex.codecogs.com/png.latex?A=\left[\begin{matrix}-1&2&0\\2&0&-2\\0&-2&1\end{matrix}\right]"
+                                        title="A=\left [ \begin{matrix} -1 & 2 & 0\\ 2 & 0 & -2\\ 0 & -2 & 1 \end{matrix} \right ]" /><br>
+                                    a. Gunakan metode OBE sebagai berikut
+                                    <img class="flex justify-center items-center"
+                                        src="https://latex.codecogs.com/png.latex?\left[\begin{matrix}-1&2&0\\2&0&-2\\0&-2&1\end{matrix}\right]=\left[\begin{matrix}1&-2&0\\0&4&-2\\0&-2&1\end{matrix}\right]"
+                                        title="\left [ \begin{matrix} -1 & 2 & 0\\ 2 & 0 & -2\\ 0 & -2 & 1 \end{matrix} \right ]=\left [ \begin{matrix} 1 & -2 & 0\\ 0 & 4 & -2\\ 0 & -2 & 1 \end{matrix} \right ]" /><br>
+                                    <img class="flex justify-center items-center"
+                                        src="https://latex.codecogs.com/png.latex?M=\left[\begin{matrix}1&0&-1\\0&1&-0.5\\0&0&0\end{matrix}\right]"
+                                        title="M=\left [ \begin{matrix} 1 & 0 & -1\\ 0 & 1 & -0.5\\ 0 & 0 & 0 \end{matrix} \right ]" /><br>
+                                    Rank = 2 (Dengan melihat jumlah dari baris yang terdapat leading satunya)<br>56[ ]
+                                    Rank = 1 (Dengan melihat baris yang terdiri dari elemen 0)
+                                </div>
                             </div>
                         </div>
                     </div>

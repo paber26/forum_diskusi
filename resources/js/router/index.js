@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 const Beranda = require('../pages/Beranda.vue').default;
+const Forum = require('../pages/Forum.vue').default;
 const Modul = require('../pages/Modul.vue').default;
 // const ArsipSoal = require('../pages/ArsipSoal.vue').default;
 
@@ -17,6 +18,10 @@ const routes = [
     {
         path: '/',
         component: Beranda
+    },
+    {
+        path: '/forum',
+        component: Forum
     },
     {
         path: '/modul',
