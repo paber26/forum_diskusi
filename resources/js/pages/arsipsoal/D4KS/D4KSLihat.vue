@@ -3,11 +3,11 @@
     <div class="flex flex-row items-center p-2 bg-blue-300 min-vw-100">
         <img src="/img/polstat-stis.png" alt="Logo Polstat STIS" class="w-10 h-10 sm:w-12 sm:h-12">
         <div class="font-bold ml-2 text-white sm:hidden">
-            <div class="text-2xl sm:text-xl">Modul</div>
+            <div class="text-2xl sm:text-xl">Materi</div>
             <div class="text-lg sm:text-base -mt-2">Polstat STIS</div>
         </div>
         <div class="font-bold ml-2 text-2xl text-white hidden sm:flex">
-            Modul Politeknik Statistika STIS
+            SIRADIG
         </div>
     </div>
     <div class="flex-row bg-birumateri items-center hidden sm:flex">

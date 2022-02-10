@@ -39745,7 +39745,7 @@ var staticRenderFns = [
         }),
         _vm._v(" "),
         _c("div", { staticClass: "font-bold ml-2 text-white sm:hidden" }, [
-          _c("div", { staticClass: "text-2xl sm:text-xl" }, [_vm._v("Modul")]),
+          _c("div", { staticClass: "text-2xl sm:text-xl" }, [_vm._v("Materi")]),
           _vm._v(" "),
           _c("div", { staticClass: "text-lg sm:text-base -mt-2" }, [
             _vm._v("Polstat STIS"),
@@ -39755,11 +39755,7 @@ var staticRenderFns = [
         _c(
           "div",
           { staticClass: "font-bold ml-2 text-2xl text-white hidden sm:flex" },
-          [
-            _vm._v(
-              "\r\n            Modul Politeknik Statistika STIS\r\n        "
-            ),
-          ]
+          [_vm._v("\r\n            SIRADIG\r\n        ")]
         ),
       ]
     )
