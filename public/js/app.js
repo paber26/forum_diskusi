@@ -2195,6 +2195,138 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4KS/D4KSLihat.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4KS/D4KSLihat.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['mid'],
+  data: function data() {
+    return {
+      daftararsipsoal: [],
+      arsipsoal: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/getdaftararsipsoal/' + this.mid).then(function (response) {
+      _this.daftararsipsoal = response.data;
+      console.log(_this.mid);
+      console.log(_this.daftararsipsoal);
+    });
+    axios.get('/api/getarsipsoal/61ea7de1123a5').then(function (response) {
+      _this.arsipsoal = response.data;
+      console.log(_this.arsipsoal);
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4-KomputasiStatistik.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4-KomputasiStatistik.vue?vue&type=script&lang=js& ***!
@@ -38110,15 +38242,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _D4KSLihat_vue_vue_type_template_id_093c6692___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./D4KSLihat.vue?vue&type=template&id=093c6692& */ "./resources/js/pages/arsipSoal/D4KS/D4KSLihat.vue?vue&type=template&id=093c6692&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _D4KSLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./D4KSLihat.vue?vue&type=script&lang=js& */ "./resources/js/pages/arsipSoal/D4KS/D4KSLihat.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _D4KSLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _D4KSLihat_vue_vue_type_template_id_093c6692___WEBPACK_IMPORTED_MODULE_0__.render,
   _D4KSLihat_vue_vue_type_template_id_093c6692___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -38279,6 +38413,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4KS.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4KS/D4KS.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/arsipSoal/D4KS/D4KSLihat.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/pages/arsipSoal/D4KS/D4KSLihat.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KSLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4KSLihat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/D4KS/D4KSLihat.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KSLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -39493,123 +39643,74 @@ var render = function () {
               _vm._v("Tahun Pelajaran"),
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "ml-2" }, [
-              _c("div", { staticClass: "flex flex-row items-center" }, [
-                _c("div", { staticClass: "w-5" }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-5 w-5",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 20 20",
-                        fill: "currentColor",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "fill-rule": "evenodd",
-                          d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
-                          "clip-rule": "evenodd",
+            _c(
+              "div",
+              { staticClass: "ml-0.5" },
+              _vm._l(_vm.daftararsipsoal, function (arsipsoal) {
+                return _c("div", { key: arsipsoal.id }, [
+                  _c("div", { staticClass: "flex flex-row items-center" }, [
+                    _c("div", { staticClass: "w-5" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-5 w-5",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            viewBox: "0 0 20 20",
+                            fill: "currentColor",
+                          },
                         },
-                      }),
+                        [
+                          _c("path", {
+                            attrs: {
+                              "fill-rule": "evenodd",
+                              d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                              "clip-rule": "evenodd",
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "font-bold" }, [
+                      _vm._v(_vm._s(arsipsoal.tahun)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ml-3 flex flex-row items-center" },
+                    [
+                      _c("div", { staticClass: "w-5" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-5 w-5",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20",
+                              fill: "currentColor",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                                "clip-rule": "evenodd",
+                              },
+                            }),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [_vm._v(_vm._s(arsipsoal.nama))]),
                     ]
                   ),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-semibold" }, [
-                  _vm._v("2016/2017"),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex flex-row items-center" }, [
-                _c("div", { staticClass: "w-5" }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-5 w-5",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 20 20",
-                        fill: "currentColor",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "fill-rule": "evenodd",
-                          d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
-                          "clip-rule": "evenodd",
-                        },
-                      }),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-semibold" }, [
-                  _vm._v("2017/2018"),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex flex-row items-center" }, [
-                _c("div", { staticClass: "w-5" }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-5 w-5",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 20 20",
-                        fill: "currentColor",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "fill-rule": "evenodd",
-                          d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
-                          "clip-rule": "evenodd",
-                        },
-                      }),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-semibold" }, [
-                  _vm._v("2019/2020"),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex flex-row items-center" }, [
-                _c("div", { staticClass: "w-5" }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-5 w-5",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        viewBox: "0 0 20 20",
-                        fill: "currentColor",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "fill-rule": "evenodd",
-                          d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
-                          "clip-rule": "evenodd",
-                        },
-                      }),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-semibold" }, [
-                  _vm._v("2020/2021"),
-                ]),
-              ]),
-            ]),
+                ])
+              }),
+              0
+            ),
           ]
         ),
         _vm._v(" "),
@@ -39682,52 +39783,67 @@ var render = function () {
               staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
             }),
             _vm._v(" "),
-            _c("div", { staticClass: "bg-white mt-2 p-3 rounded-2xl" }, [
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", {
-                staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "mt-1" }, [
-                _c("div", { staticClass: "flex flex-row items-center" }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-7 w-7",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        fill: "none",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round",
-                          "stroke-width": "2",
-                          d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                        },
-                      }),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "font-semibold" }, [
-                    _vm._v("Irene Savira"),
+            _vm._l(_vm.arsipsoal, function (soal) {
+              return _c(
+                "div",
+                { key: soal.id, staticClass: "bg-white mt-2 p-3 rounded-2xl" },
+                [
+                  _c("div", [
+                    _c("div", { staticClass: "font-bold" }, [
+                      _vm._v("Nomor " + _vm._s(soal.tahun)),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {
+                      domProps: { innerHTML: _vm._s(soal.pertanyaan) },
+                    }),
                   ]),
-                ]),
-                _vm._v(" "),
-                _vm._m(4),
-              ]),
-            ]),
-          ]
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "mt-1" }, [
+                    _c("div", { staticClass: "flex flex-row items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-7 w-7",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              "stroke-width": "2",
+                              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "font-semibold" }, [
+                        _vm._v("Irene Savira"),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3, true),
+                  ]),
+                ]
+              )
+            }),
+          ],
+          2
         ),
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(5),
+    _vm._m(4),
   ])
 }
 var staticRenderFns = [
@@ -39737,7 +39853,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "flex flex-row items-center p-2 bg-blue-300 min-vw-100" },
+      { staticClass: "flex flex-row items-center p-2 bg-blue-300 min-w-100" },
       [
         _c("img", {
           staticClass: "w-10 h-10 sm:w-12 sm:h-12",
@@ -39795,33 +39911,6 @@ var staticRenderFns = [
         "div",
         { staticClass: "text-white font-semibold text-xl ml-3 -mt-2" },
         [_vm._v("Aljabar Linear")]
-      ),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("b", [_vm._v("Nomor 1")]),
-      _c("br"),
-      _vm._v("\r\n                        Diketahui sebuah matriks:"),
-      _c("br"),
-      _c("br"),
-      _vm._v(
-        "\r\n                        a. Tentukan rank dan kekosongan dari matriks A"
-      ),
-      _c("br"),
-      _vm._v(
-        "\r\n                        b. Sebutkan basis untuk ruang baris dann basis untuk ruang kolom dari matriks A"
-      ),
-      _c("br"),
-      _vm._v(
-        "\r\n                        c. Tentukan nilai eigen dan matriks P yang mendiagonalkan matriks A secara ortogonal"
-      ),
-      _c("br"),
-      _vm._v(
-        "\r\n                        d. Tunjukkan bahwa matriks P hasil jawaban dari (c) adalah matriks yang ortogonal\r\n                    "
       ),
     ])
   },

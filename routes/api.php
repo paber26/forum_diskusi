@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArsipSoal;
 use App\Http\Controllers\Materi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('getdaftarmateri/d4-komputasi-statistik', [Materi::class, 'getdaftarmaterid4ks']);
+Route::get('getdaftararsipsoal/{mid}', [ArsipSoal::class, 'getdaftararsipsoal']);
+Route::get('getarsipsoal/{dasid}', [ArsipSoal::class, 'getarsipsoal']);
