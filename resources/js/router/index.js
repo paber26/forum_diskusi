@@ -6,13 +6,17 @@ Vue.use(VueRouter);
 
 const Beranda = require('../pages/Beranda.vue').default;
 const Forum = require('../pages/Forum.vue').default;
-const Modul = require('../pages/Modul.vue').default;
+const Materi = require('../pages/Materi.vue').default;
 // const ArsipSoal = require('../pages/ArsipSoal.vue').default;
 
-const ModulD3Statistika = require('../pages/modul/D3-Statistika').default;
-const ModulD4KomputasiStatistik = require('../pages/modul/D4-KomputasiStatistik').default;
+const MateriD3Statistika = require('../pages/materi/D3-Statistika').default;
+const MateriD4KomputasiStatistik = require('../pages/materi/D4-KomputasiStatistik').default;
 
 const ArsipSoalD4KomputasiStatistik = require('../pages/arsipSoal/D4-KomputasiStatistik.vue').default;
+
+
+const MateriD4KS = require('../pages/materi/D4KS/Materi.vue').default;
+
 
 const routes = [
     {
@@ -24,16 +28,16 @@ const routes = [
         component: Forum
     },
     {
-        path: '/modul',
-        component: Modul
+        path: '/materi',
+        component: Materi
     },
     {
-        path: '/listmodul/d3-statistika',
-        component: ModulD3Statistika
+        path: '/daftarmateri/d3-statistika',
+        component: MateriD3Statistika
     },
     {
-        path: '/listmodul/d4-komputasi-statistik',
-        component: ModulD4KomputasiStatistik
+        path: '/daftarmateri/d4-komputasi-statistik',
+        component: MateriD4KS
     },
     {
         path: '/listarsipsoal/d4-komputasi-statistik',
