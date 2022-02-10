@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/modul/{any}', function () {
-    return view('modul');
+Route::get('/materi/{any}', function () {
+    return view('materi');
 })->where('any', '.*');
 
 Route::get('/arsipsoal/{any}', function () {

@@ -29,9 +29,9 @@
                 </svg>
             </button>
             <div v-if="showarsipsoal" class="ml-3 flex flex-col">
-                <router-link to="/listarsipsoal/d3-statistika" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-3 Statistika</router-link>
-                <router-link to="/listarsipsoal/d4-statistika" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Statistika</router-link>
-                <router-link to="/listarsipsoal/d4-komputasi-statistik" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Komputasi Statistik</router-link>
+                <router-link to="/daftararsipsoal/d3-statistika" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-3 Statistika</router-link>
+                <router-link to="/daftararsipsoal/d4-statistika" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Statistika</router-link>
+                <router-link to="/daftararsipsoal/d4-komputasi-statistik" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Komputasi Statistik</router-link>
             </div>
         </div>
         <router-link to="/forum" class="p-1.5 m-1 rounded-md hover:bg-yellow-300 font-semibold">Forum Tanya Jawab</router-link>
