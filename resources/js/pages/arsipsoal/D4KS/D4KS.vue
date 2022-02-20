@@ -41,13 +41,16 @@ export default {
         }
     },
     mounted() {
-        axios.get('/api/getdaftarmateri/d4-komputasi-statistik').then((response) =>{
+        axios.get('/api/getdaftarmateri/d4-komputasi-statistik').then((response) => {
             this.daftararsipsoal = response.data
         })
     },
     methods: {
-        lihatarsipsoal(mid){
-            window.location.href = window.location.origin + "/arsipsoal/d4-komputasi-statistik/" + mid;
+        lihatarsipsoal(mid) {
+            axios.get('/api/getdasid/' + mid).then((response) => {
+                let dasid = response.data
+                window.location.href = window.location.origin + "/arsipsoal/d4-komputasi-statistik/" + mid + '/' + dasid;
+            })
         }
     }
 }

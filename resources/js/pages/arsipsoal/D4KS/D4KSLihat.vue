@@ -33,24 +33,24 @@
                             </div>
                             <div class="font-bold">{{ arsipsoal.tahun }}</div>
                         </div>
-                        <div class="ml-3 flex flex-row items-center">
+                        <button @click.prevent="lihat(arsipsoal.dasid)" class="ml-3 flex flex-row items-center hover:text-blue-500">
                             <div class="w-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div>{{ arsipsoal.nama }}</div>
-                        </div>
+                            <div class="text-left">{{ arsipsoal.nama }}</div>
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="col-span-12 sm:col-span-9 lg:col-span-10 m-2 p-2 rounded-2xl">
-                <div class="flex flex-row justify-between">
-                    <div class="font-bold text-xl w-72">UAS 2017/208</div>
+                <div class="flex flex-row justify-between mb-2">
+                    <div class="font-bold text-xl w-72">{{ namasoal }}</div>
                     <div class="flex flex-row-reverse items-center w-80">
-                        <a href="/d4-komputasi-statistik" class="hover:bg-yellow-200 rounded-md p-1">
+                        <button @click.prevent="ke()" class="hover:bg-yellow-200 rounded-md p-1">
                             Arsip Soal D-IV KS
-                        </a>
+                        </button>
                         <span>/</span>
                         <a href="/" class="flex items-center hover:bg-yellow-200 rounded-md p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -63,7 +63,7 @@
                 <div class="bg-birumateri w-full h-0.5 rounded-3xl"></div>
                 <div class="bg-white mt-2 p-3 rounded-2xl" v-for="soal in arsipsoal" :key="soal.id">
                     <div>
-                        <div class="font-bold">Nomor {{ soal.tahun }}</div>
+                        <div class="font-bold">Nomor {{ soal.nomor }}</div>
                         <span v-html="soal.pertanyaan"></span>
                     </div>
                     <div class="bg-birumateri w-full h-0.5 rounded-3xl"></div>
@@ -96,24 +96,41 @@
 
 <script>
 export default {
-    props: ['mid'],
+    props: ['mid', 'dasid'],
     data() {
         return {
             daftararsipsoal: [],
-            arsipsoal: []
+            arsipsoal: [],
+            namasoal: ''
         }
     },
     mounted() {
         axios.get('/api/getdaftararsipsoal/' + this.mid).then((response) => {
             this.daftararsipsoal = response.data
-            console.log(this.mid)
-            console.log(this.daftararsipsoal)
         })
-        axios.get('/api/getarsipsoal/61ea7de1123a5').then((response) => {
+        axios.get('/api/getnamaarsipsoal/' + this.dasid).then((response) => {
+            this.namasoal = response.data
+        })
+        axios.get('/api/getarsipsoal/' + this.dasid).then((response) => {
             this.arsipsoal = response.data
             console.log(this.arsipsoal)
         })
     },
+    methods: {
+        ke(mid) {
+            window.location.href = window.location.origin + "/daftararsipsoal/d4-komputasi-statistik";
+        },
+        lihat(dasid) {
+            axios.get('/api/getnamaarsipsoal/' + dasid).then((response) => {
+                this.namasoal = response.data
+            })
+            axios.get('/api/getarsipsoal/' + dasid).then((response) => {
+                this.arsipsoal = response.data
+                console.log(this.arsipsoal)
+            })
+            
+        }
+    }
 
 }
 </script>

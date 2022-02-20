@@ -27,4 +27,19 @@ class ArsipSoal extends Controller
             return $q;
         }
     }
+
+    public function getdasid($mid)
+    {
+        $q = DB::table('daftararsipsoal')->where('mid', $mid)->orderBy('tahun')->get();
+        if ($q == null) {
+            return 0;
+        } else {
+            return $q->first()->dasid;
+        }
+    }
+
+    public function getnamaarsipsoal($dasid)
+    {
+        return DB::table('daftararsipsoal')->where('dasid', $dasid)->first()->nama;
+    }
 }

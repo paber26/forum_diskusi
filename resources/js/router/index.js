@@ -48,7 +48,7 @@ const routes = [
         component: ArsipSoalD4KS
     },
     {
-        path: '/arsipsoal/d4-komputasi-statistik/:mid',
+        path: '/arsipsoal/d4-komputasi-statistik/:mid/:dasid',
         component: ArsipSoalD4KSLihat,
         props: true
     },

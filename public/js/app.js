@@ -2188,7 +2188,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     lihatarsipsoal: function lihatarsipsoal(mid) {
-      window.location.href = window.location.origin + "/arsipsoal/d4-komputasi-statistik/" + mid;
+      axios.get('/api/getdasid/' + mid).then(function (response) {
+        var dasid = response.data;
+        window.location.href = window.location.origin + "/arsipsoal/d4-komputasi-statistik/" + mid + '/' + dasid;
+      });
     }
   }
 });
@@ -2303,11 +2306,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['mid'],
+  props: ['mid', 'dasid'],
   data: function data() {
     return {
       daftararsipsoal: [],
-      arsipsoal: []
+      arsipsoal: [],
+      namasoal: ''
     };
   },
   mounted: function mounted() {
@@ -2315,13 +2319,30 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/api/getdaftararsipsoal/' + this.mid).then(function (response) {
       _this.daftararsipsoal = response.data;
-      console.log(_this.mid);
-      console.log(_this.daftararsipsoal);
     });
-    axios.get('/api/getarsipsoal/61ea7de1123a5').then(function (response) {
+    axios.get('/api/getnamaarsipsoal/' + this.dasid).then(function (response) {
+      _this.namasoal = response.data;
+    });
+    axios.get('/api/getarsipsoal/' + this.dasid).then(function (response) {
       _this.arsipsoal = response.data;
       console.log(_this.arsipsoal);
     });
+  },
+  methods: {
+    ke: function ke(mid) {
+      window.location.href = window.location.origin + "/daftararsipsoal/d4-komputasi-statistik";
+    },
+    lihat: function lihat(dasid) {
+      var _this2 = this;
+
+      axios.get('/api/getnamaarsipsoal/' + dasid).then(function (response) {
+        _this2.namasoal = response.data;
+      });
+      axios.get('/api/getarsipsoal/' + dasid).then(function (response) {
+        _this2.arsipsoal = response.data;
+        console.log(_this2.arsipsoal);
+      });
+    }
   }
 });
 
@@ -2597,7 +2618,7 @@ var routes = [{
   path: '/daftararsipsoal/d4-komputasi-statistik',
   component: ArsipSoalD4KS
 }, {
-  path: '/arsipsoal/d4-komputasi-statistik/:mid',
+  path: '/arsipsoal/d4-komputasi-statistik/:mid/:dasid',
   component: ArsipSoalD4KSLihat,
   props: true
 }];
@@ -39678,8 +39699,17 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c(
-                    "div",
-                    { staticClass: "ml-3 flex flex-row items-center" },
+                    "button",
+                    {
+                      staticClass:
+                        "ml-3 flex flex-row items-center hover:text-blue-500",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.lihat(arsipsoal.dasid)
+                        },
+                      },
+                    },
                     [
                       _c("div", { staticClass: "w-5" }, [
                         _c(
@@ -39704,7 +39734,9 @@ var render = function () {
                         ),
                       ]),
                       _vm._v(" "),
-                      _c("div", [_vm._v(_vm._s(arsipsoal.nama))]),
+                      _c("div", { staticClass: "text-left" }, [
+                        _vm._v(_vm._s(arsipsoal.nama)),
+                      ]),
                     ]
                   ),
                 ])
@@ -39721,9 +39753,9 @@ var render = function () {
               "col-span-12 sm:col-span-9 lg:col-span-10 m-2 p-2 rounded-2xl",
           },
           [
-            _c("div", { staticClass: "flex flex-row justify-between" }, [
+            _c("div", { staticClass: "flex flex-row justify-between mb-2" }, [
               _c("div", { staticClass: "font-bold text-xl w-72" }, [
-                _vm._v("UAS 2017/208"),
+                _vm._v(_vm._s(_vm.namasoal)),
               ]),
               _vm._v(" "),
               _c(
@@ -39731,10 +39763,15 @@ var render = function () {
                 { staticClass: "flex flex-row-reverse items-center w-80" },
                 [
                   _c(
-                    "a",
+                    "button",
                     {
                       staticClass: "hover:bg-yellow-200 rounded-md p-1",
-                      attrs: { href: "/d4-komputasi-statistik" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.ke()
+                        },
+                      },
                     },
                     [
                       _vm._v(
@@ -39790,7 +39827,7 @@ var render = function () {
                 [
                   _c("div", [
                     _c("div", { staticClass: "font-bold" }, [
-                      _vm._v("Nomor " + _vm._s(soal.tahun)),
+                      _vm._v("Nomor " + _vm._s(soal.nomor)),
                     ]),
                     _vm._v(" "),
                     _c("span", {
