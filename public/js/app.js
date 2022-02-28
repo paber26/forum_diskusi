@@ -2515,12 +2515,10 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    lihatmodul: function lihatmodul(mid) {
-      this.$router.push({
-        path: '/daftararsipsoal/d4-komputasi-statistik/edit/' + mid,
-        params: {
-          mid: mid
-        }
+    lihatmateri: function lihatmateri(mid) {
+      axios.get('/api/getimid/' + mid).then(function (response) {
+        var imid = response.data;
+        window.location.href = window.location.origin + "/materi/d4-komputasi-statistik/" + mid + '/' + imid;
       });
     }
   }
@@ -39098,7 +39096,7 @@ var staticRenderFns = [
           attrs: { src: "/img/polstat-stis.png", alt: "Logo Polstat STIS" },
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "font-bold text-2xl" }, [_vm._v("materi")]),
+        _c("div", { staticClass: "font-bold text-2xl" }, [_vm._v("SIRADIG")]),
         _vm._v(" "),
         _c("div", { staticClass: "font-bold text-lg -mt-2" }, [
           _vm._v("Polstat STIS"),
@@ -40329,7 +40327,7 @@ var render = function () {
                 on: {
                   click: function ($event) {
                     $event.preventDefault()
-                    return _vm.lihatmodul(d4ks.mid)
+                    return _vm.lihatmateri(d4ks.mid)
                   },
                 },
               },

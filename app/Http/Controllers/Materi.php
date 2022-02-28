@@ -12,4 +12,14 @@ class Materi extends Controller
     {
         return DB::table('matkul')->where('prodi', 'D4 Komputasi Statistik')->get();
     }
+
+    public function getimid($mid)
+    {
+        $q = DB::table('materi')->where('mid', $mid)->get();
+        if ($q == null) {
+            return 0;
+        } else {
+            return $q->first()->imid;
+        }
+    }
 }

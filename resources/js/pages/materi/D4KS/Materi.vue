@@ -26,7 +26,7 @@
 
             </div>
             <div class="grid grid-cols-12 gap-2 mt-2 font-semibold text-white py-2">
-                <button v-for="d4ks in daftararsipsoal" :key="d4ks.id" @click.prevent="lihatmodul(d4ks.mid)" class="p-5 bg-birumateri hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">{{ d4ks.nama }}</button>
+                <button v-for="d4ks in daftararsipsoal" :key="d4ks.id" @click.prevent="lihatmateri(d4ks.mid)" class="p-5 bg-birumateri hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center">{{ d4ks.nama }}</button>
             </div>
         </div>
     </div>
@@ -48,12 +48,10 @@ export default {
         })
     },
     methods: {
-        lihatmodul(mid){
-            this.$router.push({
-                path: '/daftararsipsoal/d4-komputasi-statistik/edit/' + mid,
-                params: {
-                    mid
-                }
+        lihatmateri(mid) {
+            axios.get('/api/getimid/' + mid).then((response) => {
+                let imid = response.data
+                window.location.href = window.location.origin + "/materi/d4-komputasi-statistik/" + mid + '/' + imid;
             })
         }
     }
