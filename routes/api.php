@@ -21,7 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('getdaftarmateri/d4-komputasi-statistik', [Materi::class, 'getdaftarmaterid4ks']);
-Route::get('getimid/{mid}', [Materi::class, 'getimid']);
+Route::get('getimid/{imid}', [Materi::class, 'getimid']);
+Route::get('getnamamatkul/{mid}', [Materi::class, 'getnamamatkul']);
+Route::get('getdaftarmateri/{mid}', [Materi::class, 'getdaftarmateri']);
+Route::get('getmateri/{imid}', [Materi::class, 'getmateri']);
 
 
 Route::get('getdaftararsipsoal/{mid}', [ArsipSoal::class, 'getdaftararsipsoal']);

@@ -2367,6 +2367,9 @@ __webpack_require__.r(__webpack_exports__);
     lihat: function lihat(dasid) {
       var _this2 = this;
 
+      this.$router.push({
+        path: '/arsipsoal/d4-komputasi-statistik/' + this.mid + '/' + dasid
+      });
       axios.get('/api/getnamaarsipsoal/' + dasid).then(function (response) {
         _this2.namasoal = response.data;
       });
@@ -2447,6 +2450,132 @@ __webpack_require__.r(__webpack_exports__);
     klikisikategori: function klikisikategori() {
       this.showisikategori = !this.showisikategori;
       console.log(this.showisikategori);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['mid', 'imid'],
+  data: function data() {
+    return {
+      daftarmateri: [],
+      topik: '',
+      isi: '',
+      namamatkul: ''
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/getdaftarmateri/' + this.mid).then(function (response) {
+      _this.daftarmateri = response.data;
+    });
+    axios.get('/api/getmateri/' + this.imid).then(function (response) {
+      _this.topik = response.data.topik;
+      _this.isi = response.data.isi;
+    });
+    axios.get('/api/getnamamatkul/' + this.mid).then(function (response) {
+      _this.namamatkul = response.data;
+      console.log(_this.namamatkul);
+    });
+  },
+  methods: {
+    ke: function ke(mid) {
+      window.location.href = window.location.origin + "/daftarmateri/d4-komputasi-statistik";
+    },
+    lihat: function lihat(imid) {
+      var _this2 = this;
+
+      this.topik = 'Loading . . .';
+      this.isi = 'Loading . . .';
+      this.$router.push({
+        path: '/materi/d4-komputasi-statistik/' + this.mid + '/' + imid
+      });
+      axios.get('/api/getmateri/' + imid).then(function (response) {
+        console.log(response.data);
+        _this2.topik = response.data.topik;
+        _this2.isi = response.data.isi;
+      });
     }
   }
 });
@@ -2628,6 +2757,8 @@ var ArsipSoalD4KomputasiStatistik = (__webpack_require__(/*! ../pages/arsipSoal/
 
 var MateriD4KS = (__webpack_require__(/*! ../pages/materi/D4KS/Materi.vue */ "./resources/js/pages/materi/D4KS/Materi.vue")["default"]);
 
+var MateriD4KSLihat = (__webpack_require__(/*! ../pages/materi/D4KS/D4KSLihat.vue */ "./resources/js/pages/materi/D4KS/D4KSLihat.vue")["default"]);
+
 var ArsipSoalD4KS = (__webpack_require__(/*! ../pages/arsipSoal/D4KS/D4KS.vue */ "./resources/js/pages/arsipSoal/D4KS/D4KS.vue")["default"]);
 
 var ArsipSoalD4KSLihat = (__webpack_require__(/*! ../pages/arsipSoal/D4KS/D4KSLihat.vue */ "./resources/js/pages/arsipSoal/D4KS/D4KSLihat.vue")["default"]);
@@ -2641,6 +2772,11 @@ var routes = [{
 }, {
   path: '/materi',
   component: Materi
+}, // untuk materi
+{
+  path: '/materi/d4-komputasi-statistik/:mid/:imid',
+  component: MateriD4KSLihat,
+  props: true
 }, // ini untuk Prodi D4 Komputasi Statistik
 {
   path: '/daftarmateri/d3-statistika',
@@ -38402,6 +38538,45 @@ component.options.__file = "resources/js/pages/materi/D4-KomputasiStatistik.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/materi/D4KS/D4KSLihat.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/pages/materi/D4KS/D4KSLihat.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _D4KSLihat_vue_vue_type_template_id_353e8169___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./D4KSLihat.vue?vue&type=template&id=353e8169& */ "./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=template&id=353e8169&");
+/* harmony import */ var _D4KSLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./D4KSLihat.vue?vue&type=script&lang=js& */ "./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _D4KSLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _D4KSLihat_vue_vue_type_template_id_353e8169___WEBPACK_IMPORTED_MODULE_0__.render,
+  _D4KSLihat_vue_vue_type_template_id_353e8169___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/materi/D4KS/D4KSLihat.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/materi/D4KS/Materi.vue":
 /*!***************************************************!*\
   !*** ./resources/js/pages/materi/D4KS/Materi.vue ***!
@@ -38518,6 +38693,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4-KomputasiStatistik.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4-KomputasiStatistik.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KSLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4KSLihat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KSLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -38720,6 +38911,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_template_id_56b74cba___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4_KomputasiStatistik_vue_vue_type_template_id_56b74cba___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4-KomputasiStatistik.vue?vue&type=template&id=56b74cba& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4-KomputasiStatistik.vue?vue&type=template&id=56b74cba&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=template&id=353e8169&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=template&id=353e8169& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KSLihat_vue_vue_type_template_id_353e8169___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KSLihat_vue_vue_type_template_id_353e8169___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4KSLihat_vue_vue_type_template_id_353e8169___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4KSLihat.vue?vue&type=template&id=353e8169& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=template&id=353e8169&");
 
 
 /***/ }),
@@ -40132,7 +40340,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "flex flex-col justify-center" }, [
       _c("div", { staticClass: "flex w-full justify-center" }, [
         _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
-          _c("div", { staticClass: "font-bold text-base" }, [_vm._v("Modul")]),
+          _c("div", { staticClass: "font-bold text-base" }, [_vm._v("Materi")]),
           _vm._v(" "),
           _c("div", { staticClass: "font-bold text-xl" }, [
             _vm._v("D-4 Komputasi Statistik"),
@@ -40190,7 +40398,7 @@ var staticRenderFns = [
                 "a",
                 {
                   staticClass:
-                    "p-5 bg-birumodul hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
+                    "p-5 bg-birumateri hover:bg-yellow-300 rounded-xl col-span-12 sm:col-span-6 lg:col-span-4 text-center",
                   attrs: { href: "/modul/aljabar-linear" },
                 },
                 [_vm._v("Aljabar Linear")]
@@ -40278,6 +40486,252 @@ var staticRenderFns = [
             ]
           ),
         ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=template&id=353e8169&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/D4KS/D4KSLihat.vue?vue&type=template&id=353e8169& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col min-h-screen min-w-min" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex-row bg-birumateri items-center hidden sm:flex" },
+      [
+        _c("div", { staticClass: "text-white font-semibold text-xl ml-3" }, [
+          _vm._v("D-IV KS"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-white h-6 w-0.5 mx-2" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-white font-semibold text-xl" }, [
+          _vm._v(_vm._s(_vm.namamatkul)),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex flex-col bg-birumateri sm:hidden" }, [
+      _c(
+        "div",
+        { staticClass: "text-white font-semibold text-xl ml-3 -mt-1" },
+        [_vm._v("D-IV KS")]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-white font-semibold text-xl ml-3 -mt-2" },
+        [_vm._v(_vm._s(_vm.namamatkul))]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-gray-200 flex-1" }, [
+      _c("div", { staticClass: "grid grid-cols-12 gap-1" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-span-12 sm:col-span-3 lg:col-span-2 p-2 -mt-4 mb-4 sm:mt-16 order-last sm:order-first",
+          },
+          [
+            _c("h1", { staticClass: "font-bold text-xl text-blue-500" }, [
+              _vm._v("Materi"),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "ml-0.5" },
+              _vm._l(_vm.daftarmateri, function (mtr) {
+                return _c("div", { key: mtr.id }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "flex flex-row items-center",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.lihat(mtr.imid)
+                        },
+                      },
+                    },
+                    [
+                      _c("div", { staticClass: "w-5" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-5 w-5",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20",
+                              fill: "currentColor",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                                "clip-rule": "evenodd",
+                              },
+                            }),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "font-bold" }, [
+                        _vm._v(_vm._s(mtr.topik)),
+                      ]),
+                    ]
+                  ),
+                ])
+              }),
+              0
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-span-12 sm:col-span-9 lg:col-span-10 m-2 p-2 rounded-2xl",
+          },
+          [
+            _c("div", { staticClass: "flex flex-row justify-between mb-2" }, [
+              _c("div", { staticClass: "font-bold text-xl w-72" }, [
+                _vm._v(_vm._s(_vm.topik)),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "flex flex-row-reverse items-center w-80" },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "hover:bg-yellow-200 rounded-md p-1",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.ke()
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\r\n                            Materi D-IV KS\r\n                        "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("/")]),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "flex items-center hover:bg-yellow-200 rounded-md p-1",
+                      attrs: { href: "/" },
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-5 w-5",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            viewBox: "0 0 20 20",
+                            fill: "currentColor",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d: "M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0    001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", [_vm._v("Home")]),
+                    ]
+                  ),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "bg-white mt-2 p-3 rounded-2xl" }, [
+              _c("div", { domProps: { innerHTML: _vm._s(_vm.isi) } }),
+            ]),
+          ]
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex flex-row items-center p-2 bg-blue-300 min-w-100" },
+      [
+        _c("img", {
+          staticClass: "w-10 h-10 sm:w-12 sm:h-12",
+          attrs: { src: "/img/polstat-stis.png", alt: "Logo Polstat STIS" },
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "font-bold ml-2 text-white sm:hidden" }, [
+          _c("div", { staticClass: "text-2xl sm:text-xl" }, [_vm._v("Materi")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-lg sm:text-base -mt-2" }, [
+            _vm._v("Polstat STIS"),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "font-bold ml-2 text-2xl text-white hidden sm:flex" },
+          [_vm._v("\r\n            SIRADIG\r\n        ")]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-blue-200 p-2 font-semibold" }, [
+      _c("div", { staticClass: "w-48" }, [
+        _vm._v("Politeknik Statistika STIS"),
       ]),
     ])
   },

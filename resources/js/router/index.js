@@ -16,6 +16,9 @@ const ArsipSoalD4KomputasiStatistik = require('../pages/arsipSoal/D4-KomputasiSt
 
 
 const MateriD4KS = require('../pages/materi/D4KS/Materi.vue').default;
+const MateriD4KSLihat = require('../pages/materi/D4KS/D4KSLihat.vue').default;
+
+
 const ArsipSoalD4KS = require('../pages/arsipSoal/D4KS/D4KS.vue').default;
 const ArsipSoalD4KSLihat = require('../pages/arsipSoal/D4KS/D4KSLihat.vue').default;
 
@@ -32,6 +35,13 @@ const routes = [
     {
         path: '/materi',
         component: Materi
+    },
+
+    // untuk materi
+    {
+        path: '/materi/d4-komputasi-statistik/:mid/:imid',
+        component: MateriD4KSLihat,
+        props: true
     },
 
     // ini untuk Prodi D4 Komputasi Statistik

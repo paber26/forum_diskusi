@@ -121,6 +121,9 @@ export default {
             window.location.href = window.location.origin + "/daftararsipsoal/d4-komputasi-statistik";
         },
         lihat(dasid) {
+            this.$router.push({
+                path: '/arsipsoal/d4-komputasi-statistik/' + this.mid + '/' + dasid,
+            })
             axios.get('/api/getnamaarsipsoal/' + dasid).then((response) => {
                 this.namasoal = response.data
             })
@@ -128,7 +131,7 @@ export default {
                 this.arsipsoal = response.data
                 console.log(this.arsipsoal)
             })
-            
+
         }
     }
 
