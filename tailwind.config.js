@@ -10,6 +10,11 @@ module.exports = {
       },
       fontSize: {
         'xxs': ['0.70rem', '1rem']
+      },
+      listStyleType: {
+        loweralpha: 'lower-alpha',
+        square: 'square',
+        roman: 'upper-roman',
       }
     },
   },
