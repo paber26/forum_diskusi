@@ -49,7 +49,7 @@ export default {
         lihatmateri(mid) {
             axios.get('/api/getimid/' + mid).then((response) => {
                 let imid = response.data
-                window.location.href = window.location.origin + "/materi/d4-komputasi-statistik/" + mid + '/' + imid;
+                window.location.href = window.location.origin + "/materi/d3/" + mid + '/' + imid;
             })
         }
     }

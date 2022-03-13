@@ -45,7 +45,7 @@ const routes = [
         component: MateriD4KS,
     },
     {
-        path: '/materi/:mid/:imid',
+        path: '/materi/:prodi/:mid/:imid',
         component: MateriLihat,
         props: true
     },
@@ -63,7 +63,7 @@ const routes = [
         component: ArsipSoalD4KS,
     },
     {
-        path: '/arsipsoal/:mid/:dasid',
+        path: '/arsipsoal/:prodi/:mid/:dasid',
         component: ArsipSoalLihat,
         props: true
     },

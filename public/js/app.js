@@ -2147,8 +2147,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   methods: {
     coba: function coba() {
@@ -2267,10 +2265,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['mid', 'dasid'],
+  props: ['prodi', 'mid', 'dasid'],
   data: function data() {
     return {
-      daftararsipsoal: [],
+      namaprodi: '',
+      daftararsipsoal: '',
       arsipsoal: [],
       namasoal: '',
       namamatkul: ''
@@ -2278,6 +2277,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
+
+    if (this.prodi == 'd3') {
+      this.namaprodi = 'D-3 Statistika';
+    } else if (this.prodi == 'd4st') {
+      this.namaprodi = 'D-4 Statsistika';
+    } else if (this.prodi == 'd4ks') {
+      this.namaprodi = 'D-4 Komputasi Statistik';
+    }
 
     axios.get('/api/getnamamatkul/' + this.mid).then(function (response) {
       _this.namamatkul = response.data;
@@ -2294,20 +2301,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     ke: function ke(mid) {
-      window.location.href = window.location.origin + "/daftararsipsoal/d4-komputasi-statistik";
+      window.location.href = window.location.origin + "/daftararsipsoal/" + this.prodi;
     },
     lihat: function lihat(dasid) {
       var _this2 = this;
 
       this.$router.push({
-        path: '/arsipsoal/d4-komputasi-statistik/' + this.mid + '/' + dasid
+        path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + dasid
       });
       axios.get('/api/getnamaarsipsoal/' + dasid).then(function (response) {
         _this2.namasoal = response.data;
       });
       axios.get('/api/getarsipsoal/' + dasid).then(function (response) {
         _this2.arsipsoal = response.data;
-        console.log(_this2.arsipsoal);
       });
     }
   }
@@ -2379,7 +2385,7 @@ __webpack_require__.r(__webpack_exports__);
     lihatarsipsoal: function lihatarsipsoal(mid) {
       axios.get('/api/getdasid/' + mid).then(function (response) {
         var dasid = response.data;
-        window.location.href = window.location.origin + "/arsipsoal/" + mid + '/' + dasid;
+        window.location.href = window.location.origin + "/arsipsoal/d3/" + mid + '/' + dasid;
       });
     }
   }
@@ -2451,7 +2457,7 @@ __webpack_require__.r(__webpack_exports__);
     lihatarsipsoal: function lihatarsipsoal(mid) {
       axios.get('/api/getdasid/' + mid).then(function (response) {
         var dasid = response.data;
-        window.location.href = window.location.origin + "/arsipsoal/" + mid + '/' + dasid;
+        window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
       });
     }
   }
@@ -2523,7 +2529,7 @@ __webpack_require__.r(__webpack_exports__);
     lihatarsipsoal: function lihatarsipsoal(mid) {
       axios.get('/api/getdasid/' + mid).then(function (response) {
         var dasid = response.data;
-        window.location.href = window.location.origin + "/arsipsoal/" + mid + '/' + dasid;
+        window.location.href = window.location.origin + "/arsipsoal/d4st/" + mid + '/' + dasid;
       });
     }
   }
@@ -2594,7 +2600,7 @@ __webpack_require__.r(__webpack_exports__);
     lihatmateri: function lihatmateri(mid) {
       axios.get('/api/getimid/' + mid).then(function (response) {
         var imid = response.data;
-        window.location.href = window.location.origin + "/materi/d4-komputasi-statistik/" + mid + '/' + imid;
+        window.location.href = window.location.origin + "/materi/d3/" + mid + '/' + imid;
       });
     }
   }
@@ -2665,7 +2671,7 @@ __webpack_require__.r(__webpack_exports__);
     lihatmateri: function lihatmateri(mid) {
       axios.get('/api/getimid/' + mid).then(function (response) {
         var imid = response.data;
-        window.location.href = window.location.origin + "/materi/" + mid + '/' + imid;
+        window.location.href = window.location.origin + "/materi/d4ks/" + mid + '/' + imid;
       });
     }
   }
@@ -2736,7 +2742,7 @@ __webpack_require__.r(__webpack_exports__);
     lihatmateri: function lihatmateri(mid) {
       axios.get('/api/getimid/' + mid).then(function (response) {
         var imid = response.data;
-        window.location.href = window.location.origin + "/materi/" + mid + '/' + imid;
+        window.location.href = window.location.origin + "/materi/d4st/" + mid + '/' + imid;
       });
     }
   }
@@ -2838,11 +2844,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['mid', 'imid'],
+  props: ['prodi', 'mid', 'imid'],
   data: function data() {
     return {
-      daftarmateri: [],
+      namaprodi: '',
+      daftarmateri: '',
       topik: '',
       isi: '',
       namamatkul: '',
@@ -2854,6 +2863,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
+
+    if (this.prodi == 'd3') {
+      this.namaprodi = 'D-3 Statistika';
+    } else if (this.prodi == 'd4st') {
+      this.namaprodi = 'D-4 Statsistika';
+    } else if (this.prodi == 'd4ks') {
+      this.namaprodi = 'D-4 Komputasi Statistik';
+    }
 
     axios.get('/api/getnamamatkul/' + this.mid).then(function (response) {
       _this.namamatkul = response.data;
@@ -2876,7 +2893,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     ke: function ke(mid) {
-      window.location.href = window.location.origin + "/daftarmateri/d4-komputasi-statistik";
+      window.location.href = window.location.origin + "/daftarmateri/" + this.prodi;
     },
     lihat: function lihat(imid) {
       var _this2 = this;
@@ -3024,7 +3041,7 @@ var routes = [{
   path: '/daftarmateri/d4ks',
   component: MateriD4KS
 }, {
-  path: '/materi/:mid/:imid',
+  path: '/materi/:prodi/:mid/:imid',
   component: MateriLihat,
   props: true
 }, {
@@ -3037,7 +3054,7 @@ var routes = [{
   path: '/daftararsipsoal/d4ks',
   component: ArsipSoalD4KS
 }, {
-  path: '/arsipsoal/:mid/:dasid',
+  path: '/arsipsoal/:prodi/:mid/:dasid',
   component: ArsipSoalLihat,
   props: true
 } // {
@@ -39647,44 +39664,31 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex justify-center" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        on: {
-          click: function ($event) {
-            $event.preventDefault()
-            return _vm.coba()
-          },
-        },
-      },
-      [_vm._v("Coba aja")]
-    ),
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "bg-yellow-200 w-11/12 sm:w-5/6 flex flex-col justify-center items-center mt-4 p-2 rounded-2xl",
-      },
-      [
-        _c("div", { staticClass: "font-semibold" }, [
-          _vm._v("Halo Bernaldo Napitupulu"),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "font-italic" }, [
-          _vm._v("Lupakan masa lalu dan teruslah bergerak maju"),
-        ]),
-      ]
-    )
+    return _c("div", { staticClass: "flex justify-center" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "bg-yellow-200 w-11/12 sm:w-5/6 flex flex-col justify-center items-center mt-4 p-2 rounded-2xl",
+        },
+        [
+          _c("div", { staticClass: "font-semibold" }, [
+            _vm._v("Halo Bernaldo Napitupulu"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "font-italic" }, [
+            _vm._v("Lupakan masa lalu dan teruslah bergerak maju"),
+          ]),
+        ]
+      ),
+    ])
   },
 ]
 render._withStripped = true
@@ -39913,7 +39917,7 @@ var render = function () {
       { staticClass: "flex-row bg-birumateri items-center hidden sm:flex" },
       [
         _c("div", { staticClass: "text-white font-semibold text-xl ml-3" }, [
-          _vm._v("D-IV KS"),
+          _vm._v(_vm._s(_vm.namaprodi)),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "bg-white h-6 w-0.5 mx-2" }),
@@ -39928,7 +39932,7 @@ var render = function () {
       _c(
         "div",
         { staticClass: "text-white font-semibold text-xl ml-3 -mt-1" },
-        [_vm._v("D-IV KS")]
+        [_vm._v(_vm._s(_vm.namaprodi))]
       ),
       _vm._v(" "),
       _c(
@@ -40040,35 +40044,20 @@ var render = function () {
               "col-span-12 sm:col-span-9 lg:col-span-10 m-2 p-2 rounded-2xl",
           },
           [
-            _c("div", { staticClass: "flex flex-row justify-between mb-2" }, [
-              _c("div", { staticClass: "font-bold text-xl w-72" }, [
-                _vm._v(_vm._s(_vm.namasoal)),
-              ]),
+            _c("div", { staticClass: "grid grid-cols-2 mb-2" }, [
+              _c(
+                "div",
+                { staticClass: "col-span-2 sm:col-span-1 font-bold text-xl" },
+                [_vm._v(_vm._s(_vm.namasoal))]
+              ),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "flex flex-row-reverse items-center w-80" },
+                {
+                  staticClass:
+                    "col-span-2 sm:col-span-1 flex justify-end items-center",
+                },
                 [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "hover:bg-yellow-200 rounded-md p-1",
-                      on: {
-                        click: function ($event) {
-                          $event.preventDefault()
-                          return _vm.ke()
-                        },
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\r\n                            Arsip Soal D-IV KS\r\n                        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("/")]),
-                  _vm._v(" "),
                   _c(
                     "a",
                     {
@@ -40097,6 +40086,28 @@ var render = function () {
                       ),
                       _vm._v(" "),
                       _c("div", [_vm._v("Home")]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("/")]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "hover:bg-yellow-200 rounded-md p-1",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.ke()
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\r\n                            Arsip Soal " +
+                          _vm._s(_vm.namaprodi) +
+                          "\r\n                        "
+                      ),
                     ]
                   ),
                 ]
@@ -40973,7 +40984,7 @@ var render = function () {
       { staticClass: "flex-row bg-birumateri items-center hidden sm:flex" },
       [
         _c("div", { staticClass: "text-white font-semibold text-xl ml-3" }, [
-          _vm._v("D-IV KS"),
+          _vm._v(_vm._s(_vm.namaprodi)),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "bg-white h-6 w-0.5 mx-2" }),
@@ -40988,7 +40999,7 @@ var render = function () {
       _c(
         "div",
         { staticClass: "text-white font-semibold text-xl ml-3 -mt-1" },
-        [_vm._v("D-IV KS")]
+        [_vm._v(_vm._s(_vm.namaprodi))]
       ),
       _vm._v(" "),
       _c(
@@ -41070,35 +41081,20 @@ var render = function () {
               "col-span-12 sm:col-span-9 lg:col-span-10 m-2 p-2 rounded-2xl",
           },
           [
-            _c("div", { staticClass: "flex flex-row justify-between mb-2" }, [
-              _c("div", { staticClass: "font-bold text-xl w-72" }, [
-                _vm._v(_vm._s(_vm.topik)),
-              ]),
+            _c("div", { staticClass: "grid grid-cols-2 mb-2" }, [
+              _c(
+                "div",
+                { staticClass: "col-span-2 sm:col-span-1 font-bold text-xl" },
+                [_vm._v(_vm._s(_vm.topik))]
+              ),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "flex flex-row-reverse items-center w-80" },
+                {
+                  staticClass:
+                    "col-span-2 sm:col-span-1 flex justify-end items-center",
+                },
                 [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "hover:bg-yellow-200 rounded-md p-1",
-                      on: {
-                        click: function ($event) {
-                          $event.preventDefault()
-                          return _vm.ke()
-                        },
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\r\n                            Materi D-IV KS\r\n                        "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("/")]),
-                  _vm._v(" "),
                   _c(
                     "a",
                     {
@@ -41127,6 +41123,27 @@ var render = function () {
                       ),
                       _vm._v(" "),
                       _c("div", [_vm._v("Home")]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "hover:bg-yellow-200 rounded-md p-1",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.ke()
+                        },
+                      },
+                    },
+                    [
+                      _c("span", [_vm._v("/")]),
+                      _vm._v(
+                        "\r\n                            Materi " +
+                          _vm._s(_vm.namaprodi) +
+                          "\r\n                        "
+                      ),
                     ]
                   ),
                 ]

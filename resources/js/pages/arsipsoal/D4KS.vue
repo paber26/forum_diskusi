@@ -50,7 +50,7 @@ export default {
         lihatarsipsoal(mid) {
             axios.get('/api/getdasid/' + mid).then((response) => {
                 let dasid = response.data
-                window.location.href = window.location.origin + "/arsipsoal/" + mid + '/' + dasid;
+                window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
             })
         }
     }

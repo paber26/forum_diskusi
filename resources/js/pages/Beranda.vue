@@ -4,8 +4,6 @@
         <div class="font-semibold">Halo Bernaldo Napitupulu</div>
         <div class="font-italic">Lupakan masa lalu dan teruslah bergerak maju</div>
     </div>
-
-    <button @click.prevent="coba()">Coba aja</button>
 </div>
 </template>
 

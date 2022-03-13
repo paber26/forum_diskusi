@@ -11,12 +11,12 @@
         </div>
     </div>
     <div class="flex-row bg-birumateri items-center hidden sm:flex">
-        <div class="text-white font-semibold text-xl ml-3">D-IV KS</div>
+        <div class="text-white font-semibold text-xl ml-3">{{ namaprodi }}</div>
         <div class="bg-white h-6 w-0.5 mx-2"></div>
         <div class="text-white font-semibold text-xl">{{ namamatkul  }}</div>
     </div>
     <div class="flex flex-col bg-birumateri sm:hidden">
-        <div class="text-white font-semibold text-xl ml-3 -mt-1">D-IV KS</div>
+        <div class="text-white font-semibold text-xl ml-3 -mt-1">{{ namaprodi }}</div>
         <div class="text-white font-semibold text-xl ml-3 -mt-2">{{ namamatkul  }}</div>
     </div>
     <div class="bg-gray-200 flex-1">
@@ -37,19 +37,21 @@
                 </div>
             </div>
             <div class="col-span-12 sm:col-span-9 lg:col-span-10 m-2 p-2 rounded-2xl">
-                <div class="flex flex-row justify-between mb-2">
-                    <div class="font-bold text-xl w-72">{{ topik }}</div>
-                    <div class="flex flex-row-reverse items-center w-80">
-                        <button @click.prevent="ke()" class="hover:bg-yellow-200 rounded-md p-1">
-                            Materi D-IV KS
-                        </button>
-                        <span>/</span>
+                <div class="grid grid-cols-2 mb-2">
+                    <!-- <div class="col-span-2 sm:col-span-1 font-bold text-xl">{{ topik }}</div>
+                    <div class="col-span-2 sm:col-span-1 flex justify-end">dia</div> -->
+                    <div class="col-span-2 sm:col-span-1 font-bold text-xl">{{ topik }}</div>
+                    <div class="col-span-2 sm:col-span-1 flex justify-end items-center">
                         <a href="/" class="flex items-center hover:bg-yellow-200 rounded-md p-1">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0    001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                             </svg>
                             <div>Home</div>
                         </a>
+                        <button @click.prevent="ke()" class="hover:bg-yellow-200 rounded-md p-1">
+                        <span>/</span>
+                            Materi {{ namaprodi }}
+                        </button>
                     </div>
                 </div>
                 <div class="bg-birumateri w-full h-0.5 rounded-3xl"></div>
@@ -83,10 +85,11 @@
 
 <script>
 export default {
-    props: ['mid', 'imid'],
+    props: ['prodi', 'mid', 'imid'],
     data() {
         return {
-            daftarmateri: [],
+            namaprodi: '',
+            daftarmateri: '',
             topik: '',
             isi: '',
             namamatkul: '',
@@ -98,6 +101,13 @@ export default {
         }
     },
     mounted() {
+        if(this.prodi=='d3'){
+            this.namaprodi = 'D-3 Statistika'
+        }else if(this.prodi == 'd4st'){
+            this.namaprodi = 'D-4 Statsistika'
+        }else if(this.prodi == 'd4ks'){
+            this.namaprodi = 'D-4 Komputasi Statistik'
+        }
         axios.get('/api/getnamamatkul/' + this.mid).then((response) => {
             this.namamatkul = response.data
         })
@@ -121,7 +131,7 @@ export default {
     },
     methods: {
         ke(mid) {
-            window.location.href = window.location.origin + "/daftarmateri/d4-komputasi-statistik";
+            window.location.href = window.location.origin + "/daftarmateri/" + this.prodi;
         },
         lihat(imid) {
             this.topik = 'Loading . . .'
