@@ -13,11 +13,11 @@
     <div class="flex-row bg-birumateri items-center hidden sm:flex">
         <div class="text-white font-semibold text-xl ml-3">D-IV KS</div>
         <div class="bg-white h-6 w-0.5 mx-2"></div>
-        <div class="text-white font-semibold text-xl">Aljabar Linear</div>
+        <div class="text-white font-semibold text-xl">{{ namamatkul }}</div>
     </div>
     <div class="flex flex-col bg-birumateri sm:hidden">
         <div class="text-white font-semibold text-xl ml-3 -mt-1">D-IV KS</div>
-        <div class="text-white font-semibold text-xl ml-3 -mt-2">Aljabar Linear</div>
+        <div class="text-white font-semibold text-xl ml-3 -mt-2">{{ namamatkul }}</div>
     </div>
     <div class="bg-gray-200 flex-1">
         <div class="grid grid-cols-12 gap-1">
@@ -101,10 +101,14 @@ export default {
         return {
             daftararsipsoal: [],
             arsipsoal: [],
-            namasoal: ''
+            namasoal: '',
+            namamatkul: ''
         }
     },
     mounted() {
+        axios.get('/api/getnamamatkul/' + this.mid).then((response) => {
+            this.namamatkul = response.data
+        })
         axios.get('/api/getdaftararsipsoal/' + this.mid).then((response) => {
             this.daftararsipsoal = response.data
         })
@@ -113,7 +117,6 @@ export default {
         })
         axios.get('/api/getarsipsoal/' + this.dasid).then((response) => {
             this.arsipsoal = response.data
-            console.log(this.arsipsoal)
         })
     },
     methods: {

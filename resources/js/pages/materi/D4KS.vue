@@ -2,7 +2,7 @@
 <div class="flex flex-col justify-center">
     <div class="flex w-full justify-center">
         <div class="bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl">
-            <div class="font-bold text-base">Materi</div>
+            <div class="font-bold text-2xl">Materi</div>
             <div class="font-bold text-xl">D-4 Komputasi Statistik</div>
         </div>
     </div>
@@ -37,21 +37,19 @@
 export default {
     data() {
         return {
-            daftararsipsoal: []
+            daftararsipsoal: '',
         }
     },
     mounted() {
-        axios.get('/api/getdaftarmateri/d4-komputasi-statistik').then((response) =>{
+        axios.get('/api/getdaftarmatkul/d4ks').then((response) => {
             this.daftararsipsoal = response.data
-            console.log(response.data)
-            console.log('yes')
         })
     },
     methods: {
         lihatmateri(mid) {
             axios.get('/api/getimid/' + mid).then((response) => {
                 let imid = response.data
-                window.location.href = window.location.origin + "/materi/d4-komputasi-statistik/" + mid + '/' + imid;
+                window.location.href = window.location.origin + "/materi/" + mid + '/' + imid;
             })
         }
     }

@@ -16,9 +16,9 @@
                 </svg>
             </button>
             <div v-if="showmateri" class="ml-3 flex flex-col">
-                <router-link to="/daftarmateri/d3-statistika" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-3 Statistika</router-link>
-                <router-link to="/daftarmateri/d4-statistika" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Statistika</router-link>
-                <router-link to="/daftarmateri/d4-komputasi-statistik" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Komputasi Statistik</router-link>
+                <router-link to="/daftarmateri/d3" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-3 Statistika</router-link>
+                <router-link to="/daftarmateri/d4st" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Statistika</router-link>
+                <router-link to="/daftarmateri/d4ks" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Komputasi Statistik</router-link>
             </div>
         </div>
         <div class="m-1">
@@ -29,9 +29,9 @@
                 </svg>
             </button>
             <div v-if="showarsipsoal" class="ml-3 flex flex-col">
-                <router-link to="/daftararsipsoal/d3-statistika" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-3 Statistika</router-link>
-                <router-link to="/daftararsipsoal/d4-statistika" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Statistika</router-link>
-                <router-link to="/daftararsipsoal/d4-komputasi-statistik" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Komputasi Statistik</router-link>
+                <router-link to="/daftararsipsoal/d3" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-3 Statistika</router-link>
+                <router-link to="/daftararsipsoal/d4st" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Statistika</router-link>
+                <router-link to="/daftararsipsoal/d4ks" class="p-1.5 my-0.5 rounded-md hover:bg-yellow-300">D-4 Komputasi Statistik</router-link>
             </div>
         </div>
         <router-link to="/forum" class="p-1.5 m-1 rounded-md hover:bg-yellow-300 font-semibold">Forum Tanya Jawab</router-link>

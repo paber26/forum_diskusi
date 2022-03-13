@@ -6,21 +6,20 @@ Vue.use(VueRouter);
 
 const Beranda = require('../pages/Beranda.vue').default;
 const Forum = require('../pages/Forum.vue').default;
-const Materi = require('../pages/Materi.vue').default;
-// const ArsipSoal = require('../pages/ArsipSoal.vue').default;
 
-const MateriD3Statistika = require('../pages/materi/D3-Statistika').default;
-const MateriD4KomputasiStatistik = require('../pages/materi/D4-KomputasiStatistik').default;
+const MateriD3 = require('../pages/materi/D3.vue').default;
+const MateriD4ST = require('../pages/materi/D4ST.vue').default;
+const MateriD4KS = require('../pages/materi/D4KS.vue').default;
 
-const ArsipSoalD4KomputasiStatistik = require('../pages/arsipSoal/D4-KomputasiStatistik.vue').default;
+const MateriLihat = require('../pages/materi/Lihat.vue').default;
 
+const ArsipSoalD3 = require('../pages/arsipsoal/D3.vue').default;
+const ArsipSoalD4ST = require('../pages/arsipsoal/D4ST.vue').default;
+const ArsipSoalD4KS = require('../pages/arsipsoal/D4KS.vue').default;
 
-const MateriD4KS = require('../pages/materi/D4KS/Materi.vue').default;
-const MateriD4KSLihat = require('../pages/materi/D4KS/D4KSLihat.vue').default;
+const ArsipSoalLihat = require('../pages/arsipSoal/Lihat.vue').default;
 
-
-const ArsipSoalD4KS = require('../pages/arsipSoal/D4KS/D4KS.vue').default;
-const ArsipSoalD4KSLihat = require('../pages/arsipSoal/D4KS/D4KSLihat.vue').default;
+// const ArsipSoalD4KS = require('../pages/arsipSoal/D4KS/D4KS.vue').default;
 
 
 const routes = [
@@ -32,36 +31,52 @@ const routes = [
         path: '/forum',
         component: Forum
     },
+    
     {
-        path: '/materi',
-        component: Materi
+        path: '/daftarmateri/d3',
+        component: MateriD3,
     },
-
-    // untuk materi
     {
-        path: '/materi/d4-komputasi-statistik/:mid/:imid',
-        component: MateriD4KSLihat,
+        path: '/daftarmateri/d4st',
+        component: MateriD4ST,
+    },
+    {
+        path: '/daftarmateri/d4ks',
+        component: MateriD4KS,
+    },
+    {
+        path: '/materi/:mid/:imid',
+        component: MateriLihat,
         props: true
     },
 
-    // ini untuk Prodi D4 Komputasi Statistik
     {
-        path: '/daftarmateri/d3-statistika',
-        component: MateriD3Statistika
+        path: '/daftararsipsoal/d3',
+        component: ArsipSoalD3,
     },
     {
-        path: '/daftarmateri/d4-komputasi-statistik',
-        component: MateriD4KS
+        path: '/daftararsipsoal/d4st',
+        component: ArsipSoalD4ST,
     },
     {
-        path: '/daftararsipsoal/d4-komputasi-statistik',
-        component: ArsipSoalD4KS
+        path: '/daftararsipsoal/d4ks',
+        component: ArsipSoalD4KS,
     },
     {
-        path: '/arsipsoal/d4-komputasi-statistik/:mid/:dasid',
-        component: ArsipSoalD4KSLihat,
+        path: '/arsipsoal/:mid/:dasid',
+        component: ArsipSoalLihat,
         props: true
     },
+
+    // {
+    //     path: '/daftararsipsoal/d4-komputasi-statistik',
+    //     component: ArsipSoalD4KS
+    // },
+    // {
+    //     path: '/arsipsoal/d4-komputasi-statistik/:mid/:dasid',
+    //     component: ArsipSoalD4KSLihat,
+    //     props: true
+    // },
 ]
 
 const router = new VueRouter({

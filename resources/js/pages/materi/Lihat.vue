@@ -77,16 +77,16 @@ export default {
         }
     },
     mounted() {
+        axios.get('/api/getnamamatkul/' + this.mid).then((response) => {
+            this.namamatkul = response.data
+            console.log(response.data)
+        })
         axios.get('/api/getdaftarmateri/' + this.mid).then((response) => {
             this.daftarmateri = response.data
         })
         axios.get('/api/getmateri/' + this.imid).then((response) => {
             this.topik = response.data.topik
             this.isi = response.data.isi
-        })
-        axios.get('/api/getnamamatkul/' + this.mid).then((response) => {
-            this.namamatkul = response.data
-            console.log(this.namamatkul)
         })
     },
     methods: {
@@ -97,8 +97,8 @@ export default {
             this.topik = 'Loading . . .'
             this.isi = 'Loading . . .'
             this.$router.push({
-                path: '/materi/d4-komputasi-statistik/' + this.mid + '/' + imid,
-            })
+                path: '/materi/' + this.mid + '/' + imid,
+            }).catch(()=>{});
             axios.get('/api/getmateri/' + imid).then((response) => {
                 console.log(response.data)
                 this.topik = response.data.topik

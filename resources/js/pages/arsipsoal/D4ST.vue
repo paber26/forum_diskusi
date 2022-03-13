@@ -2,8 +2,8 @@
 <div class="flex flex-col justify-center">
     <div class="flex w-full justify-center">
         <div class="bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl">
-            <div class="font-bold text-base">Arsip Soal</div>
-            <div class="font-bold text-xl">D-4 Komputasi Statistik</div>
+            <div class="font-bold text-2xl">Arsip Soal</div>
+            <div class="font-bold text-xl">D-4 Statistika</div>
         </div>
     </div>
 
@@ -37,11 +37,12 @@
 export default {
     data() {
         return {
-            daftararsipsoal: []
+            daftararsipsoal: [],
+            namamatkul: ''
         }
     },
     mounted() {
-        axios.get('/api/getdaftarmateri/d4-komputasi-statistik').then((response) => {
+        axios.get('/api/getdaftarmatkul/d4ks').then((response) => {
             this.daftararsipsoal = response.data
         })
     },
@@ -49,7 +50,7 @@ export default {
         lihatarsipsoal(mid) {
             axios.get('/api/getdasid/' + mid).then((response) => {
                 let dasid = response.data
-                window.location.href = window.location.origin + "/arsipsoal/d4-komputasi-statistik/" + mid + '/' + dasid;
+                window.location.href = window.location.origin + "/arsipsoal/" + mid + '/' + dasid;
             })
         }
     }
