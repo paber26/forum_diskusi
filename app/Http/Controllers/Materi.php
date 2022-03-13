@@ -42,11 +42,11 @@ class Materi extends Controller
 
     public function getdaftarmateri($mid)
     {
-        $q = DB::table('materi')->select('topik', 'imid')->where('mid', $mid)->get();
+        $q = DB::table('materi')->select('topik', 'imid', 'urutan')->where('mid', $mid);
         if ($q == null) {
             return 0;
         } else {
-            return $q;
+            return response()->json(array($q->get(), $q->count()));
         }
     }
 

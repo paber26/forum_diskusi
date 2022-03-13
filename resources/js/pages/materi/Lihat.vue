@@ -56,6 +56,22 @@
                 <div class="bg-white mt-2 p-3 rounded-2xl">
                     <div v-html="isi"></div>
                 </div>
+
+                <div class="grid grid-cols-2 p-0.5">
+                    <button v-if="current!=1" @click.prevent="lihat(sebelum.imid)" class="col-span-2 sm:col-span-1 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                        </svg>
+                        <span>{{ sebelum.topik }}</span>
+                    </button>
+                    <div v-else class="col-span-2 sm:col-span-1"></div>
+                    <button v-if="current!=jlhmateri" @click.prevent="lihat(setelah.imid)" class="col-span-2 sm:col-span-1 flex items-center justify-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{{ setelah.topik }}</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -73,20 +89,34 @@ export default {
             daftarmateri: [],
             topik: '',
             isi: '',
-            namamatkul: ''
+            namamatkul: '',
+            current: '',
+            jlhmateri: '',
+
+            sebelum: '',
+            setelah: ''
         }
     },
     mounted() {
         axios.get('/api/getnamamatkul/' + this.mid).then((response) => {
             this.namamatkul = response.data
-            console.log(response.data)
         })
         axios.get('/api/getdaftarmateri/' + this.mid).then((response) => {
-            this.daftarmateri = response.data
+            this.daftarmateri = response.data[0]
+            this.jlhmateri = response.data[1]
+            console.log(this.jlhmateri)
+            console.log(this.daftarmateri[0])
+
         })
         axios.get('/api/getmateri/' + this.imid).then((response) => {
+            console.log(response.data)
             this.topik = response.data.topik
             this.isi = response.data.isi
+            this.current = response.data.urutan
+            console.log(this.current)
+
+            this.sebelum = this.daftarmateri[this.current - 2]
+            this.setelah = this.daftarmateri[this.current]
         })
     },
     methods: {
@@ -98,11 +128,15 @@ export default {
             this.isi = 'Loading . . .'
             this.$router.push({
                 path: '/materi/' + this.mid + '/' + imid,
-            }).catch(()=>{});
+            }).catch(() => {});
             axios.get('/api/getmateri/' + imid).then((response) => {
                 console.log(response.data)
                 this.topik = response.data.topik
                 this.isi = response.data.isi
+                this.current = response.data.urutan
+
+                this.sebelum = this.daftarmateri[this.current - 2]
+                this.setelah = this.daftarmateri[this.current]
             })
         }
     }

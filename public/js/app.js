@@ -2822,6 +2822,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['mid', 'imid'],
   data: function data() {
@@ -2829,7 +2845,11 @@ __webpack_require__.r(__webpack_exports__);
       daftarmateri: [],
       topik: '',
       isi: '',
-      namamatkul: ''
+      namamatkul: '',
+      current: '',
+      jlhmateri: '',
+      sebelum: '',
+      setelah: ''
     };
   },
   mounted: function mounted() {
@@ -2837,14 +2857,21 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/api/getnamamatkul/' + this.mid).then(function (response) {
       _this.namamatkul = response.data;
-      console.log(response.data);
     });
     axios.get('/api/getdaftarmateri/' + this.mid).then(function (response) {
-      _this.daftarmateri = response.data;
+      _this.daftarmateri = response.data[0];
+      _this.jlhmateri = response.data[1];
+      console.log(_this.jlhmateri);
+      console.log(_this.daftarmateri[0]);
     });
     axios.get('/api/getmateri/' + this.imid).then(function (response) {
+      console.log(response.data);
       _this.topik = response.data.topik;
       _this.isi = response.data.isi;
+      _this.current = response.data.urutan;
+      console.log(_this.current);
+      _this.sebelum = _this.daftarmateri[_this.current - 2];
+      _this.setelah = _this.daftarmateri[_this.current];
     });
   },
   methods: {
@@ -2863,6 +2890,9 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
         _this2.topik = response.data.topik;
         _this2.isi = response.data.isi;
+        _this2.current = response.data.urutan;
+        _this2.sebelum = _this2.daftarmateri[_this2.current - 2];
+        _this2.setelah = _this2.daftarmateri[_this2.current];
       });
     }
   }
@@ -41109,6 +41139,91 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "bg-white mt-2 p-3 rounded-2xl" }, [
               _c("div", { domProps: { innerHTML: _vm._s(_vm.isi) } }),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "grid grid-cols-2 p-0.5" }, [
+              _vm.current != 1
+                ? _c(
+                    "button",
+                    {
+                      staticClass: "col-span-2 sm:col-span-1 flex items-center",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.lihat(_vm.sebelum.imid)
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", [_vm._v(_vm._s(_vm.sebelum.topik))]),
+                    ]
+                  )
+                : _c("div", { staticClass: "col-span-2 sm:col-span-1" }),
+              _vm._v(" "),
+              _vm.current != _vm.jlhmateri
+                ? _c(
+                    "button",
+                    {
+                      staticClass:
+                        "col-span-2 sm:col-span-1 flex items-center justify-end",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.lihat(_vm.setelah.imid)
+                        },
+                      },
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", [_vm._v(_vm._s(_vm.setelah.topik))]),
+                    ]
+                  )
+                : _vm._e(),
             ]),
           ]
         ),
