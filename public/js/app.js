@@ -2157,9 +2157,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Lihat.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Jawab.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Lihat.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Jawab.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -2168,22 +2168,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2297,6 +2281,7 @@ __webpack_require__.r(__webpack_exports__);
     });
     axios.get('/api/getarsipsoal/' + this.dasid).then(function (response) {
       _this.arsipsoal = response.data;
+      console.log(_this.arsipsoal);
     });
   },
   methods: {
@@ -2308,12 +2293,171 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$router.push({
         path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + dasid
-      });
+      })["catch"](function () {});
       axios.get('/api/getnamaarsipsoal/' + dasid).then(function (response) {
         _this2.namasoal = response.data;
       });
       axios.get('/api/getarsipsoal/' + dasid).then(function (response) {
         _this2.arsipsoal = response.data;
+      });
+    },
+    jawab: function jawab(asid) {
+      this.$router.push({
+        path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + this.dasid + '/' + asid
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Lihat.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Lihat.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['prodi', 'mid', 'dasid'],
+  data: function data() {
+    return {
+      namaprodi: '',
+      daftararsipsoal: '',
+      arsipsoal: [],
+      namasoal: '',
+      namamatkul: ''
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    if (this.prodi == 'd3') {
+      this.namaprodi = 'D-3 Statistika';
+    } else if (this.prodi == 'd4st') {
+      this.namaprodi = 'D-4 Statsistika';
+    } else if (this.prodi == 'd4ks') {
+      this.namaprodi = 'D-4 Komputasi Statistik';
+    }
+
+    axios.get('/api/getnamamatkul/' + this.mid).then(function (response) {
+      _this.namamatkul = response.data;
+    });
+    axios.get('/api/getdaftararsipsoal/' + this.mid).then(function (response) {
+      _this.daftararsipsoal = response.data;
+    });
+    axios.get('/api/getnamaarsipsoal/' + this.dasid).then(function (response) {
+      _this.namasoal = response.data;
+    });
+    axios.get('/api/getarsipsoal/' + this.dasid).then(function (response) {
+      _this.arsipsoal = response.data;
+      console.log(_this.arsipsoal);
+    });
+  },
+  methods: {
+    ke: function ke(mid) {
+      window.location.href = window.location.origin + "/daftararsipsoal/" + this.prodi;
+    },
+    lihat: function lihat(dasid) {
+      var _this2 = this;
+
+      this.$router.push({
+        path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + dasid
+      })["catch"](function () {});
+      axios.get('/api/getnamaarsipsoal/' + dasid).then(function (response) {
+        _this2.namasoal = response.data;
+      });
+      axios.get('/api/getarsipsoal/' + dasid).then(function (response) {
+        _this2.arsipsoal = response.data;
+      });
+    },
+    jawab: function jawab(asid) {
+      this.$router.push({
+        path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + this.dasid + '/' + asid
       });
     }
   }
@@ -3022,7 +3166,9 @@ var ArsipSoalD4ST = (__webpack_require__(/*! ../pages/arsipsoal/D4ST.vue */ "./r
 
 var ArsipSoalD4KS = (__webpack_require__(/*! ../pages/arsipsoal/D4KS.vue */ "./resources/js/pages/arsipsoal/D4KS.vue")["default"]);
 
-var ArsipSoalLihat = (__webpack_require__(/*! ../pages/arsipSoal/Lihat.vue */ "./resources/js/pages/arsipSoal/Lihat.vue")["default"]); // const ArsipSoalD4KS = require('../pages/arsipSoal/D4KS/D4KS.vue').default;
+var ArsipSoalLihat = (__webpack_require__(/*! ../pages/arsipSoal/Lihat.vue */ "./resources/js/pages/arsipSoal/Lihat.vue")["default"]);
+
+var ArsipSoalJawab = (__webpack_require__(/*! ../pages/arsipSoal/Jawab.vue */ "./resources/js/pages/arsipSoal/Jawab.vue")["default"]); // const ArsipSoalD4KS = require('../pages/arsipSoal/D4KS/D4KS.vue').default;
 
 
 var routes = [{
@@ -3056,6 +3202,10 @@ var routes = [{
 }, {
   path: '/arsipsoal/:prodi/:mid/:dasid',
   component: ArsipSoalLihat,
+  props: true
+}, {
+  path: '/arsipsoal/:prodi/:mid/:dasid/:asid',
+  component: ArsipSoalJawab,
   props: true
 } // {
 //     path: '/daftararsipsoal/d4-komputasi-statistik',
@@ -38585,6 +38735,45 @@ component.options.__file = "resources/js/pages/Forum.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/arsipSoal/Jawab.vue":
+/*!************************************************!*\
+  !*** ./resources/js/pages/arsipSoal/Jawab.vue ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Jawab_vue_vue_type_template_id_baecbbae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Jawab.vue?vue&type=template&id=baecbbae& */ "./resources/js/pages/arsipSoal/Jawab.vue?vue&type=template&id=baecbbae&");
+/* harmony import */ var _Jawab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Jawab.vue?vue&type=script&lang=js& */ "./resources/js/pages/arsipSoal/Jawab.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Jawab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Jawab_vue_vue_type_template_id_baecbbae___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Jawab_vue_vue_type_template_id_baecbbae___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/arsipSoal/Jawab.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/arsipSoal/Lihat.vue":
 /*!************************************************!*\
   !*** ./resources/js/pages/arsipSoal/Lihat.vue ***!
@@ -38929,6 +39118,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/arsipSoal/Jawab.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/pages/arsipSoal/Jawab.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Jawab.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Jawab.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/arsipSoal/Lihat.vue?vue&type=script&lang=js&":
 /*!*************************************************************************!*\
   !*** ./resources/js/pages/arsipSoal/Lihat.vue?vue&type=script&lang=js& ***!
@@ -39138,6 +39343,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Forum_vue_vue_type_template_id_1c20dce8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Forum_vue_vue_type_template_id_1c20dce8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Forum.vue?vue&type=template&id=1c20dce8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Forum.vue?vue&type=template&id=1c20dce8&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/arsipSoal/Jawab.vue?vue&type=template&id=baecbbae&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/pages/arsipSoal/Jawab.vue?vue&type=template&id=baecbbae& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_template_id_baecbbae___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_template_id_baecbbae___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_template_id_baecbbae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Jawab.vue?vue&type=template&id=baecbbae& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Jawab.vue?vue&type=template&id=baecbbae&");
 
 
 /***/ }),
@@ -39893,6 +40115,322 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Jawab.vue?vue&type=template&id=baecbbae&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Jawab.vue?vue&type=template&id=baecbbae& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col min-h-screen min-w-min" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex-row bg-birumateri items-center hidden sm:flex" },
+      [
+        _c("div", { staticClass: "text-white font-semibold text-xl ml-3" }, [
+          _vm._v(_vm._s(_vm.namaprodi)),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-white h-6 w-0.5 mx-2" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "text-white font-semibold text-xl" }, [
+          _vm._v(_vm._s(_vm.namamatkul)),
+        ]),
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex flex-col bg-birumateri sm:hidden" }, [
+      _c(
+        "div",
+        { staticClass: "text-white font-semibold text-xl ml-3 -mt-1" },
+        [_vm._v(_vm._s(_vm.namaprodi))]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-white font-semibold text-xl ml-3 -mt-2" },
+        [_vm._v(_vm._s(_vm.namamatkul))]
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "bg-gray-200 flex-1" }, [
+      _c("div", { staticClass: "grid grid-cols-12 gap-1" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-span-12 sm:col-span-3 lg:col-span-2 p-2 -mt-4 mb-4 sm:mt-16 order-last sm:order-first",
+          },
+          [
+            _c("h1", { staticClass: "font-bold text-xl text-blue-500" }, [
+              _vm._v("Tahun Pelajaran"),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "ml-0.5" },
+              _vm._l(_vm.daftararsipsoal, function (arsipsoal) {
+                return _c("div", { key: arsipsoal.id }, [
+                  _c("div", { staticClass: "flex flex-row items-center" }, [
+                    _c("div", { staticClass: "w-5" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-5 w-5",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            viewBox: "0 0 20 20",
+                            fill: "currentColor",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "fill-rule": "evenodd",
+                              d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                              "clip-rule": "evenodd",
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "font-bold" }, [
+                      _vm._v(_vm._s(arsipsoal.tahun)),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "ml-3 flex flex-row items-center hover:text-blue-500",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.lihat(arsipsoal.dasid)
+                        },
+                      },
+                    },
+                    [
+                      _c("div", { staticClass: "w-5" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-5 w-5",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              viewBox: "0 0 20 20",
+                              fill: "currentColor",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                                "clip-rule": "evenodd",
+                              },
+                            }),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-left" }, [
+                        _vm._v(_vm._s(arsipsoal.nama)),
+                      ]),
+                    ]
+                  ),
+                ])
+              }),
+              0
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-span-12 sm:col-span-9 lg:col-span-10 m-2 p-2 rounded-2xl",
+          },
+          [
+            _c("div", { staticClass: "grid grid-cols-2 mb-2" }, [
+              _c(
+                "div",
+                { staticClass: "col-span-2 sm:col-span-1 font-bold text-xl" },
+                [_vm._v(_vm._s(_vm.namasoal))]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "col-span-2 sm:col-span-1 flex justify-end items-center",
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "flex items-center hover:bg-yellow-200 rounded-md p-1",
+                      attrs: { href: "/" },
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-5 w-5",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            viewBox: "0 0 20 20",
+                            fill: "currentColor",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d: "M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0    001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("div", [_vm._v("Home")]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("/")]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "hover:bg-yellow-200 rounded-md p-1",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.ke()
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\r\n                            Arsip Soal " +
+                          _vm._s(_vm.namaprodi) +
+                          "\r\n                        "
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
+            }),
+            _vm._v(" "),
+            _vm._l(_vm.arsipsoal, function (soal) {
+              return _c(
+                "div",
+                { key: soal.id, staticClass: "bg-white mt-2 p-3 rounded-2xl" },
+                [
+                  _c("div", [
+                    _c("div", { staticClass: "font-bold" }, [
+                      _vm._v("Nomor " + _vm._s(soal.nomor)),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {
+                      domProps: { innerHTML: _vm._s(soal.pertanyaan) },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", {
+                    staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "font-semibold",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.jawab(soal.asid)
+                        },
+                      },
+                    },
+                    [_vm._v("Jawab")]
+                  ),
+                ]
+              )
+            }),
+          ],
+          2
+        ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "flex flex-row items-center p-2 bg-blue-300 min-w-100" },
+      [
+        _c("img", {
+          staticClass: "w-10 h-10 sm:w-12 sm:h-12",
+          attrs: { src: "/img/polstat-stis.png", alt: "Logo Polstat STIS" },
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "font-bold ml-2 text-white sm:hidden" }, [
+          _c("div", { staticClass: "text-2xl sm:text-xl" }, [_vm._v("Materi")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-lg sm:text-base -mt-2" }, [
+            _vm._v("Polstat STIS"),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "font-bold ml-2 text-2xl text-white hidden sm:flex" },
+          [_vm._v("\r\n            SIRADIG\r\n        ")]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-blue-200 p-2 font-semibold" }, [
+      _c("div", { staticClass: "w-48" }, [
+        _vm._v("Politeknik Statistika STIS"),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Lihat.vue?vue&type=template&id=1cc7d534&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipSoal/Lihat.vue?vue&type=template&id=1cc7d534& ***!
@@ -40137,38 +40675,19 @@ var render = function () {
                     staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
                   }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "mt-1" }, [
-                    _c("div", { staticClass: "flex flex-row items-center" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "h-7 w-7",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            viewBox: "0 0 24 24",
-                            stroke: "currentColor",
-                          },
+                  _c(
+                    "button",
+                    {
+                      staticClass: "font-semibold",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.jawab(soal.asid)
                         },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              "stroke-width": "2",
-                              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                            },
-                          }),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "font-semibold" }, [
-                        _vm._v("Irene Savira"),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(1, true),
-                  ]),
+                      },
+                    },
+                    [_vm._v("Jawab")]
+                  ),
                 ]
               )
             }),
@@ -40178,7 +40697,7 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(2),
+    _vm._m(1),
   ])
 }
 var staticRenderFns = [
@@ -40210,54 +40729,6 @@ var staticRenderFns = [
         ),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ml-4" }, [
-      _vm._v("\r\n                            Diketahui:"),
-      _c("br"),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "flex justify-center items-center",
-        attrs: {
-          src: "https://latex.codecogs.com/png.latex?A=\\left[\\begin{matrix}-1&2&0\\\\2&0&-2\\\\0&-2&1\\end{matrix}\\right]",
-          title:
-            "A=\\left [ \\begin{matrix} -1 & 2 & 0\\\\ 2 & 0 & -2\\\\ 0 & -2 & 1 \\end{matrix} \\right ]",
-        },
-      }),
-      _c("br"),
-      _vm._v(
-        "\r\n                            a. Gunakan metode OBE sebagai berikut\r\n                            "
-      ),
-      _c("img", {
-        staticClass: "flex justify-center items-center",
-        attrs: {
-          src: "https://latex.codecogs.com/png.latex?\\left[\\begin{matrix}-1&2&0\\\\2&0&-2\\\\0&-2&1\\end{matrix}\\right]=\\left[\\begin{matrix}1&-2&0\\\\0&4&-2\\\\0&-2&1\\end{matrix}\\right]",
-          title:
-            "\\left [ \\begin{matrix} -1 & 2 & 0\\\\ 2 & 0 & -2\\\\ 0 & -2 & 1 \\end{matrix} \\right ]=\\left [ \\begin{matrix} 1 & -2 & 0\\\\ 0 & 4 & -2\\\\ 0 & -2 & 1 \\end{matrix} \\right ]",
-        },
-      }),
-      _c("br"),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: "flex justify-center items-center",
-        attrs: {
-          src: "https://latex.codecogs.com/png.latex?M=\\left[\\begin{matrix}1&0&-1\\\\0&1&-0.5\\\\0&0&0\\end{matrix}\\right]",
-          title:
-            "M=\\left [ \\begin{matrix} 1 & 0 & -1\\\\ 0 & 1 & -0.5\\\\ 0 & 0 & 0 \\end{matrix} \\right ]",
-        },
-      }),
-      _c("br"),
-      _vm._v(
-        "\r\n                            Rank = 2 (Dengan melihat jumlah dari baris yang terdapat leading satunya)"
-      ),
-      _c("br"),
-      _vm._v(
-        "56[ ]\r\n                            Rank = 1 (Dengan melihat baris yang terdiri dari elemen 0)\r\n                        "
-      ),
-    ])
   },
   function () {
     var _vm = this

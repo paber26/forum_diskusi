@@ -67,7 +67,23 @@
                         <span v-html="soal.pertanyaan"></span>
                     </div>
                     <div class="bg-birumateri w-full h-0.5 rounded-3xl"></div>
-                    <button @click.prevent="jawab(soal.asid)" class="font-semibold">Jawab</button>
+                    <div class="mt-1">
+                        <div class="flex flex-row items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div class="font-semibold">Irene Savira</div>
+                        </div>
+                        <div class="ml-4">
+                            Diketahui:<br>
+                            <img class="flex justify-center items-center" src="https://latex.codecogs.com/png.latex?A=\left[\begin{matrix}-1&2&0\\2&0&-2\\0&-2&1\end{matrix}\right]" title="A=\left [ \begin{matrix} -1 & 2 & 0\\ 2 & 0 & -2\\ 0 & -2 & 1 \end{matrix} \right ]" /><br>
+                            a. Gunakan metode OBE sebagai berikut
+                            <img class="flex justify-center items-center" src="https://latex.codecogs.com/png.latex?\left[\begin{matrix}-1&2&0\\2&0&-2\\0&-2&1\end{matrix}\right]=\left[\begin{matrix}1&-2&0\\0&4&-2\\0&-2&1\end{matrix}\right]" title="\left [ \begin{matrix} -1 & 2 & 0\\ 2 & 0 & -2\\ 0 & -2 & 1 \end{matrix} \right ]=\left [ \begin{matrix} 1 & -2 & 0\\ 0 & 4 & -2\\ 0 & -2 & 1 \end{matrix} \right ]" /><br>
+                            <img class="flex justify-center items-center" src="https://latex.codecogs.com/png.latex?M=\left[\begin{matrix}1&0&-1\\0&1&-0.5\\0&0&0\end{matrix}\right]" title="M=\left [ \begin{matrix} 1 & 0 & -1\\ 0 & 1 & -0.5\\ 0 & 0 & 0 \end{matrix} \right ]" /><br>
+                            Rank = 2 (Dengan melihat jumlah dari baris yang terdapat leading satunya)<br>56[ ]
+                            Rank = 1 (Dengan melihat baris yang terdiri dari elemen 0)
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -109,7 +125,6 @@ export default {
         })
         axios.get('/api/getarsipsoal/' + this.dasid).then((response) => {
             this.arsipsoal = response.data
-            console.log(this.arsipsoal)
         })
     },
     methods: {
@@ -119,19 +134,15 @@ export default {
         lihat(dasid) {
             this.$router.push({
                 path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + dasid,
-            }).catch(() => {});
+            })
             axios.get('/api/getnamaarsipsoal/' + dasid).then((response) => {
                 this.namasoal = response.data
             })
             axios.get('/api/getarsipsoal/' + dasid).then((response) => {
                 this.arsipsoal = response.data
             })
-        },
-        jawab(asid){
-            this.$router.push({
-                path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + this.dasid + '/' + asid
-            })
         }
     }
+
 }
 </script>

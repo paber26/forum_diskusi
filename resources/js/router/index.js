@@ -18,6 +18,7 @@ const ArsipSoalD4ST = require('../pages/arsipsoal/D4ST.vue').default;
 const ArsipSoalD4KS = require('../pages/arsipsoal/D4KS.vue').default;
 
 const ArsipSoalLihat = require('../pages/arsipSoal/Lihat.vue').default;
+const ArsipSoalJawab = require('../pages/arsipSoal/Jawab.vue').default;
 
 // const ArsipSoalD4KS = require('../pages/arsipSoal/D4KS/D4KS.vue').default;
 
@@ -65,6 +66,11 @@ const routes = [
     {
         path: '/arsipsoal/:prodi/:mid/:dasid',
         component: ArsipSoalLihat,
+        props: true
+    },
+    {
+        path: '/arsipsoal/:prodi/:mid/:dasid/:asid',
+        component: ArsipSoalJawab,
         props: true
     },
 
