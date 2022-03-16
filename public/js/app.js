@@ -2248,19 +2248,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['prodi', 'mid', 'dasid'],
+  props: ['prodi', 'mid', 'dasid', 'asid'],
   data: function data() {
     return {
       namaprodi: '',
       daftararsipsoal: '',
       arsipsoal: [],
       namasoal: '',
-      namamatkul: ''
+      namamatkul: '',
+      detailsoal: '',
+      fields: {
+        asid: this.asid,
+        jawaban: ''
+      }
     };
   },
   mounted: function mounted() {
     var _this = this;
+
+    console.log(this.asid);
 
     if (this.prodi == 'd3') {
       this.namaprodi = 'D-3 Statistika';
@@ -2279,13 +2296,13 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/getnamaarsipsoal/' + this.dasid).then(function (response) {
       _this.namasoal = response.data;
     });
-    axios.get('/api/getarsipsoal/' + this.dasid).then(function (response) {
-      _this.arsipsoal = response.data;
-      console.log(_this.arsipsoal);
+    axios.get('/api/getdetailsoal/' + this.asid).then(function (response) {
+      _this.detailsoal = response.data;
+      console.log(_this.detailsoal);
     });
   },
   methods: {
-    ke: function ke(mid) {
+    ke: function ke() {
       window.location.href = window.location.origin + "/daftararsipsoal/" + this.prodi;
     },
     lihat: function lihat(dasid) {
@@ -2301,10 +2318,16 @@ __webpack_require__.r(__webpack_exports__);
         _this2.arsipsoal = response.data;
       });
     },
-    jawab: function jawab(asid) {
-      this.$router.push({
-        path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + this.dasid + '/' + asid
-      });
+    checkForm: function checkForm() {
+      if (this.fields.jawaban != '') {
+        axios.post('/api/tambahjawaban', this.fields).then(function (response) {
+          console.log(response.data); // this.$router.push({
+          //     // path: '/daftararsipsoal/d4-statistika/edit/' + this.mid + '/' + this.dasid,
+          // })
+        });
+      } else {
+        this.$swal('Jawaban tidak boleh kosong');
+      }
     }
   }
 });
@@ -40340,43 +40363,91 @@ var render = function () {
               staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
             }),
             _vm._v(" "),
-            _vm._l(_vm.arsipsoal, function (soal) {
-              return _c(
-                "div",
-                { key: soal.id, staticClass: "bg-white mt-2 p-3 rounded-2xl" },
-                [
-                  _c("div", [
-                    _c("div", { staticClass: "font-bold" }, [
-                      _vm._v("Nomor " + _vm._s(soal.nomor)),
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      domProps: { innerHTML: _vm._s(soal.pertanyaan) },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "font-semibold",
-                      on: {
-                        click: function ($event) {
-                          $event.preventDefault()
-                          return _vm.jawab(soal.asid)
-                        },
-                      },
-                    },
-                    [_vm._v("Jawab")]
-                  ),
-                ]
-              )
+            _c("div", { staticClass: "bg-white mt-2 p-3 rounded-2xl" }, [
+              _c("div", [
+                _c("div", { staticClass: "font-bold" }, [
+                  _vm._v("Nomor " + _vm._s(_vm.detailsoal.nomor)),
+                ]),
+                _vm._v(" "),
+                _c("span", {
+                  domProps: { innerHTML: _vm._s(_vm.detailsoal.pertanyaan) },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "bg-birumateri w-full h-0.5 rounded-3xl my-2.5",
             }),
-          ],
-          2
+            _vm._v(" "),
+            _c(
+              "form",
+              {
+                staticClass: "flex flex-col",
+                on: {
+                  submit: function ($event) {
+                    $event.preventDefault()
+                    return _vm.checkForm.apply(null, arguments)
+                  },
+                },
+              },
+              [
+                _c("div", { staticClass: "font-semibold" }, [
+                  _vm._v("Tambahkan Jawaban"),
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fields.jawaban,
+                      expression: "fields.jawaban",
+                    },
+                  ],
+                  staticClass: "p-3 rounded-xl",
+                  attrs: { placeholder: "Masukkan pertanyaan ..." },
+                  domProps: { value: _vm.fields.jawaban },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.fields, "jawaban", $event.target.value)
+                    },
+                  },
+                }),
+                _vm._v(" "),
+                _vm.fields.jawaban != ""
+                  ? _c(
+                      "div",
+                      {
+                        staticClass:
+                          "bg-white p-3 mt-2 rounded-2xl flex flex-col",
+                      },
+                      [
+                        _c("span", { staticClass: "font-semibold mb-1.5" }, [
+                          _vm._v("Tampilan Jawaban"),
+                        ]),
+                        _vm._v(" "),
+                        _c("span", {
+                          domProps: { innerHTML: _vm._s(_vm.fields.jawaban) },
+                        }),
+                      ]
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-birumateri w-32 m-1 p-0.5 rounded-xl text-white text-center",
+                    attrs: { type: "submit" },
+                  },
+                  [_vm._v("Kirim Jawaban")]
+                ),
+              ]
+            ),
+          ]
         ),
       ]),
     ]),

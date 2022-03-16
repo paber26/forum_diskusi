@@ -42,4 +42,25 @@ class ArsipSoal extends Controller
     {
         return DB::table('daftararsipsoal')->where('dasid', $dasid)->first()->nama;
     }
+
+    public function getdetailsoal($asid)
+    {
+        $q = DB::table('arsipsoal')->where('asid', $asid)->first();
+        if ($q == null) {
+            return 0;
+        } else {
+            return $q;
+        }
+    }
+
+    public function tambahjawaban(Request $request)
+    {
+        $stt = [
+            'jasid' => uniqid(),
+            'asid' => $request->asid,
+            'username' => 'Bernaldo',
+            'jawaban' => $request->jawaban
+        ];
+        DB::table('jawaban')->insert($stt);
+    }
 }

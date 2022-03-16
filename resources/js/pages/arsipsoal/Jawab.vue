@@ -61,14 +61,24 @@
                     </div>
                 </div>
                 <div class="bg-birumateri w-full h-0.5 rounded-3xl"></div>
-                <div class="bg-white mt-2 p-3 rounded-2xl" v-for="soal in arsipsoal" :key="soal.id">
+                <div class="bg-white mt-2 p-3 rounded-2xl">
                     <div>
-                        <div class="font-bold">Nomor {{ soal.nomor }}</div>
-                        <span v-html="soal.pertanyaan"></span>
+                        <div class="font-bold">Nomor {{ detailsoal.nomor }}</div>
+                        <span v-html="detailsoal.pertanyaan"></span>
                     </div>
-                    <div class="bg-birumateri w-full h-0.5 rounded-3xl"></div>
-                    <button @click.prevent="jawab(soal.asid)" class="font-semibold">Jawab</button>
                 </div>
+
+                <div class="bg-birumateri w-full h-0.5 rounded-3xl my-2.5"></div>
+
+                <form @submit.prevent="checkForm" class="flex flex-col">
+                    <div class="font-semibold">Tambahkan Jawaban</div>
+                    <textarea class="p-3 rounded-xl" placeholder="Masukkan pertanyaan ..." v-model="fields.jawaban"></textarea>
+                    <div class="bg-white p-3 mt-2 rounded-2xl flex flex-col" v-if="fields.jawaban!=''">
+                        <span class="font-semibold mb-1.5">Tampilan Jawaban</span>
+                        <span v-html="fields.jawaban"></span>
+                    </div>
+                    <button type="submit" class="bg-birumateri w-32 m-1 p-0.5 rounded-xl text-white text-center">Kirim Jawaban</button>
+                </form>
             </div>
         </div>
     </div>
@@ -80,17 +90,23 @@
 
 <script>
 export default {
-    props: ['prodi', 'mid', 'dasid'],
+    props: ['prodi', 'mid', 'dasid', 'asid'],
     data() {
         return {
             namaprodi: '',
             daftararsipsoal: '',
             arsipsoal: [],
             namasoal: '',
-            namamatkul: ''
+            namamatkul: '',
+            detailsoal: '',
+            fields:{
+                asid: this.asid,
+                jawaban: ''
+            }
         }
     },
     mounted() {
+        console.log(this.asid)
         if (this.prodi == 'd3') {
             this.namaprodi = 'D-3 Statistika'
         } else if (this.prodi == 'd4st') {
@@ -107,13 +123,13 @@ export default {
         axios.get('/api/getnamaarsipsoal/' + this.dasid).then((response) => {
             this.namasoal = response.data
         })
-        axios.get('/api/getarsipsoal/' + this.dasid).then((response) => {
-            this.arsipsoal = response.data
-            console.log(this.arsipsoal)
+        axios.get('/api/getdetailsoal/' + this.asid).then((response) => {
+            this.detailsoal = response.data
+            console.log(this.detailsoal)
         })
     },
     methods: {
-        ke(mid) {
+        ke() {
             window.location.href = window.location.origin + "/daftararsipsoal/" + this.prodi;
         },
         lihat(dasid) {
@@ -127,11 +143,18 @@ export default {
                 this.arsipsoal = response.data
             })
         },
-        jawab(asid){
-            this.$router.push({
-                path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + this.dasid + '/' + asid
-            })
-        }
+        checkForm: function () {
+            if (this.fields.jawaban != '') {
+                axios.post('/api/tambahjawaban', this.fields).then((response) => {
+                    console.log(response.data)
+                    // this.$router.push({
+                    //     // path: '/daftararsipsoal/d4-statistika/edit/' + this.mid + '/' + this.dasid,
+                    // })
+                })
+            } else {
+                this.$swal('Jawaban tidak boleh kosong')
+            }
+        },
     }
 }
 </script>

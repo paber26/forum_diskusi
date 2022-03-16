@@ -31,6 +31,9 @@ Route::get('getmateri/{imid}', [Materi::class, 'getmateri']);
 
 Route::get('getdaftararsipsoal/{mid}', [ArsipSoal::class, 'getdaftararsipsoal']);
 Route::get('getarsipsoal/{dasid}', [ArsipSoal::class, 'getarsipsoal']);
+Route::get('getdetailsoal/{asid}', [ArsipSoal::class, 'getdetailsoal']);
+
+Route::post('tambahjawaban', [ArsipSoal::class, 'tambahjawaban']);
 
 Route::get('getdasid/{mid}', [ArsipSoal::class, 'getdasid']);
 Route::get('getnamaarsipsoal/{dasid}', [ArsipSoal::class, 'getnamaarsipsoal']);
