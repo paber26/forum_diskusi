@@ -2105,7 +2105,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3059,7 +3058,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    ke: function ke(mid) {
+    ke: function ke() {
       window.location.href = window.location.origin + "/daftarmateri/" + this.prodi;
     },
     lihat: function lihat(imid) {
@@ -3068,7 +3067,7 @@ __webpack_require__.r(__webpack_exports__);
       this.topik = 'Loading . . .';
       this.isi = 'Loading . . .';
       this.$router.push({
-        path: '/materi/' + this.mid + '/' + imid
+        path: '/materi/' + this.prodi + '/' + this.mid + '/' + imid
       })["catch"](function () {});
       axios.get('/api/getmateri/' + imid).then(function (response) {
         console.log(response.data);
@@ -39668,8 +39667,6 @@ var render = function () {
   return _c("div", { staticClass: "bg-blue-300 hidden sm:block w-56" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "w-full border-solid border-2 border-gray-300" }),
-    _vm._v(" "),
     _c(
       "div",
       { staticClass: "flex flex-col mt-3" },
@@ -39869,9 +39866,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass: "p-1 flex flex-col justify-center items-center h-46 w-40",
-      },
+      { staticClass: "p-1 flex flex-col justify-center items-center h-46" },
       [
         _c("img", {
           staticClass: "w-20",

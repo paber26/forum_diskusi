@@ -1,11 +1,10 @@
 <template>
 <div class="bg-blue-300 hidden sm:block w-56">
-    <div class="p-1 flex flex-col justify-center items-center h-46 w-40">
+    <div class="p-1 flex flex-col justify-center items-center h-46">
         <img src="/img/polstat-stis.png" alt="Logo Polstat STIS" class="w-20">
         <div class="font-bold text-2xl">SIRADIG</div>
         <div class="font-bold text-lg -mt-2">Polstat STIS</div>
     </div>
-    <div class="w-full border-solid border-2 border-gray-300"></div>
     <div class="flex flex-col mt-3">
         <router-link to="/" class="p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold">Beranda</router-link>
         <div class="m-1">

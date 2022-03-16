@@ -130,14 +130,14 @@ export default {
         })
     },
     methods: {
-        ke(mid) {
+        ke() {
             window.location.href = window.location.origin + "/daftarmateri/" + this.prodi;
         },
         lihat(imid) {
             this.topik = 'Loading . . .'
             this.isi = 'Loading . . .'
             this.$router.push({
-                path: '/materi/' + this.mid + '/' + imid,
+                path: '/materi/' + this.prodi + '/' + this.mid + '/' + imid,
             }).catch(() => {});
             axios.get('/api/getmateri/' + imid).then((response) => {
                 console.log(response.data)
