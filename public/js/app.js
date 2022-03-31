@@ -2124,8 +2124,9 @@ __webpack_require__.r(__webpack_exports__);
               showConfirmButton: false,
               timerProgressBar: true,
               timer: 4000
-            }); // window.location.href = response.data
+            });
 
+            window.location.href = response.data;
           }
         });
       } else {
@@ -2148,6 +2149,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -2222,7 +2224,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (response.data == 'Sudah terdaftar') {
           _this.$swal('Email sudah terdaftar');
-        } else {
+        } else if (response.data == 'Berhasil') {
           _this.$swal('Akun berhasil didaftarkan');
 
           _this.$router.push('/login');

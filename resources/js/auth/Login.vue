@@ -56,7 +56,7 @@ export default {
                             timerProgressBar: true,
                             timer: 4000
                         })
-                        // window.location.href = response.data
+                        window.location.href = response.data
                     }
                 })
             }else{

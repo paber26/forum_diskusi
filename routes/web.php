@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Authen;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,9 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth');
 })->name('login');
+
+Route::post('/register', [Authen::class, 'register']);
+Route::post('/login', [Authen::class, 'login']);
 
 Route::get('/materi/{any}', function () {
     return view('materi');

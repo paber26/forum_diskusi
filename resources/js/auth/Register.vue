@@ -2,6 +2,7 @@
 <div class="w-full bg-white rounded-xl p-2.5">
     <div class="border-2 border-gray-300 p-4 rounded-xl">
         <form @submit.prevent="register()" class="">
+            <!-- {{ csrf_token() }} -->
             <label class="text-birumateri font-semibold text-base">Nama</label>
             <input v-model="user.nama" type="text" class="w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
 
@@ -64,13 +65,13 @@ export default {
                 return
             }
 
-            axios.post('/register', this.user).then(response=>{
+            axios.post('/register', this.user).then(response => {
                 console.log(response.data)
-                if(response.data == 'Sudah terdaftar'){
+                if (response.data == 'Sudah terdaftar') {
                     this.$swal('Email sudah terdaftar')
-                }else{
+                } else if (response.data == 'Berhasil') {
                     this.$swal('Akun berhasil didaftarkan')
-                    this.$router.push('/login') 
+                    this.$router.push('/login')
                 }
             })
         },
