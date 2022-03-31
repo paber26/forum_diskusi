@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/register', function () {
+    return view('auth');
+})->name('register');
+
+Route::get('/login', function () {
+    return view('auth');
+})->name('login');
+
 Route::get('/materi/{any}', function () {
     return view('materi');
 })->where('any', '.*');

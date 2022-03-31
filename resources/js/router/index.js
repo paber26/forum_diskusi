@@ -4,6 +4,9 @@ window.Vue = require('vue').default;
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
+const Register = require('../auth/Register.vue').default;
+const Login = require('../auth/Login.vue').default;
+
 const Beranda = require('../pages/Beranda.vue').default;
 const Forum = require('../pages/Forum.vue').default;
 
@@ -24,6 +27,14 @@ const ArsipSoalJawab = require('../pages/arsipSoal/Jawab.vue').default;
 
 
 const routes = [
+    {
+        path: '/register',
+        component: Register
+    },
+    {
+        path: '/login',
+        component: Login
+    },
     {
         path: '/',
         component: Beranda

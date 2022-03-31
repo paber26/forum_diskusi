@@ -12,14 +12,12 @@
 
 <body>
     <div id="app">
-        <div class="flex flex-row min-h-screen min-w-min">
-            <sidebar-component></sidebar-component>
-            <div class="flex flex-col w-full">
-                <header-component></header-component>
-                <div class="flex-1">
-                    <router-view></router-view>
+        <div class="min-h-screen bg-gray-300 flex justify-center items-center py-8">
+            <div class="flex flex-col items-center w-4/5 sm:w-1/2 lg:w-1/4">
+                <div class="flex justify-center mb-2">
+                    <img src="/img/polstat-stis.png" alt="Logo Polstat STIS" class="w-28">
                 </div>
-                <footer-component></footer-component>
+                <router-view></router-view>
             </div>
         </div>
     </div>
