@@ -35,19 +35,31 @@
 
 <script>
 export default {
+    props: ['user'],
     data() {
         return {
             daftararsipsoal: '',
         }
     },
     mounted() {
-        axios.get('/api/getdaftarmatkul/d4ks').then((response) => {
+        console.log(this.user)
+        axios.get('/api/getdaftarmatkul/d4ks', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.daftararsipsoal = response.data
         })
     },
     methods: {
         lihatmateri(mid) {
-            axios.get('/api/getimid/' + mid).then((response) => {
+            axios.get('/api/getimid/' + mid, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
                 let imid = response.data
                 window.location.href = window.location.origin + "/materi/d4ks/" + mid + '/' + imid;
             })

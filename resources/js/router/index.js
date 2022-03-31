@@ -28,12 +28,12 @@ const ArsipSoalJawab = require('../pages/arsipSoal/Jawab.vue').default;
 
 const routes = [
     {
-        path: '/register',
-        component: Register
-    },
-    {
         path: '/login',
         component: Login
+    },
+    {
+        path: '/register',
+        component: Register
     },
     {
         path: '/',
@@ -43,6 +43,10 @@ const routes = [
         path: '/forum',
         component: Forum
     },
+    // {
+    //     path: '/forum/tambah',
+    //     component: ForumTambah
+    // },
     
     {
         path: '/daftarmateri/d3',

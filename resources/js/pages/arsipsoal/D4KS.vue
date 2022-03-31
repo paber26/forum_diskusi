@@ -35,6 +35,7 @@
 
 <script>
 export default {
+    props: ['user'],
     data() {
         return {
             daftararsipsoal: [],
@@ -42,13 +43,23 @@ export default {
         }
     },
     mounted() {
-        axios.get('/api/getdaftarmatkul/d4ks').then((response) => {
+        axios.get('/api/getdaftarmatkul/d4ks', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.daftararsipsoal = response.data
         })
     },
     methods: {
         lihatarsipsoal(mid) {
-            axios.get('/api/getdasid/' + mid).then((response) => {
+            axios.get('/api/getdasid/' + mid, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
                 let dasid = response.data
                 window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
             })

@@ -66,6 +66,44 @@
                         <div class="font-bold">Nomor {{ detailsoal.nomor }}</div>
                         <span v-html="detailsoal.pertanyaan"></span>
                     </div>
+                    <hr class="my-2">
+                    <div v-if="detailjawaban==0">
+                        <span class="font-semibold italic">Belum ada jawaban</span>
+                    </div>
+                    <div v-else>
+                        <span class="font-semibold">{{ detailjawaban.length }} jawaban</span>
+                        <div class="mt-2">
+                            <div v-for="jwb in detailjawaban" :key="jwb.id" class="mb-4">
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+
+                                    <div class="ml-2">
+                                        <div class="font-semibold">{{ jwb.username }}</div>
+                                        <div class="text-xs italic">Dijawab pada {{ jwb.date }}</div>
+                                    </div>
+                                </div>
+                                <div class="flex m-1">
+                                    <div class="flex flex-col items-center">
+                                        <button @click.prevent="dukungan(jwb.jasid, 'naik')" class="flex items-center justify-center rounded-sm h-7 w-7" :class="(jwb.pilihan == 'naik') ? 'bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700':'hover:bg-gray-100 text-gray-700 border border-gray-200'">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                                            </svg>
+                                        </button>
+                                        <span>{{ jwb.dukungan }}</span>
+                                        <button @click.prevent="dukungan(jwb.jasid, 'turun')" class="flex items-center justify-center rounded-sm h-7 w-7" :class="(jwb.pilihan == 'turun') ? 'bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700':'hover:bg-gray-100 text-gray-700 border border-gray-200'">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <span class="ml-2" v-html="jwb.jawaban"></span>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bg-birumateri w-full h-0.5 rounded-3xl my-2.5"></div>
@@ -90,7 +128,7 @@
 
 <script>
 export default {
-    props: ['prodi', 'mid', 'dasid', 'asid'],
+    props: ['user', 'prodi', 'mid', 'dasid', 'asid'],
     data() {
         return {
             namaprodi: '',
@@ -99,14 +137,15 @@ export default {
             namasoal: '',
             namamatkul: '',
             detailsoal: '',
-            fields:{
+            detailjawaban: '',
+            fields: {
                 asid: this.asid,
                 jawaban: ''
             }
         }
     },
     mounted() {
-        console.log(this.asid)
+        console.log(this.user)
         if (this.prodi == 'd3') {
             this.namaprodi = 'D-3 Statistika'
         } else if (this.prodi == 'd4st') {
@@ -114,42 +153,99 @@ export default {
         } else if (this.prodi == 'd4ks') {
             this.namaprodi = 'D-4 Komputasi Statistik'
         }
-        axios.get('/api/getnamamatkul/' + this.mid).then((response) => {
+        axios.get('/api/getnamamatkul/' + this.mid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.namamatkul = response.data
         })
-        axios.get('/api/getdaftararsipsoal/' + this.mid).then((response) => {
+        axios.get('/api/getdaftararsipsoal/' + this.mid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.daftararsipsoal = response.data
         })
-        axios.get('/api/getnamaarsipsoal/' + this.dasid).then((response) => {
+        axios.get('/api/getnamaarsipsoal/' + this.dasid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.namasoal = response.data
         })
-        axios.get('/api/getdetailsoal/' + this.asid).then((response) => {
-            this.detailsoal = response.data
-            console.log(this.detailsoal)
-        })
+        this.getdetailsoal()
     },
     methods: {
         ke() {
             window.location.href = window.location.origin + "/daftararsipsoal/" + this.prodi;
         },
+        getdetailsoal() {
+            axios.get('/api/getdetailsoal/' + this.asid, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
+                console.log(response.data)
+                this.detailsoal = response.data[0]
+                this.detailjawaban = response.data[1]
+                console.log(this.detailjawaban)
+            })
+        },
         lihat(dasid) {
             this.$router.push({
                 path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + dasid,
             }).catch(() => {});
-            axios.get('/api/getnamaarsipsoal/' + dasid).then((response) => {
+            axios.get('/api/getnamaarsipsoal/' + dasid, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
                 this.namasoal = response.data
             })
-            axios.get('/api/getarsipsoal/' + dasid).then((response) => {
+            axios.get('/api/getarsipsoal/' + dasid, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
                 this.arsipsoal = response.data
+            })
+        },
+        dukungan(jasid, pilihan) {
+            let detail = {
+                'jasid': jasid,
+                'pilihan': pilihan
+            }
+            console.log(detail)
+            axios.post('/api/dukungan', detail, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
+                console.log(response.data)
+                this.getdetailsoal()
             })
         },
         checkForm: function () {
             if (this.fields.jawaban != '') {
-                axios.post('/api/tambahjawaban', this.fields).then((response) => {
-                    console.log(response.data)
-                    // this.$router.push({
-                    //     // path: '/daftararsipsoal/d4-statistika/edit/' + this.mid + '/' + this.dasid,
-                    // })
+                axios.post('/api/tambahjawaban', this.fields, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + this.user.api_token
+                    },
+                }).then((response) => {
+                    if (response.data == 'Berhasil') {
+                        this.fields.jawaban = ''
+                        this.getdetailsoal()
+                        this.$swal('Berhasil menambahkan jawaban')
+                    }
                 })
             } else {
                 this.$swal('Jawaban tidak boleh kosong')

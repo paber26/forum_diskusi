@@ -61,13 +61,20 @@
                     </div>
                 </div>
                 <div class="bg-birumateri w-full h-0.5 rounded-3xl"></div>
-                <div class="bg-white mt-2 p-3 rounded-2xl" v-for="soal in arsipsoal" :key="soal.id">
-                    <div>
-                        <div class="font-bold">Nomor {{ soal.nomor }}</div>
-                        <span v-html="soal.pertanyaan"></span>
+                <div v-if="arsipsoal!=0">
+                    <div class="bg-white mt-2 p-3 rounded-2xl" v-for="soal in arsipsoal" :key="soal.id">
+                        <div>
+                            <div class="font-bold">Nomor {{ soal.nomor }}</div>
+                            <span v-html="soal.pertanyaan"></span>
+                        </div>
+                        <div class="bg-birumateri w-full h-0.5 rounded-3xl my-1.5"></div>
+                        <div v-if="soal.jlhjawaban==0" class="font-semibold italic">Belum ada jawaban</div>
+                        <div v-else class="font-semibold italic">{{ soal.jlhjawaban }} jawaban</div>
+                        <button @click.prevent="jawab(soal.asid)" class="font-semibold text-blue-500 italic">Jawab</button>
                     </div>
-                    <div class="bg-birumateri w-full h-0.5 rounded-3xl"></div>
-                    <button @click.prevent="jawab(soal.asid)" class="font-semibold">Jawab</button>
+                </div>
+                <div v-else>
+                    <span class="font-semibold italic">Arsip soal masih kosong</span>
                 </div>
             </div>
         </div>
@@ -80,12 +87,12 @@
 
 <script>
 export default {
-    props: ['prodi', 'mid', 'dasid'],
+    props: ['user', 'prodi', 'mid', 'dasid'],
     data() {
         return {
             namaprodi: '',
             daftararsipsoal: '',
-            arsipsoal: [],
+            arsipsoal: '',
             namasoal: '',
             namamatkul: ''
         }
@@ -98,16 +105,37 @@ export default {
         } else if (this.prodi == 'd4ks') {
             this.namaprodi = 'D-4 Komputasi Statistik'
         }
-        axios.get('/api/getnamamatkul/' + this.mid).then((response) => {
+        axios.get('/api/getnamamatkul/' + this.mid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.namamatkul = response.data
         })
-        axios.get('/api/getdaftararsipsoal/' + this.mid).then((response) => {
+        axios.get('/api/getdaftararsipsoal/' + this.mid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.daftararsipsoal = response.data
         })
-        axios.get('/api/getnamaarsipsoal/' + this.dasid).then((response) => {
+        axios.get('/api/getnamaarsipsoal/' + this.dasid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.namasoal = response.data
         })
-        axios.get('/api/getarsipsoal/' + this.dasid).then((response) => {
+        axios.get('/api/getarsipsoal/' + this.dasid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
+            console.log(response.data)
             this.arsipsoal = response.data
             console.log(this.arsipsoal)
         })
@@ -120,14 +148,24 @@ export default {
             this.$router.push({
                 path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + dasid,
             }).catch(() => {});
-            axios.get('/api/getnamaarsipsoal/' + dasid).then((response) => {
+            axios.get('/api/getnamaarsipsoal/' + dasid, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
                 this.namasoal = response.data
             })
-            axios.get('/api/getarsipsoal/' + dasid).then((response) => {
+            axios.get('/api/getarsipsoal/' + dasid, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
                 this.arsipsoal = response.data
             })
         },
-        jawab(asid){
+        jawab(asid) {
             this.$router.push({
                 path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + this.dasid + '/' + asid
             })

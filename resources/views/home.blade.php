@@ -15,9 +15,9 @@
         <div class="flex flex-row min-h-screen min-w-min">
             <sidebar-component></sidebar-component>
             <div class="flex flex-col w-full">
-                <header-component></header-component>
-                <div class="flex-1">
-                    <router-view></router-view>
+                <header-component :user="{{ Auth::user() }}"></header-component>
+                <div class=" flex-1">
+                    <router-view :user="{{ Auth::user() }}"></router-view>
                 </div>
                 <footer-component></footer-component>
             </div>

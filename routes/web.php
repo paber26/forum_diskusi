@@ -25,14 +25,19 @@ Route::get('/login', function () {
 Route::post('/register', [Authen::class, 'register']);
 Route::post('/login', [Authen::class, 'login']);
 
-Route::get('/materi/{any}', function () {
-    return view('materi');
-})->where('any', '.*');
+Route::group(
+    ['middleware' => 'auth'],
+    function () {
+        Route::get('/materi/{any}', function () {
+            return view('materi');
+        })->where('any', '.*');
 
-Route::get('/arsipsoal/{any}', function () {
-    return view('arsipsoal');
-})->where('any', '.*');
+        Route::get('/arsipsoal/{any}', function () {
+            return view('arsipsoal');
+        })->where('any', '.*');
 
-Route::get('/{any}', function () {
-    return view('home');
-})->where('any', '.*');
+        Route::get('/{any}', function () {
+            return view('home');
+        })->where('any', '.*');
+    }
+);

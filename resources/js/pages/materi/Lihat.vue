@@ -49,7 +49,7 @@
                             <div>Home</div>
                         </a>
                         <button @click.prevent="ke()" class="hover:bg-yellow-200 rounded-md p-1">
-                        <span>/</span>
+                            <span>/</span>
                             Materi {{ namaprodi }}
                         </button>
                     </div>
@@ -85,7 +85,7 @@
 
 <script>
 export default {
-    props: ['prodi', 'mid', 'imid'],
+    props: ['user', 'prodi', 'mid', 'imid'],
     data() {
         return {
             namaprodi: '',
@@ -101,29 +101,40 @@ export default {
         }
     },
     mounted() {
-        if(this.prodi=='d3'){
+        if (this.prodi == 'd3') {
             this.namaprodi = 'D-3 Statistika'
-        }else if(this.prodi == 'd4st'){
+        } else if (this.prodi == 'd4st') {
             this.namaprodi = 'D-4 Statsistika'
-        }else if(this.prodi == 'd4ks'){
+        } else if (this.prodi == 'd4ks') {
             this.namaprodi = 'D-4 Komputasi Statistik'
         }
-        axios.get('/api/getnamamatkul/' + this.mid).then((response) => {
+        axios.get('/api/getnamamatkul/' + this.mid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.namamatkul = response.data
         })
-        axios.get('/api/getdaftarmateri/' + this.mid).then((response) => {
+        axios.get('/api/getdaftarmateri/' + this.mid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.daftarmateri = response.data[0]
             this.jlhmateri = response.data[1]
-            console.log(this.jlhmateri)
-            console.log(this.daftarmateri[0])
 
         })
-        axios.get('/api/getmateri/' + this.imid).then((response) => {
-            console.log(response.data)
+        axios.get('/api/getmateri/' + this.imid, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
             this.topik = response.data.topik
             this.isi = response.data.isi
             this.current = response.data.urutan
-            console.log(this.current)
 
             this.sebelum = this.daftarmateri[this.current - 2]
             this.setelah = this.daftarmateri[this.current]
@@ -139,8 +150,12 @@ export default {
             this.$router.push({
                 path: '/materi/' + this.prodi + '/' + this.mid + '/' + imid,
             }).catch(() => {});
-            axios.get('/api/getmateri/' + imid).then((response) => {
-                console.log(response.data)
+            axios.get('/api/getmateri/' + imid, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
                 this.topik = response.data.topik
                 this.isi = response.data.isi
                 this.current = response.data.urutan

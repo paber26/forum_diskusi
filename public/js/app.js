@@ -2240,6 +2240,57 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user'],
+  data: function data() {
+    return {
+      show: false
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarComponent.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarComponent.vue?vue&type=script&lang=js& ***!
@@ -2443,8 +2494,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['prodi', 'mid', 'dasid', 'asid'],
+  props: ['user', 'prodi', 'mid', 'dasid', 'asid'],
   data: function data() {
     return {
       namaprodi: '',
@@ -2453,6 +2542,7 @@ __webpack_require__.r(__webpack_exports__);
       namasoal: '',
       namamatkul: '',
       detailsoal: '',
+      detailjawaban: '',
       fields: {
         asid: this.asid,
         jawaban: ''
@@ -2462,7 +2552,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    console.log(this.asid);
+    console.log(this.user);
 
     if (this.prodi == 'd3') {
       this.namaprodi = 'D-3 Statistika';
@@ -2472,43 +2562,110 @@ __webpack_require__.r(__webpack_exports__);
       this.namaprodi = 'D-4 Komputasi Statistik';
     }
 
-    axios.get('/api/getnamamatkul/' + this.mid).then(function (response) {
+    axios.get('/api/getnamamatkul/' + this.mid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.namamatkul = response.data;
     });
-    axios.get('/api/getdaftararsipsoal/' + this.mid).then(function (response) {
+    axios.get('/api/getdaftararsipsoal/' + this.mid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.daftararsipsoal = response.data;
     });
-    axios.get('/api/getnamaarsipsoal/' + this.dasid).then(function (response) {
+    axios.get('/api/getnamaarsipsoal/' + this.dasid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.namasoal = response.data;
     });
-    axios.get('/api/getdetailsoal/' + this.asid).then(function (response) {
-      _this.detailsoal = response.data;
-      console.log(_this.detailsoal);
-    });
+    this.getdetailsoal();
   },
   methods: {
     ke: function ke() {
       window.location.href = window.location.origin + "/daftararsipsoal/" + this.prodi;
     },
-    lihat: function lihat(dasid) {
+    getdetailsoal: function getdetailsoal() {
       var _this2 = this;
+
+      axios.get('/api/getdetailsoal/' + this.asid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data);
+        _this2.detailsoal = response.data[0];
+        _this2.detailjawaban = response.data[1];
+        console.log(_this2.detailjawaban);
+      });
+    },
+    lihat: function lihat(dasid) {
+      var _this3 = this;
 
       this.$router.push({
         path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + dasid
       })["catch"](function () {});
-      axios.get('/api/getnamaarsipsoal/' + dasid).then(function (response) {
-        _this2.namasoal = response.data;
+      axios.get('/api/getnamaarsipsoal/' + dasid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        _this3.namasoal = response.data;
       });
-      axios.get('/api/getarsipsoal/' + dasid).then(function (response) {
-        _this2.arsipsoal = response.data;
+      axios.get('/api/getarsipsoal/' + dasid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        _this3.arsipsoal = response.data;
+      });
+    },
+    dukungan: function dukungan(jasid, pilihan) {
+      var _this4 = this;
+
+      var detail = {
+        'jasid': jasid,
+        'pilihan': pilihan
+      };
+      console.log(detail);
+      axios.post('/api/dukungan', detail, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data);
+
+        _this4.getdetailsoal();
       });
     },
     checkForm: function checkForm() {
+      var _this5 = this;
+
       if (this.fields.jawaban != '') {
-        axios.post('/api/tambahjawaban', this.fields).then(function (response) {
-          console.log(response.data); // this.$router.push({
-          //     // path: '/daftararsipsoal/d4-statistika/edit/' + this.mid + '/' + this.dasid,
-          // })
+        axios.post('/api/tambahjawaban', this.fields, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.user.api_token
+          }
+        }).then(function (response) {
+          if (response.data == 'Berhasil') {
+            _this5.fields.jawaban = '';
+
+            _this5.getdetailsoal();
+
+            _this5.$swal('Berhasil menambahkan jawaban');
+          }
         });
       } else {
         this.$swal('Jawaban tidak boleh kosong');
@@ -2610,13 +2767,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['prodi', 'mid', 'dasid'],
+  props: ['user', 'prodi', 'mid', 'dasid'],
   data: function data() {
     return {
       namaprodi: '',
       daftararsipsoal: '',
-      arsipsoal: [],
+      arsipsoal: '',
       namasoal: '',
       namamatkul: ''
     };
@@ -2632,16 +2796,37 @@ __webpack_require__.r(__webpack_exports__);
       this.namaprodi = 'D-4 Komputasi Statistik';
     }
 
-    axios.get('/api/getnamamatkul/' + this.mid).then(function (response) {
+    axios.get('/api/getnamamatkul/' + this.mid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.namamatkul = response.data;
     });
-    axios.get('/api/getdaftararsipsoal/' + this.mid).then(function (response) {
+    axios.get('/api/getdaftararsipsoal/' + this.mid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.daftararsipsoal = response.data;
     });
-    axios.get('/api/getnamaarsipsoal/' + this.dasid).then(function (response) {
+    axios.get('/api/getnamaarsipsoal/' + this.dasid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.namasoal = response.data;
     });
-    axios.get('/api/getarsipsoal/' + this.dasid).then(function (response) {
+    axios.get('/api/getarsipsoal/' + this.dasid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
+      console.log(response.data);
       _this.arsipsoal = response.data;
       console.log(_this.arsipsoal);
     });
@@ -2656,10 +2841,20 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push({
         path: '/arsipsoal/' + this.prodi + '/' + this.mid + '/' + dasid
       })["catch"](function () {});
-      axios.get('/api/getnamaarsipsoal/' + dasid).then(function (response) {
+      axios.get('/api/getnamaarsipsoal/' + dasid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
         _this2.namasoal = response.data;
       });
-      axios.get('/api/getarsipsoal/' + dasid).then(function (response) {
+      axios.get('/api/getarsipsoal/' + dasid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
         _this2.arsipsoal = response.data;
       });
     },
@@ -2792,6 +2987,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user'],
   data: function data() {
     return {
       daftararsipsoal: [],
@@ -2801,13 +2997,23 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/api/getdaftarmatkul/d4ks').then(function (response) {
+    axios.get('/api/getdaftarmatkul/d4ks', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.daftararsipsoal = response.data;
     });
   },
   methods: {
     lihatarsipsoal: function lihatarsipsoal(mid) {
-      axios.get('/api/getdasid/' + mid).then(function (response) {
+      axios.get('/api/getdasid/' + mid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
         var dasid = response.data;
         window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
       });
@@ -3007,6 +3213,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user'],
   data: function data() {
     return {
       daftararsipsoal: ''
@@ -3015,13 +3222,24 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/api/getdaftarmatkul/d4ks').then(function (response) {
+    console.log(this.user);
+    axios.get('/api/getdaftarmatkul/d4ks', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.daftararsipsoal = response.data;
     });
   },
   methods: {
     lihatmateri: function lihatmateri(mid) {
-      axios.get('/api/getimid/' + mid).then(function (response) {
+      axios.get('/api/getimid/' + mid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
         var imid = response.data;
         window.location.href = window.location.origin + "/materi/d4ks/" + mid + '/' + imid;
       });
@@ -3199,7 +3417,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['prodi', 'mid', 'imid'],
+  props: ['user', 'prodi', 'mid', 'imid'],
   data: function data() {
     return {
       namaprodi: '',
@@ -3224,21 +3442,32 @@ __webpack_require__.r(__webpack_exports__);
       this.namaprodi = 'D-4 Komputasi Statistik';
     }
 
-    axios.get('/api/getnamamatkul/' + this.mid).then(function (response) {
+    axios.get('/api/getnamamatkul/' + this.mid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.namamatkul = response.data;
     });
-    axios.get('/api/getdaftarmateri/' + this.mid).then(function (response) {
+    axios.get('/api/getdaftarmateri/' + this.mid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.daftarmateri = response.data[0];
       _this.jlhmateri = response.data[1];
-      console.log(_this.jlhmateri);
-      console.log(_this.daftarmateri[0]);
     });
-    axios.get('/api/getmateri/' + this.imid).then(function (response) {
-      console.log(response.data);
+    axios.get('/api/getmateri/' + this.imid, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
       _this.topik = response.data.topik;
       _this.isi = response.data.isi;
       _this.current = response.data.urutan;
-      console.log(_this.current);
       _this.sebelum = _this.daftarmateri[_this.current - 2];
       _this.setelah = _this.daftarmateri[_this.current];
     });
@@ -3255,8 +3484,12 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push({
         path: '/materi/' + this.prodi + '/' + this.mid + '/' + imid
       })["catch"](function () {});
-      axios.get('/api/getmateri/' + imid).then(function (response) {
-        console.log(response.data);
+      axios.get('/api/getmateri/' + imid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
         _this2.topik = response.data.topik;
         _this2.isi = response.data.isi;
         _this2.current = response.data.urutan;
@@ -3384,18 +3617,22 @@ var ArsipSoalJawab = (__webpack_require__(/*! ../pages/arsipSoal/Jawab.vue */ ".
 
 
 var routes = [{
-  path: '/register',
-  component: Register
-}, {
   path: '/login',
   component: Login
+}, {
+  path: '/register',
+  component: Register
 }, {
   path: '/',
   component: Beranda
 }, {
   path: '/forum',
   component: Forum
-}, {
+}, // {
+//     path: '/forum/tambah',
+//     component: ForumTambah
+// },
+{
   path: '/daftarmateri/d3',
   component: MateriD3
 }, {
@@ -38891,15 +39128,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderComponent.vue?vue&type=template&id=153bfd55& */ "./resources/js/components/HeaderComponent.vue?vue&type=template&id=153bfd55&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeaderComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__.render,
   _HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
@@ -39411,6 +39650,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Register.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/Register.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Register_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HeaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -40283,11 +40538,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "bg-blue-200 p-2.5" }, [
-    _c("div", { staticClass: "flex-row-reverse hidden sm:flex" }, [
-      _c("div", { staticClass: "font-semibold ml-2" }, [
-        _vm._v("Bernaldo Napitupulu"),
-      ]),
-      _vm._v(" "),
+    _c("div", { staticClass: "sm:flex justify-end hidden" }, [
       _c(
         "svg",
         {
@@ -40297,6 +40548,7 @@ var render = function () {
             fill: "none",
             viewBox: "0 0 24 24",
             stroke: "currentColor",
+            "stroke-width": "2",
           },
         },
         [
@@ -40304,10 +40556,60 @@ var render = function () {
             attrs: {
               "stroke-linecap": "round",
               "stroke-linejoin": "round",
-              "stroke-width": "2",
-              d: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z",
+              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
             },
           }),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "font-semibold text-base ml-2 mr-3",
+          on: {
+            click: function ($event) {
+              _vm.show = !_vm.show
+            },
+          },
+        },
+        [_vm._v(_vm._s(_vm.user.nama))]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.show,
+              expression: "show",
+            },
+          ],
+          staticClass:
+            "flex flex-col mt-4 bg-white rounded-md ring-2 ring-black ring-opacity-5  absolute -0 w-44",
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass:
+                "block text-center font-medium pt-1 rounded-t-md hover:bg-yellow-200  hover:no-underline",
+              attrs: { to: "/profil" },
+            },
+            [_vm._v("Profil")]
+          ),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "block text-center font-medium pt-1 rounded-b-md hover:bg-yellow-200  hover:no-underline",
+            },
+            [_vm._v("Log Out")]
+          ),
         ]
       ),
     ]),
@@ -41085,6 +41387,165 @@ var render = function () {
                   domProps: { innerHTML: _vm._s(_vm.detailsoal.pertanyaan) },
                 }),
               ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "my-2" }),
+              _vm._v(" "),
+              _vm.detailjawaban == 0
+                ? _c("div", [
+                    _c("span", { staticClass: "font-semibold italic" }, [
+                      _vm._v("Belum ada jawaban"),
+                    ]),
+                  ])
+                : _c("div", [
+                    _c("span", { staticClass: "font-semibold" }, [
+                      _vm._v(_vm._s(_vm.detailjawaban.length) + " jawaban"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "mt-2" },
+                      _vm._l(_vm.detailjawaban, function (jwb) {
+                        return _c("div", { key: jwb.id, staticClass: "mb-4" }, [
+                          _c("div", { staticClass: "flex items-center" }, [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "h-8 w-8",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                                  },
+                                }),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "ml-2" }, [
+                              _c("div", { staticClass: "font-semibold" }, [
+                                _vm._v(_vm._s(jwb.username)),
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "text-xs italic" }, [
+                                _vm._v("Dijawab pada " + _vm._s(jwb.date)),
+                              ]),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "flex m-1" }, [
+                            _c(
+                              "div",
+                              { staticClass: "flex flex-col items-center" },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "flex items-center justify-center rounded-sm h-7 w-7",
+                                    class:
+                                      jwb.pilihan == "naik"
+                                        ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                                        : "hover:bg-gray-100 text-gray-700 border border-gray-200",
+                                    on: {
+                                      click: function ($event) {
+                                        $event.preventDefault()
+                                        return _vm.dukungan(jwb.jasid, "naik")
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "h-4 w-4",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          fill: "none",
+                                          viewBox: "0 0 24 24",
+                                          stroke: "currentColor",
+                                          "stroke-width": "2",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round",
+                                            d: "M5 15l7-7 7 7",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("span", [_vm._v(_vm._s(jwb.dukungan))]),
+                                _vm._v(" "),
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "flex items-center justify-center rounded-sm h-7 w-7",
+                                    class:
+                                      jwb.pilihan == "turun"
+                                        ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                                        : "hover:bg-gray-100 text-gray-700 border border-gray-200",
+                                    on: {
+                                      click: function ($event) {
+                                        $event.preventDefault()
+                                        return _vm.dukungan(jwb.jasid, "turun")
+                                      },
+                                    },
+                                  },
+                                  [
+                                    _c(
+                                      "svg",
+                                      {
+                                        staticClass: "h-4 w-4",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          fill: "none",
+                                          viewBox: "0 0 24 24",
+                                          stroke: "currentColor",
+                                          "stroke-width": "2",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round",
+                                            d: "M19 9l-7 7-7-7",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ]
+                                ),
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c("span", {
+                              staticClass: "ml-2",
+                              domProps: { innerHTML: _vm._s(jwb.jawaban) },
+                            }),
+                          ]),
+                          _vm._v(" "),
+                          _c("hr"),
+                        ])
+                      }),
+                      0
+                    ),
+                  ]),
             ]),
             _vm._v(" "),
             _c("div", {
@@ -41439,43 +41900,64 @@ var render = function () {
               staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
             }),
             _vm._v(" "),
-            _vm._l(_vm.arsipsoal, function (soal) {
-              return _c(
-                "div",
-                { key: soal.id, staticClass: "bg-white mt-2 p-3 rounded-2xl" },
-                [
-                  _c("div", [
-                    _c("div", { staticClass: "font-bold" }, [
-                      _vm._v("Nomor " + _vm._s(soal.nomor)),
-                    ]),
-                    _vm._v(" "),
-                    _c("span", {
-                      domProps: { innerHTML: _vm._s(soal.pertanyaan) },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "bg-birumateri w-full h-0.5 rounded-3xl",
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "font-semibold",
-                      on: {
-                        click: function ($event) {
-                          $event.preventDefault()
-                          return _vm.jawab(soal.asid)
-                        },
+            _vm.arsipsoal != 0
+              ? _c(
+                  "div",
+                  _vm._l(_vm.arsipsoal, function (soal) {
+                    return _c(
+                      "div",
+                      {
+                        key: soal.id,
+                        staticClass: "bg-white mt-2 p-3 rounded-2xl",
                       },
-                    },
-                    [_vm._v("Jawab")]
-                  ),
-                ]
-              )
-            }),
-          ],
-          2
+                      [
+                        _c("div", [
+                          _c("div", { staticClass: "font-bold" }, [
+                            _vm._v("Nomor " + _vm._s(soal.nomor)),
+                          ]),
+                          _vm._v(" "),
+                          _c("span", {
+                            domProps: { innerHTML: _vm._s(soal.pertanyaan) },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", {
+                          staticClass:
+                            "bg-birumateri w-full h-0.5 rounded-3xl my-1.5",
+                        }),
+                        _vm._v(" "),
+                        soal.jlhjawaban == 0
+                          ? _c("div", { staticClass: "font-semibold italic" }, [
+                              _vm._v("Belum ada jawaban"),
+                            ])
+                          : _c("div", { staticClass: "font-semibold italic" }, [
+                              _vm._v(_vm._s(soal.jlhjawaban) + " jawaban"),
+                            ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "font-semibold text-blue-500 italic",
+                            on: {
+                              click: function ($event) {
+                                $event.preventDefault()
+                                return _vm.jawab(soal.asid)
+                              },
+                            },
+                          },
+                          [_vm._v("Jawab")]
+                        ),
+                      ]
+                    )
+                  }),
+                  0
+                )
+              : _c("div", [
+                  _c("span", { staticClass: "font-semibold italic" }, [
+                    _vm._v("Arsip soal masih kosong"),
+                  ]),
+                ]),
+          ]
         ),
       ]),
     ]),
