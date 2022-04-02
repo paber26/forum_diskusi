@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArsipSoal;
+use App\Http\Controllers\Forum;
 use App\Http\Controllers\Materi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,5 +42,9 @@ Route::group(
 
         Route::get('getdasid/{mid}', [ArsipSoal::class, 'getdasid']);
         Route::get('getnamaarsipsoal/{dasid}', [ArsipSoal::class, 'getnamaarsipsoal']);
+
+        Route::post('tambahpertanyaan', [Forum::class, 'tambahpertanyaan']);
+        Route::get('getdaftarforum/{peminatan}', [Forum::class, 'getdaftarforum']);
+        Route::post('dukunganforum', [Forum::class, 'dukunganforum']);
     }
 );

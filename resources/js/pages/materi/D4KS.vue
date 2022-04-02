@@ -61,7 +61,11 @@ export default {
                 },
             }).then((response) => {
                 let imid = response.data
-                window.location.href = window.location.origin + "/materi/d4ks/" + mid + '/' + imid;
+                if (imid == 0) {
+                    this.$swal('Belum ada isinya')
+                } else {
+                    window.location.href = window.location.origin + "/materi/d4ks/" + mid + '/' + imid;
+                }
             })
         }
     }

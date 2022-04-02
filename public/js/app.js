@@ -3003,19 +3003,28 @@ __webpack_require__.r(__webpack_exports__);
         'Authorization': 'Bearer ' + this.user.api_token
       }
     }).then(function (response) {
+      console.log(response.data);
       _this.daftararsipsoal = response.data;
     });
   },
   methods: {
     lihatarsipsoal: function lihatarsipsoal(mid) {
+      var _this2 = this;
+
       axios.get('/api/getdasid/' + mid, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
+        console.log(response.data);
         var dasid = response.data;
-        window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
+
+        if (dasid == 0) {
+          _this2.$swal('Belum ada isinya');
+        } else {
+          window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
+        }
       });
     }
   }
@@ -3088,6 +3097,273 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/getdasid/' + mid).then(function (response) {
         var dasid = response.data;
         window.location.href = window.location.origin + "/arsipsoal/d4st/" + mid + '/' + dasid;
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Index.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Index.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user'],
+  data: function data() {
+    return {
+      daftarforum: '',
+      peminatan: 'all',
+      show: false
+    };
+  },
+  watch: {
+    peminatan: function peminatan() {
+      this.getdaftarforum();
+    }
+  },
+  mounted: function mounted() {
+    this.getdaftarforum();
+    console.log(this.peminatan);
+  },
+  methods: {
+    getdaftarforum: function getdaftarforum(peminatan) {
+      var _this = this;
+
+      axios.get('/api/getdaftarforum/' + this.peminatan, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data);
+        _this.daftarforum = response.data;
+      });
+    },
+    saya: function saya() {
+      console.log('Say');
+    },
+    dukungan: function dukungan(fid, pilihan) {
+      var _this2 = this;
+
+      var detail = {
+        'fid': fid,
+        'pilihan': pilihan
+      };
+      console.log(detail);
+      axios.post('/api/dukunganforum', detail, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data);
+
+        _this2.getdaftarforum();
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Tambah.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Tambah.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user'],
+  data: function data() {
+    return {
+      fields: {
+        pertanyaan: '',
+        se: false,
+        sk: false,
+        sd: false,
+        si: false,
+        d3: false
+      }
+    };
+  },
+  methods: {
+    checkForm: function checkForm() {
+      var _this = this;
+
+      if (this.fields.pertanyaan == '') {
+        this.$swal('Pertanyaan tidak boleh kosong');
+        return;
+      }
+
+      if (!(this.fields.se || this.fields.sk || this.fields.sd || this.fields.si || this.fields.d3)) {
+        this.$swal('Pilih peminatan');
+        return;
+      }
+
+      axios.post('/api/tambahpertanyaan', this.fields, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        if (response.data == 'Berhasil') {
+          _this.$router.push({
+            path: '/forum'
+          });
+
+          _this.$swal('Berhasil menambahkan pertanyaan');
+        }
       });
     }
   }
@@ -3234,6 +3510,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     lihatmateri: function lihatmateri(mid) {
+      var _this2 = this;
+
       axios.get('/api/getimid/' + mid, {
         headers: {
           'Content-Type': 'application/json',
@@ -3241,7 +3519,12 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         var imid = response.data;
-        window.location.href = window.location.origin + "/materi/d4ks/" + mid + '/' + imid;
+
+        if (imid == 0) {
+          _this2.$swal('Belum ada isinya');
+        } else {
+          window.location.href = window.location.origin + "/materi/d4ks/" + mid + '/' + imid;
+        }
       });
     }
   }
@@ -3595,7 +3878,9 @@ var Login = (__webpack_require__(/*! ../auth/Login.vue */ "./resources/js/auth/L
 
 var Beranda = (__webpack_require__(/*! ../pages/Beranda.vue */ "./resources/js/pages/Beranda.vue")["default"]);
 
-var Forum = (__webpack_require__(/*! ../pages/Forum.vue */ "./resources/js/pages/Forum.vue")["default"]);
+var Forum = (__webpack_require__(/*! ../pages/forum/Index.vue */ "./resources/js/pages/forum/Index.vue")["default"]);
+
+var ForumTambah = (__webpack_require__(/*! ../pages/forum/Tambah.vue */ "./resources/js/pages/forum/Tambah.vue")["default"]);
 
 var MateriD3 = (__webpack_require__(/*! ../pages/materi/D3.vue */ "./resources/js/pages/materi/D3.vue")["default"]);
 
@@ -3628,11 +3913,10 @@ var routes = [{
 }, {
   path: '/forum',
   component: Forum
-}, // {
-//     path: '/forum/tambah',
-//     component: ForumTambah
-// },
-{
+}, {
+  path: '/forum/tambah',
+  component: ForumTambah
+}, {
   path: '/daftarmateri/d3',
   component: MateriD3
 }, {
@@ -39233,43 +39517,6 @@ component.options.__file = "resources/js/pages/Beranda.vue"
 
 /***/ }),
 
-/***/ "./resources/js/pages/Forum.vue":
-/*!**************************************!*\
-  !*** ./resources/js/pages/Forum.vue ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Forum_vue_vue_type_template_id_1c20dce8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Forum.vue?vue&type=template&id=1c20dce8& */ "./resources/js/pages/Forum.vue?vue&type=template&id=1c20dce8&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-var script = {}
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
-  _Forum_vue_vue_type_template_id_1c20dce8___WEBPACK_IMPORTED_MODULE_0__.render,
-  _Forum_vue_vue_type_template_id_1c20dce8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/pages/Forum.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/pages/arsipSoal/Jawab.vue":
 /*!************************************************!*\
   !*** ./resources/js/pages/arsipSoal/Jawab.vue ***!
@@ -39461,6 +39708,84 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/pages/arsipsoal/D4ST.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/forum/Index.vue":
+/*!********************************************!*\
+  !*** ./resources/js/pages/forum/Index.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Index_vue_vue_type_template_id_165d7d6b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Index.vue?vue&type=template&id=165d7d6b& */ "./resources/js/pages/forum/Index.vue?vue&type=template&id=165d7d6b&");
+/* harmony import */ var _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Index.vue?vue&type=script&lang=js& */ "./resources/js/pages/forum/Index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Index_vue_vue_type_template_id_165d7d6b___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Index_vue_vue_type_template_id_165d7d6b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/forum/Index.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/forum/Tambah.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/pages/forum/Tambah.vue ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Tambah_vue_vue_type_template_id_dded18c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tambah.vue?vue&type=template&id=dded18c0& */ "./resources/js/pages/forum/Tambah.vue?vue&type=template&id=dded18c0&");
+/* harmony import */ var _Tambah_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tambah.vue?vue&type=script&lang=js& */ "./resources/js/pages/forum/Tambah.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Tambah_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Tambah_vue_vue_type_template_id_dded18c0___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Tambah_vue_vue_type_template_id_dded18c0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/forum/Tambah.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -39781,6 +40106,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/forum/Index.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/pages/forum/Index.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Index.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/forum/Tambah.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/pages/forum/Tambah.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Tambah_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Tambah.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Tambah.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Tambah_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/materi/D3.vue?vue&type=script&lang=js&":
 /*!*******************************************************************!*\
   !*** ./resources/js/pages/materi/D3.vue?vue&type=script&lang=js& ***!
@@ -39947,23 +40304,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/pages/Forum.vue?vue&type=template&id=1c20dce8&":
-/*!*********************************************************************!*\
-  !*** ./resources/js/pages/Forum.vue?vue&type=template&id=1c20dce8& ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Forum_vue_vue_type_template_id_1c20dce8___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Forum_vue_vue_type_template_id_1c20dce8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Forum_vue_vue_type_template_id_1c20dce8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Forum.vue?vue&type=template&id=1c20dce8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Forum.vue?vue&type=template&id=1c20dce8&");
-
-
-/***/ }),
-
 /***/ "./resources/js/pages/arsipSoal/Jawab.vue?vue&type=template&id=baecbbae&":
 /*!*******************************************************************************!*\
   !*** ./resources/js/pages/arsipSoal/Jawab.vue?vue&type=template&id=baecbbae& ***!
@@ -40045,6 +40385,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4ST_vue_vue_type_template_id_46fe3119___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_D4ST_vue_vue_type_template_id_46fe3119___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./D4ST.vue?vue&type=template&id=46fe3119& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/arsipsoal/D4ST.vue?vue&type=template&id=46fe3119&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/forum/Index.vue?vue&type=template&id=165d7d6b&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/pages/forum/Index.vue?vue&type=template&id=165d7d6b& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_165d7d6b___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_165d7d6b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_165d7d6b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=165d7d6b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Index.vue?vue&type=template&id=165d7d6b&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/forum/Tambah.vue?vue&type=template&id=dded18c0&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/pages/forum/Tambah.vue?vue&type=template&id=dded18c0& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tambah_vue_vue_type_template_id_dded18c0___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tambah_vue_vue_type_template_id_dded18c0___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tambah_vue_vue_type_template_id_dded18c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Tambah.vue?vue&type=template&id=dded18c0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Tambah.vue?vue&type=template&id=dded18c0&");
 
 
 /***/ }),
@@ -40946,202 +41320,6 @@ var staticRenderFns = [
             _vm._v("Lupakan masa lalu dan teruslah bergerak maju"),
           ]),
         ]
-      ),
-    ])
-  },
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Forum.vue?vue&type=template&id=1c20dce8&":
-/*!************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/Forum.vue?vue&type=template&id=1c20dce8& ***!
-  \************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function () {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex flex-col justify-center" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _c("div", { staticClass: "flex w-full justify-center" }, [
-      _c("div", { staticClass: "bg-gray-200 w-11/12 mt-3 rounded-lg" }, [
-        _c("div", { staticClass: "p-2" }, [
-          _c("div", [
-            _c("div", { staticClass: "font-bold text-blue-600" }, [
-              _vm._v("Aljabar Linear"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-10 w-10",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      "stroke-width": "2",
-                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                    },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(2),
-            ]),
-            _vm._v(" "),
-            _vm._m(3),
-          ]),
-        ]),
-      ]),
-    ]),
-  ])
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex w-full justify-center" }, [
-      _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
-        _c("div", { staticClass: "font-bold text-xl" }, [
-          _vm._v("Forum Tanya Jawab"),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex w-full justify-center" }, [
-      _c("div", { staticClass: "w-11/12 mt-2.5" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "bg-gray-400 rounded-t-lg p-1.5 font-semibold text-base",
-          },
-          [_vm._v("Filter")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "bg-gray-200 rounded-b-lg grid grid-cols-12 gap-6 p-2",
-          },
-          [
-            _c("div", { staticClass: "col-span-12 md:col-span-6" }, [
-              _c("div", [_vm._v("Program Studi")]),
-              _vm._v(" "),
-              _c("select", { staticClass: "p-1 bg-white rounded-lg w-full" }, [
-                _c("option", { attrs: { disabled: "", selected: "" } }, [
-                  _vm._v("Isi Kategori"),
-                ]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Aljabar Linear")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Kalkulus I")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Metode Statistik I")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Pengantar Teori Peluang")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Metode Penarikan Contoh")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Analisis Data Eksploratif")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Statistika Matematika I")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Kalkulus II")]),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-span-12 md:col-span-6" }, [
-              _c("div", [_vm._v("Kategori")]),
-              _vm._v(" "),
-              _c("select", { staticClass: "p-1 bg-white rounded-lg w-full" }, [
-                _c("option", { attrs: { disabled: "", selected: "" } }, [
-                  _vm._v("Isi Kategori"),
-                ]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Aljabar Linear")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Kalkulus I")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Metode Statistik I")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Pengantar Teori Peluang")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Metode Penarikan Contoh")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Analisis Data Eksploratif")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Statistika Matematika I")]),
-                _vm._v(" "),
-                _c("option", [_vm._v("Kalkulus II")]),
-              ]),
-            ]),
-          ]
-        ),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-col" }, [
-      _c("div", { staticClass: "font-semibold" }, [
-        _vm._v("Bernaldo Napitupulu"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-xxs" }, [_vm._v("19 Oktober 2021")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ml-4" }, [
-      _vm._v("\r\n                        Diketahui bentuk kuadrat"),
-      _c("br"),
-      _vm._v(
-        "\r\n                        a. Tuliskan bentuk kuadrat q dalam bentuk matriks"
-      ),
-      _c("br"),
-      _vm._v(
-        "\r\n                        b. SEderhanakan persamaan q(x) menjadi bentuk persamaan yang setara, melalui transformasi x=By dimana B adalah matriks non singular, sedemikian sehingga B^TAB=D dimana dij=0 untuk i/=j"
-      ),
-      _c("br"),
-      _vm._v(
-        "\r\n                        c. Periksa bentuk kedefinitan bentuk kuadrat q\r\n                    "
       ),
     ])
   },
@@ -42348,6 +42526,720 @@ var staticRenderFns = [
           _c("option", [_vm._v("Kalkulus II")]),
         ]
       ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Index.vue?vue&type=template&id=165d7d6b&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Index.vue?vue&type=template&id=165d7d6b& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col justify-center" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex w-full justify-center my-2.5" }, [
+      _c(
+        "div",
+        { staticClass: "w-11/12 flex justify-end" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "flex items-center bg-green-500 hover:bg-green-400 px-3 py-1.5 rounded-md text-white outline-none hover:no-underline",
+              attrs: { to: "/forum/tambah" },
+            },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-5 w-5 mr-1.5",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M12 4v16m8-8H4",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-white font-bold text-sm" }, [
+                _vm._v("Tambah Pertanyaan"),
+              ]),
+            ]
+          ),
+        ],
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c("div", { staticClass: "w-11/12" }, [
+        _c(
+          "div",
+          { staticClass: "bg-gray-400 rounded-t-lg p-1.5 font-bold text-base" },
+          [_vm._v("Filter")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-gray-200 rounded-b-lg p-2" }, [
+          _c("div", { staticClass: "flex flex-col" }, [
+            _c("span", { staticClass: "font-semibold" }, [_vm._v("Peminatan")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.peminatan,
+                    expression: "peminatan",
+                  },
+                ],
+                staticClass: "p-1 bg-white rounded-lg w-full",
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.peminatan = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  },
+                },
+              },
+              [
+                _c("option", { attrs: { selected: "", value: "all" } }, [
+                  _vm._v("Semua Kategori"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "se" } }, [
+                  _vm._v("Statistika Ekonomi"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "sk" } }, [
+                  _vm._v("Statistika Sosial dan Kependudukan"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "si" } }, [
+                  _vm._v("Sistem Informasi"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "sd" } }, [
+                  _vm._v("Sains Data"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "d3" } }, [
+                  _vm._v("DIII Statistika"),
+                ]),
+              ]
+            ),
+          ]),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c(
+        "div",
+        { staticClass: "w-11/12 mt-3" },
+        [
+          _vm.daftarforum == 0
+            ? _c("div", { staticClass: "mb-6 bg-gray-200 p-2 rounded-md" }, [
+                _c("span", { staticClass: "italic font-semibold" }, [
+                  _vm._v("Forum masih kosong . . ."),
+                ]),
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.daftarforum, function (forum) {
+            return _c(
+              "div",
+              { key: forum.id, staticClass: "mb-6 bg-gray-200 p-2 rounded-md" },
+              [
+                _c("div", { staticClass: "flex items-center" }, [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "h-10 w-10",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        fill: "none",
+                        viewBox: "0 0 24 24",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                        },
+                      }),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ml-2" }, [
+                    _c("div", { staticClass: "font-semibold" }, [
+                      _vm._v(_vm._s(forum.username)),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-xs italic" }, [
+                      _vm._v("Dijawab pada " + _vm._s(forum.date)),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex m-1" }, [
+                  _c("div", { staticClass: "flex flex-col items-center" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "flex items-center justify-center rounded-sm h-7 w-7",
+                        class:
+                          forum.pilihan == "naik"
+                            ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                            : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                        on: {
+                          click: function ($event) {
+                            $event.preventDefault()
+                            return _vm.dukungan(forum.fid, "naik")
+                          },
+                        },
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-4 w-4",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M5 15l7-7 7 7",
+                              },
+                            }),
+                          ]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(forum.dukungan))]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "flex items-center justify-center rounded-sm h-7 w-7",
+                        class:
+                          forum.pilihan == "turun"
+                            ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                            : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                        on: {
+                          click: function ($event) {
+                            $event.preventDefault()
+                            return _vm.dukungan(forum.fid, "turun")
+                          },
+                        },
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-4 w-4",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M19 9l-7 7-7-7",
+                              },
+                            }),
+                          ]
+                        ),
+                      ]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("span", {
+                    staticClass: "ml-3",
+                    domProps: { innerHTML: _vm._s(forum.pertanyaan) },
+                  }),
+                ]),
+                _vm._v(" "),
+                _c("hr"),
+              ]
+            )
+          }),
+        ],
+        2
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
+        _c("div", { staticClass: "font-bold text-xl" }, [
+          _vm._v("Forum Tanya Jawab"),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Tambah.vue?vue&type=template&id=dded18c0&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Tambah.vue?vue&type=template&id=dded18c0& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col justify-center" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex w-full justify-center mb-7" }, [
+      _c("div", { staticClass: "bg-gray-200 w-11/12 mt-3 p-2 rounded-2xl" }, [
+        _c(
+          "form",
+          {
+            staticClass: "flex flex-col",
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.checkForm.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "font-bold text-lg -mb-2 text-blue-500" },
+              [_vm._v("Masukkan pertanyaan")]
+            ),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.fields.pertanyaan,
+                  expression: "fields.pertanyaan",
+                },
+              ],
+              staticClass: "p-3 rounded-md m-2 h-56",
+              attrs: { placeholder: "Masukkan pertanyaan ..." },
+              domProps: { value: _vm.fields.pertanyaan },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.fields, "pertanyaan", $event.target.value)
+                },
+              },
+            }),
+            _vm._v(" "),
+            _vm.fields.pertanyaan != ""
+              ? _c("div", { staticClass: "flex flex-col" }, [
+                  _c(
+                    "span",
+                    { staticClass: "font-bold text-base text-blue-500" },
+                    [_vm._v("Tampilan pertanyaan")]
+                  ),
+                  _vm._v(" "),
+                  _c("span", {
+                    staticClass: "p-3 mx-2 bg-white rounded-md",
+                    domProps: { innerHTML: _vm._s(_vm.fields.pertanyaan) },
+                  }),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "p-2" }, [
+              _c("div", { staticClass: "flex flex-col" }, [
+                _c("span", { staticClass: "font-semibold text-base" }, [
+                  _vm._v("DIV Statistika"),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-check" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.fields.se,
+                        expression: "fields.se",
+                      },
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: { type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.fields.se)
+                        ? _vm._i(_vm.fields.se, null) > -1
+                        : _vm.fields.se,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.fields.se,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(_vm.fields, "se", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.fields,
+                                "se",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.fields, "se", $$c)
+                        }
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "form-check-label inline-block text-gray-700",
+                    },
+                    [_vm._v("Statistik Ekonomi")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-check" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.fields.sk,
+                        expression: "fields.sk",
+                      },
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: { type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.fields.sk)
+                        ? _vm._i(_vm.fields.sk, null) > -1
+                        : _vm.fields.sk,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.fields.sk,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(_vm.fields, "sk", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.fields,
+                                "sk",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.fields, "sk", $$c)
+                        }
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "form-check-label inline-block text-gray-700",
+                    },
+                    [_vm._v("Statistik Kependudukan")]
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-col" }, [
+                _c("span", { staticClass: "font-semibold text-base" }, [
+                  _vm._v("DIV Komputasi Statistik"),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-check" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.fields.sd,
+                        expression: "fields.sd",
+                      },
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: { type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.fields.sd)
+                        ? _vm._i(_vm.fields.sd, null) > -1
+                        : _vm.fields.sd,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.fields.sd,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(_vm.fields, "sd", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.fields,
+                                "sd",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.fields, "sd", $$c)
+                        }
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "form-check-label inline-block text-gray-700",
+                    },
+                    [_vm._v("Sains Data")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-check" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.fields.si,
+                        expression: "fields.si",
+                      },
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: { type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.fields.si)
+                        ? _vm._i(_vm.fields.si, null) > -1
+                        : _vm.fields.si,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.fields.si,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(_vm.fields, "si", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.fields,
+                                "si",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.fields, "si", $$c)
+                        }
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "form-check-label inline-block text-gray-700",
+                    },
+                    [_vm._v("Sistem Informasi")]
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-col" }, [
+                _c("span", { staticClass: "font-semibold text-base" }, [
+                  _vm._v("DIII Statistika"),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-check" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.fields.d3,
+                        expression: "fields.d3",
+                      },
+                    ],
+                    staticClass: "form-check-input",
+                    attrs: { type: "checkbox" },
+                    domProps: {
+                      checked: Array.isArray(_vm.fields.d3)
+                        ? _vm._i(_vm.fields.d3, null) > -1
+                        : _vm.fields.d3,
+                    },
+                    on: {
+                      change: function ($event) {
+                        var $$a = _vm.fields.d3,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(_vm.fields, "d3", $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                _vm.fields,
+                                "d3",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(_vm.fields, "d3", $$c)
+                        }
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass:
+                        "form-check-label inline-block text-gray-700",
+                    },
+                    [_vm._v("DIII Statistika")]
+                  ),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-birumateri w-32 m-1 p-0.5 rounded-xl text-white text-center hover:bg-blue-400",
+                attrs: { type: "submit" },
+              },
+              [_vm._v("Tambahkan")]
+            ),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
+        _c("div", { staticClass: "font-bold text-xl" }, [
+          _vm._v("Forum Tanya Jawab"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "font-bold text-base" }, [
+          _vm._v("Tambah Pertanyaan"),
+        ]),
+      ]),
     ])
   },
 ]

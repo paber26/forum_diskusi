@@ -27,11 +27,11 @@ class Materi extends Controller
 
     public function getimid($mid)
     {
-        $q = DB::table('materi')->where('mid', $mid)->get();
+        $q = DB::table('materi')->where('mid', $mid)->first();
         if ($q == null) {
             return 0;
         } else {
-            return $q->first()->imid;
+            return $q->imid;
         }
     }
 

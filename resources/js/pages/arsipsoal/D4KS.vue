@@ -49,6 +49,7 @@ export default {
                 'Authorization': 'Bearer ' + this.user.api_token
             },
         }).then((response) => {
+            console.log(response.data)
             this.daftararsipsoal = response.data
         })
     },
@@ -60,8 +61,13 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then((response) => {
+                console.log(response.data)
                 let dasid = response.data
-                window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
+                if (dasid == 0) {
+                    this.$swal('Belum ada isinya');
+                } else {
+                    window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
+                }
             })
         }
     }

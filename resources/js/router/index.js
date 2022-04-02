@@ -8,7 +8,9 @@ const Register = require('../auth/Register.vue').default;
 const Login = require('../auth/Login.vue').default;
 
 const Beranda = require('../pages/Beranda.vue').default;
-const Forum = require('../pages/Forum.vue').default;
+
+const Forum = require('../pages/forum/Index.vue').default;
+const ForumTambah = require('../pages/forum/Tambah.vue').default;
 
 const MateriD3 = require('../pages/materi/D3.vue').default;
 const MateriD4ST = require('../pages/materi/D4ST.vue').default;
@@ -43,10 +45,10 @@ const routes = [
         path: '/forum',
         component: Forum
     },
-    // {
-    //     path: '/forum/tambah',
-    //     component: ForumTambah
-    // },
+    {
+        path: '/forum/tambah',
+        component: ForumTambah
+    },
     
     {
         path: '/daftarmateri/d3',

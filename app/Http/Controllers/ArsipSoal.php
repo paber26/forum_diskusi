@@ -31,11 +31,11 @@ class ArsipSoal extends Controller
 
     public function getdasid($mid)
     {
-        $q = DB::table('daftararsipsoal')->where('mid', $mid)->orderBy('tahun')->get();
+        $q = DB::table('daftararsipsoal')->where('mid', $mid)->orderBy('tahun')->first();
         if ($q == null) {
             return 0;
         } else {
-            return $q->first()->dasid;
+            return $q->dasid;
         }
     }
 
