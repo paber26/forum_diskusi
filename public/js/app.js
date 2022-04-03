@@ -2096,6 +2096,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2149,6 +2155,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2280,12 +2293,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       show: false
     };
+  },
+  methods: {
+    logout: function logout() {
+      axios.post("/logout").then(function (response) {
+        window.location.href = response.data;
+      });
+    }
   }
 });
 
@@ -2404,6 +2436,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -2774,6 +2810,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user', 'prodi', 'mid', 'dasid'],
   data: function data() {
@@ -2985,7 +3026,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -3008,7 +3048,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    lihatarsipsoal: function lihatarsipsoal(mid) {
+    lihatarsipsoal: function lihatarsipsoal(mid, nama) {
       var _this2 = this;
 
       axios.get('/api/getdasid/' + mid, {
@@ -3021,7 +3061,7 @@ __webpack_require__.r(__webpack_exports__);
         var dasid = response.data;
 
         if (dasid == 0) {
-          _this2.$swal('Belum ada isinya');
+          _this2.$swal('Materi ' + nama + ' belum ada isinya');
         } else {
           window.location.href = window.location.origin + "/arsipsoal/d4ks/" + mid + '/' + dasid;
         }
@@ -3192,6 +3232,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -3228,8 +3271,6 @@ __webpack_require__.r(__webpack_exports__);
       console.log('Say');
     },
     dukungan: function dukungan(fid, pilihan) {
-      var _this2 = this;
-
       var detail = {
         'fid': fid,
         'pilihan': pilihan
@@ -3240,11 +3281,181 @@ __webpack_require__.r(__webpack_exports__);
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + this.user.api_token
         }
+      }).then(this.getdaftarforum());
+    },
+    jawab: function jawab(fid) {
+      console.log(fid);
+      this.$router.push({
+        path: '/forum/' + fid
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Jawab.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Jawab.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user', 'fid'],
+  data: function data() {
+    return {
+      detailsoal: '',
+      detailjawaban: '',
+      fields: {
+        fid: this.fid,
+        jawaban: ''
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.getdetailsoalforum();
+  },
+  methods: {
+    getdetailsoalforum: function getdetailsoalforum() {
+      var _this = this;
+
+      axios.get('/api/getdetailsoalforum/' + this.fid, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data);
+        _this.detailsoal = response.data[0];
+        _this.detailjawaban = response.data[1];
+      });
+    },
+    dukungan: function dukungan(jfid, pilihan) {
+      var _this2 = this;
+
+      var detail = {
+        'jfid': jfid,
+        'pilihan': pilihan
+      };
+      console.log(detail);
+      axios.post('/api/dukunganjawabanforum', detail, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
       }).then(function (response) {
         console.log(response.data);
 
-        _this2.getdaftarforum();
+        _this2.getdetailsoalforum();
       });
+    },
+    checkForm: function checkForm() {
+      var _this3 = this;
+
+      if (this.fields.jawaban != '') {
+        axios.post('/api/tambahjawabanforum', this.fields, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.user.api_token
+          }
+        }).then(function (response) {
+          if (response.data == 'Berhasil') {
+            _this3.fields.jawaban = '';
+
+            _this3.getdetailsoalforum();
+
+            _this3.$swal('Berhasil menambahkan jawaban');
+          }
+        });
+      } else {
+        this.$swal('Jawaban tidak boleh kosong');
+      }
     }
   }
 });
@@ -3453,14 +3664,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3882,6 +4085,8 @@ var Forum = (__webpack_require__(/*! ../pages/forum/Index.vue */ "./resources/js
 
 var ForumTambah = (__webpack_require__(/*! ../pages/forum/Tambah.vue */ "./resources/js/pages/forum/Tambah.vue")["default"]);
 
+var ForumJawab = (__webpack_require__(/*! ../pages/forum/Jawab.vue */ "./resources/js/pages/forum/Jawab.vue")["default"]);
+
 var MateriD3 = (__webpack_require__(/*! ../pages/materi/D3.vue */ "./resources/js/pages/materi/D3.vue")["default"]);
 
 var MateriD4ST = (__webpack_require__(/*! ../pages/materi/D4ST.vue */ "./resources/js/pages/materi/D4ST.vue")["default"]);
@@ -3916,6 +4121,10 @@ var routes = [{
 }, {
   path: '/forum/tambah',
   component: ForumTambah
+}, {
+  path: '/forum/:fid',
+  component: ForumJawab,
+  props: true
 }, {
   path: '/daftarmateri/d3',
   component: MateriD3
@@ -39751,6 +39960,45 @@ component.options.__file = "resources/js/pages/forum/Index.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/forum/Jawab.vue":
+/*!********************************************!*\
+  !*** ./resources/js/pages/forum/Jawab.vue ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Jawab_vue_vue_type_template_id_493fa35a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Jawab.vue?vue&type=template&id=493fa35a& */ "./resources/js/pages/forum/Jawab.vue?vue&type=template&id=493fa35a&");
+/* harmony import */ var _Jawab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Jawab.vue?vue&type=script&lang=js& */ "./resources/js/pages/forum/Jawab.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Jawab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Jawab_vue_vue_type_template_id_493fa35a___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Jawab_vue_vue_type_template_id_493fa35a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/forum/Jawab.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/forum/Tambah.vue":
 /*!*********************************************!*\
   !*** ./resources/js/pages/forum/Tambah.vue ***!
@@ -40122,6 +40370,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/forum/Jawab.vue?vue&type=script&lang=js&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/pages/forum/Jawab.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Jawab.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Jawab.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/forum/Tambah.vue?vue&type=script&lang=js&":
 /*!**********************************************************************!*\
   !*** ./resources/js/pages/forum/Tambah.vue?vue&type=script&lang=js& ***!
@@ -40406,6 +40670,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/forum/Jawab.vue?vue&type=template&id=493fa35a&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/pages/forum/Jawab.vue?vue&type=template&id=493fa35a& ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_template_id_493fa35a___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_template_id_493fa35a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Jawab_vue_vue_type_template_id_493fa35a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Jawab.vue?vue&type=template&id=493fa35a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Jawab.vue?vue&type=template&id=493fa35a&");
+
+
+/***/ }),
+
 /***/ "./resources/js/pages/forum/Tambah.vue?vue&type=template&id=dded18c0&":
 /*!****************************************************************************!*\
   !*** ./resources/js/pages/forum/Tambah.vue?vue&type=template&id=dded18c0& ***!
@@ -40566,7 +40847,7 @@ var render = function () {
             ],
             staticClass:
               "w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
-            attrs: { type: "text" },
+            attrs: { type: "password" },
             domProps: { value: _vm.user.password },
             on: {
               input: function ($event) {
@@ -40584,49 +40865,22 @@ var render = function () {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c("div", { staticClass: "flex justify-center mt-3" }, [
-        _c(
-          "svg",
-          {
-            staticClass: "h-6 w-6 mx-2",
-            attrs: {
-              fill: "currentColor",
-              viewBox: "0 0 533.5 544.3",
-              xmlns: "http://www.w3.org/2000/svg",
-              "aria-hidden": "true",
+      _c(
+        "div",
+        { staticClass: "flex justify-center items-end m-3" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "bg-yellow-500 py-1.5 px-3 rounded-md text-white font-semibold text-base",
+              attrs: { to: "/register" },
             },
-          },
-          [
-            _c("path", {
-              attrs: {
-                d: "M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z",
-                fill: "#4285f4",
-              },
-            }),
-            _vm._v(" "),
-            _c("path", {
-              attrs: {
-                d: "M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z",
-                fill: "#34a853",
-              },
-            }),
-            _vm._v(" "),
-            _c("path", {
-              attrs: {
-                d: "M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z",
-                fill: "#fbbc04",
-              },
-            }),
-            _vm._v(" "),
-            _c("path", {
-              attrs: {
-                d: "M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z",
-                fill: "#ea4335",
-              },
-            }),
-          ]
-        ),
-      ]),
+            [_vm._v("Daftar")]
+          ),
+        ],
+        1
+      ),
     ]),
   ])
 }
@@ -40642,7 +40896,7 @@ var staticRenderFns = [
           staticClass:
             "bg-birumateri py-1.5 px-3 rounded-md text-white font-semibold text-base",
         },
-        [_vm._v("Log in")]
+        [_vm._v("Masuk")]
       ),
     ])
   },
@@ -40769,7 +41023,7 @@ var render = function () {
             ],
             staticClass:
               "w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
-            attrs: { type: "text" },
+            attrs: { type: "password" },
             domProps: { value: _vm.user.password },
             on: {
               input: function ($event) {
@@ -40787,49 +41041,22 @@ var render = function () {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c("div", { staticClass: "flex justify-center mt-3" }, [
-        _c(
-          "svg",
-          {
-            staticClass: "h-6 w-6 mx-2",
-            attrs: {
-              fill: "currentColor",
-              viewBox: "0 0 533.5 544.3",
-              xmlns: "http://www.w3.org/2000/svg",
-              "aria-hidden": "true",
+      _c(
+        "div",
+        { staticClass: "flex justify-center items-end m-3" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "bg-yellow-500 py-1.5 px-3 rounded-md text-white font-semibold text-base",
+              attrs: { to: "/login" },
             },
-          },
-          [
-            _c("path", {
-              attrs: {
-                d: "M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z",
-                fill: "#4285f4",
-              },
-            }),
-            _vm._v(" "),
-            _c("path", {
-              attrs: {
-                d: "M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z",
-                fill: "#34a853",
-              },
-            }),
-            _vm._v(" "),
-            _c("path", {
-              attrs: {
-                d: "M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z",
-                fill: "#fbbc04",
-              },
-            }),
-            _vm._v(" "),
-            _c("path", {
-              attrs: {
-                d: "M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z",
-                fill: "#ea4335",
-              },
-            }),
-          ]
-        ),
-      ]),
+            [_vm._v("Log In")]
+          ),
+        ],
+        1
+      ),
     ]),
   ])
 }
@@ -40968,19 +41195,12 @@ var render = function () {
             "button",
             {
               staticClass:
-                "block text-center font-medium pt-1 rounded-t-md hover:bg-yellow-200  hover:no-underline",
-              attrs: { to: "/profil" },
-            },
-            [_vm._v("Profil")]
-          ),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
                 "block text-center font-medium pt-1 rounded-b-md hover:bg-yellow-200  hover:no-underline",
+              on: {
+                click: function ($event) {
+                  return _vm.logout()
+                },
+              },
             },
             [_vm._v("Log Out")]
           ),
@@ -41312,7 +41532,7 @@ var staticRenderFns = [
             "bg-yellow-200 w-11/12 sm:w-5/6 flex flex-col justify-center items-center mt-4 p-2 rounded-2xl",
         },
         [
-          _c("div", { staticClass: "font-semibold" }, [
+          _c("div", { staticClass: "font-semibold text-lg" }, [
             _vm._v("Halo Bernaldo Napitupulu"),
           ]),
           _vm._v(" "),
@@ -41610,7 +41830,7 @@ var render = function () {
                             _vm._v(" "),
                             _c("div", { staticClass: "ml-2" }, [
                               _c("div", { staticClass: "font-semibold" }, [
-                                _vm._v(_vm._s(jwb.username)),
+                                _vm._v(_vm._s(jwb.email)),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "text-xs italic" }, [
@@ -41746,43 +41966,54 @@ var render = function () {
                   _vm._v("Tambahkan Jawaban"),
                 ]),
                 _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.fields.jawaban,
-                      expression: "fields.jawaban",
-                    },
-                  ],
-                  staticClass: "p-3 rounded-xl",
-                  attrs: { placeholder: "Masukkan pertanyaan ..." },
-                  domProps: { value: _vm.fields.jawaban },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.fields, "jawaban", $event.target.value)
-                    },
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex flex-col border-2 border-birumateri rounded-xl",
                   },
-                }),
+                  [
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields.jawaban,
+                          expression: "fields.jawaban",
+                        },
+                      ],
+                      staticClass: "p-3 rounded-xl outline-none",
+                      attrs: { placeholder: "Masukkan pertanyaan ..." },
+                      domProps: { value: _vm.fields.jawaban },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.fields, "jawaban", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]
+                ),
                 _vm._v(" "),
                 _vm.fields.jawaban != ""
                   ? _c(
                       "div",
                       {
                         staticClass:
-                          "bg-white p-3 mt-2 rounded-2xl flex flex-col",
+                          "mt-2 bg-white flex flex-col border-2 border-birumateri rounded-xl",
                       },
                       [
-                        _c("span", { staticClass: "font-semibold mb-1.5" }, [
-                          _vm._v("Tampilan Jawaban"),
+                        _c("div", { staticClass: "p-3 flex flex-col" }, [
+                          _c("span", { staticClass: "font-semibold mb-1.5" }, [
+                            _vm._v("Tampilan Jawaban"),
+                          ]),
+                          _vm._v(" "),
+                          _c("span", {
+                            domProps: { innerHTML: _vm._s(_vm.fields.jawaban) },
+                          }),
                         ]),
-                        _vm._v(" "),
-                        _c("span", {
-                          domProps: { innerHTML: _vm._s(_vm.fields.jawaban) },
-                        }),
                       ]
                     )
                   : _vm._e(),
@@ -42105,27 +42336,54 @@ var render = function () {
                         }),
                         _vm._v(" "),
                         soal.jlhjawaban == 0
-                          ? _c("div", { staticClass: "font-semibold italic" }, [
-                              _vm._v("Belum ada jawaban"),
-                            ])
-                          : _c("div", { staticClass: "font-semibold italic" }, [
-                              _vm._v(_vm._s(soal.jlhjawaban) + " jawaban"),
-                            ]),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "font-semibold text-blue-500 italic",
-                            on: {
-                              click: function ($event) {
-                                $event.preventDefault()
-                                return _vm.jawab(soal.asid)
-                              },
-                            },
-                          },
-                          [_vm._v("Jawab")]
-                        ),
-                      ]
+                          ? [
+                              soal.jlhjawaban == 0
+                                ? _c(
+                                    "div",
+                                    { staticClass: "font-semibold italic" },
+                                    [_vm._v("Belum ada jawaban")]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "font-semibold text-blue-500 italic",
+                                  on: {
+                                    click: function ($event) {
+                                      $event.preventDefault()
+                                      return _vm.jawab(soal.asid)
+                                    },
+                                  },
+                                },
+                                [_vm._v("Tambahkan Jawaban")]
+                              ),
+                            ]
+                          : [
+                              _c(
+                                "div",
+                                { staticClass: "font-semibold italic" },
+                                [_vm._v(_vm._s(soal.jlhjawaban) + " jawaban")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "font-semibold text-blue-500 italic",
+                                  on: {
+                                    click: function ($event) {
+                                      $event.preventDefault()
+                                      return _vm.jawab(soal.asid)
+                                    },
+                                  },
+                                },
+                                [_vm._v("Lihat Jawaban")]
+                              ),
+                            ],
+                      ],
+                      2
                     )
                   }),
                   0
@@ -42344,7 +42602,7 @@ var render = function () {
                 on: {
                   click: function ($event) {
                     $event.preventDefault()
-                    return _vm.lihatarsipsoal(d4ks.mid)
+                    return _vm.lihatarsipsoal(d4ks.mid, d4ks.nama)
                   },
                 },
               },
@@ -42379,38 +42637,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex items-center" }, [
-      _c("div", { staticClass: "font-bold text-base" }, [_vm._v("Kategori")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass:
-            "ml-3 p-1.5 bg-white rounded-xl w-2/5 flex items-center justify-between",
-        },
-        [
-          _c("option", { attrs: { disabled: "", selected: "" } }, [
-            _vm._v("Isi Kategori"),
-          ]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Aljabar Linear")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Kalkulus I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Metode Statistik I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Pengantar Teori Peluang")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Metode Penarikan Contoh")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Analisis Data Eksploratif")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Statistika Matematika I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Kalkulus II")]),
-        ]
-      ),
+      _c("div", { staticClass: "font-bold text-base" }, [
+        _vm._v("Mata Kuliah"),
+      ]),
     ])
   },
 ]
@@ -42820,12 +43049,364 @@ var render = function () {
                 ]),
                 _vm._v(" "),
                 _c("hr"),
+                _vm._v(" "),
+                _c("div", { staticClass: "font-semibold italic" }, [
+                  _vm._v("Belum ada jawaban"),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "font-semibold italic" }, [
+                  _vm._v("3 jawaban"),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "font-semibold text-blue-500 italic",
+                    on: {
+                      click: function ($event) {
+                        $event.preventDefault()
+                        return _vm.jawab(forum.fid)
+                      },
+                    },
+                  },
+                  [_vm._v("Jawab")]
+                ),
               ]
             )
           }),
         ],
         2
       ),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c("div", { staticClass: "bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl" }, [
+        _c("div", { staticClass: "font-bold text-xl" }, [
+          _vm._v("Forum Tanya Jawab"),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Jawab.vue?vue&type=template&id=493fa35a&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/forum/Jawab.vue?vue&type=template&id=493fa35a& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col justify-center" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex w-full justify-center" }, [
+      _c("div", { staticClass: "w-11/12 mt-3" }, [
+        _c("div", { staticClass: "bg-gray-200 p-2 rounded-xl" }, [
+          _c("div", { staticClass: "flex items-center" }, [
+            _c(
+              "svg",
+              {
+                staticClass: "h-10 w-10",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  fill: "none",
+                  viewBox: "0 0 24 24",
+                  stroke: "currentColor",
+                  "stroke-width": "2",
+                },
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                  },
+                }),
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "ml-2" }, [
+              _c("div", { staticClass: "font-semibold" }, [
+                _vm._v(_vm._s(_vm.detailsoal.username)),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-xs italic" }, [
+                _vm._v("Ditanyakan pada " + _vm._s(_vm.detailsoal.date)),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-3" }, [
+            _c("span", {
+              domProps: { innerHTML: _vm._s(_vm.detailsoal.pertanyaan) },
+            }),
+            _vm._v(" "),
+            _c("hr", { staticClass: "my-2" }),
+            _vm._v(" "),
+            _vm.detailjawaban == 0
+              ? _c("div", [
+                  _c("span", { staticClass: "font-semibold italic" }, [
+                    _vm._v("Belum ada jawaban"),
+                  ]),
+                ])
+              : _c("div", [
+                  _c("span", { staticClass: "font-semibold" }, [
+                    _vm._v(_vm._s(_vm.detailjawaban.length) + " jawaban"),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "mt-2" },
+                    _vm._l(_vm.detailjawaban, function (jwb) {
+                      return _c("div", { key: jwb.id, staticClass: "mb-2" }, [
+                        _c("div", { staticClass: "flex items-center" }, [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "h-8 w-8",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                fill: "none",
+                                viewBox: "0 0 24 24",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                              },
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round",
+                                  d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                                },
+                              }),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "ml-2" }, [
+                            _c("div", { staticClass: "font-semibold" }, [
+                              _vm._v(_vm._s(jwb.email)),
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "text-xs italic" }, [
+                              _vm._v("Dijawab pada " + _vm._s(jwb.date)),
+                            ]),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "flex m-1" }, [
+                          _c(
+                            "div",
+                            { staticClass: "flex flex-col items-center" },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "flex items-center justify-center rounded-sm h-7 w-7",
+                                  class:
+                                    jwb.pilihan == "naik"
+                                      ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                                      : "hover:bg-gray-50 text-gray-700 border-2 border-birumateri",
+                                  on: {
+                                    click: function ($event) {
+                                      $event.preventDefault()
+                                      return _vm.dukungan(jwb.jfid, "naik")
+                                    },
+                                  },
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "h-4 w-4",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        fill: "none",
+                                        viewBox: "0 0 24 24",
+                                        stroke: "currentColor",
+                                        "stroke-width": "2",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "stroke-linecap": "round",
+                                          "stroke-linejoin": "round",
+                                          d: "M5 15l7-7 7 7",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("span", [_vm._v(_vm._s(jwb.dukungan))]),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "flex items-center justify-center rounded-sm h-7 w-7",
+                                  class:
+                                    jwb.pilihan == "turun"
+                                      ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                                      : "hover:bg-gray-50 text-gray-700 border-2 border-birumateri",
+                                  on: {
+                                    click: function ($event) {
+                                      $event.preventDefault()
+                                      return _vm.dukungan(jwb.jfid, "turun")
+                                    },
+                                  },
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "h-4 w-4",
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        fill: "none",
+                                        viewBox: "0 0 24 24",
+                                        stroke: "currentColor",
+                                        "stroke-width": "2",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "stroke-linecap": "round",
+                                          "stroke-linejoin": "round",
+                                          d: "M19 9l-7 7-7-7",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("span", {
+                            staticClass: "ml-2",
+                            domProps: { innerHTML: _vm._s(jwb.jawaban) },
+                          }),
+                        ]),
+                        _vm._v(" "),
+                        _c("hr"),
+                      ])
+                    }),
+                    0
+                  ),
+                ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "bg-birumateri w-full h-0.5 rounded-3xl my-2.5",
+        }),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            staticClass: "flex flex-col",
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.checkForm.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "font-semibold" }, [
+              _vm._v("Tambahkan Jawaban"),
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "flex flex-col border-2 border-birumateri rounded-xl",
+              },
+              [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fields.jawaban,
+                      expression: "fields.jawaban",
+                    },
+                  ],
+                  staticClass: "p-3 rounded-xl outline-none",
+                  attrs: { placeholder: "Masukkan pertanyaan ..." },
+                  domProps: { value: _vm.fields.jawaban },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.fields, "jawaban", $event.target.value)
+                    },
+                  },
+                }),
+              ]
+            ),
+            _vm._v(" "),
+            _vm.fields.jawaban != ""
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "mt-2 flex flex-col border-2 border-birumateri rounded-xl",
+                  },
+                  [
+                    _c("div", { staticClass: "p-3 flex flex-col" }, [
+                      _c("span", { staticClass: "font-semibold mb-1.5" }, [
+                        _vm._v("Tampilan Jawaban"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", {
+                        domProps: { innerHTML: _vm._s(_vm.fields.jawaban) },
+                      }),
+                    ]),
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-birumateri w-32 m-1 p-0.5 rounded-xl text-white text-center",
+                attrs: { type: "submit" },
+              },
+              [_vm._v("Kirim Jawaban")]
+            ),
+          ]
+        ),
+      ]),
     ]),
   ])
 }
@@ -43434,38 +44015,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex items-center" }, [
-      _c("div", { staticClass: "font-bold text-base" }, [_vm._v("Kategori")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass:
-            "ml-3 p-1.5 bg-white rounded-xl w-2/5 flex items-center justify-between",
-        },
-        [
-          _c("option", { attrs: { disabled: "", selected: "" } }, [
-            _vm._v("Isi Kategori"),
-          ]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Aljabar Linear")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Kalkulus I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Metode Statistik I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Pengantar Teknologi Informasi")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Pengantar Teori Peluang")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Metode Penarikan Contoh")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Analisis Data Eksploratif")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Statistika Matematika I")]),
-          _vm._v(" "),
-          _c("option", [_vm._v("Kalkulus II")]),
-        ]
-      ),
+      _c("div", { staticClass: "font-bold text-base" }, [
+        _vm._v("Mata Kuliah"),
+      ]),
     ])
   },
 ]

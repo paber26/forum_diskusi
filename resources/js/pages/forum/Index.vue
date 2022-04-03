@@ -69,6 +69,9 @@
                     <span v-html="forum.pertanyaan" class="ml-3"></span>
                 </div>
                 <hr>
+                <div class="font-semibold italic">Belum ada jawaban</div>
+                <div class="font-semibold italic">3 jawaban</div>
+                <button @click.prevent="jawab(forum.fid)" class="font-semibold text-blue-500 italic">Jawab</button>
             </div>
         </div>
     </div>
@@ -120,9 +123,14 @@ export default {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
-            }).then((response) => {
-                console.log(response.data)
+            }).then(
                 this.getdaftarforum()
+            )
+        },
+        jawab(fid) {
+            console.log(fid)
+            this.$router.push({
+                path: '/forum/' + fid
             })
         }
     }

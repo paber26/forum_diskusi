@@ -10,19 +10,11 @@
     <div class="flex w-full justify-center">
         <div class="bg-gray-200 w-11/12 mt-4 p-2 rounded-2xl">
             <div class="flex items-center">
-                <div class="font-bold text-base">Kategori</div>
-                <select class="ml-3 p-1.5 bg-white rounded-xl w-2/5 flex items-center justify-between">
-                    <option disabled selected>Isi Kategori</option>
-                    <option>Aljabar Linear</option>
-                    <option>Kalkulus I</option>
-                    <option>Metode Statistik I</option>
-                    <option>Pengantar Teknologi Informasi</option>
-                    <option>Pengantar Teori Peluang</option>
-                    <option>Metode Penarikan Contoh</option>
-                    <option>Analisis Data Eksploratif</option>
-                    <option>Statistika Matematika I</option>
-                    <option>Kalkulus II</option>
-                </select>
+                <div class="font-bold text-base">Mata Kuliah</div>
+                <!-- <select class="ml-3 p-1.5 bg-white rounded-xl w-2/5 flex items-center justify-between outline-none">
+                    <option disabled selected>Pilih mata kuliah</option>
+                    <option v-for="d4ks in daftararsipsoal" :key="d4ks.id" @click.prevent="lihatmateri(d4ks.mid)">{{ d4ks.nama }}</option>
+                </select> -->
 
             </div>
             <div class="grid grid-cols-12 gap-2 mt-2 font-semibold text-white py-2">

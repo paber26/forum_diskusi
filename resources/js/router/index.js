@@ -11,6 +11,7 @@ const Beranda = require('../pages/Beranda.vue').default;
 
 const Forum = require('../pages/forum/Index.vue').default;
 const ForumTambah = require('../pages/forum/Tambah.vue').default;
+const ForumJawab = require('../pages/forum/Jawab.vue').default;
 
 const MateriD3 = require('../pages/materi/D3.vue').default;
 const MateriD4ST = require('../pages/materi/D4ST.vue').default;
@@ -48,6 +49,11 @@ const routes = [
     {
         path: '/forum/tambah',
         component: ForumTambah
+    },
+    {
+        path: '/forum/:fid',
+        component: ForumJawab,
+        props: true
     },
     
     {

@@ -46,5 +46,8 @@ Route::group(
         Route::post('tambahpertanyaan', [Forum::class, 'tambahpertanyaan']);
         Route::get('getdaftarforum/{peminatan}', [Forum::class, 'getdaftarforum']);
         Route::post('dukunganforum', [Forum::class, 'dukunganforum']);
+        Route::get('getdetailsoalforum/{fid}', [Forum::class, 'getdetailsoalforum']);
+        Route::post('tambahjawabanforum', [Forum::class, 'tambahjawabanforum']);
+        Route::post('dukunganjawabanforum', [Forum::class, 'dukunganjawabanforum']);
     }
 );

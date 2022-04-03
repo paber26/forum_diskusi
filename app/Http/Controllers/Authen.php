@@ -53,4 +53,10 @@ class Authen extends Controller
             return "Tidak terdaftar";
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return url('/login');
+    }
 }

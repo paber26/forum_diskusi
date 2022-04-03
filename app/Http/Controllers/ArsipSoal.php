@@ -47,11 +47,8 @@ class ArsipSoal extends Controller
     public function getdetailsoal($asid)
     {
         $pertanyaan = DB::table('arsipsoal')->where('asid', $asid)->first();
-        if ($pertanyaan == null) {
-            $pertanyaan = 0;
-        }
-        $jawaban = DB::table('jawaban_arsipsoal')->select('jawaban_arsipsoal.*', 'dukungan_arsipsoal.pilihan')
-            ->leftJoin('dukungan_arsipsoal', 'jawaban_arsipsoal.jasid', '=', 'dukungan_arsipsoal.jasid')
+        $jawaban = DB::table('jawaban_arsipsoal')->select('jawaban_arsipsoal.*', 'dukungan_jawabanarsipsoal.pilihan')
+            ->leftJoin('dukungan_jawabanarsipsoal', 'jawaban_arsipsoal.jasid', '=', 'dukungan_jawabanarsipsoal.jasid')
             ->orderByDesc('jawaban_arsipsoal.date')->where('asid', $asid)->get();
         if ($jawaban == null) {
             $jawaban = 0;
@@ -85,7 +82,7 @@ class ArsipSoal extends Controller
         $pilihan = $request->pilihan;
         $email = Auth::user()->email;
 
-        $q = DB::table('dukungan_arsipsoal')->where(['jasid' => $jasid, 'email' => $email]);
+        $q = DB::table('dukungan_jawabanarsipsoal')->where(['jasid' => $jasid, 'email' => $email]);
 
         $q2 = DB::table('jawaban_arsipsoal')->where(['jasid' => $jasid, 'email' => $email]);
         $jlhdukungan = $q2->first()->dukungan;
@@ -101,7 +98,7 @@ class ArsipSoal extends Controller
                 'email' => $email,
                 'pilihan' => $pilihan
             ];
-            DB::table('dukungan_arsipsoal')->insert($stt);
+            DB::table('dukungan_jawabanarsipsoal')->insert($stt);
             return 'Berhasil';
         } else {
             if (($q->first()->pilihan == 'naik') && ($pilihan == 'naik')) {

@@ -80,7 +80,7 @@
                                     </svg>
 
                                     <div class="ml-2">
-                                        <div class="font-semibold">{{ jwb.username }}</div>
+                                        <div class="font-semibold">{{ jwb.email }}</div>
                                         <div class="text-xs italic">Dijawab pada {{ jwb.date }}</div>
                                     </div>
                                 </div>
@@ -110,10 +110,14 @@
 
                 <form @submit.prevent="checkForm" class="flex flex-col">
                     <div class="font-semibold">Tambahkan Jawaban</div>
-                    <textarea class="p-3 rounded-xl" placeholder="Masukkan pertanyaan ..." v-model="fields.jawaban"></textarea>
-                    <div class="bg-white p-3 mt-2 rounded-2xl flex flex-col" v-if="fields.jawaban!=''">
-                        <span class="font-semibold mb-1.5">Tampilan Jawaban</span>
-                        <span v-html="fields.jawaban"></span>
+                    <div class="flex flex-col border-2 border-birumateri rounded-xl">
+                        <textarea class="p-3 rounded-xl outline-none" placeholder="Masukkan pertanyaan ..." v-model="fields.jawaban"></textarea>
+                    </div>
+                    <div class="mt-2 bg-white flex flex-col border-2 border-birumateri rounded-xl" v-if="fields.jawaban!=''">
+                        <div class="p-3 flex flex-col">
+                            <span class="font-semibold mb-1.5">Tampilan Jawaban</span>
+                            <span v-html="fields.jawaban"></span>
+                        </div>
                     </div>
                     <button type="submit" class="bg-birumateri w-32 m-1 p-0.5 rounded-xl text-white text-center">Kirim Jawaban</button>
                 </form>

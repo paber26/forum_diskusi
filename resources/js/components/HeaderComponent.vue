@@ -4,12 +4,24 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
+        <!-- <select class="ml-3 p-1.5 bg-white rounded-xl flex items-center justify-between appearance-none">
+            <option disabled selected class="font-semibold text-base">{{ user.nama }}</option>
+            <option>Aljabar Linear</option>
+            <option>Kalkulus I</option>
+            <option>Metode Statistik I</option>
+            <option>Pengantar Teknologi Informasi</option>
+            <option>Pengantar Teori Peluang</option>
+            <option>Metode Penarikan Contoh</option>
+            <option>Analisis Data Eksploratif</option>
+            <option>Statistika Matematika I</option>
+            <option>Kalkulus II</option>
+        </select> -->
         <button @click="show = !show" class="font-semibold text-base ml-2 mr-3">{{ user.nama }}</button>
 
         <div v-show="show" class="flex flex-col mt-4 bg-white rounded-md ring-2 ring-black ring-opacity-5  absolute -0 w-44">
-            <button to="/profil" class="block text-center font-medium pt-1 rounded-t-md hover:bg-yellow-200  hover:no-underline">Profil</button>
-            <hr>
-            <button  class="block text-center font-medium pt-1 rounded-b-md hover:bg-yellow-200  hover:no-underline">Log Out</button>
+            <!-- <button to="/profil" class="block text-center font-medium pt-1 rounded-t-md hover:bg-yellow-200  hover:no-underline">Profil</button> -->
+            <!-- <hr> -->
+            <button @click="logout()" class="block text-center font-medium pt-1 rounded-b-md hover:bg-yellow-200  hover:no-underline">Log Out</button>
         </div>
     </div>
     <div class="sm:hidden flex justify-between items-center">
@@ -33,6 +45,13 @@ export default {
     data() {
         return {
             show: false
+        }
+    },
+    methods: {
+        logout() {
+            axios.post("/logout").then(response => {
+                window.location.href = response.data;
+            });
         }
     }
 }

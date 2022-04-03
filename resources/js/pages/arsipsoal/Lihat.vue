@@ -68,9 +68,14 @@
                             <span v-html="soal.pertanyaan"></span>
                         </div>
                         <div class="bg-birumateri w-full h-0.5 rounded-3xl my-1.5"></div>
-                        <div v-if="soal.jlhjawaban==0" class="font-semibold italic">Belum ada jawaban</div>
-                        <div v-else class="font-semibold italic">{{ soal.jlhjawaban }} jawaban</div>
-                        <button @click.prevent="jawab(soal.asid)" class="font-semibold text-blue-500 italic">Jawab</button>
+                        <template v-if="soal.jlhjawaban == 0">
+                            <div v-if="soal.jlhjawaban==0" class="font-semibold italic">Belum ada jawaban</div>
+                            <button @click.prevent="jawab(soal.asid)" class="font-semibold text-blue-500 italic">Tambahkan Jawaban</button>
+                        </template>
+                        <template v-else>
+                            <div class="font-semibold italic">{{ soal.jlhjawaban }} jawaban</div>
+                            <button @click.prevent="jawab(soal.asid)" class="font-semibold text-blue-500 italic">Lihat Jawaban</button>
+                        </template>
                     </div>
                 </div>
                 <div v-else>
