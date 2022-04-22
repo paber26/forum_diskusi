@@ -5,7 +5,7 @@
         <div class="font-bold text-2xl">SIRADIG</div>
         <div class="font-bold text-lg -mt-2">Polstat STIS</div>
     </div>
-    <div class="flex flex-col mt-3">
+    <div class="flex flex-col">
         <router-link to="/" class="p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold">Beranda</router-link>
         <div class="m-1">
             <button @click.prevent="klikmateri()" class="p-1.5 rounded-md hover:bg-yellow-300 flex justify-between items-center w-full">

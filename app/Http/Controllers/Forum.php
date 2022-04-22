@@ -15,12 +15,13 @@ class Forum extends Controller
             'fid' => uniqid(),
             'pertanyaan' => $request->pertanyaan,
             'email' => Auth::user()->email,
+            'jlhjawaban' => 0,
             'dukungan' => 0,
+            'd3' => $request->d3,
             'se' => $request->se,
             'sk' => $request->sk,
             'sd' => $request->sd,
-            'si' => $request->si,
-            'd3' => $request->d3,
+            'si' => $request->si
         ];
         DB::table('forum')->insert($stt);
 

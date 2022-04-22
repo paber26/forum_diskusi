@@ -2293,18 +2293,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -3155,7 +3143,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -41282,7 +41269,7 @@ var render = function () {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "flex flex-col mt-3" },
+      { staticClass: "flex flex-col" },
       [
         _c(
           "router-link",
@@ -42944,7 +42931,7 @@ var render = function () {
                   _vm._v(" "),
                   _c("div", { staticClass: "ml-2" }, [
                     _c("div", { staticClass: "font-semibold" }, [
-                      _vm._v(_vm._s(forum.username)),
+                      _vm._v(_vm._s(forum.email)),
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "text-xs italic" }, [
@@ -43052,10 +43039,6 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "font-semibold italic" }, [
                   _vm._v("Belum ada jawaban"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "font-semibold italic" }, [
-                  _vm._v("3 jawaban"),
                 ]),
                 _vm._v(" "),
                 _c(
@@ -44242,7 +44225,7 @@ var render = function () {
                         ),
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "font-bold" }, [
+                      _c("div", { staticClass: "font-bold text-left" }, [
                         _vm._v(_vm._s(mtr.topik)),
                       ]),
                     ]

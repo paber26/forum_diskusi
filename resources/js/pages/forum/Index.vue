@@ -48,7 +48,7 @@
                     </svg>
 
                     <div class="ml-2">
-                        <div class="font-semibold">{{ forum.username }}</div>
+                        <div class="font-semibold">{{ forum.email }}</div>
                         <div class="text-xs italic">Dijawab pada {{ forum.date }}</div>
                     </div>
                 </div>
@@ -70,7 +70,6 @@
                 </div>
                 <hr>
                 <div class="font-semibold italic">Belum ada jawaban</div>
-                <div class="font-semibold italic">3 jawaban</div>
                 <button @click.prevent="jawab(forum.fid)" class="font-semibold text-blue-500 italic">Jawab</button>
             </div>
         </div>
