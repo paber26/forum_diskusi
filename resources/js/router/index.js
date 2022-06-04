@@ -11,6 +11,7 @@ const Login = require('../auth/Login.vue').default;
 const Beranda = require('../pages/admin/Beranda.vue').default;
 const Thread = require('../pages/admin/Thread.vue').default;
 const Tanggapan = require('../pages/admin/Tanggapan.vue').default;
+const Laporan = require('../pages/admin/Laporan.vue').default;
 
 const Forum = require('../pages/forum/Index.vue').default;
 const ForumTambah = require('../pages/forum/Tambah.vue').default;
@@ -54,6 +55,10 @@ const routes = [
     {
         path: '/tanggapan',
         component: Tanggapan
+    },
+    {
+        path: '/laporan',
+        component: Laporan
     },
 
 

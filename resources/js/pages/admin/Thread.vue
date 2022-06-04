@@ -29,7 +29,10 @@
                     <tr class="bg-white border-b divide-x divide-gray-400">
                         <td class="p-3 font-medium text-gray-900 whitespace-nowrap">1</td>
                         <td class="p-3">Bernaldo Napitupulu</td>
-                        <td class="p-3">Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</td>
+                        <td class="p-3">
+                            <div class="text-xs italic">Dibuat pada 04-06-2020 08:23</div>
+                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
+                        </td>
                         <td class="p-3 text-center">7</td>
                         <td class="p-3">
                             <div class="flex items-center">
@@ -43,7 +46,10 @@
                     <tr class="bg-white border-b divide-x divide-gray-400">
                         <td class="p-3 font-medium text-gray-900 whitespace-nowrap">2</td>
                         <td class="p-3">Bernaldo Napitupulu</td>
-                        <td class="p-3">Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</td>
+                        <td class="p-3">
+                            <div class="text-xs italic">Dibuat pada 04-06-2020 08:23</div>
+                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
+                        </td>
                         <td class="p-3 text-center">7</td>
                         <td class="p-3">
                             <div class="flex items-center">
@@ -57,7 +63,10 @@
                     <tr class="bg-white border-b divide-x divide-gray-400">
                         <td class="p-3 font-medium text-gray-900 whitespace-nowrap">3</td>
                         <td class="p-3">Bernaldo Napitupulu</td>
-                        <td class="p-3">Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</td>
+                        <td class="p-3">
+                            <div class="text-xs italic">Dibuat pada 04-06-2020 08:23</div>
+                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
+                        </td>
                         <td class="p-3 text-center">7</td>
                         <td class="p-3">
                             <div class="flex items-center">
