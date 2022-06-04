@@ -28,16 +28,16 @@ Route::post('/login', [Authen::class, 'login']);
 Route::group(
     ['middleware' => 'auth'],
     function () {
+        Route::get('/{any}', function () {
+            return view('home');
+        })->where('any', '.*');
+
         Route::get('/materi/{any}', function () {
             return view('materi');
         })->where('any', '.*');
 
         Route::get('/arsipsoal/{any}', function () {
             return view('arsipsoal');
-        })->where('any', '.*');
-
-        Route::get('/{any}', function () {
-            return view('home');
         })->where('any', '.*');
 
         Route::post('/logout', [Authen::class, 'logout']);

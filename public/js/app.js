@@ -2102,12 +2102,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       user: {
-        email: '',
-        password: ''
+        email: "",
+        password: ""
       }
     };
   },
@@ -2115,18 +2135,18 @@ __webpack_require__.r(__webpack_exports__);
     login: function login() {
       var _this = this;
 
-      if (this.user.email != '' && this.user.password != '') {
-        axios.post('/login', this.user).then(function (response) {
+      if (this.user.email != "" && this.user.password != "") {
+        axios.post("/login", this.user).then(function (response) {
           console.log(response.data);
 
           if (response.data == "Tidak terdaftar") {
-            _this.$swal('Email belum terdaftar');
+            _this.$swal("Email belum terdaftar");
           } else if (response.data == "Password salah") {
-            _this.$swal('Password salah');
+            _this.$swal("Password salah");
           } else {
             _this.$swal({
-              text: 'Berhasil masuk ...',
-              icon: 'success',
+              text: "Berhasil masuk ...",
+              icon: "success",
               showConfirmButton: false,
               timerProgressBar: true,
               timer: 4000
@@ -2136,7 +2156,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       } else {
-        this.$swal('Email atau Password tidak boleh kosong');
+        this.$swal("Email atau Password tidak boleh kosong");
       }
     }
   }
@@ -2322,29 +2342,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -40883,7 +40880,7 @@ var staticRenderFns = [
           staticClass:
             "bg-birumateri py-1.5 px-3 rounded-md text-white font-semibold text-base",
         },
-        [_vm._v("Masuk")]
+        [_vm._v("\n                    Masuk\n                ")]
       ),
     ])
   },
@@ -41264,7 +41261,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-blue-300 hidden sm:block w-56" }, [
+  return _c("div", { staticClass: "bg-blue-300 hidden sm:block w-60" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -41281,178 +41278,44 @@ var render = function () {
           [_vm._v("Beranda")]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "m-1" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "p-1.5 rounded-md hover:bg-yellow-300 flex justify-between items-center w-full",
-              on: {
-                click: function ($event) {
-                  $event.preventDefault()
-                  return _vm.klikmateri()
-                },
-              },
-            },
-            [
-              _c("div", { staticClass: "font-semibold" }, [_vm._v("Materi")]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticClass: "h-4 w-4",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      "stroke-width": "2",
-                      d: "M19 9l-7 7-7-7",
-                    },
-                  }),
-                ]
-              ),
-            ]
-          ),
-          _vm._v(" "),
-          _vm.showmateri
-            ? _c(
-                "div",
-                { staticClass: "ml-3 flex flex-col" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/daftarmateri/d3" },
-                    },
-                    [_vm._v("D-3 Statistika")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/daftarmateri/d4st" },
-                    },
-                    [_vm._v("D-4 Statistika")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/daftarmateri/d4ks" },
-                    },
-                    [_vm._v("D-4 Komputasi Statistik")]
-                  ),
-                ],
-                1
-              )
-            : _vm._e(),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "m-1" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "p-1.5 rounded-md hover:bg-yellow-300 flex justify-between items-center w-full",
-              on: {
-                click: function ($event) {
-                  $event.preventDefault()
-                  return _vm.klikarsipsoal()
-                },
-              },
-            },
-            [
-              _c("div", { staticClass: "font-semibold" }, [
-                _vm._v("Arsip Soal"),
-              ]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticClass: "h-4 w-4",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      "stroke-width": "2",
-                      d: "M19 9l-7 7-7-7",
-                    },
-                  }),
-                ]
-              ),
-            ]
-          ),
-          _vm._v(" "),
-          _vm.showarsipsoal
-            ? _c(
-                "div",
-                { staticClass: "ml-3 flex flex-col" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/daftararsipsoal/d3" },
-                    },
-                    [_vm._v("D-3 Statistika")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/daftararsipsoal/d4st" },
-                    },
-                    [_vm._v("D-4 Statistika")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
-                      attrs: { to: "/daftararsipsoal/d4ks" },
-                    },
-                    [_vm._v("D-4 Komputasi Statistik")]
-                  ),
-                ],
-                1
-              )
-            : _vm._e(),
-        ]),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/thread" },
+          },
+          [_vm._v("Thread")]
+        ),
         _vm._v(" "),
         _c(
           "router-link",
           {
             staticClass:
-              "p-1.5 m-1 rounded-md hover:bg-yellow-300 font-semibold",
-            attrs: { to: "/forum" },
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/tanggapan" },
           },
-          [_vm._v("Forum Tanya Jawab")]
+          [_vm._v("Tanggapan")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/laporan" },
+          },
+          [_vm._v("Laporan")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/logout" },
+          },
+          [_vm._v("Logout ")]
         ),
       ],
       1
@@ -41473,7 +41336,9 @@ var staticRenderFns = [
           attrs: { src: "/img/polstat-stis.png", alt: "Logo Polstat STIS" },
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "font-bold text-2xl" }, [_vm._v("SIRADIG")]),
+        _c("div", { staticClass: "font-bold text-2xl" }, [
+          _vm._v("Forum Diskusi"),
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "font-bold text-lg -mt-2" }, [
           _vm._v("Polstat STIS"),
