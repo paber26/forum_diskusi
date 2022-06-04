@@ -16,7 +16,7 @@
             <sidebar-component></sidebar-component>
             <div class="flex flex-col w-full">
                 <header-component :user="{{ Auth::user() }}"></header-component>
-                <div class=" flex-1">
+                <div class="flex-1 bg-gray-200">
                     <router-view :user="{{ Auth::user() }}"></router-view>
                 </div>
                 <footer-component></footer-component>

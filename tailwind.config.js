@@ -6,7 +6,8 @@ module.exports = {
     extend: {
       colors: {
         kebiruan: '#A7C5EB',
-        birumateri: '#548CA8'
+        birumateri: '#548CA8',
+        brown: '#e9ebee'
       },
       fontSize: {
         'xxs': ['0.70rem', '1rem']
