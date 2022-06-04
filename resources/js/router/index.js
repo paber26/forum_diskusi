@@ -7,7 +7,10 @@ Vue.use(VueRouter);
 const Register = require('../auth/Register.vue').default;
 const Login = require('../auth/Login.vue').default;
 
-const Beranda = require('../pages/Beranda.vue').default;
+// Bagian Admin
+const Beranda = require('../pages/admin/Beranda.vue').default;
+const Thread = require('../pages/admin/Thread.vue').default;
+const Tanggapan = require('../pages/admin/Tanggapan.vue').default;
 
 const Forum = require('../pages/forum/Index.vue').default;
 const ForumTambah = require('../pages/forum/Tambah.vue').default;
@@ -38,10 +41,23 @@ const routes = [
         path: '/register',
         component: Register
     },
+    
+    
     {
         path: '/',
         component: Beranda
     },
+    {
+        path: '/thread',
+        component: Thread
+    },
+    {
+        path: '/tanggapan',
+        component: Tanggapan
+    },
+
+
+
     {
         path: '/forum',
         component: Forum
