@@ -45,7 +45,7 @@ class Authen extends Controller
         if ($user != null) {
             if (Hash::check($password, $user->password)) {
                 Auth::attempt(['email' => $email, 'password' => $password]);
-                return url('/');
+                return url('/user');
             } else {
                 return "Password salah";
             }

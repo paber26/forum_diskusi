@@ -46,21 +46,25 @@ Route::group(
     }
 );
 
-// Route::group(
-//     ['middleware' => 'auth'],
-//     function () {
-//         Route::get('/{any}', function () {
-//             return view('home');
-//         })->where('any', '.*');
+Route::group(
+    ['middleware' => 'auth'],
+    function () {
+        Route::get('/user', function () {
+            return view('user/home');
+        })->where('any', '.*');
 
-//         Route::get('/materi/{any}', function () {
-//             return view('materi');
-//         })->where('any', '.*');
+        Route::get('/user/{any}', function () {
+            return view('user/home');
+        })->where('any', '.*');
 
-//         Route::get('/arsipsoal/{any}', function () {
-//             return view('arsipsoal');
-//         })->where('any', '.*');
+        Route::get('/materi/{any}', function () {
+            return view('materi');
+        })->where('any', '.*');
 
-//         Route::post('/logout', [Authen::class, 'logout']);
-//     }
-// );
+        Route::get('/arsipsoal/{any}', function () {
+            return view('arsipsoal');
+        })->where('any', '.*');
+
+        Route::post('/logout', [Authen::class, 'logout']);
+    }
+);
