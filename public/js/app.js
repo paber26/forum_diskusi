@@ -3143,6 +3143,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5588,6 +5616,60 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    coba: function coba() {
+      this.$swal('Halo');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -5694,6 +5776,8 @@ var AdminLaporan = (__webpack_require__(/*! ../admin/Laporan.vue */ "./resources
 
 
 var UserBeranda = (__webpack_require__(/*! ../user/Beranda.vue */ "./resources/js/user/Beranda.vue")["default"]);
+
+var UserPetunjuk = (__webpack_require__(/*! ../user/Petunjuk.vue */ "./resources/js/user/Petunjuk.vue")["default"]);
 
 var Beranda = (__webpack_require__(/*! ../pages/Beranda.vue */ "./resources/js/pages/Beranda.vue")["default"]);
 
@@ -5813,6 +5897,9 @@ var routes = [{
 }, {
   path: '/user',
   component: UserBeranda
+}, {
+  path: '/user/petunjuk',
+  component: UserPetunjuk
 }, {
   path: '/admin/thread',
   component: AdminThread
@@ -42281,6 +42368,45 @@ component.options.__file = "resources/js/user/Beranda.vue"
 
 /***/ }),
 
+/***/ "./resources/js/user/Petunjuk.vue":
+/*!****************************************!*\
+  !*** ./resources/js/user/Petunjuk.vue ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Petunjuk_vue_vue_type_template_id_09d4f044___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Petunjuk.vue?vue&type=template&id=09d4f044& */ "./resources/js/user/Petunjuk.vue?vue&type=template&id=09d4f044&");
+/* harmony import */ var _Petunjuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Petunjuk.vue?vue&type=script&lang=js& */ "./resources/js/user/Petunjuk.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Petunjuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Petunjuk_vue_vue_type_template_id_09d4f044___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Petunjuk_vue_vue_type_template_id_09d4f044___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/user/Petunjuk.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/admin/Beranda.vue?vue&type=script&lang=js&":
 /*!*****************************************************************!*\
   !*** ./resources/js/admin/Beranda.vue?vue&type=script&lang=js& ***!
@@ -42726,6 +42852,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Beranda.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Beranda.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/user/Petunjuk.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/user/Petunjuk.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Petunjuk.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -43218,6 +43360,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_template_id_68bb6913___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_template_id_68bb6913___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Beranda.vue?vue&type=template&id=68bb6913& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Beranda.vue?vue&type=template&id=68bb6913&");
+
+
+/***/ }),
+
+/***/ "./resources/js/user/Petunjuk.vue?vue&type=template&id=09d4f044&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/user/Petunjuk.vue?vue&type=template&id=09d4f044& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_template_id_09d4f044___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_template_id_09d4f044___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_template_id_09d4f044___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Petunjuk.vue?vue&type=template&id=09d4f044& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=template&id=09d4f044&");
 
 
 /***/ }),
@@ -46211,6 +46370,180 @@ var render = function () {
             attrs: { to: "/admin/logout" },
           },
           [_vm._v("Logout ")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "m-1" }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "p-1.5 rounded-md hover:bg-yellow-300 flex justify-between items-center w-full",
+              on: {
+                click: function ($event) {
+                  $event.preventDefault()
+                  return _vm.klikmateri()
+                },
+              },
+            },
+            [
+              _c("div", { staticClass: "font-semibold" }, [_vm._v("Materi")]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "h-4 w-4",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M19 9l-7 7-7-7",
+                    },
+                  }),
+                ]
+              ),
+            ]
+          ),
+          _vm._v(" "),
+          _vm.showmateri
+            ? _c(
+                "div",
+                { staticClass: "ml-3 flex flex-col" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/daftarmateri/d3" },
+                    },
+                    [_vm._v("D-3 Statistika")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/daftarmateri/d4st" },
+                    },
+                    [_vm._v("D-4 Statistika")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/daftarmateri/d4ks" },
+                    },
+                    [_vm._v("D-4 Komputasi Statistik")]
+                  ),
+                ],
+                1
+              )
+            : _vm._e(),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "m-1" }, [
+          _c(
+            "button",
+            {
+              staticClass:
+                "p-1.5 rounded-md hover:bg-yellow-300 flex justify-between items-center w-full",
+              on: {
+                click: function ($event) {
+                  $event.preventDefault()
+                  return _vm.klikarsipsoal()
+                },
+              },
+            },
+            [
+              _c("div", { staticClass: "font-semibold" }, [
+                _vm._v("Arsip Soal"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "h-4 w-4",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M19 9l-7 7-7-7",
+                    },
+                  }),
+                ]
+              ),
+            ]
+          ),
+          _vm._v(" "),
+          _vm.showarsipsoal
+            ? _c(
+                "div",
+                { staticClass: "ml-3 flex flex-col" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/daftararsipsoal/d3" },
+                    },
+                    [_vm._v("D-3 Statistika")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/daftararsipsoal/d4st" },
+                    },
+                    [_vm._v("D-4 Statistika")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "router-link",
+                    {
+                      staticClass:
+                        "p-1.5 my-0.5 rounded-md hover:bg-yellow-300",
+                      attrs: { to: "/daftararsipsoal/d4ks" },
+                    },
+                    [_vm._v("D-4 Komputasi Statistik")]
+                  ),
+                ],
+                1
+              )
+            : _vm._e(),
+        ]),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/forum" },
+          },
+          [_vm._v("Forum Tanya Jawab")]
         ),
       ],
       1
@@ -52030,6 +52363,144 @@ var staticRenderFns = [
     ])
   },
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=template&id=09d4f044&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=template&id=09d4f044& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
+      [
+        _c("div", { staticClass: "mt-4" }, [
+          _c("span", { staticClass: "font-bold text-lg mt-4" }, [
+            _vm._v("Peraturan Pada Form Ini"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("span", { staticClass: "font-semibold" }, [
+              _vm._v("Syarat dan Ketentuan Posting"),
+            ]),
+            _vm._v(" "),
+            _c("ul", { staticClass: "list-none" }, [
+              _c("li", { staticClass: "flex flex-row items-center" }, [
+                _c("div", { staticClass: "w-5" }, [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "h-5 w-5",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 20 20",
+                        fill: "currentColor",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                          "clip-rule": "evenodd",
+                        },
+                      }),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-left" }, [
+                  _vm._v(
+                    "Dilarang keras membuat thread yang mengandung sara, pornografi dan lainnya yang bersifat negatif"
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "flex flex-row items-center" }, [
+                _c("div", { staticClass: "w-5" }, [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "h-5 w-5",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 20 20",
+                        fill: "currentColor",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                          "clip-rule": "evenodd",
+                        },
+                      }),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-left" }, [
+                  _vm._v(
+                    "Dilarang memasukkan foto kedalam thread atau tanggapan yang mengandung sara, pornografi dan lainnya yang bersifat negatif"
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "flex flex-row items-center" }, [
+                _c("div", { staticClass: "w-5" }, [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "h-5 w-5",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 20 20",
+                        fill: "currentColor",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                          "clip-rule": "evenodd",
+                        },
+                      }),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-left" }, [
+                  _vm._v(
+                    "Ketika ingin membuat sebuah thread sesuaikan dengan kategorinya"
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
