@@ -8,7 +8,8 @@ const Register = require('../auth/Register.vue').default;
 const Login = require('../auth/Login.vue').default;
 
 // Bagian Admin
-const Beranda = require('../pages/admin/Beranda.vue').default;
+const AdminLogin = require('../admin/auth/Login.vue').default;
+const Berandal = require('../pages/admin/Beranda.vue').default;
 const Thread = require('../pages/admin/Thread.vue').default;
 const Tanggapan = require('../pages/admin/Tanggapan.vue').default;
 const Laporan = require('../pages/admin/Laporan.vue').default;
@@ -34,6 +35,15 @@ const ArsipSoalJawab = require('../pages/arsipSoal/Jawab.vue').default;
 
 
 const routes = [
+    {
+        path: '/admin/login',
+        component: AdminLogin
+    },
+    {
+        path: '/admin/',
+        component: Berandal
+    },
+
     {
         path: '/login',
         component: Login
