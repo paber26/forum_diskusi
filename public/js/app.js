@@ -2054,6 +2054,650 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Beranda.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Beranda.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    coba: function coba() {
+      this.$swal('Halo');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Laporan.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Laporan.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    coba: function coba() {
+      this.$swal('Halo');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Tanggapan.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Tanggapan.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    coba: function coba() {
+      this.$swal('Halo');
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Thread.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Thread.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    coba: function coba() {
+      this.$swal('Halo');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/auth/Login.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/auth/Login.vue?vue&type=script&lang=js& ***!
@@ -2392,9 +3036,58 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     logout: function logout() {
-      axios.post("/logout").then(function (response) {
+      axios.post("/admin/logout").then(function (response) {
         window.location.href = response.data;
       });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarAdminComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarAdminComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      showmateri: false,
+      showarsipsoal: false
+    };
+  },
+  methods: {
+    klikmateri: function klikmateri() {
+      this.showmateri = !this.showmateri;
+      this.showarsipsoal = false;
+    },
+    klikarsipsoal: function klikarsipsoal() {
+      this.showarsipsoal = !this.showarsipsoal;
+      this.showmateri = false;
     }
   }
 });
@@ -4703,6 +5396,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 Vue.use((vue_sweetalert2__WEBPACK_IMPORTED_MODULE_1___default()));
 Vue.component('header-component', (__webpack_require__(/*! ./components/HeaderComponent.vue */ "./resources/js/components/HeaderComponent.vue")["default"]));
 Vue.component('sidebar-component', (__webpack_require__(/*! ./components/SidebarComponent.vue */ "./resources/js/components/SidebarComponent.vue")["default"]));
+Vue.component('sidebaradmin-component', (__webpack_require__(/*! ./components/SidebarAdminComponent.vue */ "./resources/js/components/SidebarAdminComponent.vue")["default"]));
 Vue.component('footer-component', (__webpack_require__(/*! ./components/FooterComponent.vue */ "./resources/js/components/FooterComponent.vue")["default"]));
 var app = new Vue({
   el: '#app',
@@ -4777,6 +5471,14 @@ var Login = (__webpack_require__(/*! ../auth/Login.vue */ "./resources/js/auth/L
 
 
 var AdminLogin = (__webpack_require__(/*! ../admin/auth/Login.vue */ "./resources/js/admin/auth/Login.vue")["default"]);
+
+var AdminBeranda = (__webpack_require__(/*! ../admin/Beranda.vue */ "./resources/js/admin/Beranda.vue")["default"]);
+
+var AdminThread = (__webpack_require__(/*! ../admin/Thread.vue */ "./resources/js/admin/Thread.vue")["default"]);
+
+var AdminTanggapan = (__webpack_require__(/*! ../admin/Tanggapan.vue */ "./resources/js/admin/Tanggapan.vue")["default"]);
+
+var AdminLaporan = (__webpack_require__(/*! ../admin/Laporan.vue */ "./resources/js/admin/Laporan.vue")["default"]);
 
 var Beranda = (__webpack_require__(/*! ../pages/admin/Beranda.vue */ "./resources/js/pages/admin/Beranda.vue")["default"]);
 
@@ -4883,7 +5585,16 @@ var routes = [{
   component: AdminLogin
 }, {
   path: '/admin',
-  component: Beranda
+  component: AdminBeranda
+}, {
+  path: '/admin/thread',
+  component: AdminThread
+}, {
+  path: '/admin/tanggapan',
+  component: AdminTanggapan
+}, {
+  path: '/admin/laporan',
+  component: AdminLaporan
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
@@ -40214,6 +40925,162 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./resources/js/admin/Beranda.vue":
+/*!****************************************!*\
+  !*** ./resources/js/admin/Beranda.vue ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Beranda_vue_vue_type_template_id_0fe6ad8b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Beranda.vue?vue&type=template&id=0fe6ad8b& */ "./resources/js/admin/Beranda.vue?vue&type=template&id=0fe6ad8b&");
+/* harmony import */ var _Beranda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Beranda.vue?vue&type=script&lang=js& */ "./resources/js/admin/Beranda.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Beranda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Beranda_vue_vue_type_template_id_0fe6ad8b___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Beranda_vue_vue_type_template_id_0fe6ad8b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/Beranda.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/Laporan.vue":
+/*!****************************************!*\
+  !*** ./resources/js/admin/Laporan.vue ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Laporan_vue_vue_type_template_id_64a90f7d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Laporan.vue?vue&type=template&id=64a90f7d& */ "./resources/js/admin/Laporan.vue?vue&type=template&id=64a90f7d&");
+/* harmony import */ var _Laporan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Laporan.vue?vue&type=script&lang=js& */ "./resources/js/admin/Laporan.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Laporan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Laporan_vue_vue_type_template_id_64a90f7d___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Laporan_vue_vue_type_template_id_64a90f7d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/Laporan.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/Tanggapan.vue":
+/*!******************************************!*\
+  !*** ./resources/js/admin/Tanggapan.vue ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Tanggapan_vue_vue_type_template_id_300ee222___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tanggapan.vue?vue&type=template&id=300ee222& */ "./resources/js/admin/Tanggapan.vue?vue&type=template&id=300ee222&");
+/* harmony import */ var _Tanggapan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tanggapan.vue?vue&type=script&lang=js& */ "./resources/js/admin/Tanggapan.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Tanggapan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Tanggapan_vue_vue_type_template_id_300ee222___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Tanggapan_vue_vue_type_template_id_300ee222___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/Tanggapan.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/admin/Thread.vue":
+/*!***************************************!*\
+  !*** ./resources/js/admin/Thread.vue ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Thread_vue_vue_type_template_id_0ae72368___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thread.vue?vue&type=template&id=0ae72368& */ "./resources/js/admin/Thread.vue?vue&type=template&id=0ae72368&");
+/* harmony import */ var _Thread_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Thread.vue?vue&type=script&lang=js& */ "./resources/js/admin/Thread.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Thread_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Thread_vue_vue_type_template_id_0ae72368___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Thread_vue_vue_type_template_id_0ae72368___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/Thread.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/admin/auth/Login.vue":
 /*!*******************************************!*\
   !*** ./resources/js/admin/auth/Login.vue ***!
@@ -40403,6 +41270,45 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/HeaderComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/SidebarAdminComponent.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/SidebarAdminComponent.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SidebarAdminComponent_vue_vue_type_template_id_e7f6fae2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SidebarAdminComponent.vue?vue&type=template&id=e7f6fae2& */ "./resources/js/components/SidebarAdminComponent.vue?vue&type=template&id=e7f6fae2&");
+/* harmony import */ var _SidebarAdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SidebarAdminComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/SidebarAdminComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SidebarAdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SidebarAdminComponent_vue_vue_type_template_id_e7f6fae2___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SidebarAdminComponent_vue_vue_type_template_id_e7f6fae2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/SidebarAdminComponent.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -41070,6 +41976,70 @@ component.options.__file = "resources/js/pages/materi/Lihat.vue"
 
 /***/ }),
 
+/***/ "./resources/js/admin/Beranda.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/admin/Beranda.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Beranda.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Beranda.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/Laporan.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/admin/Laporan.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Laporan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Laporan.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Laporan.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Laporan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/Tanggapan.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/admin/Tanggapan.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Tanggapan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Tanggapan.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Tanggapan.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Tanggapan_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/Thread.vue?vue&type=script&lang=js&":
+/*!****************************************************************!*\
+  !*** ./resources/js/admin/Thread.vue?vue&type=script&lang=js& ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Thread_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Thread.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Thread.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Thread_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/admin/auth/Login.vue?vue&type=script&lang=js&":
 /*!********************************************************************!*\
   !*** ./resources/js/admin/auth/Login.vue?vue&type=script&lang=js& ***!
@@ -41131,6 +42101,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HeaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HeaderComponent.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/SidebarAdminComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/SidebarAdminComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarAdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarAdminComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarAdminComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarAdminComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -41406,6 +42392,74 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/Beranda.vue?vue&type=template&id=0fe6ad8b&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/admin/Beranda.vue?vue&type=template&id=0fe6ad8b& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_template_id_0fe6ad8b___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_template_id_0fe6ad8b___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_template_id_0fe6ad8b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Beranda.vue?vue&type=template&id=0fe6ad8b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Beranda.vue?vue&type=template&id=0fe6ad8b&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/Laporan.vue?vue&type=template&id=64a90f7d&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/admin/Laporan.vue?vue&type=template&id=64a90f7d& ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Laporan_vue_vue_type_template_id_64a90f7d___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Laporan_vue_vue_type_template_id_64a90f7d___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Laporan_vue_vue_type_template_id_64a90f7d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Laporan.vue?vue&type=template&id=64a90f7d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Laporan.vue?vue&type=template&id=64a90f7d&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/Tanggapan.vue?vue&type=template&id=300ee222&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/admin/Tanggapan.vue?vue&type=template&id=300ee222& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tanggapan_vue_vue_type_template_id_300ee222___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tanggapan_vue_vue_type_template_id_300ee222___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tanggapan_vue_vue_type_template_id_300ee222___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Tanggapan.vue?vue&type=template&id=300ee222& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Tanggapan.vue?vue&type=template&id=300ee222&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/Thread.vue?vue&type=template&id=0ae72368&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/admin/Thread.vue?vue&type=template&id=0ae72368& ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Thread_vue_vue_type_template_id_0ae72368___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Thread_vue_vue_type_template_id_0ae72368___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Thread_vue_vue_type_template_id_0ae72368___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Thread.vue?vue&type=template&id=0ae72368& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Thread.vue?vue&type=template&id=0ae72368&");
+
+
+/***/ }),
+
 /***/ "./resources/js/admin/auth/Login.vue?vue&type=template&id=2b5aee60&":
 /*!**************************************************************************!*\
   !*** ./resources/js/admin/auth/Login.vue?vue&type=template&id=2b5aee60& ***!
@@ -41487,6 +42541,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_HeaderComponent_vue_vue_type_template_id_153bfd55___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./HeaderComponent.vue?vue&type=template&id=153bfd55& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/HeaderComponent.vue?vue&type=template&id=153bfd55&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SidebarAdminComponent.vue?vue&type=template&id=e7f6fae2&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/SidebarAdminComponent.vue?vue&type=template&id=e7f6fae2& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarAdminComponent_vue_vue_type_template_id_e7f6fae2___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarAdminComponent_vue_vue_type_template_id_e7f6fae2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SidebarAdminComponent_vue_vue_type_template_id_e7f6fae2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SidebarAdminComponent.vue?vue&type=template&id=e7f6fae2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarAdminComponent.vue?vue&type=template&id=e7f6fae2&");
 
 
 /***/ }),
@@ -41776,6 +42847,2077 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Lihat_vue_vue_type_template_id_93ac1f18___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Lihat_vue_vue_type_template_id_93ac1f18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Lihat.vue?vue&type=template&id=93ac1f18& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/Lihat.vue?vue&type=template&id=93ac1f18&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Beranda.vue?vue&type=template&id=0fe6ad8b&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Beranda.vue?vue&type=template&id=0fe6ad8b& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
+      [
+        _c("div", { staticClass: "mt-4" }, [
+          _c("span", { staticClass: "font-bold text-lg mt-4" }, [
+            _vm._v("Thread Terbaru"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex m-1" }, [
+              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 15l7-7 7 7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v("6")]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M19 9l-7 7-7-7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2" }, [
+                _vm._v(
+                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("hr", { staticClass: "mb-2" }),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-semibold ml-3" }, [
+              _vm._v("4 jawaban"),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(1),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex m-1" }, [
+              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 15l7-7 7 7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v("6")]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M19 9l-7 7-7-7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2" }, [
+                _vm._v(
+                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("hr", { staticClass: "mb-2" }),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-semibold ml-3" }, [
+              _vm._v("4 jawaban"),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(2),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex m-1" }, [
+              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 15l7-7 7 7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v("6")]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M19 9l-7 7-7-7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2" }, [
+                _vm._v(
+                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("hr", { staticClass: "mb-2" }),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-semibold ml-3" }, [
+              _vm._v("4 jawaban"),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c(
+            "span",
+            { staticClass: "font-semibold italic flex justify-end -mt-2" },
+            [_vm._v("Lihat Selengkapnya")]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "my-4" }, [
+          _c("span", { staticClass: "font-bold text-lg mt-4" }, [
+            _vm._v("Tanggapan Terbaru"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(3),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-6 w-6",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
+                _vm._v(
+                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("span", {}, [
+              _vm._v(
+                "Sadar, meskipun tidak sepenuhnya ingat.\r\n                    Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(4),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-6 w-6",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
+                _vm._v(
+                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("span", {}, [
+              _vm._v(
+                "Sadar, meskipun tidak sepenuhnya ingat.\r\n                    Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(5),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-6 w-6",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
+                _vm._v(
+                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("span", {}, [
+              _vm._v(
+                "Sadar, meskipun tidak sepenuhnya ingat.\r\n                    Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c(
+            "span",
+            { staticClass: "font-semibold italic flex justify-end -mt-2" },
+            [_vm._v("Lihat Selengkapnya")]
+          ),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dijawab pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dijawab pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dijawab pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Menanggapi pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Menanggapi pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Menanggapi pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Laporan.vue?vue&type=template&id=64a90f7d&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Laporan.vue?vue&type=template&id=64a90f7d& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
+      [
+        _c("span", { staticClass: "font-bold text-2xl mt-4 mb-3" }, [
+          _vm._v("Kelola Laporan Thread"),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "relative overflow-x-auto shadow-md sm:rounded-lg" },
+          [
+            _c("table", { staticClass: "w-full text-left" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("tbody", [
+                _c(
+                  "tr",
+                  { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                  [
+                    _c(
+                      "td",
+                      {
+                        staticClass:
+                          "p-3 text-center font-medium text-gray-900",
+                      },
+                      [_vm._v("1")]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v("Lasro Marbun"),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-right" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M6 18L18 6M6 6l12 12",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(
+                          "\r\n                                Hapus\r\n                            "
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tr",
+                  { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                  [
+                    _c(
+                      "td",
+                      {
+                        staticClass:
+                          "p-3 text-center font-medium text-gray-900",
+                      },
+                      [_vm._v("2")]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v("Lasro Marbun"),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _vm._m(4),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-right" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M6 18L18 6M6 6l12 12",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(
+                          "\r\n                                Hapus\r\n                            "
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tr",
+                  { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                  [
+                    _c(
+                      "td",
+                      {
+                        staticClass:
+                          "p-3 text-center font-medium text-gray-900",
+                      },
+                      [_vm._v("3")]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v("Lasro Marbun"),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _vm._m(6),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-right" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M6 18L18 6M6 6l12 12",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(
+                          "\r\n                                Hapus\r\n                            "
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
+      [
+        _c("span", { staticClass: "font-bold text-2xl mt-4 mb-3" }, [
+          _vm._v("Kelola Laporan Tanggapan"),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "relative overflow-x-auto shadow-md sm:rounded-lg" },
+          [
+            _c("table", { staticClass: "w-full text-left" }, [
+              _vm._m(7),
+              _vm._v(" "),
+              _c("tbody", [
+                _c(
+                  "tr",
+                  { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                  [
+                    _c(
+                      "td",
+                      {
+                        staticClass:
+                          "p-3 text-center font-medium text-gray-900",
+                      },
+                      [_vm._v("1")]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v("Lasro Marbun"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "ml-2 text-base font-bold" },
+                          [
+                            _vm._v(
+                              "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-xs italic" }, [
+                        _vm._v("Menanggapi pada 04-06-2020 08:23"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-right" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M6 18L18 6M6 6l12 12",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(
+                          "\r\n                                Hapus\r\n                            "
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tr",
+                  { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                  [
+                    _c(
+                      "td",
+                      {
+                        staticClass:
+                          "p-3 text-center font-medium text-gray-900",
+                      },
+                      [_vm._v("2")]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v("Lasro Marbun"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "ml-2 text-base font-bold" },
+                          [
+                            _vm._v(
+                              "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-xs italic" }, [
+                        _vm._v("Menanggapi pada 04-06-2020 08:23"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(9),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-right" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M6 18L18 6M6 6l12 12",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(
+                          "\r\n                                Hapus\r\n                            "
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tr",
+                  { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                  [
+                    _c(
+                      "td",
+                      {
+                        staticClass:
+                          "p-3 text-center font-medium text-gray-900",
+                      },
+                      [_vm._v("3")]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v("Lasro Marbun"),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "ml-2 text-base font-bold" },
+                          [
+                            _vm._v(
+                              "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                            ),
+                          ]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-xs italic" }, [
+                        _vm._v("Menanggapi pada 04-06-2020 08:23"),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(10),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-right" }, [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-6 w-6",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M6 18L18 6M6 6l12 12",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(
+                          "\r\n                                Hapus\r\n                            "
+                        ),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "thead",
+      { staticClass: "text-base text-gray-700 uppercase bg-blue-300" },
+      [
+        _c("tr", { staticClass: "text-center divide-x divide-gray-400" }, [
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("No")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Pembuat")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Thread/Tanggapan")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Pelapor")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dibuat pada 04-06-2020 08:23"),
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: " flex flex-col" }, [
+        _c("span", { staticClass: "mb-2" }, [_vm._v("Jumlah: 1 orang")]),
+        _vm._v(" "),
+        _c("ol", { staticClass: "list-decimal ml-3" }, [
+          _c("li", [_vm._v("Bernaldo Napitupulu")]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dibuat pada 04-06-2020 08:23"),
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: " flex flex-col" }, [
+        _c("span", { staticClass: "mb-2" }, [_vm._v("Jumlah: 1 orang")]),
+        _vm._v(" "),
+        _c("ol", { staticClass: "list-decimal ml-3" }, [
+          _c("li", [_vm._v("Bernaldo Napitupulu")]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dibuat pada 04-06-2020 08:23"),
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: " flex flex-col" }, [
+        _c("span", { staticClass: "mb-2" }, [_vm._v("Jumlah: 1 orang")]),
+        _vm._v(" "),
+        _c("ol", { staticClass: "list-decimal ml-3" }, [
+          _c("li", [_vm._v("Bernaldo Napitupulu")]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "thead",
+      { staticClass: "text-base text-gray-700 uppercase bg-blue-300" },
+      [
+        _c("tr", { staticClass: "text-center divide-x divide-gray-400" }, [
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("No")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Pembuat")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Thread/Tanggapan")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Pelapor")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: " flex flex-col" }, [
+        _c("span", { staticClass: "mb-2" }, [_vm._v("Jumlah: 1 orang")]),
+        _vm._v(" "),
+        _c("ol", { staticClass: "list-decimal ml-3" }, [
+          _c("li", [_vm._v("Bernaldo Napitupulu")]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: " flex flex-col" }, [
+        _c("span", { staticClass: "mb-2" }, [_vm._v("Jumlah: 1 orang")]),
+        _vm._v(" "),
+        _c("ol", { staticClass: "list-decimal ml-3" }, [
+          _c("li", [_vm._v("Bernaldo Napitupulu")]),
+        ]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: " flex flex-col" }, [
+        _c("span", { staticClass: "mb-2" }, [_vm._v("Jumlah: 1 orang")]),
+        _vm._v(" "),
+        _c("ol", { staticClass: "list-decimal ml-3" }, [
+          _c("li", [_vm._v("Bernaldo Napitupulu")]),
+        ]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Tanggapan.vue?vue&type=template&id=300ee222&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Tanggapan.vue?vue&type=template&id=300ee222& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
+      [
+        _c("span", { staticClass: "font-bold text-2xl mt-4 mb-3" }, [
+          _vm._v("Kelola Tanggapan"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "relative overflow-x-auto sm:rounded-lg" }, [
+          _c("div", { staticClass: "pb-3 flex justify-end" }, [
+            _c("div", { staticClass: "relative mt-1" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none",
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "w-5 h-5 text-gray-500 dark:text-gray-400",
+                      attrs: {
+                        fill: "currentColor",
+                        viewBox: "0 0 20 20",
+                        xmlns: "http://www.w3.org/2000/svg",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d: "M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z",
+                          "clip-rule": "evenodd",
+                        },
+                      }),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticClass:
+                  "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                attrs: {
+                  type: "text",
+                  id: "table-search",
+                  placeholder: "Cari tanggapan",
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("table", { staticClass: "w-full text-left" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("tbody", [
+              _c(
+                "tr",
+                { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                [
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "p-3 font-medium text-gray-900 whitespace-nowrap",
+                    },
+                    [_vm._v("1")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _vm._v("Bernaldo Napitupulu"),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-2 text-base font-bold" }, [
+                        _vm._v(
+                          "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-xs italic" }, [
+                      _vm._v("Menanggapi pada 04-06-2020 08:23"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(
+                        "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3 text-right" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M6 18L18 6M6 6l12 12",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(
+                        "\r\n                                Hapus\r\n                            "
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                [
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "p-3 font-medium text-gray-900 whitespace-nowrap",
+                    },
+                    [_vm._v("2")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _vm._v("Bernaldo Napitupulu"),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-2 text-base font-bold" }, [
+                        _vm._v(
+                          "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-xs italic" }, [
+                      _vm._v("Menanggapi pada 04-06-2020 08:23"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(
+                        "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3 text-right" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M6 18L18 6M6 6l12 12",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(
+                        "\r\n                                Hapus\r\n                            "
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                [
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "p-3 font-medium text-gray-900 whitespace-nowrap",
+                    },
+                    [_vm._v("3")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _vm._v("Bernaldo Napitupulu"),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-2 text-base font-bold" }, [
+                        _vm._v(
+                          "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-xs italic" }, [
+                      _vm._v("Menanggapi pada 04-06-2020 08:23"),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(
+                        "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3 text-right" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M6 18L18 6M6 6l12 12",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(
+                        "\r\n                                Hapus\r\n                            "
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "thead",
+      { staticClass: "text-base text-gray-700 uppercase bg-blue-300" },
+      [
+        _c("tr", { staticClass: "text-center divide-x divide-gray-400" }, [
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("No")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Nama Penanggap")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Isi Tanggapan")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }),
+        ]),
+      ]
+    )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Thread.vue?vue&type=template&id=0ae72368&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Thread.vue?vue&type=template&id=0ae72368& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
+      [
+        _c("span", { staticClass: "font-bold text-2xl mt-4 mb-3" }, [
+          _vm._v("Kelola Thread"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "relative overflow-x-auto sm:rounded-lg" }, [
+          _c("div", { staticClass: "pb-3 flex justify-end" }, [
+            _c("div", { staticClass: "relative mt-1" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none",
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "w-5 h-5 text-gray-500 dark:text-gray-400",
+                      attrs: {
+                        fill: "currentColor",
+                        viewBox: "0 0 20 20",
+                        xmlns: "http://www.w3.org/2000/svg",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d: "M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z",
+                          "clip-rule": "evenodd",
+                        },
+                      }),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticClass:
+                  "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                attrs: {
+                  type: "text",
+                  id: "table-search",
+                  placeholder: "Cari Thread",
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("table", { staticClass: "w-full text-left" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("tbody", [
+              _c(
+                "tr",
+                { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                [
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "p-3 font-medium text-gray-900 whitespace-nowrap",
+                    },
+                    [_vm._v("1")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _vm._v("Bernaldo Napitupulu"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3 text-center" }, [_vm._v("7")]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M6 18L18 6M6 6l12 12",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(
+                        "\r\n                                Hapus\r\n                            "
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                [
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "p-3 font-medium text-gray-900 whitespace-nowrap",
+                    },
+                    [_vm._v("2")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _vm._v("Bernaldo Napitupulu"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3 text-center" }, [_vm._v("7")]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M6 18L18 6M6 6l12 12",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(
+                        "\r\n                                Hapus\r\n                            "
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "tr",
+                { staticClass: "bg-white border-b divide-x divide-gray-400" },
+                [
+                  _c(
+                    "td",
+                    {
+                      staticClass:
+                        "p-3 font-medium text-gray-900 whitespace-nowrap",
+                    },
+                    [_vm._v("3")]
+                  ),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _vm._v("Bernaldo Napitupulu"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3 text-center" }, [_vm._v("7")]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M6 18L18 6M6 6l12 12",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(
+                        "\r\n                                Hapus\r\n                            "
+                      ),
+                    ]),
+                  ]),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "thead",
+      { staticClass: "text-base text-gray-700 uppercase bg-blue-300" },
+      [
+        _c("tr", { staticClass: "text-center divide-x divide-gray-400" }, [
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("No")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Nama Pengguna")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Isi Thread")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Dukungan")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dibuat pada 04-06-2020 08:23"),
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dibuat pada 04-06-2020 08:23"),
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+        ),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "p-3" }, [
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dibuat pada 04-06-2020 08:23"),
+      ]),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+        ),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
 
 
 /***/ }),
@@ -42408,6 +45550,118 @@ var staticRenderFns = [
         attrs: { src: "/img/polstat-stis.png", alt: "Logo Polstat STIS" },
       }),
     ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarAdminComponent.vue?vue&type=template&id=e7f6fae2&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/SidebarAdminComponent.vue?vue&type=template&id=e7f6fae2& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "bg-blue-300 hidden sm:block w-60" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "flex flex-col" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/admin/" },
+          },
+          [_vm._v("Beranda")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/admin/thread" },
+          },
+          [_vm._v("Thread")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/admin/tanggapan" },
+          },
+          [_vm._v("Tanggapan")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/admin/laporan" },
+          },
+          [_vm._v("Laporan")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
+            attrs: { to: "/admin/logout" },
+          },
+          [_vm._v("Logout ")]
+        ),
+      ],
+      1
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass:
+          "hover:no-underline p-1 flex flex-col justify-center items-center h-46",
+        attrs: { href: "/admin/" },
+      },
+      [
+        _c("img", {
+          staticClass: "w-20",
+          attrs: { src: "/img/polstat-stis.png", alt: "Logo Polstat STIS" },
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "font-bold text-2xl" }, [
+          _vm._v("Forum Diskusi"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "font-bold text-lg -mt-2" }, [
+          _vm._v("Polstat STIS"),
+        ]),
+      ]
+    )
   },
 ]
 render._withStripped = true

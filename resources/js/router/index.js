@@ -10,6 +10,11 @@ const Login = require('../auth/Login.vue').default;
 // Bagian Admin
 const AdminLogin = require('../admin/auth/Login.vue').default;
 
+const AdminBeranda = require('../admin/Beranda.vue').default;
+const AdminThread = require('../admin/Thread.vue').default;
+const AdminTanggapan = require('../admin/Tanggapan.vue').default;
+const AdminLaporan = require('../admin/Laporan.vue').default;
+
 const Beranda = require('../pages/admin/Beranda.vue').default;
 const Thread = require('../pages/admin/Thread.vue').default;
 const Tanggapan = require('../pages/admin/Tanggapan.vue').default;
@@ -137,7 +142,19 @@ const routes = [
     },
     {
         path: '/admin',
-        component: Beranda
+        component: AdminBeranda
+    },
+    {
+        path: '/admin/thread',
+        component: AdminThread
+    },
+    {
+        path: '/admin/tanggapan',
+        component: AdminTanggapan
+    },
+    {
+        path: '/admin/laporan',
+        component: AdminLaporan
     },
 ]
 

@@ -73,6 +73,12 @@ class Authen extends Controller
         }
     }
 
+    public function adminlogout()
+    {
+        Auth::logout();
+        return url('/admin/login');
+    }
+
     public function logout()
     {
         Auth::logout();

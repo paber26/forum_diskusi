@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         logout() {
-            axios.post("/logout").then(response => {
+            axios.post("/admin/logout").then(response => {
                 window.location.href = response.data;
             });
         }

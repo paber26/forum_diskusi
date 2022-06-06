@@ -35,11 +35,14 @@ Route::group(
     ['middleware' => 'admin'],
     function () {
         Route::get('/admin', function () {
-            return view('home');
+            return view('admin/home');
         })->where('any', '.*');
+
         Route::get('/admin/{any}', function () {
-            return view('home');
+            return view('admin/home');
         })->where('any', '.*');
+
+        Route::post('/admin/logout', [Authen::class, 'adminlogout']);
     }
 );
 
