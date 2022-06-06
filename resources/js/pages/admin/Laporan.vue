@@ -23,7 +23,7 @@
                         </td>
                         <td class="p-3">
                             <div class=" flex flex-col">
-                                <span class="mb-2">Jumlah: </span>
+                                <span class="mb-2">Jumlah: 1 orang</span>
                                 <ol class="list-decimal ml-3">
                                     <li>Bernaldo Napitupulu</li>
                                 </ol>
@@ -47,7 +47,7 @@
                         </td>
                         <td class="p-3">
                             <div class=" flex flex-col">
-                                <span class="mb-2">Jumlah: </span>
+                                <span class="mb-2">Jumlah: 1 orang</span>
                                 <ol class="list-decimal ml-3">
                                     <li>Bernaldo Napitupulu</li>
                                 </ol>
@@ -71,7 +71,7 @@
                         </td>
                         <td class="p-3">
                             <div class=" flex flex-col">
-                                <span class="mb-2">Jumlah: </span>
+                                <span class="mb-2">Jumlah: 1 orang</span>
                                 <ol class="list-decimal ml-3">
                                     <li>Bernaldo Napitupulu</li>
                                 </ol>
@@ -121,7 +121,7 @@
                         </td>
                         <td class="p-3">
                             <div class=" flex flex-col">
-                                <span class="mb-2">Jumlah: </span>
+                                <span class="mb-2">Jumlah: 1 orang</span>
                                 <ol class="list-decimal ml-3">
                                     <li>Bernaldo Napitupulu</li>
                                 </ol>
@@ -151,7 +151,7 @@
                         </td>
                         <td class="p-3">
                             <div class=" flex flex-col">
-                                <span class="mb-2">Jumlah: </span>
+                                <span class="mb-2">Jumlah: 1 orang</span>
                                 <ol class="list-decimal ml-3">
                                     <li>Bernaldo Napitupulu</li>
                                 </ol>
@@ -181,7 +181,7 @@
                         </td>
                         <td class="p-3">
                             <div class=" flex flex-col">
-                                <span class="mb-2">Jumlah: </span>
+                                <span class="mb-2">Jumlah: 1 orang</span>
                                 <ol class="list-decimal ml-3">
                                     <li>Bernaldo Napitupulu</li>
                                 </ol>

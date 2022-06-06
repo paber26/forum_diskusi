@@ -1,10 +1,6 @@
 <template>
 <div class="flex flex-col items-center w-full">
     <div class="w-5/6 sm:w-11/12 flex flex-col justify-center">
-        <div class="bg-yellow-200 mt-4 p-2 rounded-2xl flex justify-center">
-            <span class="font-semibold text-lg">Halo Bernaldo Napitupulu</span>
-        </div>
-
         <div class="mt-4">
             <span class="font-bold text-lg mt-4">Thread Terbaru</span>
             <div class="bg-white w-full p-3 rounded-2xl mb-3">
