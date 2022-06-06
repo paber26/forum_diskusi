@@ -26,7 +26,7 @@ Route::post('/register', [Authen::class, 'register']);
 Route::post('/login', [Authen::class, 'login']);
 
 Route::group(
-    ['middleware' => 'auth'],
+    ['middleware' => 'admin'],
     function () {
         Route::get('/{any}', function () {
             return view('home');
