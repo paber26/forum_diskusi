@@ -1,11 +1,11 @@
 <template>
-<div class="bg-blue-200 p-2.5">
+<div class="bg-blue-200">
     <div class="sm:flex justify-between hidden">
         <div class="flex items-center">
-            <span class="font-bold text-2xl mx-2">FORUM DISKUSI</span>
-            <span class="font-semibold mx-4">Petunjuk</span>
-            <span class="font-semibold mx-4">Buat Thread</span>
-            <span class="font-semibold mx-4">Pencarian</span>
+            <router-link to="/user" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-bold text-2xl mx-2">FORUM DISKUSI</router-link>
+            <router-link to="/user/petunjuk" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Petunjuk</router-link>
+            <router-link to="/user/buat_thread" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Buat Thread</router-link>
+            <router-link to="/user/pencarian" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Pencarian</router-link>
         </div>
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mx-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

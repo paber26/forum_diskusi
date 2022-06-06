@@ -36,6 +36,7 @@
                 </div>
                 <hr class="mb-2">
                 <span class="font-semibold ml-3">4 jawaban</span>
+                <span class="font-semibold ml-3">4 jawaban</span>
             </div>
             <div class="bg-white w-full p-3 rounded-2xl mb-3">
                 <div class="flex items-center">
