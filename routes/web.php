@@ -25,6 +25,10 @@ Route::get('/login', function () {
 Route::post('/register', [Authen::class, 'register']);
 Route::post('/login', [Authen::class, 'login']);
 
+Route::get('/admin', function () {
+    return view('auth');
+})->name('loginAdmin');
+
 Route::group(
     ['middleware' => 'auth'],
     function () {
