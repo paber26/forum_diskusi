@@ -8,6 +8,8 @@ const Register = require('../auth/Register.vue').default;
 const Login = require('../auth/Login.vue').default;
 
 // Bagian Admin
+const AdminLogin = require('../admin/auth/Login.vue').default;
+
 const Beranda = require('../pages/admin/Beranda.vue').default;
 const Thread = require('../pages/admin/Thread.vue').default;
 const Tanggapan = require('../pages/admin/Tanggapan.vue').default;
@@ -127,6 +129,16 @@ const routes = [
     //     component: ArsipSoalD4KSLihat,
     //     props: true
     // },
+
+
+    {
+        path: '/admin/login',
+        component: AdminLogin
+    },
+    {
+        path: '/admin',
+        component: Beranda
+    },
 ]
 
 const router = new VueRouter({

@@ -2054,6 +2054,96 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/auth/Login.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/auth/Login.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    };
+  },
+  methods: {
+    login: function login() {
+      var _this = this;
+
+      if (this.user.email != '' && this.user.password != '') {
+        axios.post('/admin/login', this.user).then(function (response) {
+          console.log(response.data);
+
+          if (response.data == "Tidak terdaftar") {
+            _this.$swal('Email belum terdaftar');
+          } else if (response.data == "Password salah") {
+            _this.$swal('Password salah');
+          } else {
+            _this.$swal({
+              text: 'Berhasil masuk ...',
+              icon: 'success',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 4000
+            });
+
+            window.location.href = response.data;
+          }
+        });
+      } else {
+        this.$swal('Email atau Password tidak boleh kosong');
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/Login.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/Login.vue?vue&type=script&lang=js& ***!
@@ -4686,6 +4776,8 @@ var Register = (__webpack_require__(/*! ../auth/Register.vue */ "./resources/js/
 var Login = (__webpack_require__(/*! ../auth/Login.vue */ "./resources/js/auth/Login.vue")["default"]); // Bagian Admin
 
 
+var AdminLogin = (__webpack_require__(/*! ../admin/auth/Login.vue */ "./resources/js/admin/auth/Login.vue")["default"]);
+
 var Beranda = (__webpack_require__(/*! ../pages/admin/Beranda.vue */ "./resources/js/pages/admin/Beranda.vue")["default"]);
 
 var Thread = (__webpack_require__(/*! ../pages/admin/Thread.vue */ "./resources/js/pages/admin/Thread.vue")["default"]);
@@ -4777,7 +4869,7 @@ var routes = [{
   path: '/arsipsoal/:prodi/:mid/:dasid/:asid',
   component: ArsipSoalJawab,
   props: true
-} // {
+}, // {
 //     path: '/daftararsipsoal/d4-komputasi-statistik',
 //     component: ArsipSoalD4KS
 // },
@@ -4786,7 +4878,13 @@ var routes = [{
 //     component: ArsipSoalD4KSLihat,
 //     props: true
 // },
-];
+{
+  path: '/admin/login',
+  component: AdminLogin
+}, {
+  path: '/admin',
+  component: Beranda
+}];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   mode: 'history',
   routes: routes
@@ -40116,6 +40214,45 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./resources/js/admin/auth/Login.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/admin/auth/Login.vue ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Login_vue_vue_type_template_id_2b5aee60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Login.vue?vue&type=template&id=2b5aee60& */ "./resources/js/admin/auth/Login.vue?vue&type=template&id=2b5aee60&");
+/* harmony import */ var _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login.vue?vue&type=script&lang=js& */ "./resources/js/admin/auth/Login.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Login_vue_vue_type_template_id_2b5aee60___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Login_vue_vue_type_template_id_2b5aee60___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/auth/Login.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/auth/Login.vue":
 /*!*************************************!*\
   !*** ./resources/js/auth/Login.vue ***!
@@ -40933,6 +41070,22 @@ component.options.__file = "resources/js/pages/materi/Lihat.vue"
 
 /***/ }),
 
+/***/ "./resources/js/admin/auth/Login.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/admin/auth/Login.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Login.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/auth/Login.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/auth/Login.vue?vue&type=script&lang=js&":
 /*!**************************************************************!*\
   !*** ./resources/js/auth/Login.vue?vue&type=script&lang=js& ***!
@@ -41250,6 +41403,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Lihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Lihat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/Lihat.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Lihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/admin/auth/Login.vue?vue&type=template&id=2b5aee60&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/admin/auth/Login.vue?vue&type=template&id=2b5aee60& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_2b5aee60___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_2b5aee60___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_2b5aee60___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Login.vue?vue&type=template&id=2b5aee60& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/auth/Login.vue?vue&type=template&id=2b5aee60&");
+
 
 /***/ }),
 
@@ -41606,6 +41776,153 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Lihat_vue_vue_type_template_id_93ac1f18___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Lihat_vue_vue_type_template_id_93ac1f18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Lihat.vue?vue&type=template&id=93ac1f18& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/materi/Lihat.vue?vue&type=template&id=93ac1f18&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/auth/Login.vue?vue&type=template&id=2b5aee60&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/auth/Login.vue?vue&type=template&id=2b5aee60& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "w-full bg-white rounded-xl p-2.5" }, [
+    _c("div", { staticClass: "border-2 border-gray-300 p-4 rounded-xl" }, [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function ($event) {
+              $event.preventDefault()
+              return _vm.login()
+            },
+          },
+        },
+        [
+          _c(
+            "label",
+            { staticClass: "text-birumateri font-semibold text-base" },
+            [_vm._v("Email")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user.email,
+                expression: "user.email",
+              },
+            ],
+            staticClass:
+              "w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+            attrs: { type: "text" },
+            domProps: { value: _vm.user.email },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.user, "email", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "text-birumateri font-semibold text-base mt-3" },
+            [_vm._v("Password")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user.password,
+                expression: "user.password",
+              },
+            ],
+            staticClass:
+              "w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+            attrs: { type: "password" },
+            domProps: { value: _vm.user.password },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.user, "password", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _vm._m(0),
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "flex justify-center items-end m-3" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "bg-yellow-500 py-1.5 px-3 rounded-md text-white font-semibold text-base",
+              attrs: { to: "/register" },
+            },
+            [_vm._v("Daftar")]
+          ),
+        ],
+        1
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex justify-center items-end m-3" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-birumateri py-1.5 px-3 rounded-md text-white font-semibold text-base",
+        },
+        [_vm._v("Masuk")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex items-center justify-between" }, [
+      _c("hr", { staticClass: "w-full" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "mx-2 font-thin italic" }, [_vm._v("atau")]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "w-full" }),
+    ])
+  },
+]
+render._withStripped = true
+
 
 
 /***/ }),

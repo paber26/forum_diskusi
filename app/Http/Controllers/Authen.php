@@ -54,6 +54,25 @@ class Authen extends Controller
         }
     }
 
+    public function adminlogin(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->password;
+
+        $user = DB::table('users')->where(['email' => $email])->first();
+
+        if ($user != null) {
+            if (Hash::check($password, $user->password)) {
+                Auth::attempt(['email' => $email, 'password' => $password]);
+                return url('/admin');
+            } else {
+                return "Password salah";
+            }
+        } else {
+            return "Tidak terdaftar";
+        }
+    }
+
     public function logout()
     {
         Auth::logout();
