@@ -5617,6 +5617,74 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/BuatThread.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/BuatThread.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user'],
+  mounted: function mounted() {
+    console.log(this.user);
+  },
+  methods: {
+    profiledit: function profiledit() {
+      this.$router.push({
+        path: '/user/profil/edit'
+      });
+    },
+    simpan: function simpan() {}
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=script&lang=js& ***!
@@ -6086,6 +6154,8 @@ var AdminLaporan = (__webpack_require__(/*! ../admin/Laporan.vue */ "./resources
 
 var UserBeranda = (__webpack_require__(/*! ../user/Beranda.vue */ "./resources/js/user/Beranda.vue")["default"]);
 
+var UserBuatThread = (__webpack_require__(/*! ../user/BuatThread.vue */ "./resources/js/user/BuatThread.vue")["default"]);
+
 var UserPetunjuk = (__webpack_require__(/*! ../user/Petunjuk.vue */ "./resources/js/user/Petunjuk.vue")["default"]);
 
 var UserProfil = (__webpack_require__(/*! ../user/Profil.vue */ "./resources/js/user/Profil.vue")["default"]);
@@ -6213,6 +6283,9 @@ var routes = [{
 }, {
   path: '/user/petunjuk',
   component: UserPetunjuk
+}, {
+  path: '/user/buat_thread',
+  component: UserBuatThread
 }, {
   path: '/user/profil',
   component: UserProfil
@@ -42687,6 +42760,45 @@ component.options.__file = "resources/js/user/Beranda.vue"
 
 /***/ }),
 
+/***/ "./resources/js/user/BuatThread.vue":
+/*!******************************************!*\
+  !*** ./resources/js/user/BuatThread.vue ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _BuatThread_vue_vue_type_template_id_489e9774___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BuatThread.vue?vue&type=template&id=489e9774& */ "./resources/js/user/BuatThread.vue?vue&type=template&id=489e9774&");
+/* harmony import */ var _BuatThread_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BuatThread.vue?vue&type=script&lang=js& */ "./resources/js/user/BuatThread.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BuatThread_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BuatThread_vue_vue_type_template_id_489e9774___WEBPACK_IMPORTED_MODULE_0__.render,
+  _BuatThread_vue_vue_type_template_id_489e9774___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/user/BuatThread.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/user/Petunjuk.vue":
 /*!****************************************!*\
   !*** ./resources/js/user/Petunjuk.vue ***!
@@ -43252,6 +43364,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/user/BuatThread.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/user/BuatThread.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BuatThread_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BuatThread.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/BuatThread.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BuatThread_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/user/Petunjuk.vue?vue&type=script&lang=js&":
 /*!*****************************************************************!*\
   !*** ./resources/js/user/Petunjuk.vue?vue&type=script&lang=js& ***!
@@ -43789,6 +43917,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_template_id_68bb6913___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Beranda_vue_vue_type_template_id_68bb6913___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Beranda.vue?vue&type=template&id=68bb6913& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Beranda.vue?vue&type=template&id=68bb6913&");
+
+
+/***/ }),
+
+/***/ "./resources/js/user/BuatThread.vue?vue&type=template&id=489e9774&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/user/BuatThread.vue?vue&type=template&id=489e9774& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuatThread_vue_vue_type_template_id_489e9774___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuatThread_vue_vue_type_template_id_489e9774___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BuatThread_vue_vue_type_template_id_489e9774___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./BuatThread.vue?vue&type=template&id=489e9774& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/BuatThread.vue?vue&type=template&id=489e9774&");
 
 
 /***/ }),
@@ -52832,6 +52977,164 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "text-xs italic" }, [
         _vm._v("Dijawab pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/BuatThread.vue?vue&type=template&id=489e9774&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/BuatThread.vue?vue&type=template&id=489e9774& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
+      [
+        _c("span", { staticClass: "font-bold text-xl mt-3 mb-2" }, [
+          _vm._v("Buat Thread"),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-white w-full p-3 rounded-lg" }, [
+          _c(
+            "form",
+            {
+              attrs: {
+                name: "form",
+                action: "/user/buat_thread",
+                method: "POST",
+              },
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group row flex justify-between" },
+                [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.simpan()
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\r\n                        Simpan Draft\r\n                    "
+                      ),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.simpan()
+                        },
+                      },
+                    },
+                    [
+                      _vm._v(
+                        "\r\n                        Upload\r\n                    "
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+            ]
+          ),
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "font-bold text-xl mt-3 mb-2" }, [
+          _vm._v("Tampilan Thread"),
+        ]),
+        _vm._v(" "),
+        _vm._m(2),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("label", { staticClass: "col-sm-2 col-form-label" }, [
+        _vm._v("Judul Thread"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            name: "judul",
+            type: "text",
+            placeholder: "Masukkan Judul Thread ...",
+          },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c("label", { staticClass: "col-sm-12 col-form-label" }, [
+        _vm._v("Isi Thread"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("textarea", {
+          staticClass: "form-control rounded-md h-100",
+          attrs: { placeholder: "Masukkan Isi Thread ..." },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-white w-full p-3 rounded-lg" }, [
+      _c("span", { staticClass: "font-bold text-gray-700" }, [
+        _vm._v("Judul Pertanyaan"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-2" }, [
+        _vm._v(
+          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ducimus dolores cumque vero repellat reprehenderit, autem minus, blanditiis laboriosam enim sint unde. Culpa pariatur amet velit aut itaque voluptates accusantium non tempore nulla ipsa error, sed nobis veniam excepturi ad placeat dolore ut dignissimos voluptatem suscipit corporis incidunt quidem voluptate. Odit autem eius itaque quam reprehenderit, dignissimos et mollitia ipsum, ratione id aut, illo quia laborum nobis. Dignissimos earum repellat vitae labore voluptate iure, odit unde saepe cupiditate, inventore doloribus optio debitis commodi. Repellat vel adipisci architecto deleniti perferendis illum magnam quaerat tempora? Quae enim deserunt pariatur dicta quam nulla magnam voluptate repudiandae, nobis exercitationem dolore reiciendis totam necessitatibus esse, ducimus deleniti repellat sequi tempore reprehenderit? Vel sit exercitationem eaque eveniet, deleniti unde, eligendi, quas asperiores molestias vitae fugit. Expedita culpa, libero, pariatur exercitationem dolorem labore voluptates a veniam hic quia dolor tenetur blanditiis! Illum unde repellat commodi perferendis facilis debitis odit tempore ducimus. Ullam mollitia perspiciatis id porro exercitationem pariatur dolores quae, reiciendis earum dolore ducimus facere fuga quibusdam vitae similique nostrum harum. Similique ab aut sapiente reiciendis dignissimos doloribus incidunt voluptates, voluptatibus nam. Odio blanditiis dolore temporibus maxime voluptas, maiores ratione a possimus doloribus, eaque at officia voluptate!"
+        ),
       ]),
     ])
   },
