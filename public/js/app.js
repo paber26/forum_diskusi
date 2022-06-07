@@ -5876,42 +5876,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   mounted: function mounted() {
@@ -43740,7 +43704,7 @@ var render = function () {
             _vm._v("Thread Terbaru"),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
             _c("div", { staticClass: "flex items-center" }, [
               _c(
                 "svg",
@@ -43851,7 +43815,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
             _c("div", { staticClass: "flex items-center" }, [
               _c(
                 "svg",
@@ -43962,7 +43926,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
             _c("div", { staticClass: "flex items-center" }, [
               _c(
                 "svg",
@@ -44085,7 +44049,7 @@ var render = function () {
             _vm._v("Tanggapan Terbaru"),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
             _c("div", { staticClass: "flex items-center" }, [
               _c(
                 "svg",
@@ -44151,7 +44115,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
             _c("div", { staticClass: "flex items-center" }, [
               _c(
                 "svg",
@@ -44217,7 +44181,7 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
             _c("div", { staticClass: "flex items-center" }, [
               _c(
                 "svg",
@@ -52872,7 +52836,7 @@ var render = function () {
       { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
       [
         _c("div", { staticClass: "mt-4" }, [
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-3" }, [
+          _c("div", { staticClass: "bg-white w-full p-2 rounded-lg mb-3" }, [
             _c("div", { staticClass: "flex items-center justify-between" }, [
               _c("div", { staticClass: "flex items-center" }, [
                 _c(
@@ -52933,16 +52897,38 @@ var render = function () {
               [
                 _vm._m(1),
                 _vm._v(" "),
-                _c("div", { staticClass: "grid grid-cols-2 p-0.5" }, [
-                  _c("div", { staticClass: "col-span-2 sm:col-span-1" }),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "col-span-2 sm:col-span-1 flex items-center justify-end",
-                    },
-                    [
+                _c(
+                  "div",
+                  { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" },
+                  [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-12 w-12",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(2),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex items-center" }, [
                       _c(
                         "svg",
                         {
@@ -52960,290 +52946,386 @@ var render = function () {
                             attrs: {
                               "stroke-linecap": "round",
                               "stroke-linejoin": "round",
-                              d: "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z",
+                              d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
                             },
                           }),
                         ]
                       ),
                       _vm._v(" "),
-                      _c("span", [_vm._v("Belajar")]),
-                    ]
-                  ),
-                ]),
+                      _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
+                        _vm._v(
+                          "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {}, [
+                      _vm._v(
+                        "Sadar, meskipun tidak sepenuhnya ingat.\r\n                            Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" },
+                  [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-12 w-12",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(3),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
+                        _vm._v(
+                          "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", {}, [
+                      _vm._v(
+                        "Sadar, meskipun tidak sepenuhnya ingat.\r\n                            Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" },
+                  [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-12 w-12",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(4),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex m-1" }, [
+                      _c(
+                        "div",
+                        { staticClass: "flex flex-col items-center ml-2" },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "h-4 w-4",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    fill: "none",
+                                    viewBox: "0 0 24 24",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                  },
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round",
+                                      d: "M5 15l7-7 7 7",
+                                    },
+                                  }),
+                                ]
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("6")]),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "h-4 w-4",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    fill: "none",
+                                    viewBox: "0 0 24 24",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                  },
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round",
+                                      d: "M19 9l-7 7-7-7",
+                                    },
+                                  }),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-2" }, [
+                        _vm._v(
+                          "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("hr", { staticClass: "mb-2" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex justify-between" }, [
+                      _c("span", { staticClass: "font-semibold ml-3" }, [
+                        _vm._v("4 jawaban"),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-7 w-7",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" },
+                  [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-12 w-12",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(5),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex m-1" }, [
+                      _c(
+                        "div",
+                        { staticClass: "flex flex-col items-center ml-2" },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "h-4 w-4",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    fill: "none",
+                                    viewBox: "0 0 24 24",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                  },
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round",
+                                      d: "M5 15l7-7 7 7",
+                                    },
+                                  }),
+                                ]
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("6")]),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  staticClass: "h-4 w-4",
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    fill: "none",
+                                    viewBox: "0 0 24 24",
+                                    stroke: "currentColor",
+                                    "stroke-width": "2",
+                                  },
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: {
+                                      "stroke-linecap": "round",
+                                      "stroke-linejoin": "round",
+                                      d: "M19 9l-7 7-7-7",
+                                    },
+                                  }),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-2" }, [
+                        _vm._v(
+                          "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("hr", { staticClass: "mb-2" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex justify-between" }, [
+                      _c("span", { staticClass: "font-semibold ml-3" }, [
+                        _vm._v("4 jawaban"),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-7 w-7",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                  ]
+                ),
               ]
             ),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-12 w-12",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                    },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(2),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex m-1" }, [
-              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-4 w-4",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M5 15l7-7 7 7",
-                          },
-                        }),
-                      ]
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("span", [_vm._v("6")]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-4 w-4",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M19 9l-7 7-7-7",
-                          },
-                        }),
-                      ]
-                    ),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2" }, [
-                _vm._v(
-                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("hr", { staticClass: "mb-2" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex justify-between" }, [
-              _c("span", { staticClass: "font-semibold ml-3" }, [
-                _vm._v("4 jawaban"),
-              ]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticClass: "h-7 w-7",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
-                    },
-                  }),
-                ]
-              ),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-12 w-12",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                    },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(3),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex m-1" }, [
-              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-4 w-4",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M5 15l7-7 7 7",
-                          },
-                        }),
-                      ]
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("span", [_vm._v("6")]),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass:
-                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
-                  },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-4 w-4",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M19 9l-7 7-7-7",
-                          },
-                        }),
-                      ]
-                    ),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2" }, [
-                _vm._v(
-                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("hr", { staticClass: "mb-2" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex justify-between" }, [
-              _c("span", { staticClass: "font-semibold ml-3" }, [
-                _vm._v("4 jawaban"),
-              ]),
-              _vm._v(" "),
-              _c(
-                "svg",
-                {
-                  staticClass: "h-7 w-7",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
-                    },
-                  }),
-                ]
-              ),
-            ]),
           ]),
         ]),
       ]
@@ -53346,7 +53428,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-white p-3 rounded-lg" }, [
+    return _c("div", { staticClass: "bg-white p-1 rounded-lg mb-2.5" }, [
       _c(
         "div",
         {
@@ -53373,802 +53455,33 @@ var staticRenderFns = [
           ),
         ]
       ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "bg-birumateri w-full h-0.5 rounded-3xl" }),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Menanggapi pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
       _vm._v(" "),
-      _c("div", [
-        _c("b", [_vm._v("Nomor 1 B")]),
-        _c("br"),
-        _vm._v("\r\n                            Diketahui "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: { src: "https://latex.codecogs.com/svg.image?a", title: "a" },
-        }),
-        _vm._v(" dan "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: { src: "https://latex.codecogs.com/svg.image?b", title: "b" },
-        }),
-        _vm._v(
-          " adalah bilangan bulat positif yang tidak sama dengan 11, sehingga "
-        ),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
-            title:
-              "\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
-          },
-        }),
-        _vm._v(". Nilai "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\left ( a+b \\right )x",
-            title: "\\left ( a+b \\right )x",
-          },
-        }),
-        _vm._v(" adalah ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}",
-            title: "\\frac{a}{b}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+1",
-            title: "\\frac{a}{b}+1",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+2",
-            title: "\\frac{a}{b}+2",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+3",
-            title: "\\frac{a}{b}+3",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+4",
-            title: "\\frac{a}{b}+4",
-          },
-        }),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("b", [_vm._v("Nomor 2 A")]),
-        _c("br"),
-        _vm._v("\r\n                            Jika "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{2}{\\left ( a-b \\right )}=4",
-            title: "\\log_{2}{\\left ( a-b \\right )}=4",
-          },
-        }),
-        _vm._v(" maka "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
-            title:
-              "\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
-          },
-        }),
-        _vm._v(" ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
-            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
-            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
-            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
-            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
-            title: "\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
-          },
-        }),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("b", [_vm._v("Nomor 3 C")]),
-        _c("br"),
-        _vm._v(
-          "\r\n                            Ada sebuah lingkaran memiliki jari-jari "
-        ),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log{a^2}",
-            title: "\\log{a^2}",
-          },
-        }),
-        _vm._v(" dan keliling "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log{b^4}",
-            title: "\\log{b^4}",
-          },
-        }),
-        _vm._v(", maka nilai "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{a}{b}=",
-            title: "\\log_{a}{b}=",
-          },
-        }),
-        _vm._v(" ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?14\\pi",
-            title: "14\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?1\\pi",
-            title: "1\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\pi",
-            title: "\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?2\\pi",
-            title: "2\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?102\\pi",
-            title: "102\\pi",
-          },
-        }),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("b", [_vm._v("Nomor 1 B")]),
-        _c("br"),
-        _vm._v("\r\n                            Diketahui "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: { src: "https://latex.codecogs.com/svg.image?a", title: "a" },
-        }),
-        _vm._v(" dan "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: { src: "https://latex.codecogs.com/svg.image?b", title: "b" },
-        }),
-        _vm._v(
-          " adalah bilangan bulat positif yang tidak sama dengan 11, sehingga "
-        ),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
-            title:
-              "\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
-          },
-        }),
-        _vm._v(". Nilai "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\left ( a+b \\right )x",
-            title: "\\left ( a+b \\right )x",
-          },
-        }),
-        _vm._v(" adalah ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}",
-            title: "\\frac{a}{b}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+1",
-            title: "\\frac{a}{b}+1",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+2",
-            title: "\\frac{a}{b}+2",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+3",
-            title: "\\frac{a}{b}+3",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+4",
-            title: "\\frac{a}{b}+4",
-          },
-        }),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("b", [_vm._v("Nomor 2 A")]),
-        _c("br"),
-        _vm._v("\r\n                            Jika "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{2}{\\left ( a-b \\right )}=4",
-            title: "\\log_{2}{\\left ( a-b \\right )}=4",
-          },
-        }),
-        _vm._v(" maka "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
-            title:
-              "\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
-          },
-        }),
-        _vm._v(" ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
-            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
-            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
-            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
-            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
-            title: "\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
-          },
-        }),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("b", [_vm._v("Nomor 3 C")]),
-        _c("br"),
-        _vm._v(
-          "\r\n                            Ada sebuah lingkaran memiliki jari-jari "
-        ),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log{a^2}",
-            title: "\\log{a^2}",
-          },
-        }),
-        _vm._v(" dan keliling "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log{b^4}",
-            title: "\\log{b^4}",
-          },
-        }),
-        _vm._v(", maka nilai "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{a}{b}=",
-            title: "\\log_{a}{b}=",
-          },
-        }),
-        _vm._v(" ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?14\\pi",
-            title: "14\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?1\\pi",
-            title: "1\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\pi",
-            title: "\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?2\\pi",
-            title: "2\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?102\\pi",
-            title: "102\\pi",
-          },
-        }),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("b", [_vm._v("Nomor 1 B")]),
-        _c("br"),
-        _vm._v("\r\n                            Diketahui "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: { src: "https://latex.codecogs.com/svg.image?a", title: "a" },
-        }),
-        _vm._v(" dan "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: { src: "https://latex.codecogs.com/svg.image?b", title: "b" },
-        }),
-        _vm._v(
-          " adalah bilangan bulat positif yang tidak sama dengan 11, sehingga "
-        ),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
-            title:
-              "\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
-          },
-        }),
-        _vm._v(". Nilai "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\left ( a+b \\right )x",
-            title: "\\left ( a+b \\right )x",
-          },
-        }),
-        _vm._v(" adalah ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}",
-            title: "\\frac{a}{b}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+1",
-            title: "\\frac{a}{b}+1",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+2",
-            title: "\\frac{a}{b}+2",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+3",
-            title: "\\frac{a}{b}+3",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
-            title: "ab+b^{2}",
-          },
-        }),
-        _vm._v(" atau "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+4",
-            title: "\\frac{a}{b}+4",
-          },
-        }),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("b", [_vm._v("Nomor 2 A")]),
-        _c("br"),
-        _vm._v("\r\n                            Jika "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{2}{\\left ( a-b \\right )}=4",
-            title: "\\log_{2}{\\left ( a-b \\right )}=4",
-          },
-        }),
-        _vm._v(" maka "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
-            title:
-              "\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
-          },
-        }),
-        _vm._v(" ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
-            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
-            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
-            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
-            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
-            title: "\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
-          },
-        }),
-        _c("br"),
-        _c("br"),
-        _vm._v(" "),
-        _c("b", [_vm._v("Nomor 3 C")]),
-        _c("br"),
-        _vm._v(
-          "\r\n                            Ada sebuah lingkaran memiliki jari-jari "
-        ),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log{a^2}",
-            title: "\\log{a^2}",
-          },
-        }),
-        _vm._v(" dan keliling "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log{b^4}",
-            title: "\\log{b^4}",
-          },
-        }),
-        _vm._v(", maka nilai "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\log_{a}{b}=",
-            title: "\\log_{a}{b}=",
-          },
-        }),
-        _vm._v(" ..."),
-        _c("br"),
-        _vm._v("\r\n                            A. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?14\\pi",
-            title: "14\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            B. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?1\\pi",
-            title: "1\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            C. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?\\pi",
-            title: "\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            D. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?2\\pi",
-            title: "2\\pi",
-          },
-        }),
-        _c("br"),
-        _vm._v("\r\n                            E. "),
-        _c("img", {
-          staticClass: "inline",
-          attrs: {
-            src: "https://latex.codecogs.com/svg.image?102\\pi",
-            title: "102\\pi",
-          },
-        }),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Menanggapi pada 04-06-2020 08:23"),
       ]),
     ])
   },
