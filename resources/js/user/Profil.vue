@@ -2,7 +2,7 @@
 <div class="flex flex-col items-center w-full">
     <div class="w-5/6 sm:w-11/12 flex flex-col justify-center">
         <div class="mt-4">
-            <div class="bg-white w-full p-2 rounded-lg mb-3">
+            <div class="bg-white w-full px-3 rounded-lg mb-3">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-36 w-36" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -14,7 +14,7 @@
                             <div class="text-xs">0 Pengikut | 5 Mengikuti</div>
                         </div>
                     </div>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full">
+                    <button @click.prevent="profiledit()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full">
                         Edit Profil
                     </button>
                 </div>
@@ -199,6 +199,11 @@ export default {
         console.log(this.user)
     },
     methods: {
+        profiledit(){
+            this.$router.push({
+                path: '/user/profil/edit'
+            })
+        },
         coba() {
             this.$swal('Halo')
         }
