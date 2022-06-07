@@ -19,6 +19,7 @@ const AdminLaporan = require('../admin/Laporan.vue').default;
 // Bagian User
 const UserBeranda = require('../user/Beranda.vue').default;
 const UserPetunjuk = require('../user/Petunjuk.vue').default;
+const UserProfil = require('../user/Profil.vue').default;
 
 
 const Beranda = require('../pages/Beranda.vue').default;
@@ -171,6 +172,10 @@ const routes = [
     {
         path: '/user/petunjuk',
         component: UserPetunjuk
+    },
+    {
+        path: '/user/profil',
+        component: UserProfil
     },
 
 

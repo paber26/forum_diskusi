@@ -3097,6 +3097,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -5670,6 +5671,261 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Profil.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Profil.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user'],
+  mounted: function mounted() {
+    console.log(this.user);
+  },
+  methods: {
+    coba: function coba() {
+      this.$swal('Halo');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -5778,6 +6034,8 @@ var AdminLaporan = (__webpack_require__(/*! ../admin/Laporan.vue */ "./resources
 var UserBeranda = (__webpack_require__(/*! ../user/Beranda.vue */ "./resources/js/user/Beranda.vue")["default"]);
 
 var UserPetunjuk = (__webpack_require__(/*! ../user/Petunjuk.vue */ "./resources/js/user/Petunjuk.vue")["default"]);
+
+var UserProfil = (__webpack_require__(/*! ../user/Profil.vue */ "./resources/js/user/Profil.vue")["default"]);
 
 var Beranda = (__webpack_require__(/*! ../pages/Beranda.vue */ "./resources/js/pages/Beranda.vue")["default"]);
 
@@ -5900,6 +6158,9 @@ var routes = [{
 }, {
   path: '/user/petunjuk',
   component: UserPetunjuk
+}, {
+  path: '/user/profil',
+  component: UserProfil
 }, {
   path: '/admin/thread',
   component: AdminThread
@@ -42407,6 +42668,45 @@ component.options.__file = "resources/js/user/Petunjuk.vue"
 
 /***/ }),
 
+/***/ "./resources/js/user/Profil.vue":
+/*!**************************************!*\
+  !*** ./resources/js/user/Profil.vue ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Profil_vue_vue_type_template_id_23299e12___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Profil.vue?vue&type=template&id=23299e12& */ "./resources/js/user/Profil.vue?vue&type=template&id=23299e12&");
+/* harmony import */ var _Profil_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Profil.vue?vue&type=script&lang=js& */ "./resources/js/user/Profil.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Profil_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Profil_vue_vue_type_template_id_23299e12___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Profil_vue_vue_type_template_id_23299e12___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/user/Profil.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/admin/Beranda.vue?vue&type=script&lang=js&":
 /*!*****************************************************************!*\
   !*** ./resources/js/admin/Beranda.vue?vue&type=script&lang=js& ***!
@@ -42868,6 +43168,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Petunjuk.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/user/Profil.vue?vue&type=script&lang=js&":
+/*!***************************************************************!*\
+  !*** ./resources/js/user/Profil.vue?vue&type=script&lang=js& ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Profil_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Profil.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Profil.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Profil_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -43377,6 +43693,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_template_id_09d4f044___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Petunjuk_vue_vue_type_template_id_09d4f044___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Petunjuk.vue?vue&type=template&id=09d4f044& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Petunjuk.vue?vue&type=template&id=09d4f044&");
+
+
+/***/ }),
+
+/***/ "./resources/js/user/Profil.vue?vue&type=template&id=23299e12&":
+/*!*********************************************************************!*\
+  !*** ./resources/js/user/Profil.vue?vue&type=template&id=23299e12& ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profil_vue_vue_type_template_id_23299e12___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profil_vue_vue_type_template_id_23299e12___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Profil_vue_vue_type_template_id_23299e12___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Profil.vue?vue&type=template&id=23299e12& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Profil.vue?vue&type=template&id=23299e12&");
 
 
 /***/ }),
@@ -46138,6 +46471,16 @@ var render = function () {
               attrs: { to: "/user/buat_thread" },
             },
             [_vm._v("Buat Thread")]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass:
+                "px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold",
+              attrs: { to: "/user/profil" },
+            },
+            [_vm._v("Profil")]
           ),
           _vm._v(" "),
           _c(
@@ -52501,6 +52844,1363 @@ var render = function () {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Profil.vue?vue&type=template&id=23299e12&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/user/Profil.vue?vue&type=template&id=23299e12& ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
+      [
+        _c("div", { staticClass: "mt-4" }, [
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-3" }, [
+            _c("div", { staticClass: "flex items-center justify-between" }, [
+              _c("div", { staticClass: "flex items-center" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "h-36 w-36",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      viewBox: "0 0 24 24",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                    },
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                      },
+                    }),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ml-2" }, [
+                  _c("div", { staticClass: "font-semibold" }, [
+                    _vm._v(_vm._s(_vm.user.nama)),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-xs" }, [
+                    _vm._v("0 Pengikut | 5 Mengikuti"),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full",
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Edit Profil\r\n                    "
+                  ),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "grid grid-cols-12 gap-3" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-span-12 sm:col-span-8 lg:col-span-9" },
+              [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "grid grid-cols-2 p-0.5" }, [
+                  _c("div", { staticClass: "col-span-2 sm:col-span-1" }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "col-span-2 sm:col-span-1 flex items-center justify-end",
+                    },
+                    [
+                      _c(
+                        "svg",
+                        {
+                          staticClass: "h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Belajar")]),
+                    ]
+                  ),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(2),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex m-1" }, [
+              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 15l7-7 7 7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v("6")]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M19 9l-7 7-7-7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2" }, [
+                _vm._v(
+                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("hr", { staticClass: "mb-2" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-between" }, [
+              _c("span", { staticClass: "font-semibold ml-3" }, [
+                _vm._v("4 jawaban"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "h-7 w-7",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full p-3 rounded-2xl mb-3" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(3),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex m-1" }, [
+              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 15l7-7 7 7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v("6")]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M19 9l-7 7-7-7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2" }, [
+                _vm._v(
+                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("hr", { staticClass: "mb-2" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-between" }, [
+              _c("span", { staticClass: "font-semibold ml-3" }, [
+                _vm._v("4 jawaban"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "h-7 w-7",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "col-span-12 sm:col-span-4 lg:col-span-3 order-last sm:order-first",
+      },
+      [
+        _c("div", { staticClass: "bg-white w-full p-2 rounded-md mb-2" }, [
+          _c("span", { staticClass: "font-semibold text-base italic" }, [
+            _vm._v("Status"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "grid grid-cols-2 justify-center" }, [
+            _c(
+              "div",
+              { staticClass: "col-span-1 flex flex-col items-center" },
+              [
+                _c("span", { staticClass: "text-2xl" }, [_vm._v("0")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-sm text-gray-500" }, [
+                  _vm._v("Tanggapan"),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "col-span-1 flex flex-col items-center" },
+              [
+                _c("span", { staticClass: "text-2xl" }, [_vm._v("0")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "text-sm text-gray-500" }, [
+                  _vm._v("Thread"),
+                ]),
+              ]
+            ),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-white w-full p-2 rounded-lg mb-3" }, [
+          _c("div", { staticClass: "flex flex-col" }, [
+            _c("span", { staticClass: "font-semibold text-base italic" }, [
+              _vm._v("Profil"),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex flex-col text-justify" }, [
+              _c("div", { staticClass: "flex flex-col" }, [
+                _c("span", [_vm._v("Deskripsi")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                  _vm._v(
+                    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam dolorem eius ipsum cupiditate inventore, maiores debitis. Et nostrum molestiae aliquid debitis ipsum nam rerum, fugiat sed ipsa aliquam, cum quidem."
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-col" }, [
+                _c("span", [_vm._v("NIM")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                  _vm._v("221810213"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-col" }, [
+                _c("span", [_vm._v("No WA")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                  _vm._v("082360054904"),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-col" }, [
+                _c("span", [_vm._v("Alamat Kos")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                  _vm._v(
+                    "Jl H Hasbi No 16, Kos Omega, Bidara Cina, Jakarta Timur"
+                  ),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "bg-white p-3 rounded-lg" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "grid grid-cols-2 justify-center items-center gap-3 mb-0.5 text-gray-700",
+        },
+        [
+          _c(
+            "button",
+            {
+              staticClass:
+                "bg-blue-200 hover:bg-blue-500 hover:text-white rounded-lg flex justify-center py-0.5",
+            },
+            [_c("div", { staticClass: "font-semibold" }, [_vm._v("Tanggapan")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "hover:bg-blue-500 hover:text-white rounded-lg flex justify-center py-0.5",
+            },
+            [_c("div", { staticClass: "font-semibold" }, [_vm._v("Thread")])]
+          ),
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "bg-birumateri w-full h-0.5 rounded-3xl" }),
+      _vm._v(" "),
+      _c("div", [
+        _c("b", [_vm._v("Nomor 1 B")]),
+        _c("br"),
+        _vm._v("\r\n                            Diketahui "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: { src: "https://latex.codecogs.com/svg.image?a", title: "a" },
+        }),
+        _vm._v(" dan "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: { src: "https://latex.codecogs.com/svg.image?b", title: "b" },
+        }),
+        _vm._v(
+          " adalah bilangan bulat positif yang tidak sama dengan 11, sehingga "
+        ),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
+            title:
+              "\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
+          },
+        }),
+        _vm._v(". Nilai "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\left ( a+b \\right )x",
+            title: "\\left ( a+b \\right )x",
+          },
+        }),
+        _vm._v(" adalah ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}",
+            title: "\\frac{a}{b}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+1",
+            title: "\\frac{a}{b}+1",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+2",
+            title: "\\frac{a}{b}+2",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+3",
+            title: "\\frac{a}{b}+3",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+4",
+            title: "\\frac{a}{b}+4",
+          },
+        }),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("b", [_vm._v("Nomor 2 A")]),
+        _c("br"),
+        _vm._v("\r\n                            Jika "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{2}{\\left ( a-b \\right )}=4",
+            title: "\\log_{2}{\\left ( a-b \\right )}=4",
+          },
+        }),
+        _vm._v(" maka "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
+            title:
+              "\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
+          },
+        }),
+        _vm._v(" ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
+            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
+            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
+            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
+            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
+            title: "\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
+          },
+        }),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("b", [_vm._v("Nomor 3 C")]),
+        _c("br"),
+        _vm._v(
+          "\r\n                            Ada sebuah lingkaran memiliki jari-jari "
+        ),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log{a^2}",
+            title: "\\log{a^2}",
+          },
+        }),
+        _vm._v(" dan keliling "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log{b^4}",
+            title: "\\log{b^4}",
+          },
+        }),
+        _vm._v(", maka nilai "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{a}{b}=",
+            title: "\\log_{a}{b}=",
+          },
+        }),
+        _vm._v(" ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?14\\pi",
+            title: "14\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?1\\pi",
+            title: "1\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\pi",
+            title: "\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?2\\pi",
+            title: "2\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?102\\pi",
+            title: "102\\pi",
+          },
+        }),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("b", [_vm._v("Nomor 1 B")]),
+        _c("br"),
+        _vm._v("\r\n                            Diketahui "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: { src: "https://latex.codecogs.com/svg.image?a", title: "a" },
+        }),
+        _vm._v(" dan "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: { src: "https://latex.codecogs.com/svg.image?b", title: "b" },
+        }),
+        _vm._v(
+          " adalah bilangan bulat positif yang tidak sama dengan 11, sehingga "
+        ),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
+            title:
+              "\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
+          },
+        }),
+        _vm._v(". Nilai "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\left ( a+b \\right )x",
+            title: "\\left ( a+b \\right )x",
+          },
+        }),
+        _vm._v(" adalah ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}",
+            title: "\\frac{a}{b}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+1",
+            title: "\\frac{a}{b}+1",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+2",
+            title: "\\frac{a}{b}+2",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+3",
+            title: "\\frac{a}{b}+3",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+4",
+            title: "\\frac{a}{b}+4",
+          },
+        }),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("b", [_vm._v("Nomor 2 A")]),
+        _c("br"),
+        _vm._v("\r\n                            Jika "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{2}{\\left ( a-b \\right )}=4",
+            title: "\\log_{2}{\\left ( a-b \\right )}=4",
+          },
+        }),
+        _vm._v(" maka "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
+            title:
+              "\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
+          },
+        }),
+        _vm._v(" ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
+            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
+            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
+            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
+            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
+            title: "\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
+          },
+        }),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("b", [_vm._v("Nomor 3 C")]),
+        _c("br"),
+        _vm._v(
+          "\r\n                            Ada sebuah lingkaran memiliki jari-jari "
+        ),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log{a^2}",
+            title: "\\log{a^2}",
+          },
+        }),
+        _vm._v(" dan keliling "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log{b^4}",
+            title: "\\log{b^4}",
+          },
+        }),
+        _vm._v(", maka nilai "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{a}{b}=",
+            title: "\\log_{a}{b}=",
+          },
+        }),
+        _vm._v(" ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?14\\pi",
+            title: "14\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?1\\pi",
+            title: "1\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\pi",
+            title: "\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?2\\pi",
+            title: "2\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?102\\pi",
+            title: "102\\pi",
+          },
+        }),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("b", [_vm._v("Nomor 1 B")]),
+        _c("br"),
+        _vm._v("\r\n                            Diketahui "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: { src: "https://latex.codecogs.com/svg.image?a", title: "a" },
+        }),
+        _vm._v(" dan "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: { src: "https://latex.codecogs.com/svg.image?b", title: "b" },
+        }),
+        _vm._v(
+          " adalah bilangan bulat positif yang tidak sama dengan 11, sehingga "
+        ),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
+            title:
+              "\\log_{a}{x}\\cdot\\log_{b}{x}=\\frac{\\left ( \\log_{x}{b} \\right )}{\\log_{x}{a}} ",
+          },
+        }),
+        _vm._v(". Nilai "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\left ( a+b \\right )x",
+            title: "\\left ( a+b \\right )x",
+          },
+        }),
+        _vm._v(" adalah ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}",
+            title: "\\frac{a}{b}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+1",
+            title: "\\frac{a}{b}+1",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+2",
+            title: "\\frac{a}{b}+2",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+3",
+            title: "\\frac{a}{b}+3",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?ab+b^{2}",
+            title: "ab+b^{2}",
+          },
+        }),
+        _vm._v(" atau "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{a}{b}+4",
+            title: "\\frac{a}{b}+4",
+          },
+        }),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("b", [_vm._v("Nomor 2 A")]),
+        _c("br"),
+        _vm._v("\r\n                            Jika "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{2}{\\left ( a-b \\right )}=4",
+            title: "\\log_{2}{\\left ( a-b \\right )}=4",
+          },
+        }),
+        _vm._v(" maka "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
+            title:
+              "\\log_{4}{\\left ( \\frac{2}{\\sqrt{a}+\\sqrt{b}}+\\frac{2}{\\sqrt{a}-\\sqrt{b}} \\right )}=",
+          },
+        }),
+        _vm._v(" ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
+            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{4}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
+            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{2}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
+            title: "\\frac{\\left ( \\log_{2}{a}-2 \\right )}{4}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
+            title: "\\frac{\\left ( \\log_{2}{a}-4 \\right )}{2}",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
+            title: "\\frac{\\left ( \\log_{2}{a}-1 \\right )}{1}",
+          },
+        }),
+        _c("br"),
+        _c("br"),
+        _vm._v(" "),
+        _c("b", [_vm._v("Nomor 3 C")]),
+        _c("br"),
+        _vm._v(
+          "\r\n                            Ada sebuah lingkaran memiliki jari-jari "
+        ),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log{a^2}",
+            title: "\\log{a^2}",
+          },
+        }),
+        _vm._v(" dan keliling "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log{b^4}",
+            title: "\\log{b^4}",
+          },
+        }),
+        _vm._v(", maka nilai "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\log_{a}{b}=",
+            title: "\\log_{a}{b}=",
+          },
+        }),
+        _vm._v(" ..."),
+        _c("br"),
+        _vm._v("\r\n                            A. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?14\\pi",
+            title: "14\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            B. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?1\\pi",
+            title: "1\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            C. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?\\pi",
+            title: "\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            D. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?2\\pi",
+            title: "2\\pi",
+          },
+        }),
+        _c("br"),
+        _vm._v("\r\n                            E. "),
+        _c("img", {
+          staticClass: "inline",
+          attrs: {
+            src: "https://latex.codecogs.com/svg.image?102\\pi",
+            title: "102\\pi",
+          },
+        }),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dijawab pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ml-2" }, [
+      _c("div", { staticClass: "font-semibold" }, [
+        _vm._v("221810213@stis.ac.id"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-xs italic" }, [
+        _vm._v("Dijawab pada 04-06-2020 08:23"),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

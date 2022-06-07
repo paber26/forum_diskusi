@@ -5,6 +5,7 @@
             <router-link to="/user" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-bold text-2xl mx-2">FORUM DISKUSI</router-link>
             <router-link to="/user/petunjuk" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Petunjuk</router-link>
             <router-link to="/user/buat_thread" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Buat Thread</router-link>
+            <router-link to="/user/profil" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Profil</router-link>
             <router-link to="/user/pencarian" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Pencarian</router-link>
         </div>
         <div class="flex items-center">
