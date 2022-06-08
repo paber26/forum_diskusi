@@ -114,6 +114,14 @@
 
 <script>
 export default {
+    data() {
+        return {
+            fields:{
+                judul: '',
+                isi: ''
+            }
+        }
+    },
     methods: {
         tanggapi() {
             this.$router.push('/user/tanggapi/saya')

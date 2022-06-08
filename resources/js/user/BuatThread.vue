@@ -5,16 +5,16 @@
         <span class="font-bold text-xl mt-3 mb-2">Buat Thread</span>
         <div class="bg-white w-full p-3 rounded-lg">
             <form name="form" action="/user/buat_thread" method="POST">
-                <div class="form-group row"><label class="col-sm-2 col-form-label">Judul Thread</label>
-                    <div class="col-sm-10">
-                        <input name="judul" id="judul" type="text" class="form-control" placeholder="Masukkan Judul Thread ..." v-model="fields.judul">
+                <div class="grid grid-cols-6 items-center">
+                    <label class="col-span-1">Judul Thread</label>
+                    <div class="col-span-5">
+                        <input class="w-full border-2 border-gray-200 rounded-md p-1.5" name="judul" id="judul" type="text" placeholder="Masukkan Judul Thread ..." v-model="fields.judul">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-12 col-form-label">Isi Thread</label>
-                    <div class="col-sm-12">
-                        <textarea name="isi" class="form-control rounded-md h-100" id="isi" v-model="fields.isi"></textarea>
-                        <!-- <input name="alamat" type="text" class="form-control" placeholder="Masukkan Alamat Kos"> -->
+                <div class="grid grid-cols-1 mb-2">
+                    <label class="col-span-1">Isi Thread</label>
+                    <div class="col-span-1">
+                        <vue-editor v-model="fields.isi"></vue-editor>
                     </div>
                 </div>
                 <div class="form-group row flex justify-between -mb-1">
@@ -29,13 +29,15 @@
         </div>
 
         <div class="mt-3" v-if="fields.judul != '' || fields.isi != ''">
-            <span class="font-bold text-lg mb-2">Tampilan Thread</span>
+            <!-- <span class="font-bold text-lg mb-2">Tampilan Thread</span> -->
             <div class="bg-white w-full p-3 rounded-lg">
-                <span class="font-bold text-gray-700" v-html="fields.judul"></span>
-                <div class="mt-2" v-html="fields.isi"></div>
+                <!-- <span class="font-bold text-gray-700" v-html="fields.judul"></span> -->
+                <!-- <div class="mt-2" v-html="fields.isi"></div> -->
+                <div class="mt-2">{{ fields.isi }}</div>
             </div>
         </div>
     </div>
+
 </div>
 </template>
 
@@ -59,7 +61,25 @@ export default {
                 path: '/user/profil/edit'
             })
         },
+        
         simpan() {
+            if (this.fields.judul == '') {
+                this.$swal('Masukkan Judul')
+                return
+            }
+            if (this.fields.isi == ''){
+                this.$swal('Masukkan Isi')
+                return
+            }
+            axios.post('/buat_thread', this.fields).then(response => {
+                console.log(response.data)
+                // if (response.data == 'Sudah terdaftar') {
+                //     this.$swal('Email sudah terdaftar')
+                // } else if (response.data == 'Berhasil') {
+                //     this.$swal('Akun berhasil didaftarkan')
+                //     this.$router.push('/login')
+                // }
+            })
             console.log(this.fields.isi)
         }
     }

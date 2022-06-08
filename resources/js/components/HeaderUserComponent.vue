@@ -1,5 +1,5 @@
 <template>
-<div class="bg-blue-200 fixed inset-x-0">
+<div class="bg-blue-200 fixed inset-x-0 z-50">
     <div class="sm:flex justify-between hidden">
         <div class="flex items-center">
             <router-link to="/user" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-bold text-2xl mx-2">FORUM DISKUSI</router-link>
