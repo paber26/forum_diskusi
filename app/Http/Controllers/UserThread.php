@@ -4,35 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserThread extends Controller
 {
     public function buat_thread(Request $request)
     {
-        $judul = $request->judul;
-        $isi = $request->isi;
+        $stt = [
+            'idt' => uniqid(),
+            'nim' => Auth::user()->nim,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+        ];
+        DB::table('thread')->insert($stt);
 
-        // $nama = $request->nama;
-        // $email = $request->email;
-        // $password = $request->password;
-
-        // $user = DB::table('users')->where(['email' => $email])->first();
-
-        // if ($user != null) {
-        //     return 'Sudah terdaftar';
-        // } else {
-        //     $stt = [
-        //         'nama' => strtoupper($nama),
-        //         'email' => $email,
-        //         'password' => Hash::make($password),
-        //         'gambar' => '',
-        //         'api_token' => Str::random(40),
-        //     ];
-        //     DB::table('users')->insert($stt);
-
-        //     return 'Berhasil';
-        // }
-
-        return $isi;
+        return 'Berhasil';
     }
 }

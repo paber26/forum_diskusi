@@ -33,7 +33,7 @@
             <div class="bg-white w-full p-3 rounded-lg">
                 <!-- <span class="font-bold text-gray-700" v-html="fields.judul"></span> -->
                 <!-- <div class="mt-2" v-html="fields.isi"></div> -->
-                <div class="mt-2">{{ fields.isi }}</div>
+                <!-- <div class="mt-2">{{ fields.isi }}</div> -->
             </div>
         </div>
     </div>
@@ -77,33 +77,11 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
-                console.log(response.data)
-                // if (response.data == 'Sudah terdaftar') {
-                //     this.$swal('Email sudah terdaftar')
-                // } else if (response.data == 'Berhasil') {
-                //     this.$swal('Akun berhasil didaftarkan')
-                //     this.$router.push('/login')
-                // }
+                if (response.data == 'Berhasil') {
+                    this.$swal('Thread Berhasil Ditambahkan')
+                    this.$router.push('/user')
+                }
             })
-            console.log(this.fields.isi)
-        },
-        checkForm: function () {
-            if (this.fields.jawaban != '') {
-                axios.post('/api/tambahjawabanforum', this.fields, {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + this.user.api_token
-                    },
-                }).then((response) => {
-                    if (response.data == 'Berhasil') {
-                        this.fields.jawaban = ''
-                        this.getdetailsoalforum()
-                        this.$swal('Berhasil menambahkan jawaban')
-                    }
-                })
-            } else {
-                this.$swal('Jawaban tidak boleh kosong')
-            }
         },
     }
 }

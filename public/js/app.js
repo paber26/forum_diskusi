@@ -5691,6 +5691,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     upload: function upload() {
+      var _this = this;
+
       if (this.fields.judul == '') {
         this.$swal('Masukkan Judul');
         return;
@@ -5707,36 +5709,12 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        console.log(response.data); // if (response.data == 'Sudah terdaftar') {
-        //     this.$swal('Email sudah terdaftar')
-        // } else if (response.data == 'Berhasil') {
-        //     this.$swal('Akun berhasil didaftarkan')
-        //     this.$router.push('/login')
-        // }
+        if (response.data == 'Berhasil') {
+          _this.$swal('Thread Berhasil Ditambahkan');
+
+          _this.$router.push('/user');
+        }
       });
-      console.log(this.fields.isi);
-    },
-    checkForm: function checkForm() {
-      var _this = this;
-
-      if (this.fields.jawaban != '') {
-        axios.post('/api/tambahjawabanforum', this.fields, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + this.user.api_token
-          }
-        }).then(function (response) {
-          if (response.data == 'Berhasil') {
-            _this.fields.jawaban = '';
-
-            _this.getdetailsoalforum();
-
-            _this.$swal('Berhasil menambahkan jawaban');
-          }
-        });
-      } else {
-        this.$swal('Jawaban tidak boleh kosong');
-      }
     }
   }
 });
@@ -67082,11 +67060,7 @@ var render = function () {
         _vm._v(" "),
         _vm.fields.judul != "" || _vm.fields.isi != ""
           ? _c("div", { staticClass: "mt-3" }, [
-              _c("div", { staticClass: "bg-white w-full p-3 rounded-lg" }, [
-                _c("div", { staticClass: "mt-2" }, [
-                  _vm._v(_vm._s(_vm.fields.isi)),
-                ]),
-              ]),
+              _c("div", { staticClass: "bg-white w-full p-3 rounded-lg" }),
             ])
           : _vm._e(),
       ]
