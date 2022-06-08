@@ -5668,8 +5668,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
+  data: function data() {
+    return {
+      fields: {
+        judul: '',
+        isi: ''
+      }
+    };
+  },
   mounted: function mounted() {
     console.log(this.user);
   },
@@ -5679,7 +5688,9 @@ __webpack_require__.r(__webpack_exports__);
         path: '/user/profil/edit'
       });
     },
-    simpan: function simpan() {}
+    simpan: function simpan() {
+      console.log(this.fields.isi);
+    }
   }
 });
 
@@ -53281,9 +53292,70 @@ var render = function () {
               },
             },
             [
-              _vm._m(0),
+              _c("div", { staticClass: "form-group row" }, [
+                _c("label", { staticClass: "col-sm-2 col-form-label" }, [
+                  _vm._v("Judul Thread"),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-10" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.fields.judul,
+                        expression: "fields.judul",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      name: "judul",
+                      id: "judul",
+                      type: "text",
+                      placeholder: "Masukkan Judul Thread ...",
+                    },
+                    domProps: { value: _vm.fields.judul },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.fields, "judul", $event.target.value)
+                      },
+                    },
+                  }),
+                ]),
+              ]),
               _vm._v(" "),
-              _vm._m(1),
+              _c("div", { staticClass: "form-group row" }, [
+                _c("label", { staticClass: "col-sm-12 col-form-label" }, [
+                  _vm._v("Isi Thread"),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-sm-12" }, [
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.fields.isi,
+                        expression: "fields.isi",
+                      },
+                    ],
+                    staticClass: "form-control rounded-md h-100",
+                    attrs: { name: "isi", id: "isi" },
+                    domProps: { value: _vm.fields.isi },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.fields, "isi", $event.target.value)
+                      },
+                    },
+                  }),
+                ]),
+              ]),
               _vm._v(" "),
               _c(
                 "div",
@@ -53332,71 +53404,30 @@ var render = function () {
           ),
         ]),
         _vm._v(" "),
-        _c("span", { staticClass: "font-bold text-lg mt-3 mb-2" }, [
-          _vm._v("Tampilan Thread"),
-        ]),
-        _vm._v(" "),
-        _vm._m(2),
+        _vm.fields.judul != "" || _vm.fields.isi != ""
+          ? _c("div", { staticClass: "mt-3" }, [
+              _c("span", { staticClass: "font-bold text-lg mb-2" }, [
+                _vm._v("Tampilan Thread"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "bg-white w-full p-3 rounded-lg" }, [
+                _c("span", {
+                  staticClass: "font-bold text-gray-700",
+                  domProps: { innerHTML: _vm._s(_vm.fields.judul) },
+                }),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: "mt-2",
+                  domProps: { innerHTML: _vm._s(_vm.fields.isi) },
+                }),
+              ]),
+            ])
+          : _vm._e(),
       ]
     ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c("label", { staticClass: "col-sm-2 col-form-label" }, [
-        _vm._v("Judul Thread"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            name: "judul",
-            type: "text",
-            placeholder: "Masukkan Judul Thread ...",
-          },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c("label", { staticClass: "col-sm-12 col-form-label" }, [
-        _vm._v("Isi Thread"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-12" }, [
-        _c("textarea", {
-          staticClass: "form-control rounded-md h-100",
-          attrs: { placeholder: "Masukkan Isi Thread ..." },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-white w-full p-3 rounded-lg" }, [
-      _c("span", { staticClass: "font-bold text-gray-700" }, [
-        _vm._v("Judul Thread"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mt-2" }, [
-        _vm._v(
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ducimus dolores cumque vero repellat reprehenderit, autem minus, blanditiis laboriosam enim sint unde. Culpa pariatur amet velit aut itaque voluptates accusantium non tempore nulla ipsa error, sed nobis veniam excepturi ad placeat dolore ut dignissimos voluptatem suscipit corporis incidunt quidem voluptate. Odit autem eius itaque quam reprehenderit, dignissimos et mollitia ipsum, ratione id aut, illo quia laborum nobis. Dignissimos earum repellat vitae labore voluptate iure, odit unde saepe cupiditate, inventore doloribus optio debitis commodi. Repellat vel adipisci architecto deleniti perferendis illum magnam quaerat tempora? Quae enim deserunt pariatur dicta quam nulla magnam voluptate repudiandae, nobis exercitationem dolore reiciendis totam necessitatibus esse, ducimus deleniti repellat sequi tempore reprehenderit? Vel sit exercitationem eaque eveniet, deleniti unde, eligendi, quas asperiores molestias vitae fugit. Expedita culpa, libero, pariatur exercitationem dolorem labore voluptates a veniam hic quia dolor tenetur blanditiis! Illum unde repellat commodi perferendis facilis debitis odit tempore ducimus. Ullam mollitia perspiciatis id porro exercitationem pariatur dolores quae, reiciendis earum dolore ducimus facere fuga quibusdam vitae similique nostrum harum. Similique ab aut sapiente reiciendis dignissimos doloribus incidunt voluptates, voluptatibus nam. Odio blanditiis dolore temporibus maxime voluptas, maiores ratione a possimus doloribus, eaque at officia voluptate!"
-        ),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
