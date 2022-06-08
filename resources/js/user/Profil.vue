@@ -40,21 +40,21 @@
                         <div class="flex flex-col">
                             <span class="font-semibold text-base italic">Profil</span>
                             <div class="flex flex-col text-justify">
-                                <div class="flex flex-col">
+                                <div class="flex flex-col mb-3">
                                     <span>Deskripsi</span>
-                                    <span class="ml-3 text-gray-600">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam dolorem eius ipsum cupiditate inventore, maiores debitis. Et nostrum molestiae aliquid debitis ipsum nam rerum, fugiat sed ipsa aliquam, cum quidem.</span>
+                                    <span class="ml-3 text-gray-600">{{ user.deskripsi }}</span>
                                 </div>
-                                <div class="flex flex-col">
+                                <div class="flex flex-col mb-3">
                                     <span>NIM</span>
-                                    <span class="ml-3 text-gray-600">221810213</span>
+                                    <span class="ml-3 text-gray-600">{{ user.nim }}</span>
                                 </div>
-                                <div class="flex flex-col">
+                                <div class="flex flex-col mb-3">
                                     <span>No WA</span>
-                                    <span class="ml-3 text-gray-600">082360054904</span>
+                                    <span class="ml-3 text-gray-600">{{ user.nowa }}</span>
                                 </div>
-                                <div class="flex flex-col">
+                                <div class="flex flex-col mb-3">
                                     <span>Alamat Kos</span>
-                                    <span class="ml-3 text-gray-600">Jl H Hasbi No 16, Kos Omega, Bidara Cina, Jakarta Timur</span>
+                                    <span class="ml-3 text-gray-600">{{ user.alamat }}</span>
                                 </div>
                             </div>
                         </div>
@@ -195,11 +195,8 @@
 <script>
 export default {
     props: ['user'],
-    mounted() {
-        console.log(this.user)
-    },
     methods: {
-        profiledit(){
+        profiledit() {
             this.$router.push({
                 path: '/user/profil/edit'
             })

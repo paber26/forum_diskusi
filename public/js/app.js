@@ -5935,9 +5935,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
-  mounted: function mounted() {
-    console.log(this.user);
-  },
   methods: {
     profiledit: function profiledit() {
       this.$router.push({
@@ -6019,8 +6016,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
+  data: function data() {
+    return {
+      fields: {
+        deskripsi: this.user.deskripsi,
+        nowa: this.user.nowa,
+        alamat: this.user.alamat,
+        password: '',
+        upassword: ''
+      }
+    };
+  },
   mounted: function mounted() {
     console.log(this.user);
   },
@@ -6030,7 +6043,36 @@ __webpack_require__.r(__webpack_exports__);
         path: '/user/profil/edit'
       });
     },
-    simpan: function simpan() {}
+    simpan: function simpan() {
+      var _this = this;
+
+      if (this.fields.upassword != '' && this.fields.password == '') {
+        this.$swal('Masukkan Password');
+        return;
+      }
+
+      if (this.fields.password != '') {
+        if (this.fields.password != this.fields.upassword) {
+          this.$swal('Password dan Ulangi Password tidak sama');
+          return;
+        }
+      } else {
+        axios.post('/api/user/profil/edit', this.fields, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.user.api_token
+          }
+        }).then(function (response) {
+          if (response.data[0] == 'Berhasil') {
+            _this.$swal('Berhasil menyimpan perubahan');
+
+            window.location.href = response.data[1];
+          } else {
+            console.log(response.data);
+          }
+        });
+      }
+    }
   }
 });
 
@@ -6047,7 +6089,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -67000,7 +67041,64 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "grid grid-cols-12 gap-3" }, [
-            _vm._m(0),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-span-12 sm:col-span-4 lg:col-span-3 order-last sm:order-first",
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "bg-white w-full p-2 rounded-lg mb-3" },
+                  [
+                    _c("div", { staticClass: "flex flex-col" }, [
+                      _c(
+                        "span",
+                        { staticClass: "font-semibold text-base italic" },
+                        [_vm._v("Profil")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "flex flex-col text-justify" }, [
+                        _c("div", { staticClass: "flex flex-col mb-3" }, [
+                          _c("span", [_vm._v("Deskripsi")]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                            _vm._v(_vm._s(_vm.user.deskripsi)),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "flex flex-col mb-3" }, [
+                          _c("span", [_vm._v("NIM")]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                            _vm._v(_vm._s(_vm.user.nim)),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "flex flex-col mb-3" }, [
+                          _c("span", [_vm._v("No WA")]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                            _vm._v(_vm._s(_vm.user.nowa)),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "flex flex-col mb-3" }, [
+                          _c("span", [_vm._v("Alamat Kos")]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                            _vm._v(_vm._s(_vm.user.alamat)),
+                          ]),
+                        ]),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ]
+            ),
             _vm._v(" "),
             _c(
               "div",
@@ -67448,92 +67546,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "col-span-12 sm:col-span-4 lg:col-span-3 order-last sm:order-first",
-      },
-      [
-        _c("div", { staticClass: "bg-white w-full p-2 rounded-md mb-2" }, [
-          _c("span", { staticClass: "font-semibold text-base italic" }, [
-            _vm._v("Status"),
-          ]),
+    return _c("div", { staticClass: "bg-white w-full p-2 rounded-md mb-2" }, [
+      _c("span", { staticClass: "font-semibold text-base italic" }, [
+        _vm._v("Status"),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "grid grid-cols-2 justify-center" }, [
+        _c("div", { staticClass: "col-span-1 flex flex-col items-center" }, [
+          _c("span", { staticClass: "text-2xl" }, [_vm._v("0")]),
           _vm._v(" "),
-          _c("div", { staticClass: "grid grid-cols-2 justify-center" }, [
-            _c(
-              "div",
-              { staticClass: "col-span-1 flex flex-col items-center" },
-              [
-                _c("span", { staticClass: "text-2xl" }, [_vm._v("0")]),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-sm text-gray-500" }, [
-                  _vm._v("Tanggapan"),
-                ]),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-span-1 flex flex-col items-center" },
-              [
-                _c("span", { staticClass: "text-2xl" }, [_vm._v("0")]),
-                _vm._v(" "),
-                _c("span", { staticClass: "text-sm text-gray-500" }, [
-                  _vm._v("Thread"),
-                ]),
-              ]
-            ),
+          _c("span", { staticClass: "text-sm text-gray-500" }, [
+            _vm._v("Tanggapan"),
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "bg-white w-full p-2 rounded-lg mb-3" }, [
-          _c("div", { staticClass: "flex flex-col" }, [
-            _c("span", { staticClass: "font-semibold text-base italic" }, [
-              _vm._v("Profil"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex flex-col text-justify" }, [
-              _c("div", { staticClass: "flex flex-col" }, [
-                _c("span", [_vm._v("Deskripsi")]),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-3 text-gray-600" }, [
-                  _vm._v(
-                    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quam dolorem eius ipsum cupiditate inventore, maiores debitis. Et nostrum molestiae aliquid debitis ipsum nam rerum, fugiat sed ipsa aliquam, cum quidem."
-                  ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex flex-col" }, [
-                _c("span", [_vm._v("NIM")]),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-3 text-gray-600" }, [
-                  _vm._v("221810213"),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex flex-col" }, [
-                _c("span", [_vm._v("No WA")]),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-3 text-gray-600" }, [
-                  _vm._v("082360054904"),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex flex-col" }, [
-                _c("span", [_vm._v("Alamat Kos")]),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-3 text-gray-600" }, [
-                  _vm._v(
-                    "Jl H Hasbi No 16, Kos Omega, Bidara Cina, Jakarta Timur"
-                  ),
-                ]),
-              ]),
-            ]),
+        _c("div", { staticClass: "col-span-1 flex flex-col items-center" }, [
+          _c("span", { staticClass: "text-2xl" }, [_vm._v("0")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-sm text-gray-500" }, [
+            _vm._v("Thread"),
           ]),
         ]),
-      ]
-    )
+      ]),
+    ])
   },
   function () {
     var _vm = this
@@ -67733,45 +67768,216 @@ var render = function () {
                   _c(
                     "form",
                     {
-                      attrs: {
-                        name: "form",
-                        action: "/profil/edit",
-                        method: "POST",
+                      on: {
+                        submit: function ($event) {
+                          $event.preventDefault()
+                          return _vm.simpan.apply(null, arguments)
+                        },
                       },
                     },
                     [
-                      _vm._m(0),
-                      _vm._v(" "),
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _vm._m(3),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "form-group row flex justify-end" },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass:
-                                "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
-                              on: {
-                                click: function ($event) {
-                                  $event.preventDefault()
-                                  return _vm.simpan()
-                                },
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          { staticClass: "col-sm-2 col-form-label" },
+                          [_vm._v("Deskripsi")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.fields.deskripsi,
+                                expression: "fields.deskripsi",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "deskripsi",
+                              placeholder:
+                                "Beritahu tentang kamm, seperti kegiatan dan hal yang kamu sukai ...",
+                              rows: "3",
+                            },
+                            domProps: { value: _vm.fields.deskripsi },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.fields,
+                                  "deskripsi",
+                                  $event.target.value
+                                )
                               },
                             },
-                            [
-                              _vm._v(
-                                "\r\n                                Simpan Perubahan\r\n                            "
-                              ),
-                            ]
-                          ),
-                        ]
-                      ),
+                          }),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          { staticClass: "col-sm-2 col-form-label" },
+                          [_vm._v("No WA")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.fields.nowa,
+                                expression: "fields.nowa",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "nowa",
+                              type: "text",
+                              placeholder: "Masukkan No WA",
+                            },
+                            domProps: { value: _vm.fields.nowa },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.fields,
+                                  "nowa",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          { staticClass: "col-sm-2 col-form-label" },
+                          [_vm._v("Alamat Kos")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.fields.alamat,
+                                expression: "fields.alamat",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "alamat",
+                              type: "text",
+                              placeholder: "Masukkan Alamat Kos",
+                            },
+                            domProps: { value: _vm.fields.alamat },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.fields,
+                                  "alamat",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          { staticClass: "col-sm-2 col-form-label" },
+                          [_vm._v("Password")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.fields.password,
+                                expression: "fields.password",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "password",
+                              type: "text",
+                              placeholder: "Masukkan Password",
+                            },
+                            domProps: { value: _vm.fields.password },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.fields,
+                                  "password",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row" }, [
+                        _c(
+                          "label",
+                          { staticClass: "col-sm-2 col-form-label" },
+                          [_vm._v("Ulangi Password")]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-sm-10" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.fields.upassword,
+                                expression: "fields.upassword",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "upassword",
+                              type: "text",
+                              placeholder: "Ulangi Masukkan Password",
+                            },
+                            domProps: { value: _vm.fields.upassword },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.fields,
+                                  "upassword",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _vm._m(0),
                     ]
                   ),
                 ]
@@ -67788,80 +67994,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c("label", { staticClass: "col-sm-2 col-form-label" }, [
-        _vm._v("No WA"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { name: "nowa", type: "text", placeholder: "Masukkan No WA" },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c("label", { staticClass: "col-sm-2 col-form-label" }, [
-        _vm._v("Alamat Kos"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            name: "alamat",
-            type: "text",
-            placeholder: "Masukkan Alamat Kos",
-          },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c("label", { staticClass: "col-sm-2 col-form-label" }, [
-        _vm._v("Password"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            name: "password",
-            type: "text",
-            placeholder: "Masukkan Password",
-          },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c("label", { staticClass: "col-sm-2 col-form-label" }, [
-        _vm._v("Ulangi Password"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-sm-10" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            name: "upassword",
-            type: "text",
-            placeholder: "Ulangi Masukkan Password",
-          },
-        }),
-      ]),
+    return _c("div", { staticClass: "form-group row flex justify-end" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
+          attrs: { type: "submit", value: "submit" },
+        },
+        [
+          _vm._v(
+            "\r\n                                Simpan Perubahan\r\n                            "
+          ),
+        ]
+      ),
     ])
   },
 ]
@@ -68051,10 +68197,10 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "mt-2" },
+          { staticClass: "mt-6" },
           [
             _vm.thread.tmenanggapi != 0
-              ? _c("span", { staticClass: "font-bold text-base mt-2" }, [
+              ? _c("span", { staticClass: "font-bold text-base" }, [
                   _vm._v("Tanggapan"),
                 ])
               : _vm._e(),

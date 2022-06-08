@@ -44,9 +44,8 @@
             </div>
         </div>
 
-        <div class="mt-2">
-            <!-- <span class="font-bold text-base mt-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</span> -->
-            <span class="font-bold text-base mt-2" v-if="thread.tmenanggapi != 0">Tanggapan</span>
+        <div class="mt-6">
+            <span class="font-bold text-base" v-if="thread.tmenanggapi != 0">Tanggapan</span>
             <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3" v-for="tanggapan in daftartanggapan" :key="tanggapan.idtn">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

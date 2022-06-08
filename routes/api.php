@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArsipSoal;
 use App\Http\Controllers\Forum;
 use App\Http\Controllers\Materi;
+use App\Http\Controllers\Profil;
 use App\Http\Controllers\UserThread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,8 @@ Route::group(
         Route::get('user/getthread/{idt}', [UserThread::class, 'getthread']);
         Route::post('user/tanggapi', [UserThread::class, 'tanggapi']);
         Route::get('user/gettanggapan/{idt}', [UserThread::class, 'gettanggapan']);
+
+        Route::post('user/profil/edit', [Profil::class, 'edit']);
 
         Route::get('getdaftarmatkul/{prodi}', [Materi::class, 'getdaftarmatkul']);
 

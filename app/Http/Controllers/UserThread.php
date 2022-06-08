@@ -64,14 +64,5 @@ class UserThread extends Controller
         } else {
             return $q;
         }
-
-        // $pertanyaan = DB::table('forum')->where('fid', $fid)->first();
-        // $jawaban = DB::table('jawaban_forum')->select('jawaban_forum.*', 'dukungan_jawabanforum.pilihan')
-        //     ->leftJoin('dukungan_jawabanforum', 'jawaban_forum.jfid', '=', 'dukungan_jawabanforum.jfid')
-        //     ->orderByDesc('jawaban_forum.date')->where('fid', $fid)->get();
-        // if ($jawaban == null) {
-        //     $jawaban = 0;
-        // }
-        // return response()->json(array($pertanyaan, $jawaban));
     }
 }
