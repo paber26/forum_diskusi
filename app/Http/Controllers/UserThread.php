@@ -21,4 +21,14 @@ class UserThread extends Controller
 
         return 'Berhasil';
     }
+
+    public function getthread()
+    {
+        $q = DB::table('thread')->get();
+        if ($q == null) {
+            return 0;
+        } else {
+            return $q;
+        }
+    }
 }
