@@ -4,7 +4,7 @@
 
         <span class="font-bold text-xl mt-3 mb-2">Buat Thread</span>
         <div class="bg-white w-full p-3 rounded-lg">
-            <form name="form" action="/user/buat_thread" method="POST">
+            <div>
                 <div class="grid grid-cols-6 items-center">
                     <label class="col-span-1">Judul Thread</label>
                     <div class="col-span-5">
@@ -17,15 +17,15 @@
                         <vue-editor v-model="fields.isi"></vue-editor>
                     </div>
                 </div>
-                <div class="form-group row flex justify-between -mb-1">
+                <div class="flex justify-between -mb-1">
                     <button @click.prevent="simpan()" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3">
                         Simpan Draft
                     </button>
-                    <button @click.prevent="simpan()" class="bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
+                    <button @click.prevent="upload()" class="bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
                         Upload
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
 
         <div class="mt-3" v-if="fields.judul != '' || fields.isi != ''">
@@ -61,17 +61,22 @@ export default {
                 path: '/user/profil/edit'
             })
         },
-        
-        simpan() {
+
+        upload() {
             if (this.fields.judul == '') {
                 this.$swal('Masukkan Judul')
                 return
             }
-            if (this.fields.isi == ''){
+            if (this.fields.isi == '') {
                 this.$swal('Masukkan Isi')
                 return
             }
-            axios.post('/buat_thread', this.fields).then(response => {
+            axios.post('/api/user/buat_thread', this.fields, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then(response => {
                 console.log(response.data)
                 // if (response.data == 'Sudah terdaftar') {
                 //     this.$swal('Email sudah terdaftar')
@@ -81,7 +86,25 @@ export default {
                 // }
             })
             console.log(this.fields.isi)
-        }
+        },
+        checkForm: function () {
+            if (this.fields.jawaban != '') {
+                axios.post('/api/tambahjawabanforum', this.fields, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + this.user.api_token
+                    },
+                }).then((response) => {
+                    if (response.data == 'Berhasil') {
+                        this.fields.jawaban = ''
+                        this.getdetailsoalforum()
+                        this.$swal('Berhasil menambahkan jawaban')
+                    }
+                })
+            } else {
+                this.$swal('Jawaban tidak boleh kosong')
+            }
+        },
     }
 }
 </script>

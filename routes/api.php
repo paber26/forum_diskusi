@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArsipSoal;
 use App\Http\Controllers\Forum;
 use App\Http\Controllers\Materi;
+use App\Http\Controllers\UserThread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(
     ['middleware' => 'auth:api'],
     function () {
+        Route::post('user/buat_thread', [UserThread::class, 'buat_thread']);
+
         Route::get('getdaftarmatkul/{prodi}', [Materi::class, 'getdaftarmatkul']);
 
         Route::get('getdaftarmateri/d4-komputasi-statistik', [Materi::class, 'getdaftarmaterid4ks']);

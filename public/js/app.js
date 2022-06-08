@@ -5690,7 +5690,7 @@ __webpack_require__.r(__webpack_exports__);
         path: '/user/profil/edit'
       });
     },
-    simpan: function simpan() {
+    upload: function upload() {
       if (this.fields.judul == '') {
         this.$swal('Masukkan Judul');
         return;
@@ -5701,7 +5701,12 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      axios.post('/buat_thread', this.fields).then(function (response) {
+      axios.post('/api/user/buat_thread', this.fields, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
         console.log(response.data); // if (response.data == 'Sudah terdaftar') {
         //     this.$swal('Email sudah terdaftar')
         // } else if (response.data == 'Berhasil') {
@@ -5710,6 +5715,28 @@ __webpack_require__.r(__webpack_exports__);
         // }
       });
       console.log(this.fields.isi);
+    },
+    checkForm: function checkForm() {
+      var _this = this;
+
+      if (this.fields.jawaban != '') {
+        axios.post('/api/tambahjawabanforum', this.fields, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.user.api_token
+          }
+        }).then(function (response) {
+          if (response.data == 'Berhasil') {
+            _this.fields.jawaban = '';
+
+            _this.getdetailsoalforum();
+
+            _this.$swal('Berhasil menambahkan jawaban');
+          }
+        });
+      } else {
+        this.$swal('Jawaban tidak boleh kosong');
+      }
     }
   }
 });
@@ -66951,120 +66978,106 @@ var render = function () {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "bg-white w-full p-3 rounded-lg" }, [
-          _c(
-            "form",
-            {
-              attrs: {
-                name: "form",
-                action: "/user/buat_thread",
-                method: "POST",
-              },
-            },
-            [
-              _c("div", { staticClass: "grid grid-cols-6 items-center" }, [
-                _c("label", { staticClass: "col-span-1" }, [
-                  _vm._v("Judul Thread"),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-span-5" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.fields.judul,
-                        expression: "fields.judul",
-                      },
-                    ],
-                    staticClass:
-                      "w-full border-2 border-gray-200 rounded-md p-1.5",
-                    attrs: {
-                      name: "judul",
-                      id: "judul",
-                      type: "text",
-                      placeholder: "Masukkan Judul Thread ...",
-                    },
-                    domProps: { value: _vm.fields.judul },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.fields, "judul", $event.target.value)
-                      },
-                    },
-                  }),
-                ]),
+          _c("div", [
+            _c("div", { staticClass: "grid grid-cols-6 items-center" }, [
+              _c("label", { staticClass: "col-span-1" }, [
+                _vm._v("Judul Thread"),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "grid grid-cols-1 mb-2" }, [
-                _c("label", { staticClass: "col-span-1" }, [
-                  _vm._v("Isi Thread"),
-                ]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-span-1" },
-                  [
-                    _c("vue-editor", {
-                      model: {
-                        value: _vm.fields.isi,
-                        callback: function ($$v) {
-                          _vm.$set(_vm.fields, "isi", $$v)
-                        },
-                        expression: "fields.isi",
-                      },
-                    }),
+              _c("div", { staticClass: "col-span-5" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fields.judul,
+                      expression: "fields.judul",
+                    },
                   ],
-                  1
-                ),
+                  staticClass:
+                    "w-full border-2 border-gray-200 rounded-md p-1.5",
+                  attrs: {
+                    name: "judul",
+                    id: "judul",
+                    type: "text",
+                    placeholder: "Masukkan Judul Thread ...",
+                  },
+                  domProps: { value: _vm.fields.judul },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.fields, "judul", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "grid grid-cols-1 mb-2" }, [
+              _c("label", { staticClass: "col-span-1" }, [
+                _vm._v("Isi Thread"),
               ]),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "form-group row flex justify-between -mb-1" },
+                { staticClass: "col-span-1" },
                 [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3",
-                      on: {
-                        click: function ($event) {
-                          $event.preventDefault()
-                          return _vm.simpan()
-                        },
+                  _c("vue-editor", {
+                    model: {
+                      value: _vm.fields.isi,
+                      callback: function ($$v) {
+                        _vm.$set(_vm.fields, "isi", $$v)
                       },
+                      expression: "fields.isi",
                     },
-                    [
-                      _vm._v(
-                        "\r\n                        Simpan Draft\r\n                    "
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
-                      on: {
-                        click: function ($event) {
-                          $event.preventDefault()
-                          return _vm.simpan()
-                        },
-                      },
+                  }),
+                ],
+                1
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-between -mb-1" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.simpan()
                     },
-                    [
-                      _vm._v(
-                        "\r\n                        Upload\r\n                    "
-                      ),
-                    ]
+                  },
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Simpan Draft\r\n                    "
                   ),
                 ]
               ),
-            ]
-          ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.upload()
+                    },
+                  },
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Upload\r\n                    "
+                  ),
+                ]
+              ),
+            ]),
+          ]),
         ]),
         _vm._v(" "),
         _vm.fields.judul != "" || _vm.fields.isi != ""
