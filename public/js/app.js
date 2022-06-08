@@ -5540,6 +5540,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -6152,6 +6153,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user', 'idt'],
   data: function data() {
@@ -6165,21 +6168,24 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/user/getthread/' + this.idt, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.user.api_token
-      }
-    }).then(function (response) {
-      _this.thread = response.data;
-      console.log(response.data);
-    });
+    this.getthread();
     this.gettanggapan();
     console.log(this.idt);
   },
   methods: {
+    getthread: function getthread() {
+      var _this = this;
+
+      axios.get('/api/user/getthread/' + this.idt, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        _this.thread = response.data;
+        console.log(response.data);
+      });
+    },
     gettanggapan: function gettanggapan() {
       var _this2 = this;
 
@@ -6210,7 +6216,11 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data == 'Berhasil') {
           _this3.$swal('Berhasil Menanggapi');
 
+          _this3.getthread();
+
           _this3.gettanggapan();
+
+          _this3.fields.isi = '';
         } else {
           console.log(response.data);
         }
@@ -66553,24 +66563,39 @@ var render = function () {
                   _c("hr"),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex justify-between py-1.5" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3",
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.tanggapi(thread.idt)
+                    thread.tmenanggapi == 0
+                      ? _c(
+                          "button",
+                          {
+                            staticClass:
+                              "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3",
+                            on: {
+                              click: function ($event) {
+                                $event.preventDefault()
+                                return _vm.tanggapi(thread.idt)
+                              },
+                            },
                           },
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "Lihat " + _vm._s(thread.tmenanggapi) + " jawaban"
+                          [_vm._v("Belum ada tanggapan")]
+                        )
+                      : _c(
+                          "button",
+                          {
+                            staticClass:
+                              "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3",
+                            on: {
+                              click: function ($event) {
+                                $event.preventDefault()
+                                return _vm.tanggapi(thread.idt)
+                              },
+                            },
+                          },
+                          [
+                            _vm._v(
+                              "Lihat " + _vm._s(thread.tmenanggapi) + " jawaban"
+                            ),
+                          ]
                         ),
-                      ]
-                    ),
                     _vm._v(" "),
                     _c(
                       "svg",
@@ -67990,9 +68015,13 @@ var render = function () {
             _c("hr"),
             _vm._v(" "),
             _c("div", { staticClass: "flex justify-between py-1.5" }, [
-              _c("span", { staticClass: "font-semibold ml-2" }, [
-                _vm._v(_vm._s(_vm.thread.tmenanggapi) + " tanggapan"),
-              ]),
+              _vm.thread.tmenanggapi == 0
+                ? _c("span", { staticClass: "font-semibold ml-2" }, [
+                    _vm._v("Belum ada tanggapan "),
+                  ])
+                : _c("span", { staticClass: "font-semibold ml-2" }, [
+                    _vm._v(_vm._s(_vm.thread.tmenanggapi) + " tanggapan"),
+                  ]),
               _vm._v(" "),
               _c(
                 "svg",
@@ -68024,9 +68053,11 @@ var render = function () {
           "div",
           { staticClass: "mt-2" },
           [
-            _c("span", { staticClass: "font-bold text-base mt-2" }, [
-              _vm._v("Tanggapan"),
-            ]),
+            _vm.thread.tmenanggapi != 0
+              ? _c("span", { staticClass: "font-bold text-base mt-2" }, [
+                  _vm._v("Tanggapan"),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _vm._l(_vm.daftartanggapan, function (tanggapan) {
               return _c(

@@ -35,7 +35,8 @@
                 </div>
                 <hr>
                 <div class="flex justify-between py-1.5">
-                    <span class="font-semibold ml-2">{{ thread.tmenanggapi }} tanggapan</span>
+                    <span class="font-semibold ml-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan </span>
+                    <span class="font-semibold ml-2" v-else>{{ thread.tmenanggapi }} tanggapan</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                     </svg>
@@ -44,7 +45,8 @@
         </div>
 
         <div class="mt-2">
-            <span class="font-bold text-base mt-2">Tanggapan</span>
+            <!-- <span class="font-bold text-base mt-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</span> -->
+            <span class="font-bold text-base mt-2" v-if="thread.tmenanggapi != 0">Tanggapan</span>
             <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3" v-for="tanggapan in daftartanggapan" :key="tanggapan.idtn">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -118,19 +120,22 @@ export default {
         }
     },
     mounted() {
-        axios.get('/api/user/getthread/' + this.idt, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.user.api_token
-            },
-        }).then((response) => {
-            this.thread = response.data
-            console.log(response.data)
-        })
+        this.getthread()
         this.gettanggapan()
         console.log(this.idt)
     },
     methods: {
+        getthread() {
+            axios.get('/api/user/getthread/' + this.idt, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
+                this.thread = response.data
+                console.log(response.data)
+            })
+        },
         gettanggapan() {
             axios.get('/api/user/gettanggapan/' + this.idt, {
                 headers: {
@@ -155,7 +160,9 @@ export default {
             }).then(response => {
                 if (response.data == 'Berhasil') {
                     this.$swal('Berhasil Menanggapi')
+                    this.getthread()
                     this.gettanggapan()
+                    this.fields.isi = ''
                 } else {
                     console.log(response.data)
                 }
