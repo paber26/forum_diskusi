@@ -189,7 +189,7 @@ const routes = [
         component: UserProfilEdit
     },
     {
-        path: '/user/tanggapi/:id',
+        path: '/user/tanggapi/:idt',
         component: UserTanggapi,
         props: true
     },

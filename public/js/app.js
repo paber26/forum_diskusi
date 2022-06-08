@@ -6152,22 +6152,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user', 'idt'],
   data: function data() {
     return {
+      thread: '',
       fields: {
         judul: '',
         isi: ''
       }
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/user/getthread/' + this.idt, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
+      _this.thread = response.data;
+      console.log(response.data);
+    });
+    console.log(this.idt);
   },
   methods: {
     tanggapi: function tanggapi() {
@@ -6429,7 +6437,7 @@ var routes = [{
   path: '/user/profil/edit',
   component: UserProfilEdit
 }, {
-  path: '/user/tanggapi/:id',
+  path: '/user/tanggapi/:idt',
   component: UserTanggapi,
   props: true
 }, {
@@ -66458,7 +66466,7 @@ var render = function () {
                           ]
                         ),
                         _vm._v(" "),
-                        _c("span", [_vm._v("6")]),
+                        _c("span", [_vm._v(_vm._s(thread.tdukungan))]),
                         _vm._v(" "),
                         _c(
                           "button",
@@ -66495,11 +66503,12 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "flex flex-col ml-3.5" }, [
-                      _c("div", {
+                      _c("span", {
+                        staticClass: "font-bold text-lg mb-2",
                         domProps: { innerHTML: _vm._s(thread.judul) },
                       }),
                       _vm._v(" "),
-                      _c("div", {
+                      _c("span", {
                         domProps: { innerHTML: _vm._s(thread.isi) },
                       }),
                     ]),
@@ -66512,7 +66521,7 @@ var render = function () {
                       "button",
                       {
                         staticClass:
-                          "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2",
+                          "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3",
                         on: {
                           click: function ($event) {
                             $event.preventDefault()
@@ -66520,7 +66529,11 @@ var render = function () {
                           },
                         },
                       },
-                      [_vm._v("Lihat 4 jawaban")]
+                      [
+                        _vm._v(
+                          "Lihat " + _vm._s(thread.tmenanggapi) + " jawaban"
+                        ),
+                      ]
                     ),
                     _vm._v(" "),
                     _c(
@@ -67848,7 +67861,15 @@ var render = function () {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(0),
+              _c("div", { staticClass: "ml-2" }, [
+                _c("div", { staticClass: "font-semibold" }, [
+                  _vm._v(_vm._s(_vm.thread.nim)),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-xs italic" }, [
+                  _vm._v("Dibuat pada " + _vm._s(_vm.thread.date)),
+                ]),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "flex m-1" }, [
@@ -67885,7 +67906,7 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _c("span", [_vm._v("6")]),
+                _c("span", [_vm._v(_vm._s(_vm.thread.tdukungan))]),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -67920,10 +67941,13 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "ml-2" }, [
-                _vm._v(
-                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
-                ),
+              _c("div", { staticClass: "flex flex-col ml-3.5" }, [
+                _c("span", {
+                  staticClass: "font-bold text-lg mb-2",
+                  domProps: { innerHTML: _vm._s(_vm.thread.judul) },
+                }),
+                _vm._v(" "),
+                _c("span", { domProps: { innerHTML: _vm._s(_vm.thread.isi) } }),
               ]),
             ]),
             _vm._v(" "),
@@ -67931,7 +67955,7 @@ var render = function () {
             _vm._v(" "),
             _c("div", { staticClass: "flex justify-between py-1.5" }, [
               _c("span", { staticClass: "font-semibold ml-2" }, [
-                _vm._v("4 tanggapan"),
+                _vm._v(_vm._s(_vm.thread.tmenanggapi) + " tanggapan"),
               ]),
               _vm._v(" "),
               _c(
@@ -67993,7 +68017,7 @@ var render = function () {
                   ]
                 ),
                 _vm._v(" "),
-                _vm._m(1),
+                _vm._m(0),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex m-1" }, [
@@ -68122,71 +68146,64 @@ var render = function () {
             _vm._v("Tambah Tanggapan"),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-3" }, [
+          _c("div", { staticClass: "bg-white w-full py-3 rounded-lg" }, [
             _c(
-              "form",
-              {
-                attrs: {
-                  name: "form",
-                  action: "/user/tanggapi",
-                  method: "POST",
-                },
-              },
+              "div",
+              { staticClass: "col-sm-12 mb-2" },
               [
-                _vm._m(2),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "form-group row flex justify-between -mb-1" },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3",
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.simpan()
-                          },
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "\r\n                            Simpan Draft\r\n                        "
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.simpan()
-                          },
-                        },
-                      },
-                      [
-                        _vm._v(
-                          "\r\n                            Upload\r\n                        "
-                        ),
-                      ]
-                    ),
-                  ]
-                ),
-              ]
+                _c("vue-editor", {
+                  model: {
+                    value: _vm.fields.isi,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.fields, "isi", $$v)
+                    },
+                    expression: "fields.isi",
+                  },
+                }),
+              ],
+              1
             ),
+            _vm._v(" "),
+            _c("div", { staticClass: " flex justify-between -mb-1" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.simpan()
+                    },
+                  },
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Simpan Draft\r\n                    "
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.simpan()
+                    },
+                  },
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Tanggapi\r\n                    "
+                  ),
+                ]
+              ),
+            ]),
           ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "font-bold text-lg mt-6 mb-2" }, [
-            _vm._v("Tampilan Tambah Tanggapan"),
-          ]),
-          _vm._v(" "),
-          _vm._m(3),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-5" }),
@@ -68205,46 +68222,7 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "text-xs italic" }, [
-        _vm._v("Dibuat pada 04-06-2020 08:23"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ml-2" }, [
-      _c("div", { staticClass: "font-semibold" }, [
-        _vm._v("Bernaldo Napitupulu"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-xs italic" }, [
         _vm._v("Menanggapi pada 04-06-2020 08:23"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c("div", { staticClass: "col-sm-12" }, [
-        _c("textarea", {
-          staticClass: "form-control rounded-md h-100",
-          attrs: { placeholder: "Tulis tanggapan ..." },
-        }),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-white w-full p-3 rounded-lg" }, [
-      _c("span", [
-        _vm._v(
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga ducimus dolores cumque vero repellat reprehenderit, autem minus, blanditiis laboriosam enim sint unde. Culpa pariatur amet velit aut itaque voluptates accusantium non tempore nulla ipsa error, sed nobis veniam excepturi ad placeat dolore ut dignissimos voluptatem suscipit corporis incidunt quidem voluptate. Odit autem eius itaque quam reprehenderit, dignissimos et mollitia ipsum, ratione id aut, illo quia laborum nobis. Dignissimos earum repellat vitae labore voluptate iure, odit unde saepe cupiditate, inventore doloribus optio debitis commodi. Repellat vel adipisci architecto deleniti perferendis illum magnam quaerat tempora? Quae enim deserunt pariatur dicta quam nulla magnam voluptate repudiandae, nobis exercitationem dolore reiciendis totam necessitatibus esse, ducimus deleniti repellat sequi tempore reprehenderit? Vel sit exercitationem eaque eveniet, deleniti unde, eligendi, quas asperiores molestias vitae fugit. Expedita culpa, libero, pariatur exercitationem dolorem labore voluptates a veniam hic quia dolor tenetur blanditiis! Illum unde repellat commodi perferendis facilis debitis odit tempore ducimus. Ullam mollitia perspiciatis id porro exercitationem pariatur dolores quae, reiciendis earum dolore ducimus facere fuga quibusdam vitae similique nostrum harum. Similique ab aut sapiente reiciendis dignissimos doloribus incidunt voluptates, voluptatibus nam. Odio blanditiis dolore temporibus maxime voluptas, maiores ratione a possimus doloribus, eaque at officia voluptate!"
-        ),
       ]),
     ])
   },

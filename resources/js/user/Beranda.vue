@@ -21,7 +21,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
                             </svg>
                         </button>
-                        <span>6</span>
+                        <span>{{ thread.tdukungan }}</span>
                         <button class="flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -29,13 +29,13 @@
                         </button>
                     </div>
                     <div class="flex flex-col ml-3.5">
-                        <div v-html="thread.judul"></div>
-                        <div v-html="thread.isi"></div>
+                        <span class="font-bold text-lg mb-2" v-html="thread.judul"></span>
+                        <span v-html="thread.isi"></span>
                     </div>
                 </div>
                 <hr>
                 <div class="flex justify-between py-1.5">
-                    <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2">Lihat 4 jawaban</button>
+                    <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3">Lihat {{ thread.tmenanggapi }} jawaban</button>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                     </svg>

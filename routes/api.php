@@ -27,6 +27,7 @@ Route::group(
     function () {
         Route::post('user/buat_thread', [UserThread::class, 'buat_thread']);
         Route::get('user/getthread', [UserThread::class, 'getthread']);
+        Route::get('user/getthread/{idt}', [UserThread::class, 'getthread']);
 
         Route::get('getdaftarmatkul/{prodi}', [Materi::class, 'getdaftarmatkul']);
 

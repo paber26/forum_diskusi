@@ -22,13 +22,17 @@ class UserThread extends Controller
         return 'Berhasil';
     }
 
-    public function getthread()
+    public function getthread($idt = null)
     {
-        $q = DB::table('thread')->get();
-        if ($q == null) {
-            return 0;
+        if ($idt === null) {
+            $q = DB::table('thread')->get();
+            if ($q == null) {
+                return 0;
+            } else {
+                return $q;
+            }
         } else {
-            return $q;
+            return DB::table('thread')->where('idt', $idt)->first();
         }
     }
 }
