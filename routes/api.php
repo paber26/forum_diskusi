@@ -28,6 +28,8 @@ Route::group(
         Route::post('user/buat_thread', [UserThread::class, 'buat_thread']);
         Route::get('user/getthread', [UserThread::class, 'getthread']);
         Route::get('user/getthread/{idt}', [UserThread::class, 'getthread']);
+        Route::post('user/tanggapi', [UserThread::class, 'tanggapi']);
+        Route::get('user/gettanggapan/{idt}', [UserThread::class, 'gettanggapan']);
 
         Route::get('getdaftarmatkul/{prodi}', [Materi::class, 'getdaftarmatkul']);
 

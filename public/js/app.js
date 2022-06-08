@@ -6157,8 +6157,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       thread: '',
+      daftartanggapan: '',
       fields: {
-        judul: '',
+        idt: this.idt,
         isi: ''
       }
     };
@@ -6175,11 +6176,46 @@ __webpack_require__.r(__webpack_exports__);
       _this.thread = response.data;
       console.log(response.data);
     });
+    this.gettanggapan();
     console.log(this.idt);
   },
   methods: {
+    gettanggapan: function gettanggapan() {
+      var _this2 = this;
+
+      axios.get('/api/user/gettanggapan/' + this.idt, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        _this2.daftartanggapan = response.data;
+        console.log(response.data);
+      });
+    },
     tanggapi: function tanggapi() {
-      this.$router.push('/user/tanggapi/saya');
+      var _this3 = this;
+
+      if (this.fields.isi == '') {
+        this.$swal('Masukkan Isi Tanggaapan');
+        return;
+      }
+
+      axios.post('/api/user/tanggapi', this.fields, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        if (response.data == 'Berhasil') {
+          _this3.$swal('Berhasil Menanggapi');
+
+          _this3.gettanggapan();
+        } else {
+          console.log(response.data);
+        }
+      });
+      console.log(this.fields);
     }
   }
 });
@@ -67984,162 +68020,183 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "mt-2" }, [
-          _c("span", { staticClass: "font-bold text-base mt-2" }, [
-            _vm._v("Tanggapan"),
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "bg-white w-full px-3 pt-3 rounded-lg mb-3" },
-            [
-              _c("div", { staticClass: "flex items-center" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "h-12 w-12",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      fill: "none",
-                      viewBox: "0 0 24 24",
-                      stroke: "currentColor",
-                      "stroke-width": "2",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+        _c(
+          "div",
+          { staticClass: "mt-2" },
+          [
+            _c("span", { staticClass: "font-bold text-base mt-2" }, [
+              _vm._v("Tanggapan"),
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.daftartanggapan, function (tanggapan) {
+              return _c(
+                "div",
+                {
+                  key: tanggapan.idtn,
+                  staticClass: "bg-white w-full px-3 pt-3 rounded-lg mb-3",
+                },
+                [
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-12 w-12",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                          },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ml-2" }, [
+                      _c("div", { staticClass: "font-semibold" }, [
+                        _vm._v(_vm._s(tanggapan.nim)),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-xs italic" }, [
+                        _vm._v("Menanggapi pada " + _vm._s(tanggapan.date)),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex m-1" }, [
+                    _c(
+                      "div",
+                      { staticClass: "flex flex-col items-center ml-2" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "h-4 w-4",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M5 15l7-7 7 7",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(tanggapan.tdukungan))]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "h-4 w-4",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M19 9l-7 7-7-7",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "ml-2",
+                      domProps: { innerHTML: _vm._s(tanggapan.isi) },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex justify-between py-1.5" }, [
+                    _c("button", {
+                      staticClass:
+                        "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.tanggapi()
+                        },
                       },
                     }),
-                  ]
-                ),
-                _vm._v(" "),
-                _vm._m(0),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex m-1" }, [
-                _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "h-4 w-4",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            viewBox: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                          },
+                    _vm._v(" "),
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-7 w-7",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
                         },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              d: "M5 15l7-7 7 7",
-                            },
-                          }),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("6")]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
-                    },
-                    [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "h-4 w-4",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            viewBox: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                          },
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              d: "M19 9l-7 7-7-7",
-                            },
-                          }),
-                        ]
-                      ),
-                    ]
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2" }, [
-                  _vm._v(
-                    "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
-                  ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex justify-between py-1.5" }, [
-                _c("button", {
-                  staticClass:
-                    "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2",
-                  on: {
-                    click: function ($event) {
-                      $event.preventDefault()
-                      return _vm.tanggapi()
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _c(
-                  "svg",
-                  {
-                    staticClass: "h-7 w-7",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      fill: "none",
-                      viewBox: "0 0 24 24",
-                      stroke: "currentColor",
-                      "stroke-width": "2",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
                       },
-                    }),
-                  ]
-                ),
-              ]),
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "bg-birumateri w-full h-0.5 rounded-3xl my-1.5",
-          }),
-        ]),
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]),
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "bg-birumateri w-full h-0.5 rounded-3xl my-1.5",
+            }),
+          ],
+          2
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "mt-2" }, [
           _c("span", { staticClass: "font-bold text-lg mt-2" }, [
@@ -68164,7 +68221,7 @@ var render = function () {
               1
             ),
             _vm._v(" "),
-            _c("div", { staticClass: " flex justify-between -mb-1" }, [
+            _c("div", { staticClass: " flex justify-between -mb-1 " }, [
               _c(
                 "button",
                 {
@@ -68173,7 +68230,7 @@ var render = function () {
                   on: {
                     click: function ($event) {
                       $event.preventDefault()
-                      return _vm.simpan()
+                      return _vm.simpandraft()
                     },
                   },
                 },
@@ -68192,7 +68249,7 @@ var render = function () {
                   on: {
                     click: function ($event) {
                       $event.preventDefault()
-                      return _vm.simpan()
+                      return _vm.tanggapi()
                     },
                   },
                 },
@@ -68211,22 +68268,7 @@ var render = function () {
     ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ml-2" }, [
-      _c("div", { staticClass: "font-semibold" }, [
-        _vm._v("Bernaldo Napitupulu"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-xs italic" }, [
-        _vm._v("Menanggapi pada 04-06-2020 08:23"),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

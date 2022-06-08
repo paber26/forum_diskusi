@@ -45,15 +45,15 @@
 
         <div class="mt-2">
             <span class="font-bold text-base mt-2">Tanggapan</span>
-            <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3">
+            <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3" v-for="tanggapan in daftartanggapan" :key="tanggapan.idtn">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
 
                     <div class="ml-2">
-                        <div class="font-semibold">Bernaldo Napitupulu</div>
-                        <div class="text-xs italic">Menanggapi pada 04-06-2020 08:23</div>
+                        <div class="font-semibold">{{ tanggapan.nim }}</div>
+                        <div class="text-xs italic">Menanggapi pada {{ tanggapan.date }}</div>
                     </div>
                 </div>
                 <div class="flex m-1">
@@ -63,14 +63,14 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
                             </svg>
                         </button>
-                        <span>6</span>
+                        <span>{{ tanggapan.tdukungan }}</span>
                         <button class="flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
                     </div>
-                    <span class="ml-2">Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?</span>
+                    <span class="ml-2" v-html="tanggapan.isi"></span>
                 </div>
                 <hr>
                 <div class="flex justify-between py-1.5">
@@ -89,11 +89,11 @@
                 <div class="col-sm-12 mb-2">
                     <vue-editor v-model="fields.isi"></vue-editor>
                 </div>
-                <div class=" flex justify-between -mb-1">
-                    <button @click.prevent="simpan()" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3">
+                <div class=" flex justify-between -mb-1 ">
+                    <button @click.prevent="simpandraft()" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3">
                         Simpan Draft
                     </button>
-                    <button @click.prevent="simpan()" class="bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
+                    <button @click.prevent="tanggapi()" class="bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
                         Tanggapi
                     </button>
                 </div>
@@ -110,8 +110,9 @@ export default {
     data() {
         return {
             thread: '',
+            daftartanggapan: '',
             fields: {
-                judul: '',
+                idt: this.idt,
                 isi: ''
             }
         }
@@ -126,11 +127,40 @@ export default {
             this.thread = response.data
             console.log(response.data)
         })
+        this.gettanggapan()
         console.log(this.idt)
     },
     methods: {
+        gettanggapan() {
+            axios.get('/api/user/gettanggapan/' + this.idt, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
+                this.daftartanggapan = response.data
+                console.log(response.data)
+            })
+        },
         tanggapi() {
-            this.$router.push('/user/tanggapi/saya')
+            if (this.fields.isi == '') {
+                this.$swal('Masukkan Isi Tanggaapan')
+                return
+            }
+            axios.post('/api/user/tanggapi', this.fields, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then(response => {
+                if (response.data == 'Berhasil') {
+                    this.$swal('Berhasil Menanggapi')
+                    this.gettanggapan()
+                } else {
+                    console.log(response.data)
+                }
+            })
+            console.log(this.fields)
         }
     }
 }

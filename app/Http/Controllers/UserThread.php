@@ -35,4 +35,26 @@ class UserThread extends Controller
             return DB::table('thread')->where('idt', $idt)->first();
         }
     }
+
+    public function tanggapi(Request $request)
+    {
+        $stt = [
+            'idtn' => uniqid(),
+            'idt' => $request->idt,
+            'nim' => Auth::user()->nim,
+            'isi' => $request->isi,
+        ];
+        DB::table('tanggapan')->insert($stt);
+        return 'Berhasil';
+    }
+
+    public function gettanggapan($idt)
+    {
+        $q = DB::table('tanggapan')->where('idt', $idt)->get();
+        if ($q == null) {
+            return 0;
+        } else {
+            return $q;
+        }
+    }
 }
