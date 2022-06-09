@@ -6251,6 +6251,18 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(this.getthread());
     },
+    dukungtanggapan: function dukungtanggapan(idtn, pilihan) {
+      var detail = {
+        'idtn': idtn,
+        'pilihan': pilihan
+      };
+      axios.post('/api/user/dukung/tanggapan', detail, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(this.gettanggapan());
+    },
     tanggapi: function tanggapi() {
       var _this3 = this;
 
@@ -68091,13 +68103,13 @@ var render = function () {
                           staticClass:
                             "flex items-center justify-center rounded-sm h-7 w-7",
                           class:
-                            _vm.thread.pilihan == "naik"
+                            tanggapan.pilihan == "naik"
                               ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
                               : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
                           on: {
                             click: function ($event) {
                               $event.preventDefault()
-                              return _vm.dukung(_vm.thread.idt, "naik")
+                              return _vm.dukungtanggapan(tanggapan.idtn, "naik")
                             },
                           },
                         },
@@ -68127,7 +68139,7 @@ var render = function () {
                         ]
                       ),
                       _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(_vm.thread.tdukungan))]),
+                      _c("span", [_vm._v(_vm._s(tanggapan.tdukungan))]),
                       _vm._v(" "),
                       _c(
                         "button",
@@ -68135,13 +68147,16 @@ var render = function () {
                           staticClass:
                             "flex items-center justify-center rounded-sm h-7 w-7",
                           class:
-                            _vm.thread.pilihan == "turun"
+                            tanggapan.pilihan == "turun"
                               ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
                               : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
                           on: {
                             click: function ($event) {
                               $event.preventDefault()
-                              return _vm.dukung(_vm.thread.idt, "turun")
+                              return _vm.dukungtanggapan(
+                                tanggapan.idtn,
+                                "turun"
+                              )
                             },
                           },
                         },
