@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminThread;
 use App\Http\Controllers\ArsipSoal;
 use App\Http\Controllers\Forum;
 use App\Http\Controllers\Materi;
@@ -40,6 +41,7 @@ Route::group(
         Route::get('user/getthreadprofil', [Profil::class, 'getthreadprofil']);
 
 
+        Route::get('admin/getthread', [AdminThread::class, 'getthread']);
 
 
 

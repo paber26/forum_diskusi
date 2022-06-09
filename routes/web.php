@@ -58,6 +58,10 @@ Route::group(
 Route::group(
     ['middleware' => 'auth'],
     function () {
+        Route::get('/', function () {
+            return view('auth');
+        });
+
         Route::get('/user', function () {
             return view('user/home');
         })->where('any', '.*');

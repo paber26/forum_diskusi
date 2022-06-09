@@ -52,6 +52,10 @@ const ArsipSoalJawab = require('../pages/arsipSoal/Jawab.vue').default;
 
 const routes = [
     {
+        path: '/',
+        component: Login
+    },
+    {
         path: '/login',
         component: Login
     },
@@ -60,11 +64,6 @@ const routes = [
         component: Register
     },
     
-    
-    {
-        path: '/',
-        component: Beranda
-    },
     {
         path: '/thread',
         component: Thread
