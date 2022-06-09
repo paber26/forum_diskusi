@@ -73,10 +73,30 @@ class UserThread extends Controller
                         'pilihan' => $pilihan
                     ]);
                 }
+
                 return response()->json($daftarthread);
             }
         } else {
-            return DB::table('thread')->where('idt', $idt)->first();
+            $q = DB::table('thread')->where('idt', $idt)->first();
+            $q2 = DB::table('dukungan_thread')->where(['idt' => $idt, 'nim' => Auth::user()->nim])->first();
+
+            if ($q2 == null) {
+                $pilihan = '';
+            } else {
+                $pilihan = $q2->pilihan;
+            }
+            // return $pilihan;
+            return [
+                'idt' => $q->idt,
+                'nim' => $q->nim,
+                'judul' => $q->judul,
+                'isi' => $q->isi,
+                'date' => $q->date,
+                'tdukungan' => $q->tdukungan,
+                'tmenanggapi' => $q->tmenanggapi,
+                'tmelihat' => $q->tmelihat,
+                'pilihan' => $pilihan
+            ];
         }
     }
 

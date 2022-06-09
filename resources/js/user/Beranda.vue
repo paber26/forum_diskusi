@@ -27,7 +27,6 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-
                     </div>
                     <div class="flex flex-col ml-3.5">
                         <span class="font-bold text-lg mb-2" v-html="thread.judul"></span>

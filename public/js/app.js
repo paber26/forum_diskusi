@@ -5541,7 +5541,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -6239,6 +6238,18 @@ __webpack_require__.r(__webpack_exports__);
         _this2.daftartanggapan = response.data;
         console.log(response.data);
       });
+    },
+    dukung: function dukung(idt, pilihan) {
+      var detail = {
+        'idt': idt,
+        'pilihan': pilihan
+      };
+      axios.post('/api/user/dukung/thread', detail, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(this.getthread());
     },
     tanggapi: function tanggapi() {
       var _this3 = this;
@@ -67886,7 +67897,17 @@ var render = function () {
                 "button",
                 {
                   staticClass:
-                    "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                    "flex items-center justify-center rounded-sm h-7 w-7",
+                  class:
+                    _vm.thread.pilihan == "naik"
+                      ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                      : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.dukung(_vm.thread.idt, "naik")
+                    },
+                  },
                 },
                 [
                   _c(
@@ -67920,7 +67941,17 @@ var render = function () {
                 "button",
                 {
                   staticClass:
-                    "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                    "flex items-center justify-center rounded-sm h-7 w-7",
+                  class:
+                    _vm.thread.pilihan == "turun"
+                      ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                      : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.dukung(_vm.thread.idt, "turun")
+                    },
+                  },
                 },
                 [
                   _c(
@@ -68058,7 +68089,17 @@ var render = function () {
                         "button",
                         {
                           staticClass:
-                            "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                            "flex items-center justify-center rounded-sm h-7 w-7",
+                          class:
+                            _vm.thread.pilihan == "naik"
+                              ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                              : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                          on: {
+                            click: function ($event) {
+                              $event.preventDefault()
+                              return _vm.dukung(_vm.thread.idt, "naik")
+                            },
+                          },
                         },
                         [
                           _c(
@@ -68086,13 +68127,23 @@ var render = function () {
                         ]
                       ),
                       _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(tanggapan.tdukungan))]),
+                      _c("span", [_vm._v(_vm._s(_vm.thread.tdukungan))]),
                       _vm._v(" "),
                       _c(
                         "button",
                         {
                           staticClass:
-                            "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                            "flex items-center justify-center rounded-sm h-7 w-7",
+                          class:
+                            _vm.thread.pilihan == "turun"
+                              ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                              : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                          on: {
+                            click: function ($event) {
+                              $event.preventDefault()
+                              return _vm.dukung(_vm.thread.idt, "turun")
+                            },
+                          },
                         },
                         [
                           _c(
