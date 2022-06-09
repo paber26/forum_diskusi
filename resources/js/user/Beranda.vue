@@ -16,17 +16,18 @@
                 </div>
                 <div class="flex m-1">
                     <div class="flex flex-col items-center ml-2">
-                        <button class="flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700">
+                        <button @click.prevent="dukung(thread.idt, 'naik')" class="flex items-center justify-center rounded-sm h-7 w-7" :class="(thread.pilihan == 'naik') ? 'bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700':'bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200'">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
                             </svg>
                         </button>
                         <span>{{ thread.tdukungan }}</span>
-                        <button class="flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700">
+                        <button @click.prevent="dukung(thread.idt, 'turun')" class="flex items-center justify-center rounded-sm h-7 w-7" :class="(thread.pilihan == 'turun') ? 'bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700':'bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200'">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
+
                     </div>
                     <div class="flex flex-col ml-3.5">
                         <span class="font-bold text-lg mb-2" v-html="thread.judul"></span>
@@ -56,20 +57,37 @@ export default {
         }
     },
     mounted() {
-        axios.get('/api/user/getthread', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.user.api_token
-            },
-        }).then((response) => {
-            this.daftarthread = response.data
-            console.log(this.daftarthread)
-        })
+        this.getthread()
     },
     methods: {
+        getthread() {
+            axios.get('/api/user/getthread', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
+                this.daftarthread = response.data
+                console.log(this.daftarthread)
+            })
+        },
         tanggapi(idt) {
             this.$router.push('/user/tanggapi/' + idt)
-        }
+        },
+        dukung(idt, pilihan) {
+            let detail = {
+                'idt': idt,
+                'pilihan': pilihan
+            }
+            axios.post('/api/user/dukung/thread', detail, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then(
+                this.getthread()
+            )
+        },
     }
 }
 </script>

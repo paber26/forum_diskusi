@@ -42,6 +42,15 @@ Route::group(
             return view('admin/home');
         })->where('any', '.*');
 
+        Route::get('/materi/{any}', function () {
+            return view('materi');
+        })->where('any', '.*');
+
+        Route::get('/arsipsoal/{any}', function () {
+            return view('arsipsoal');
+        })->where('any', '.*');
+
+
         Route::post('/admin/logout', [Authen::class, 'adminlogout']);
     }
 );
@@ -57,14 +66,6 @@ Route::group(
             return view('user/home');
         })->where('any', '.*');
 
-        Route::get('/materi/{any}', function () {
-            return view('materi');
-        })->where('any', '.*');
-
-        Route::get('/arsipsoal/{any}', function () {
-            return view('arsipsoal');
-        })->where('any', '.*');
-
-        Route::post('/logout', [Authen::class, 'logout']);
+        Route::post('/user/logout', [Authen::class, 'logout']);
     }
 );

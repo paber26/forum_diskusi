@@ -50,9 +50,10 @@ export default {
     },
     methods: {
         logout() {
-            axios.post("/admin/logout").then(response => {
+            axios.post("/user/logout").then(response => {
                 window.location.href = response.data;
             });
+            
         }
     }
 }
