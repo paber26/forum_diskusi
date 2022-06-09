@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-5/6 sm:w-11/12 flex flex-col justify-center">
+    <div class="w-5/6 sm:w-2/3 flex flex-col justify-center">
         <span class="font-bold text-xl mt-3 mb-2">Edit Profil</span>
         <div class="grid grid-cols-12 gap-3">
             <div class="col-span-12 sm:col-span-4 lg:col-span-3 order-last sm:order-first">

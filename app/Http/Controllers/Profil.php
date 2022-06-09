@@ -46,4 +46,22 @@ class Profil extends Controller
 
         return response()->json(array('Berhasil', url('/user/profil')));
     }
+
+    public function gettanggapanprofil()
+    {
+        $q = DB::table('tanggapan')->join('thread', 'tanggapan.idt', '=', 'thread.idt')
+            ->select('thread.judul', 'tanggapan.*')->get();
+
+        return response()->json(array($q->count(), $q));
+    }
+
+    public function getthreadprofil()
+    {
+        $q = DB::table('thread')->where('nim', Auth::user()->nim)->get();
+        if ($q == null) {
+            return 0;
+        } else {
+            return response()->json(array($q->count(), $q));
+        }
+    }
 }

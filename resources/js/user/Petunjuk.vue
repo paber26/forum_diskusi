@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-5/6 sm:w-11/12 flex flex-col justify-center">
+    <div class="w-5/6 sm:w-2/3 flex flex-col justify-center">
         <div class="mt-4">
             <span class="font-bold text-lg mt-4">Peraturan Pada Form Ini</span>
             <div class="bg-white w-full p-3 rounded-2xl mb-3">

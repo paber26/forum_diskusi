@@ -33,6 +33,14 @@ Route::group(
         Route::get('user/gettanggapan/{idt}', [UserThread::class, 'gettanggapan']);
 
         Route::post('user/profil/edit', [Profil::class, 'edit']);
+        Route::get('user/gettanggapanprofil', [Profil::class, 'gettanggapanprofil']);
+        Route::get('user/getthreadprofil', [Profil::class, 'getthreadprofil']);
+
+
+
+
+
+
 
         Route::get('getdaftarmatkul/{prodi}', [Materi::class, 'getdaftarmatkul']);
 

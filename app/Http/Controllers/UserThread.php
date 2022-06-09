@@ -25,7 +25,7 @@ class UserThread extends Controller
     public function getthread($idt = null)
     {
         if ($idt === null) {
-            $q = DB::table('thread')->get();
+            $q = DB::table('thread')->orderBy('date', 'desc')->get();
             if ($q == null) {
                 return 0;
             } else {
