@@ -61,7 +61,39 @@ class Profil extends Controller
         if ($q == null) {
             return 0;
         } else {
-            return response()->json(array($q->count(), $q));
+            $q2 = DB::table('thread')->select('thread.idt', 'dukungan_thread.pilihan')
+                ->leftJoin('dukungan_thread', 'thread.idt', '=', 'dukungan_thread.idt')
+                ->where('dukungan_thread.nim', Auth::user()->nim)->get()->toArray();
+
+            $daftarthread = [];
+            foreach ($q as $row) {
+                $cari = array_search(
+                    $row->idt,
+                    array_column($q2, 'idt')
+                );
+
+
+                if (strval($cari) == null) {
+                    $pilihan = '';
+                } else {
+                    $pilihan = $q2[$cari]->pilihan;
+                }
+                array_push($daftarthread, [
+                    'idt' => $row->idt,
+                    'nim' => $row->nim,
+                    'judul' => $row->judul,
+                    'isi' => $row->isi,
+                    'date' => $row->date,
+                    'tdukungan' => $row->tdukungan,
+                    'tmenanggapi' => $row->tmenanggapi,
+                    'tmelihat' => $row->tmelihat,
+                    'pilihan' => $pilihan
+                ]);
+            }
+
+            // return response()->json($daftarthread);
+
+            return response()->json(array($q->count(), $daftarthread));
         }
     }
 }

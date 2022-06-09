@@ -5923,18 +5923,23 @@ __webpack_require__.r(__webpack_exports__);
       _this.daftartanggapan = response.data[1];
       console.log(_this.daftartanggapan);
     });
-    axios.get('/api/user/getthreadprofil', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.user.api_token
-      }
-    }).then(function (response) {
-      _this.totalthread = response.data[0];
-      _this.daftarthread = response.data[1];
-      console.log(_this.daftarthread);
-    });
+    this.getthreadprofil();
   },
   methods: {
+    getthreadprofil: function getthreadprofil() {
+      var _this2 = this;
+
+      axios.get('/api/user/getthreadprofil', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        _this2.totalthread = response.data[0];
+        _this2.daftarthread = response.data[1];
+        console.log(_this2.daftarthread);
+      });
+    },
     profiledit: function profiledit() {
       this.$router.push({
         path: '/user/profil/edit'
@@ -5942,6 +5947,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     tanggapi: function tanggapi(idt) {
       this.$router.push('/user/tanggapi/' + idt);
+    },
+    dukung: function dukung(idt, pilihan) {
+      var detail = {
+        'idt': idt,
+        'pilihan': pilihan
+      };
+      axios.post('/api/user/dukung/thread', detail, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(this.getthreadprofil());
     }
   }
 });
@@ -67375,7 +67392,17 @@ var render = function () {
                                   "button",
                                   {
                                     staticClass:
-                                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                                      "flex items-center justify-center rounded-sm h-7 w-7",
+                                    class:
+                                      thread.pilihan == "naik"
+                                        ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                                        : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                                    on: {
+                                      click: function ($event) {
+                                        $event.preventDefault()
+                                        return _vm.dukung(thread.idt, "naik")
+                                      },
+                                    },
                                   },
                                   [
                                     _c(
@@ -67409,7 +67436,17 @@ var render = function () {
                                   "button",
                                   {
                                     staticClass:
-                                      "flex items-center justify-center rounded-sm h-7 w-7 bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700",
+                                      "flex items-center justify-center rounded-sm h-7 w-7",
+                                    class:
+                                      thread.pilihan == "turun"
+                                        ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                                        : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                                    on: {
+                                      click: function ($event) {
+                                        $event.preventDefault()
+                                        return _vm.dukung(thread.idt, "turun")
+                                      },
+                                    },
                                   },
                                   [
                                     _c(
@@ -67440,9 +67477,16 @@ var render = function () {
                             ),
                             _vm._v(" "),
                             _c("div", { staticClass: "flex flex-col ml-3.5" }, [
-                              _c("span", {
-                                staticClass: "font-bold text-lg mb-2",
+                              _c("a", {
+                                staticClass:
+                                  "font-bold text-lg mb-2 cursor-pointer",
                                 domProps: { innerHTML: _vm._s(thread.judul) },
+                                on: {
+                                  click: function ($event) {
+                                    $event.preventDefault()
+                                    return _vm.tanggapi(thread.idt)
+                                  },
+                                },
                               }),
                               _vm._v(" "),
                               _c("span", {
