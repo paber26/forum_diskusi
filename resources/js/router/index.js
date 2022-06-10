@@ -13,6 +13,7 @@ const AdminLogin = require('../admin/auth/Login.vue').default;
 const AdminBeranda = require('../admin/Beranda.vue').default;
 const AdminThread = require('../admin/Thread.vue').default;
 const AdminTanggapan = require('../admin/Tanggapan.vue').default;
+const AdminTanggapanLihat = require('../admin/TanggapanLihat.vue').default;
 const AdminLaporan = require('../admin/Laporan.vue').default;
 
 
@@ -201,6 +202,11 @@ const routes = [
     {
         path: '/admin/tanggapan',
         component: AdminTanggapan
+    },
+    {
+        path: '/admin/tanggapan/:idt',
+        component: AdminTanggapanLihat,
+        props: true
     },
     {
         path: '/admin/laporan',

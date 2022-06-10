@@ -107,7 +107,6 @@ class UserThread extends Controller
 
     public function gettanggapan($idt)
     {
-
         $q = DB::table('tanggapan')->where('idt', $idt)->get();
         if ($q == null) {
             return 0;

@@ -2150,57 +2150,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       daftarthread: '',
+      daftartanggapan: '',
       isactive: 'thread'
     };
   },
   mounted: function mounted() {
     this.getthread();
+    this.gettanggapan();
   },
   methods: {
     getthread: function getthread() {
@@ -2213,7 +2174,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this.daftarthread = response.data;
-        console.log(_this.daftarthread);
       });
     },
     gettanggapan: function gettanggapan() {
@@ -2225,8 +2185,7 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        _this2.totaltanggapan = response.data[0];
-        _this2.daftartanggapan = response.data[1];
+        _this2.daftartanggapan = response.data;
         console.log(_this2.daftartanggapan);
       });
     },
@@ -2240,7 +2199,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     tanggapi: function tanggapi(idt) {
-      this.$router.push('/user/tanggapi/' + idt);
+      this.$router.push('/admin/tanggapan/' + idt);
     }
   }
 });
@@ -2591,6 +2550,146 @@ __webpack_require__.r(__webpack_exports__);
     coba: function coba() {
       this.$swal('Halo');
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/TanggapanLihat.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/TanggapanLihat.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user', 'idt'],
+  data: function data() {
+    return {
+      thread: '',
+      daftartanggapan: '',
+      fields: {
+        idt: this.idt,
+        isi: ''
+      }
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/admin/getthread/' + this.idt, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
+      _this.thread = response.data;
+      console.log(response.data);
+    });
+    axios.get('/api/user/gettanggapan/' + this.idt, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
+      _this.daftartanggapan = response.data;
+      console.log(response.data);
+    });
   }
 });
 
@@ -6424,6 +6523,8 @@ var AdminThread = (__webpack_require__(/*! ../admin/Thread.vue */ "./resources/j
 
 var AdminTanggapan = (__webpack_require__(/*! ../admin/Tanggapan.vue */ "./resources/js/admin/Tanggapan.vue")["default"]);
 
+var AdminTanggapanLihat = (__webpack_require__(/*! ../admin/TanggapanLihat.vue */ "./resources/js/admin/TanggapanLihat.vue")["default"]);
+
 var AdminLaporan = (__webpack_require__(/*! ../admin/Laporan.vue */ "./resources/js/admin/Laporan.vue")["default"]); // Bagian User
 
 
@@ -6579,6 +6680,10 @@ var routes = [{
 }, {
   path: '/admin/tanggapan',
   component: AdminTanggapan
+}, {
+  path: '/admin/tanggapan/:idt',
+  component: AdminTanggapanLihat,
+  props: true
 }, {
   path: '/admin/laporan',
   component: AdminLaporan
@@ -55667,6 +55772,45 @@ component.options.__file = "resources/js/admin/Tanggapan.vue"
 
 /***/ }),
 
+/***/ "./resources/js/admin/TanggapanLihat.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/admin/TanggapanLihat.vue ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _TanggapanLihat_vue_vue_type_template_id_b6ddc502___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TanggapanLihat.vue?vue&type=template&id=b6ddc502& */ "./resources/js/admin/TanggapanLihat.vue?vue&type=template&id=b6ddc502&");
+/* harmony import */ var _TanggapanLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TanggapanLihat.vue?vue&type=script&lang=js& */ "./resources/js/admin/TanggapanLihat.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TanggapanLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TanggapanLihat_vue_vue_type_template_id_b6ddc502___WEBPACK_IMPORTED_MODULE_0__.render,
+  _TanggapanLihat_vue_vue_type_template_id_b6ddc502___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/admin/TanggapanLihat.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/admin/Thread.vue":
 /*!***************************************!*\
   !*** ./resources/js/admin/Thread.vue ***!
@@ -56922,6 +57066,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/admin/TanggapanLihat.vue?vue&type=script&lang=js&":
+/*!************************************************************************!*\
+  !*** ./resources/js/admin/TanggapanLihat.vue?vue&type=script&lang=js& ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TanggapanLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TanggapanLihat.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/TanggapanLihat.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TanggapanLihat_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/admin/Thread.vue?vue&type=script&lang=js&":
 /*!****************************************************************!*\
   !*** ./resources/js/admin/Thread.vue?vue&type=script&lang=js& ***!
@@ -57449,6 +57609,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tanggapan_vue_vue_type_template_id_300ee222___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Tanggapan_vue_vue_type_template_id_300ee222___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Tanggapan.vue?vue&type=template&id=300ee222& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/Tanggapan.vue?vue&type=template&id=300ee222&");
+
+
+/***/ }),
+
+/***/ "./resources/js/admin/TanggapanLihat.vue?vue&type=template&id=b6ddc502&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/admin/TanggapanLihat.vue?vue&type=template&id=b6ddc502& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TanggapanLihat_vue_vue_type_template_id_b6ddc502___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TanggapanLihat_vue_vue_type_template_id_b6ddc502___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TanggapanLihat_vue_vue_type_template_id_b6ddc502___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TanggapanLihat.vue?vue&type=template&id=b6ddc502& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/TanggapanLihat.vue?vue&type=template&id=b6ddc502&");
 
 
 /***/ }),
@@ -57997,7 +58174,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
-    _c("div", { staticClass: "w-5/6 sm:w-4/5 flex flex-col justify-center" }, [
+    _c("div", { staticClass: "w-5/6 sm:w-2/3 flex flex-col justify-center" }, [
       _c("div", { staticClass: "bg-white p-1 rounded-lg mt-4" }, [
         _c(
           "div",
@@ -58260,258 +58437,107 @@ var render = function () {
             _vm._v("Tanggapan Terbaru"),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-12 w-12",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+          _vm._l(_vm.daftartanggapan, function (tanggapan) {
+            return _c(
+              "div",
+              {
+                key: tanggapan.idtn,
+                staticClass: "bg-white w-full p-3 rounded-lg mb-2.5",
+              },
+              [
+                _c("div", { staticClass: "flex items-center" }, [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "h-12 w-12",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        fill: "none",
+                        viewBox: "0 0 24 24",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                      },
                     },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(0),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-6 w-6",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                    [
+                      _c("path", {
+                        attrs: {
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                        },
+                      }),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "ml-2" }, [
+                    _c("div", { staticClass: "font-semibold" }, [
+                      _vm._v(_vm._s(tanggapan.nimtn)),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "text-xs italic" }, [
+                      _vm._v("Menanggapi pada " + _vm._s(tanggapan.date)),
+                    ]),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "flex items-center cursor-pointer",
+                    on: {
+                      click: function ($event) {
+                        $event.preventDefault()
+                        return _vm.tanggapi(tanggapan.idt)
+                      },
                     },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
-                _vm._v(
-                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-6 w-6",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
+                          },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
+                      _vm._v(_vm._s(tanggapan.judul)),
+                    ]),
+                  ]
                 ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("span", {}, [
-              _vm._v(
-                "Sadar, meskipun tidak sepenuhnya ingat.\r\n                    Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
-              ),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-12 w-12",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                    },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(1),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-6 w-6",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
-                    },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
-                _vm._v(
-                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("span", {}, [
-              _vm._v(
-                "Sadar, meskipun tidak sepenuhnya ingat.\r\n                    Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
-              ),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-12 w-12",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                    },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _vm._m(2),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-6 w-6",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6",
-                    },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2 text-lg font-bold" }, [
-                _vm._v(
-                  "Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?"
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("span", {}, [
-              _vm._v(
-                "Sadar, meskipun tidak sepenuhnya ingat.\r\n                    Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
-              ),
-            ]),
-          ]),
+                _vm._v(" "),
+                _c("span", { domProps: { innerHTML: _vm._s(tanggapan.isi) } }),
+              ]
+            )
+          }),
           _vm._v(" "),
           _c(
             "span",
             { staticClass: "font-semibold italic flex justify-end -mt-2" },
             [_vm._v("Lihat Selengkapnya")]
           ),
-        ]
+        ],
+        2
       ),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ml-2" }, [
-      _c("div", { staticClass: "font-semibold" }, [
-        _vm._v("221810213@stis.ac.id"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-xs italic" }, [
-        _vm._v("Menanggapi pada 04-06-2020 08:23"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ml-2" }, [
-      _c("div", { staticClass: "font-semibold" }, [
-        _vm._v("221810213@stis.ac.id"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-xs italic" }, [
-        _vm._v("Menanggapi pada 04-06-2020 08:23"),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "ml-2" }, [
-      _c("div", { staticClass: "font-semibold" }, [
-        _vm._v("221810213@stis.ac.id"),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "text-xs italic" }, [
-        _vm._v("Menanggapi pada 04-06-2020 08:23"),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -59595,6 +59621,378 @@ var staticRenderFns = [
     )
   },
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/TanggapanLihat.vue?vue&type=template&id=b6ddc502&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/admin/TanggapanLihat.vue?vue&type=template&id=b6ddc502& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-4/5 lg:w-2/3 flex flex-col justify-center" },
+      [
+        _c("div", { staticClass: "mt-4" }, [
+          _c(
+            "div",
+            { staticClass: "flex justify-between" },
+            [
+              _c("span", { staticClass: "font-bold text-lg" }, [
+                _vm._v("Thread"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "font-bold text-base text-blue-600 underline",
+                  attrs: { to: "/admin" },
+                },
+                [_vm._v("Kembali")]
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full px-3 pt-3 rounded-lg" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "ml-2" }, [
+                _c("div", { staticClass: "font-semibold" }, [
+                  _vm._v(_vm._s(_vm.thread.nim)),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "text-xs italic" }, [
+                  _vm._v("Dibuat pada " + _vm._s(_vm.thread.date)),
+                ]),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex m-1" }, [
+              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-gray-50 text-gray-700 border border-gray-200",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 15l7-7 7 7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(_vm.thread.tdukungan))]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7 bg-gray-50 text-gray-700 border border-gray-200",
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M19 9l-7 7-7-7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-col ml-3.5" }, [
+                _c("span", {
+                  staticClass: "font-bold text-lg mb-2",
+                  domProps: { innerHTML: _vm._s(_vm.thread.judul) },
+                }),
+                _vm._v(" "),
+                _c("span", { domProps: { innerHTML: _vm._s(_vm.thread.isi) } }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-between py-1.5" }, [
+              _vm.thread.tmenanggapi == 0
+                ? _c("span", { staticClass: "font-semibold ml-2" }, [
+                    _vm._v("Belum ada tanggapan "),
+                  ])
+                : _c("span", { staticClass: "font-semibold ml-2" }, [
+                    _vm._v(_vm._s(_vm.thread.tmenanggapi) + " tanggapan"),
+                  ]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "h-7 w-7",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                    },
+                  }),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "mt-6" },
+          [
+            _vm.thread.tmenanggapi != 0
+              ? _c("span", { staticClass: "font-bold text-base mb-3" }, [
+                  _vm._v("Tanggapan"),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.daftartanggapan, function (tanggapan) {
+              return _c(
+                "div",
+                {
+                  key: tanggapan.idtn,
+                  staticClass: "bg-white w-full px-3 pt-3 rounded-lg",
+                  attrs: { id: "yes1" },
+                },
+                [
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-12 w-12",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                          },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ml-2" }, [
+                      _c("div", { staticClass: "font-semibold" }, [
+                        _vm._v(_vm._s(tanggapan.nim)),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-xs italic" }, [
+                        _vm._v("Menanggapi pada " + _vm._s(tanggapan.date)),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex m-1" }, [
+                    _c(
+                      "div",
+                      { staticClass: "flex flex-col items-center ml-2" },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex items-center justify-center rounded-sm h-7 w-7 bg-gray-50 text-gray-700 border border-gray-200",
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "h-4 w-4",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M5 15l7-7 7 7",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(tanggapan.tdukungan))]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex items-center justify-center rounded-sm h-7 w-7 bg-gray-50 text-gray-700 border border-gray-200",
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "h-4 w-4",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M19 9l-7 7-7-7",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "ml-2",
+                      domProps: { innerHTML: _vm._s(tanggapan.isi) },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex justify-end py-1.5" }, [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-7 w-7",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]),
+                ]
+              )
+            }),
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-12" }),
+      ]
+    ),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
