@@ -22,75 +22,71 @@
                         <th class="px-3 py-2">Nama Pengguna</th>
                         <th class="px-3 py-2">Isi Thread</th>
                         <th class="px-3 py-2">Dukungan</th>
+                        <th class="px-3 py-2">Tanggapan</th>
                         <th class="px-3 py-2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b divide-x divide-gray-400">
-                        <td class="p-3 font-medium text-gray-900 whitespace-nowrap">1</td>
-                        <td class="p-3">Bernaldo Napitupulu</td>
-                        <td class="p-3">
-                            <div class="text-xs italic">Dibuat pada 04-06-2020 08:23</div>
-                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
+                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in daftarthread.length" :key="index.idt">
+                        <td class="p-3 font-medium text-gray-900 text-center">{{ index }}</td>
+                        <td class="p-3 flex flex-col">
+                            <span>{{ daftarthread[index-1].nama }}</span>
+                            <span class="text-xxs">(NIM: {{ daftarthread[index-1].nim }})</span>
                         </td>
-                        <td class="p-3 text-center">7</td>
                         <td class="p-3">
-                            <div class="flex items-center">
+                            <div class="text-xs italic">Dibuat pada {{ daftarthread[index-1].date }}</div>
+                            <span class="font-semibold">{{ daftarthread[index-1].judul }}</span>
+                        </td>
+                        <td class="p-3 text-center">{{ daftarthread[index-1].tdukungan }}</td>
+                        <td class="p-3 text-center">{{ daftarthread[index-1].tmenanggapi }}</td>
+                        <td class="p-3">
+                            <button @click.prevent="hapus(daftarthread[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                                 Hapus
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b divide-x divide-gray-400">
-                        <td class="p-3 font-medium text-gray-900 whitespace-nowrap">2</td>
-                        <td class="p-3">Bernaldo Napitupulu</td>
-                        <td class="p-3">
-                            <div class="text-xs italic">Dibuat pada 04-06-2020 08:23</div>
-                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
-                        </td>
-                        <td class="p-3 text-center">7</td>
-                        <td class="p-3">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                Hapus
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b divide-x divide-gray-400">
-                        <td class="p-3 font-medium text-gray-900 whitespace-nowrap">3</td>
-                        <td class="p-3">Bernaldo Napitupulu</td>
-                        <td class="p-3">
-                            <div class="text-xs italic">Dibuat pada 04-06-2020 08:23</div>
-                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
-                        </td>
-                        <td class="p-3 text-center">7</td>
-                        <td class="p-3">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                Hapus
-                            </div>
+                            </button>
+                            <!-- <div class="flex items-center">
+                                
+                            </div> -->
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
+        <div class="mb-12"></div>
     </div>
 </div>
 </template>
 
 <script>
 export default {
-    methods: {
-        coba() {
-            this.$swal('Halo')
+    props: ['user'],
+    data() {
+        return {
+            daftarthread: '',
+            isactive: 'thread',
+            no: 0
         }
+    },
+    mounted() {
+        axios.get('/api/admin/getthread', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
+            this.daftarthread = response.data
+            console.log(this.daftarthread)
+        })
+    },
+    methods: {
+        hapus(idt){
+            this.$swal('Apakah kamu yakin ingin menghapus?');
+        },
+        lihattanggapan(idt, ktg) {
+            this.$router.push('/admin/tanggapan/' + idt + '/' + ktg)
+        },
     }
 }
 </script>

@@ -12,8 +12,11 @@ class AdminThread extends Controller
     public function getthread($idt = null)
     {
         if ($idt == null) {
-            $q = DB::table('thread')->orderBy('date', 'desc')->get();
-            return $q;
+            // $q = DB::table('thread')->orderBy('date', 'desc')->get();
+            $q = DB::table('thread')
+                ->select('thread.*', 'users.nama')
+                ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+                ->orderBy('date', 'desc')->get();
             if ($q == null) {
                 return 0;
             } else {

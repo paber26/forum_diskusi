@@ -2775,36 +2775,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['user'],
+  data: function data() {
+    return {
+      daftarthread: '',
+      isactive: 'thread',
+      no: 0
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/admin/getthread', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
+      _this.daftarthread = response.data;
+      console.log(_this.daftarthread);
+    });
+  },
   methods: {
-    coba: function coba() {
-      this.$swal('Halo');
+    hapus: function hapus(idt) {
+      this.$swal('Apakah kamu yakin ingin menghapus?');
+    },
+    lihattanggapan: function lihattanggapan(idt, ktg) {
+      this.$router.push('/admin/tanggapan/' + idt + '/' + ktg);
     }
   }
 });
@@ -60094,168 +60092,111 @@ var render = function () {
           _c("table", { staticClass: "w-full text-left" }, [
             _vm._m(0),
             _vm._v(" "),
-            _c("tbody", [
-              _c(
-                "tr",
-                { staticClass: "bg-white border-b divide-x divide-gray-400" },
-                [
-                  _c(
-                    "td",
-                    {
-                      staticClass:
-                        "p-3 font-medium text-gray-900 whitespace-nowrap",
-                    },
-                    [_vm._v("1")]
-                  ),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3" }, [
-                    _vm._v("Bernaldo Napitupulu"),
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3 text-center" }, [_vm._v("7")]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3" }, [
-                    _c("div", { staticClass: "flex items-center" }, [
+            _c(
+              "tbody",
+              _vm._l(_vm.daftarthread.length, function (index) {
+                return _c(
+                  "tr",
+                  {
+                    key: index.idt,
+                    staticClass: "bg-white border-b divide-x divide-gray-400",
+                  },
+                  [
+                    _c(
+                      "td",
+                      {
+                        staticClass:
+                          "p-3 font-medium text-gray-900 text-center",
+                      },
+                      [_vm._v(_vm._s(index))]
+                    ),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 flex flex-col" }, [
+                      _c("span", [
+                        _vm._v(_vm._s(_vm.daftarthread[index - 1].nama)),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-xxs" }, [
+                        _vm._v(
+                          "(NIM: " +
+                            _vm._s(_vm.daftarthread[index - 1].nim) +
+                            ")"
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3" }, [
+                      _c("div", { staticClass: "text-xs italic" }, [
+                        _vm._v(
+                          "Dibuat pada " +
+                            _vm._s(_vm.daftarthread[index - 1].date)
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "font-semibold" }, [
+                        _vm._v(_vm._s(_vm.daftarthread[index - 1].judul)),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v(_vm._s(_vm.daftarthread[index - 1].tdukungan)),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v(_vm._s(_vm.daftarthread[index - 1].tmenanggapi)),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "p-3" }, [
                       _c(
-                        "svg",
+                        "button",
                         {
-                          staticClass: "h-6 w-6",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            viewBox: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
+                          staticClass:
+                            "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex justify-center",
+                          on: {
+                            click: function ($event) {
+                              $event.preventDefault()
+                              return _vm.hapus(_vm.daftarthread[index - 1].idt)
+                            },
                           },
                         },
                         [
-                          _c("path", {
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              d: "M6 18L18 6M6 6l12 12",
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "h-6 w-6",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                fill: "none",
+                                viewBox: "0 0 24 24",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                              },
                             },
-                          }),
+                            [
+                              _c("path", {
+                                attrs: {
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round",
+                                  d: "M6 18L18 6M6 6l12 12",
+                                },
+                              }),
+                            ]
+                          ),
+                          _vm._v(
+                            "\r\n                                Hapus\r\n                            "
+                          ),
                         ]
                       ),
-                      _vm._v(
-                        "\r\n                                Hapus\r\n                            "
-                      ),
                     ]),
-                  ]),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "tr",
-                { staticClass: "bg-white border-b divide-x divide-gray-400" },
-                [
-                  _c(
-                    "td",
-                    {
-                      staticClass:
-                        "p-3 font-medium text-gray-900 whitespace-nowrap",
-                    },
-                    [_vm._v("2")]
-                  ),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3" }, [
-                    _vm._v("Bernaldo Napitupulu"),
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(2),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3 text-center" }, [_vm._v("7")]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3" }, [
-                    _c("div", { staticClass: "flex items-center" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "h-6 w-6",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            viewBox: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                          },
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              d: "M6 18L18 6M6 6l12 12",
-                            },
-                          }),
-                        ]
-                      ),
-                      _vm._v(
-                        "\r\n                                Hapus\r\n                            "
-                      ),
-                    ]),
-                  ]),
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "tr",
-                { staticClass: "bg-white border-b divide-x divide-gray-400" },
-                [
-                  _c(
-                    "td",
-                    {
-                      staticClass:
-                        "p-3 font-medium text-gray-900 whitespace-nowrap",
-                    },
-                    [_vm._v("3")]
-                  ),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3" }, [
-                    _vm._v("Bernaldo Napitupulu"),
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3 text-center" }, [_vm._v("7")]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "p-3" }, [
-                    _c("div", { staticClass: "flex items-center" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticClass: "h-6 w-6",
-                          attrs: {
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            viewBox: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                          },
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              "stroke-linecap": "round",
-                              "stroke-linejoin": "round",
-                              d: "M6 18L18 6M6 6l12 12",
-                            },
-                          }),
-                        ]
-                      ),
-                      _vm._v(
-                        "\r\n                                Hapus\r\n                            "
-                      ),
-                    ]),
-                  ]),
-                ]
-              ),
-            ]),
+                  ]
+                )
+              }),
+              0
+            ),
           ]),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-12" }),
       ]
     ),
   ])
@@ -60278,58 +60219,12 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Dukungan")]),
           _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Tanggapan")]),
+          _vm._v(" "),
           _c("th", { staticClass: "px-3 py-2" }),
         ]),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "p-3" }, [
-      _c("div", { staticClass: "text-xs italic" }, [
-        _vm._v("Dibuat pada 04-06-2020 08:23"),
-      ]),
-      _vm._v(" "),
-      _c("span", [
-        _vm._v(
-          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
-        ),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "p-3" }, [
-      _c("div", { staticClass: "text-xs italic" }, [
-        _vm._v("Dibuat pada 04-06-2020 08:23"),
-      ]),
-      _vm._v(" "),
-      _c("span", [
-        _vm._v(
-          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
-        ),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "p-3" }, [
-      _c("div", { staticClass: "text-xs italic" }, [
-        _vm._v("Dibuat pada 04-06-2020 08:23"),
-      ]),
-      _vm._v(" "),
-      _c("span", [
-        _vm._v(
-          "Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya."
-        ),
-      ]),
-    ])
   },
 ]
 render._withStripped = true
