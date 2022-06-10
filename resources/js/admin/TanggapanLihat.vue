@@ -3,7 +3,7 @@
     <div class="w-5/6 sm:w-4/5 lg:w-2/3 flex flex-col justify-center">
         <div class="mt-4">
             <div class="flex justify-between">
-                <span class="font-bold text-lg">Thread</span>
+                <span class="font-bold text-lg">{{ ktg }}</span>
                 <router-link to="/admin" class="font-bold text-base text-blue-600 underline">Kembali</router-link>
             </div>
             <div class="bg-white w-full px-3 pt-3 rounded-lg">
@@ -91,7 +91,7 @@
 
 <script>
 export default {
-    props: ['user', 'idt'],
+    props: ['user', 'idt', 'ktg'],
     data() {
         return {
             thread: '',

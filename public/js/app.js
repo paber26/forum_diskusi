@@ -2150,6 +2150,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -2174,6 +2182,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this.daftarthread = response.data;
+        console.log(_this.daftarthread);
       });
     },
     gettanggapan: function gettanggapan() {
@@ -2186,7 +2195,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this2.daftartanggapan = response.data;
-        console.log(_this2.daftartanggapan);
       });
     },
     lihat: function lihat(ktg) {
@@ -2198,8 +2206,8 @@ __webpack_require__.r(__webpack_exports__);
         this.gettanggapan();
       }
     },
-    tanggapi: function tanggapi(idt) {
-      this.$router.push('/admin/tanggapan/' + idt);
+    lihattanggapan: function lihattanggapan(idt, ktg) {
+      this.$router.push('/admin/tanggapan/' + idt + '/' + ktg);
     }
   }
 });
@@ -2658,7 +2666,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['user', 'idt'],
+  props: ['user', 'idt', 'ktg'],
   data: function data() {
     return {
       thread: '',
@@ -6641,21 +6649,6 @@ var routes = [{
 //     props: true
 // },
 {
-  path: '/admin/login',
-  component: AdminLogin
-}, {
-  path: '/admin',
-  component: AdminBeranda
-}, {
-  path: '/admin/thread',
-  component: AdminThread
-}, {
-  path: '/admin/tanggapan',
-  component: AdminTanggapan
-}, {
-  path: '/admin/laporan',
-  component: AdminLaporan
-}, {
   path: '/user',
   component: UserBeranda
 }, {
@@ -6675,13 +6668,28 @@ var routes = [{
   component: UserTanggapi,
   props: true
 }, {
+  path: '/admin/login',
+  component: AdminLogin
+}, {
+  path: '/admin',
+  component: AdminBeranda
+}, {
   path: '/admin/thread',
   component: AdminThread
 }, {
   path: '/admin/tanggapan',
   component: AdminTanggapan
 }, {
-  path: '/admin/tanggapan/:idt',
+  path: '/admin/laporan',
+  component: AdminLaporan
+}, {
+  path: '/admin/thread',
+  component: AdminThread
+}, {
+  path: '/admin/tanggapan',
+  component: AdminTanggapan
+}, {
+  path: '/admin/tanggapan/:idt/:ktg',
   component: AdminTanggapanLihat,
   props: true
 }, {
@@ -58350,10 +58358,24 @@ var render = function () {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex flex-col ml-3.5" }, [
-                    _c("span", {
-                      staticClass: "font-bold text-lg mb-2",
-                      domProps: { innerHTML: _vm._s(thread.judul) },
-                    }),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "flex items-center cursor-pointer",
+                        on: {
+                          click: function ($event) {
+                            $event.preventDefault()
+                            return _vm.lihattanggapan(thread.idt, "Thread")
+                          },
+                        },
+                      },
+                      [
+                        _c("span", {
+                          staticClass: "font-bold text-lg mb-2",
+                          domProps: { innerHTML: _vm._s(thread.judul) },
+                        }),
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("span", { domProps: { innerHTML: _vm._s(thread.isi) } }),
                   ]),
@@ -58487,7 +58509,7 @@ var render = function () {
                     on: {
                       click: function ($event) {
                         $event.preventDefault()
-                        return _vm.tanggapi(tanggapan.idt)
+                        return _vm.lihattanggapan(tanggapan.idt, "Tanggapan")
                       },
                     },
                   },
@@ -59654,7 +59676,7 @@ var render = function () {
             { staticClass: "flex justify-between" },
             [
               _c("span", { staticClass: "font-bold text-lg" }, [
-                _vm._v("Thread"),
+                _vm._v(_vm._s(_vm.ktg)),
               ]),
               _vm._v(" "),
               _c(

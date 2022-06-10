@@ -146,26 +146,7 @@ const routes = [
     // },
 
 
-    {
-        path: '/admin/login',
-        component: AdminLogin
-    },
-    {
-        path: '/admin',
-        component: AdminBeranda
-    },
-    {
-        path: '/admin/thread',
-        component: AdminThread
-    },
-    {
-        path: '/admin/tanggapan',
-        component: AdminTanggapan
-    },
-    {
-        path: '/admin/laporan',
-        component: AdminLaporan
-    },
+    
 
 
     {
@@ -194,7 +175,14 @@ const routes = [
         props: true
     },
 
-
+    {
+        path: '/admin/login',
+        component: AdminLogin
+    },
+    {
+        path: '/admin',
+        component: AdminBeranda
+    },
     {
         path: '/admin/thread',
         component: AdminThread
@@ -204,7 +192,19 @@ const routes = [
         component: AdminTanggapan
     },
     {
-        path: '/admin/tanggapan/:idt',
+        path: '/admin/laporan',
+        component: AdminLaporan
+    },
+    {
+        path: '/admin/thread',
+        component: AdminThread
+    },
+    {
+        path: '/admin/tanggapan',
+        component: AdminTanggapan
+    },
+    {
+        path: '/admin/tanggapan/:idt/:ktg',
         component: AdminTanggapanLihat,
         props: true
     },
