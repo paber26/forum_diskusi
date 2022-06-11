@@ -10,7 +10,7 @@
                     </svg>
 
                     <div class="ml-2">
-                        <div class="font-semibold">{{ thread.nim }}</div>
+                        <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
                         <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
                     </div>
                 </div>
@@ -53,7 +53,8 @@
                     </svg>
 
                     <div class="ml-2">
-                        <div class="font-semibold">{{ tanggapan.nim }}</div>
+                        <!-- <div class="font-semibold">{{ tanggapan.nim }}</div> -->
+                        <div class="font-semibold">{{ tanggapan.nama }} <span class="text-xxs">({{ tanggapan.nim }})</span></div>
                         <div class="text-xs italic">Menanggapi pada {{ tanggapan.date }}</div>
                     </div>
                 </div>
@@ -132,7 +133,7 @@ export default {
                 },
             }).then((response) => {
                 this.thread = response.data
-                console.log(response.data)
+                // console.log(response.data)
             })
         },
         gettanggapan() {

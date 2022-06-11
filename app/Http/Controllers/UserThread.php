@@ -25,7 +25,10 @@ class UserThread extends Controller
     public function getthread($idt = null)
     {
         if ($idt === null) {
-            $q = DB::table('thread')->orderBy('date', 'desc')->get();
+            $q = DB::table('thread')
+                ->select('thread.*', 'users.nama')
+                ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+                ->orderBy('date', 'desc')->get();
             // return $q;
             if ($q == null) {
                 return 0;
@@ -50,6 +53,7 @@ class UserThread extends Controller
                     array_push($daftarthread, [
                         'idt' => $row->idt,
                         'nim' => $row->nim,
+                        'nama' => $row->nama,
                         'judul' => $row->judul,
                         'isi' => $row->isi,
                         'date' => $row->date,
@@ -63,7 +67,10 @@ class UserThread extends Controller
                 return response()->json($daftarthread);
             }
         } else {
-            $q = DB::table('thread')->where('idt', $idt)->first();
+            $q = DB::table('thread')
+                ->select('thread.*', 'users.nama')
+                ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+                ->where('idt', $idt)->first();
             $q2 = DB::table('dukungan_thread')->where(['idt' => $idt, 'nim' => Auth::user()->nim])->first();
 
             if ($q2 == null) {
@@ -75,6 +82,7 @@ class UserThread extends Controller
             return [
                 'idt' => $q->idt,
                 'nim' => $q->nim,
+                'nama' => $q->nama,
                 'judul' => $q->judul,
                 'isi' => $q->isi,
                 'date' => $q->date,

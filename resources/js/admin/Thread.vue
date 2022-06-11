@@ -29,13 +29,16 @@
                 <tbody>
                     <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in daftarthread.length" :key="index.idt">
                         <td class="p-3 font-medium text-gray-900 text-center">{{ index }}</td>
-                        <td class="p-3 flex flex-col">
+                        <td class="p-3">
                             <span>{{ daftarthread[index-1].nama }}</span>
-                            <span class="text-xxs">(NIM: {{ daftarthread[index-1].nim }})</span>
+                            <div class="text-xxs">(NIM: {{ daftarthread[index-1].nim }})</div>
                         </td>
                         <td class="p-3">
                             <div class="text-xs italic">Dibuat pada {{ daftarthread[index-1].date }}</div>
-                            <span class="font-semibold">{{ daftarthread[index-1].judul }}</span>
+                            <a @click.prevent="lihattanggapan(daftarthread[index-1].idt, 'Tanggapan')" class="cursor-pointer font-semibold">
+                                {{ daftarthread[index-1].judul }}
+                            </a>
+                            <!-- <span class="font-semibold">{{ daftarthread[index-1].judul }}</span> -->
                         </td>
                         <td class="p-3 text-center">{{ daftarthread[index-1].tdukungan }}</td>
                         <td class="p-3 text-center">{{ daftarthread[index-1].tmenanggapi }}</td>
@@ -46,9 +49,6 @@
                                 </svg>
                                 Hapus
                             </button>
-                            <!-- <div class="flex items-center">
-                                
-                            </div> -->
                         </td>
                     </tr>
                 </tbody>
@@ -66,7 +66,6 @@ export default {
         return {
             daftarthread: '',
             isactive: 'thread',
-            no: 0
         }
     },
     mounted() {
@@ -81,7 +80,7 @@ export default {
         })
     },
     methods: {
-        hapus(idt){
+        hapus(idt) {
             this.$swal('Apakah kamu yakin ingin menghapus?');
         },
         lihattanggapan(idt, ktg) {

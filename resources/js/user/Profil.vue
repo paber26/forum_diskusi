@@ -81,16 +81,17 @@
                                 </svg>
 
                                 <div class="ml-2">
-                                    <div class="font-semibold">{{ tanggapan.nim }}</div>
+                                    <div class="font-semibold">{{ tanggapan.nama }} <span class="text-xxs">({{ tanggapan.nim }})</span></div>
                                     <div class="text-xs italic">Menanggapi pada {{ tanggapan.date }}</div>
                                 </div>
                             </div>
-                            <div class="flex items-baseline">
+                            <a @click.prevent="tanggapi(tanggapan.idt)" class="flex items-baseline">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                                 </svg>
-                                <span class="ml-2 text-lg font-bold">{{ tanggapan.judul }}</span>
-                            </div>
+                                    <span class="font-bold text-lg mb-2 cursor-pointer" v-html="tanggapan.judul"></span>
+                                <!-- <span class="ml-2 text-lg font-bold">{{ tanggapan.judul }}</span> -->
+                            </a>
                             <hr>
                             <span v-html="tanggapan.isi"></span>
                         </div>
@@ -104,7 +105,7 @@
                                 </svg>
 
                                 <div class="ml-2">
-                                    <div class="font-semibold">{{ thread.nim }}</div>
+                                    <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
                                     <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@
         <div class="mt-4">
             <div class="flex justify-between">
                 <span class="font-bold text-lg">{{ ktg }}</span>
-                <router-link to="/admin" class="font-bold text-base text-blue-600 underline">Kembali</router-link>
+                <router-link to="/admin" class="font-bold text-base text-blue-600 underline">Beranda</router-link>
             </div>
             <div class="bg-white w-full px-3 pt-3 rounded-lg">
                 <div class="flex items-center">
@@ -13,7 +13,7 @@
                     </svg>
 
                     <div class="ml-2">
-                        <div class="font-semibold">{{ thread.nim }}</div>
+                        <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
                         <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-5/6 sm:w-2/3 flex flex-col justify-center">
+    <div class="w-5/6 sm:w-2/3 lg:w-1/2 flex flex-col justify-center">
         <div class="mt-4">
             <span class="font-bold text-lg mt-4">Thread Terbaru</span>
             <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3" v-for="thread in daftarthread" :key="thread.idt">
@@ -10,7 +10,7 @@
                     </svg>
 
                     <div class="ml-2">
-                        <div class="font-semibold">{{ thread.nim }}</div>
+                        <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
                         <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
                     </div>
                 </div>

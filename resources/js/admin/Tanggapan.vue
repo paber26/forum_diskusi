@@ -25,86 +25,67 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b divide-x divide-gray-400">
-                        <td class="p-3 font-medium text-gray-900 whitespace-nowrap">1</td>
-                        <td class="p-3">Bernaldo Napitupulu</td>
+                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in daftartanggapan.length" :key="index.idtn">
+                        <td class="p-3 font-medium text-gray-900 text-center">{{ index }}</td>
                         <td class="p-3">
-                            <div class="flex items-center">
+                            <span>{{ daftartanggapan[index-1].nama }}</span>
+                            <div class="text-xxs">(NIM: {{ daftartanggapan[index-1].nimtn }})</div>
+                        </td>
+                        <td class="p-3">
+                            <a @click.prevent="lihattanggapan(daftartanggapan[index-1].idt, 'Tanggapan')" class="flex items-center cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                                 </svg>
-                                <span class="ml-2 text-base font-bold">Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?</span>
-                            </div>
-                            <div class="text-xs italic">Menanggapi pada 04-06-2020 08:23</div>
-                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
+                                <span class="ml-2 text-lg font-bold">{{ daftartanggapan[index-1].judul }}</span>
+                            </a>
+                            <hr>
+                            <div class="text-xs italic">Menanggapi pada {{ daftartanggapan[index-1].date }}</div>
+                            <span v-html="daftartanggapan[index-1].isi"></span>
                         </td>
-                        <td class="p-3 text-right">
-                            <div class="flex items-center">
+                        <td class="p-3">
+                            <button @click.prevent="hapus(daftartanggapan[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex justify-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                                 Hapus
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b divide-x divide-gray-400">
-                        <td class="p-3 font-medium text-gray-900 whitespace-nowrap">2</td>
-                        <td class="p-3">Bernaldo Napitupulu</td>
-                        <td class="p-3">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
-                                </svg>
-                                <span class="ml-2 text-base font-bold">Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?</span>
-                            </div>
-                            <div class="text-xs italic">Menanggapi pada 04-06-2020 08:23</div>
-                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
-                        </td>
-                        <td class="p-3 text-right">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                Hapus
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b divide-x divide-gray-400">
-                        <td class="p-3 font-medium text-gray-900 whitespace-nowrap">3</td>
-                        <td class="p-3">Bernaldo Napitupulu</td>
-                        <td class="p-3">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
-                                </svg>
-                                <span class="ml-2 text-base font-bold">Apakah orang gila yang telah sembuh, sadar dan ingat bahwa dulu dirinya pernah gila?</span>
-                            </div>
-                            <div class="text-xs italic">Menanggapi pada 04-06-2020 08:23</div>
-                            <span>Teman saya pernah jadi pasien di salah satu RSJ di Solo. Sekitar tahun 2009. Anaknya gaul, cakep, termasuk dari keluarga terpandang meskipun masuk kategori anak nakal di sekolah. Biasa lah, anak umur 16 tahun lg nakal2nya.</span>
-                        </td>
-                        <td class="p-3 text-right">
-                            <div class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                Hapus
-                            </div>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
+        <div class="mb-12"></div>
     </div>
 </div>
 </template>
 
 <script>
 export default {
-    methods: {
-        coba() {
-            this.$swal('Halo')
+    props: ['user'],
+    data() {
+        return {
+            daftartanggapan: '',
+            isactive: 'thread',
         }
+    },
+    mounted() {
+        axios.get('/api/admin/gettanggapan', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
+            this.daftartanggapan = response.data
+            console.log(this.daftartanggapan)
+        })
+    },
+    methods: {
+        hapus(idt) {
+            this.$swal('Apakah kamu yakin ingin menghapus?');
+        },
+        lihattanggapan(idt, ktg) {
+            this.$router.push('/admin/tanggapan/' + idt + '/' + ktg)
+        },
     }
 }
 </script>

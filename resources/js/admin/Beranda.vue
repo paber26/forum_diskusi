@@ -20,7 +20,7 @@
                     </svg>
 
                     <div class="ml-2">
-                        <div class="font-semibold">{{ thread.nim }}</div>
+                        <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
                         <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                     </svg>
 
                     <div class="ml-2">
-                        <div class="font-semibold">{{ tanggapan.nimtn }}</div>
+                        <div class="font-semibold">{{ tanggapan.nama }} <span class="text-xxs">({{ tanggapan.nimtn }})</span></div>
                         <div class="text-xs italic">Menanggapi pada {{ tanggapan.date }}</div>
                     </div>
                 </div>

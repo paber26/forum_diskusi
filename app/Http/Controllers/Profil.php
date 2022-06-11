@@ -50,7 +50,10 @@ class Profil extends Controller
     public function gettanggapanprofil()
     {
         $q = DB::table('tanggapan')->join('thread', 'tanggapan.idt', '=', 'thread.idt')
-            ->select('thread.judul', 'tanggapan.*')->get();
+            ->select('thread.judul', 'tanggapan.*', 'users.nama')
+            ->select('thread.*', 'users.nama')
+            ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+            ->get();
 
         return response()->json(array($q->count(), $q));
     }
