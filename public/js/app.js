@@ -3191,6 +3191,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -3200,6 +3201,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     logout: function logout() {
+      console.log('logout');
       axios.post("/user/logout").then(function (response) {
         window.location.href = response.data;
       });
@@ -5634,11 +5636,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
-      daftarthread: ''
+      daftarthread: '',
+      isOptionsExpanded: false
     };
   },
   mounted: function mounted() {
@@ -5672,6 +5715,9 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(this.getthread());
+    },
+    laporkan: function laporkan(idt) {
+      console.log(idt);
     }
   }
 });
@@ -61213,49 +61259,61 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "font-semibold ml-2 mr-3",
-            on: {
-              click: function ($event) {
-                _vm.show = !_vm.show
-              },
-            },
-          },
-          [_vm._v(_vm._s(_vm.user.nama))]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.show,
-                expression: "show",
-              },
-            ],
-            staticClass:
-              "flex flex-col mt-4 bg-white rounded-md ring-2 ring-black ring-opacity-5  absolute -0 w-44",
-          },
-          [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "block text-center font-medium pt-1 rounded-b-md hover:bg-yellow-200  hover:no-underline",
-                on: {
-                  click: function ($event) {
-                    return _vm.logout()
-                  },
+        _c("div", { staticClass: "relative" }, [
+          _c(
+            "button",
+            {
+              staticClass: "font-semibold ml-2 mr-3",
+              on: {
+                click: function ($event) {
+                  _vm.show = !_vm.show
+                },
+                blur: function ($event) {
+                  _vm.show = false
                 },
               },
-              [_vm._v("Log Out")]
-            ),
-          ]
-        ),
+            },
+            [
+              _vm._v(
+                "\r\n                    " +
+                  _vm._s(_vm.user.nama) +
+                  "\r\n                "
+              ),
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.show,
+                  expression: "show",
+                },
+              ],
+              staticClass:
+                "origin-top-right absolute right-0 mt-1 mr-2 w-36 bg-white rounded-lg border text-center",
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer",
+                  on: {
+                    mousedown: function ($event) {
+                      $event.preventDefault()
+                      return _vm.logout()
+                    },
+                  },
+                },
+                [_vm._v("Log Out")]
+              ),
+            ]
+          ),
+        ]),
       ]),
     ]),
     _vm._v(" "),
@@ -67111,28 +67169,78 @@ var render = function () {
                           ]
                         ),
                     _vm._v(" "),
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-7 w-7",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                    _c("div", { staticClass: "relative" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "relative flex items-center px-3 py-2",
+                          on: {
+                            click: function ($event) {
+                              _vm.isOptionsExpanded = !_vm.isOptionsExpanded
+                            },
+                            blur: function ($event) {
+                              _vm.isOptionsExpanded = false
+                            },
                           },
-                        }),
-                      ]
-                    ),
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "h-7 w-7",
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                fill: "none",
+                                viewBox: "0 0 24 24",
+                                stroke: "currentColor",
+                                "stroke-width": "2",
+                              },
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  "stroke-linecap": "round",
+                                  "stroke-linejoin": "round",
+                                  d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                                },
+                              }),
+                            ]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.isOptionsExpanded,
+                              expression: "isOptionsExpanded",
+                            },
+                          ],
+                          staticClass:
+                            "origin-top-right absolute bottom-8 right-0 w-32 bg-white rounded-lg border",
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass:
+                                "block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer",
+                              on: {
+                                mousedown: function ($event) {
+                                  $event.preventDefault()
+                                  return _vm.laporkan(thread.idt)
+                                },
+                              },
+                            },
+                            [_vm._v("Laporkan")]
+                          ),
+                        ]
+                      ),
+                    ]),
                   ]),
                 ]
               )
