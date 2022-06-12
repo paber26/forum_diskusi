@@ -35,6 +35,7 @@ Route::group(
         Route::get('user/getthread', [UserThread::class, 'getthread']);
         Route::get('user/getthread/{idt}', [UserThread::class, 'getthread']);
         Route::post('user/tanggapi', [UserThread::class, 'tanggapi']);
+        Route::post('user/laporthread', [UserThread::class, 'laporthread']);
         Route::get('user/gettanggapan/{idt}', [UserThread::class, 'gettanggapan']);
         Route::post('user/dukung/thread', [UserThread::class, 'dukungthread']);
         Route::post('user/dukung/tanggapan', [UserThread::class, 'dukungtanggapan']);

@@ -263,4 +263,27 @@ class UserThread extends Controller
 
         return url('/user/buat_thread');
     }
+
+    public function laporthread(Request $request)
+    {
+        $idt = $request->idt;
+
+        $q = DB::table('laporan_thread')->where(['idt' => $idt, 'nim' => Auth::user()->nim])->first();
+
+        if ($q == null) {
+            $q2 = DB::table('thread')->where('idt', $idt);
+            $tmelapor = $q2->first()->tmelapor;
+            $q2->update(['tmelapor' => $tmelapor + 1]);
+            $stt = [
+                'idlt' => uniqid(),
+                'nim' => Auth::user()->nim,
+                'idt' => $idt,
+            ];
+
+            DB::table('laporan_thread')->insert($stt);
+            return 'Berhasil';
+        } else {
+            return 'Sudah';
+        }
+    }
 }

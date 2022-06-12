@@ -5643,39 +5643,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -5716,8 +5683,27 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(this.getthread());
     },
-    laporkan: function laporkan(idt) {
+    laporthread: function laporthread(idt) {
+      var _this2 = this;
+
       console.log(idt);
+      var detail = {
+        'idt': idt
+      };
+      axios.post('/api/user/laporthread', detail, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data);
+
+        if (response.data == 'Berhasil') {
+          _this2.$swal('Berhasil melaporkan');
+        } else if (response.data == 'Sudah') {
+          _this2.$swal('Kamu sudah melaporkan');
+        }
+      });
     }
   }
 });
@@ -67232,7 +67218,7 @@ var render = function () {
                               on: {
                                 mousedown: function ($event) {
                                   $event.preventDefault()
-                                  return _vm.laporkan(thread.idt)
+                                  return _vm.laporthread(thread.idt)
                                 },
                               },
                             },
