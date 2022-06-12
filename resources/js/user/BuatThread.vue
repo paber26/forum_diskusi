@@ -1,9 +1,18 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-5/6 sm:w-4/5 flex flex-col justify-center">
+    <div class="w-5/6 sm:w-3/4 flex flex-col justify-center">
         <span class="font-bold text-xl mt-3 mb-2">Buat Thread</span>
         <div class="grid grid-cols-12 gap-3">
             <div class="col-span-12 sm:col-span-8 lg:col-span-9">
+                <div class="bg-white w-full p-2 rounded-md mb-2">
+                    <label class="font-medium text-sm">Pilih Kategori</label>
+                    <select v-model="fields.kategori" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5">
+                        <option value="" selected>Kategori</option>
+                        <option value="Pertanyaan">Pertanyaan</option>
+                        <option value="Informasi">Informasi Statistik</option>
+                        <option value="Ulasan">Ulasan Jurnal/Buku/Sumber lainnya</option>
+                    </select>
+                </div>
                 <div class="bg-white w-full p-3 rounded-lg mb-2.5">
                     <div class="grid grid-cols-6 items-center">
                         <label class="col-span-1">Judul Thread</label>
@@ -30,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-12 sm:col-span-4 lg:col-span-3 order-first sm:order-last">
+            <div class="col-span-12 sm:col-span-4 lg:col-span-3">
                 <div class="bg-white w-full p-2 rounded-md mb-2">
                     <label class="font-medium text-sm">Draft</label>
                     <div v-for="draft in daftardraft" :key="draft.idd">
@@ -40,16 +49,6 @@
                             <hr class="my-2">
                         </a>
                     </div>
-                </div>
-                <div class="bg-white w-full p-2 rounded-md">
-                    <label class="font-medium text-sm">Pilih Kategori</label>
-                    <select id="countries" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5">
-                        <option selected>Kategori</option>
-                        <option value="US">United States</option>
-                        <option value="CA">Canada</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                    </select>
                 </div>
             </div>
 
@@ -74,6 +73,7 @@ export default {
     data() {
         return {
             fields: {
+                kategori: '',
                 judul: '',
                 isi: '',
                 draft: true,
@@ -102,6 +102,10 @@ export default {
             })
         },
         upload() {
+            if (this.fields.kategori == '') {
+                this.$swal('Pilih Kategori Thread')
+                return
+            }
             if (this.fields.judul == '') {
                 this.$swal('Masukkan Judul')
                 return
@@ -128,6 +132,7 @@ export default {
                 this.$swal('Masukkan Judul Thread')
                 return
             }
+            console.log(this.fields.kategori)
             console.log(this.fields.judul)
             console.log(this.fields.isi)
             console.log(this.fields.draft)

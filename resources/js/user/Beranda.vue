@@ -4,15 +4,17 @@
         <div class="mt-4">
             <span class="font-bold text-lg mt-4">Thread Terbaru</span>
             <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3" v-for="thread in daftarthread" :key="thread.idt">
-                <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-
-                    <div class="ml-2">
-                        <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
-                        <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
+                <div class="flex justify-between items-start">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div class="ml-2">
+                            <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
+                            <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
+                        </div>
                     </div>
+                    <span class="inline-flex items-center px-2 py-1 text-xs font-bold leading-none text-white bg-indigo-600 rounded">{{ thread.kategori }}</span>
                 </div>
                 <div class="flex m-1">
                     <div class="flex flex-col items-center ml-2">
@@ -35,15 +37,15 @@
                 </div>
                 <hr>
                 <div class="flex justify-between py-1.5">
-                    <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
-                    <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-else>Lihat {{ thread.tmenanggapi }} jawaban</button>
+                    <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
+                    <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-else>Lihat {{ thread.tmenanggapi }} jawaban</button>
                     <div class="relative">
-                        <button @click="isOptionsExpanded = !isOptionsExpanded" @blur="isOptionsExpanded = false" class="relative flex items-center px-3 py-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <button @click="isOptionsExpanded = !isOptionsExpanded" @blur="isOptionsExpanded = false" class="relative flex items-center px-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                             </svg>
                         </button>
-                        <div v-show="isOptionsExpanded" class="origin-top-right absolute bottom-8 right-0 w-32 bg-white rounded-lg border">
+                        <div v-show="isOptionsExpanded" class="origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border">
                             <a class="block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer" @mousedown.prevent="laporthread(thread.idt)">Laporkan</a>
                         </div>
                     </div>
@@ -95,22 +97,22 @@ export default {
                 this.getthread()
             )
         },
-        laporthread(idt){
+        laporthread(idt) {
             console.log(idt)
             let detail = {
                 'idt': idt
             }
-            
+
             axios.post('/api/user/laporthread', detail, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
-            }).then(response =>{
+            }).then(response => {
                 console.log(response.data)
                 if (response.data == 'Berhasil') {
                     this.$swal('Berhasil melaporkan')
-                } else if(response.data == 'Sudah') {
+                } else if (response.data == 'Sudah') {
                     this.$swal('Kamu sudah melaporkan')
                 }
             })

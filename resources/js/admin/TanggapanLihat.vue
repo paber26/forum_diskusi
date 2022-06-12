@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-5/6 sm:w-4/5 lg:w-2/3 flex flex-col justify-center">
+    <div class="w-5/6 sm:w-11/12 flex flex-col justify-center">
         <div class="mt-4">
             <div class="flex justify-between">
                 <span class="font-bold text-lg">{{ ktg }}</span>

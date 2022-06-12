@@ -5643,6 +5643,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -5790,12 +5792,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       fields: {
+        kategori: '',
         judul: '',
         isi: '',
         draft: true
@@ -5827,6 +5829,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     upload: function upload() {
       var _this2 = this;
+
+      if (this.fields.kategori == '') {
+        this.$swal('Pilih Kategori Thread');
+        return;
+      }
 
       if (this.fields.judul == '') {
         this.$swal('Masukkan Judul');
@@ -5860,6 +5867,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
+      console.log(this.fields.kategori);
       console.log(this.fields.judul);
       console.log(this.fields.isi);
       console.log(this.fields.draft);
@@ -59898,7 +59906,7 @@ var render = function () {
   return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
     _c(
       "div",
-      { staticClass: "w-5/6 sm:w-4/5 lg:w-2/3 flex flex-col justify-center" },
+      { staticClass: "w-5/6 sm:w-11/12 flex flex-col justify-center" },
       [
         _c("div", { staticClass: "mt-4" }, [
           _c(
@@ -66975,43 +66983,58 @@ var render = function () {
                   staticClass: "bg-white w-full px-3 pt-3 rounded-lg mb-3",
                 },
                 [
-                  _c("div", { staticClass: "flex items-center" }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-12 w-12",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                  _c(
+                    "div",
+                    { staticClass: "flex justify-between items-start" },
+                    [
+                      _c("div", { staticClass: "flex items-center" }, [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-12 w-12",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
                           },
-                        }),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "ml-2" }, [
-                      _c("div", { staticClass: "font-semibold" }, [
-                        _vm._v(_vm._s(thread.nama) + " "),
-                        _c("span", { staticClass: "text-xxs" }, [
-                          _vm._v("(" + _vm._s(thread.nim) + ")"),
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                              },
+                            }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "ml-2" }, [
+                          _c("div", { staticClass: "font-semibold" }, [
+                            _vm._v(_vm._s(thread.nama) + " "),
+                            _c("span", { staticClass: "text-xxs" }, [
+                              _vm._v("(" + _vm._s(thread.nim) + ")"),
+                            ]),
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "text-xs italic" }, [
+                            _vm._v("Dibuat pada " + _vm._s(thread.date)),
+                          ]),
                         ]),
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "text-xs italic" }, [
-                        _vm._v("Dibuat pada " + _vm._s(thread.date)),
-                      ]),
-                    ]),
-                  ]),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "inline-flex items-center px-2 py-1 text-xs font-bold leading-none text-white bg-indigo-600 rounded",
+                        },
+                        [_vm._v(_vm._s(thread.kategori))]
+                      ),
+                    ]
+                  ),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex m-1" }, [
                     _c(
@@ -67126,7 +67149,7 @@ var render = function () {
                           "button",
                           {
                             staticClass:
-                              "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3",
+                              "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2",
                             on: {
                               click: function ($event) {
                                 $event.preventDefault()
@@ -67140,7 +67163,7 @@ var render = function () {
                           "button",
                           {
                             staticClass:
-                              "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3",
+                              "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2",
                             on: {
                               click: function ($event) {
                                 $event.preventDefault()
@@ -67159,7 +67182,7 @@ var render = function () {
                       _c(
                         "button",
                         {
-                          staticClass: "relative flex items-center px-3 py-2",
+                          staticClass: "relative flex items-center px-3",
                           on: {
                             click: function ($event) {
                               _vm.isOptionsExpanded = !_vm.isOptionsExpanded
@@ -67173,7 +67196,7 @@ var render = function () {
                           _c(
                             "svg",
                             {
-                              staticClass: "h-7 w-7",
+                              staticClass: "h-7 w-7 hover:text-blue-900",
                               attrs: {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 fill: "none",
@@ -67207,7 +67230,7 @@ var render = function () {
                             },
                           ],
                           staticClass:
-                            "origin-top-right absolute bottom-8 right-0 w-32 bg-white rounded-lg border",
+                            "origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border",
                         },
                         [
                           _c(
@@ -67262,13 +67285,69 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
-    _c("div", { staticClass: "w-5/6 sm:w-4/5 flex flex-col justify-center" }, [
+    _c("div", { staticClass: "w-5/6 sm:w-3/4 flex flex-col justify-center" }, [
       _c("span", { staticClass: "font-bold text-xl mt-3 mb-2" }, [
         _vm._v("Buat Thread"),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "grid grid-cols-12 gap-3" }, [
         _c("div", { staticClass: "col-span-12 sm:col-span-8 lg:col-span-9" }, [
+          _c("div", { staticClass: "bg-white w-full p-2 rounded-md mb-2" }, [
+            _c("label", { staticClass: "font-medium text-sm" }, [
+              _vm._v("Pilih Kategori"),
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fields.kategori,
+                    expression: "fields.kategori",
+                  },
+                ],
+                staticClass:
+                  "bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5",
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.fields,
+                      "kategori",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                },
+              },
+              [
+                _c("option", { attrs: { value: "", selected: "" } }, [
+                  _vm._v("Kategori"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Pertanyaan" } }, [
+                  _vm._v("Pertanyaan"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Informasi" } }, [
+                  _vm._v("Informasi Statistik"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Ulasan" } }, [
+                  _vm._v("Ulasan Jurnal/Buku/Sumber lainnya"),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
             _c("div", { staticClass: "grid grid-cols-6 items-center" }, [
               _c("label", { staticClass: "col-span-1" }, [
@@ -67390,93 +67469,53 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "col-span-12 sm:col-span-4 lg:col-span-3 order-first sm:order-last",
-          },
-          [
-            _c(
-              "div",
-              { staticClass: "bg-white w-full p-2 rounded-md mb-2" },
-              [
-                _c("label", { staticClass: "font-medium text-sm" }, [
-                  _vm._v("Draft"),
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.daftardraft, function (draft) {
-                  return _c("div", { key: draft.idd }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "hover:underline cursor-pointer",
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.buka(draft.idd)
-                          },
+        _c("div", { staticClass: "col-span-12 sm:col-span-4 lg:col-span-3" }, [
+          _c(
+            "div",
+            { staticClass: "bg-white w-full p-2 rounded-md mb-2" },
+            [
+              _c("label", { staticClass: "font-medium text-sm" }, [
+                _vm._v("Draft"),
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.daftardraft, function (draft) {
+                return _c("div", { key: draft.idd }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "hover:underline cursor-pointer",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.buka(draft.idd)
                         },
                       },
-                      [
-                        _c("div", { staticClass: "text-xs font-semibold" }, [
-                          _vm._v(_vm._s(draft.judul)),
-                        ]),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "text-xxs italic" }, [
-                          _vm._v(_vm._s(draft.date)),
-                        ]),
-                        _vm._v(" "),
-                        _c("hr", { staticClass: "my-2" }),
-                      ]
-                    ),
-                  ])
-                }),
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _vm._m(0),
-          ]
-        ),
+                    },
+                    [
+                      _c("div", { staticClass: "text-xs font-semibold" }, [
+                        _vm._v(_vm._s(draft.judul)),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-xxs italic" }, [
+                        _vm._v(_vm._s(draft.date)),
+                      ]),
+                      _vm._v(" "),
+                      _c("hr", { staticClass: "my-2" }),
+                    ]
+                  ),
+                ])
+              }),
+            ],
+            2
+          ),
+        ]),
       ]),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "mb-5" }),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-white w-full p-2 rounded-md" }, [
-      _c("label", { staticClass: "font-medium text-sm" }, [
-        _vm._v("Pilih Kategori"),
-      ]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass:
-            "bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5",
-          attrs: { id: "countries" },
-        },
-        [
-          _c("option", { attrs: { selected: "" } }, [_vm._v("Kategori")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "US" } }, [_vm._v("United States")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "CA" } }, [_vm._v("Canada")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "FR" } }, [_vm._v("France")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "DE" } }, [_vm._v("Germany")]),
-        ]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -68772,460 +68811,467 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
-    _c("div", { staticClass: "w-5/6 sm:w-2/3 flex flex-col justify-center" }, [
-      _c("div", { staticClass: "mt-4" }, [
-        _c("span", { staticClass: "font-bold text-lg mt-4" }, [
-          _vm._v("Thread"),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "bg-white w-full px-3 pt-3 rounded-lg" }, [
-          _c("div", { staticClass: "flex items-center" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "h-12 w-12",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  fill: "none",
-                  viewBox: "0 0 24 24",
-                  stroke: "currentColor",
-                  "stroke-width": "2",
-                },
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round",
-                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                  },
-                }),
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "ml-2" }, [
-              _c("div", { staticClass: "font-semibold" }, [
-                _vm._v(_vm._s(_vm.thread.nama) + " "),
-                _c("span", { staticClass: "text-xxs" }, [
-                  _vm._v("(" + _vm._s(_vm.thread.nim) + ")"),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "text-xs italic" }, [
-                _vm._v("Dibuat pada " + _vm._s(_vm.thread.date)),
-              ]),
-            ]),
+    _c(
+      "div",
+      { staticClass: "w-5/6 sm:w-2/3 lg:w-1/2 flex flex-col justify-center" },
+      [
+        _c("div", { staticClass: "mt-4" }, [
+          _c("span", { staticClass: "font-bold text-lg mt-4" }, [
+            _vm._v("Thread"),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex m-1" }, [
-            _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
+          _c("div", { staticClass: "bg-white w-full px-3 pt-3 rounded-lg" }, [
+            _c("div", { staticClass: "flex items-center" }, [
               _c(
-                "button",
+                "svg",
                 {
-                  staticClass:
-                    "flex items-center justify-center rounded-sm h-7 w-7",
-                  class:
-                    _vm.thread.pilihan == "naik"
-                      ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
-                      : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
-                  on: {
-                    click: function ($event) {
-                      $event.preventDefault()
-                      return _vm.dukung(_vm.thread.idt, "naik")
-                    },
+                  staticClass: "h-12 w-12",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
                   },
                 },
                 [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-4 w-4",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        fill: "none",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                      },
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
                     },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round",
-                          d: "M5 15l7-7 7 7",
-                        },
-                      }),
-                    ]
-                  ),
+                  }),
                 ]
               ),
               _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(_vm.thread.tdukungan))]),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "flex items-center justify-center rounded-sm h-7 w-7",
-                  class:
-                    _vm.thread.pilihan == "turun"
-                      ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
-                      : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
-                  on: {
-                    click: function ($event) {
-                      $event.preventDefault()
-                      return _vm.dukung(_vm.thread.idt, "turun")
-                    },
-                  },
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-4 w-4",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        fill: "none",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round",
-                          d: "M19 9l-7 7-7-7",
-                        },
-                      }),
-                    ]
-                  ),
-                ]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex flex-col ml-3.5" }, [
-              _c("span", {
-                staticClass: "font-bold text-lg mb-2",
-                domProps: { innerHTML: _vm._s(_vm.thread.judul) },
-              }),
-              _vm._v(" "),
-              _c("span", { domProps: { innerHTML: _vm._s(_vm.thread.isi) } }),
-            ]),
-          ]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex justify-between py-1.5" }, [
-            _vm.thread.tmenanggapi == 0
-              ? _c("span", { staticClass: "font-semibold ml-2" }, [
-                  _vm._v("Belum ada tanggapan "),
-                ])
-              : _c("span", { staticClass: "font-semibold ml-2" }, [
-                  _vm._v(_vm._s(_vm.thread.tmenanggapi) + " tanggapan"),
-                ]),
-            _vm._v(" "),
-            _c(
-              "svg",
-              {
-                staticClass: "h-7 w-7",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  fill: "none",
-                  viewBox: "0 0 24 24",
-                  stroke: "currentColor",
-                  "stroke-width": "2",
-                },
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round",
-                    d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
-                  },
-                }),
-              ]
-            ),
-          ]),
-        ]),
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "mt-6" },
-        [
-          _vm.thread.tmenanggapi != 0
-            ? _c("span", { staticClass: "font-bold text-base" }, [
-                _vm._v("Tanggapan"),
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm._l(_vm.daftartanggapan, function (tanggapan) {
-            return _c(
-              "div",
-              {
-                key: tanggapan.idtn,
-                staticClass: "bg-white w-full px-3 pt-3 rounded-lg mb-3",
-              },
-              [
-                _c("div", { staticClass: "flex items-center" }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-12 w-12",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        fill: "none",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round",
-                          d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                        },
-                      }),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "ml-2" }, [
-                    _c("div", { staticClass: "font-semibold" }, [
-                      _vm._v(_vm._s(tanggapan.nama) + " "),
-                      _c("span", { staticClass: "text-xxs" }, [
-                        _vm._v("(" + _vm._s(tanggapan.nim) + ")"),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "text-xs italic" }, [
-                      _vm._v("Menanggapi pada " + _vm._s(tanggapan.date)),
-                    ]),
+              _c("div", { staticClass: "ml-2" }, [
+                _c("div", { staticClass: "font-semibold" }, [
+                  _vm._v(_vm._s(_vm.thread.nama) + " "),
+                  _c("span", { staticClass: "text-xxs" }, [
+                    _vm._v("(" + _vm._s(_vm.thread.nim) + ")"),
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "flex m-1" }, [
-                  _c(
-                    "div",
-                    { staticClass: "flex flex-col items-center ml-2" },
-                    [
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "flex items-center justify-center rounded-sm h-7 w-7",
-                          class:
-                            tanggapan.pilihan == "naik"
-                              ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
-                              : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
-                          on: {
-                            click: function ($event) {
-                              $event.preventDefault()
-                              return _vm.dukungtanggapan(tanggapan.idtn, "naik")
-                            },
-                          },
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "h-4 w-4",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                fill: "none",
-                                viewBox: "0 0 24 24",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                              },
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round",
-                                  d: "M5 15l7-7 7 7",
-                                },
-                              }),
-                            ]
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(tanggapan.tdukungan))]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "flex items-center justify-center rounded-sm h-7 w-7",
-                          class:
-                            tanggapan.pilihan == "turun"
-                              ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
-                              : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
-                          on: {
-                            click: function ($event) {
-                              $event.preventDefault()
-                              return _vm.dukungtanggapan(
-                                tanggapan.idtn,
-                                "turun"
-                              )
-                            },
-                          },
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "h-4 w-4",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                fill: "none",
-                                viewBox: "0 0 24 24",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                              },
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round",
-                                  d: "M19 9l-7 7-7-7",
-                                },
-                              }),
-                            ]
-                          ),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("span", {
-                    staticClass: "ml-2",
-                    domProps: { innerHTML: _vm._s(tanggapan.isi) },
-                  }),
+                _c("div", { staticClass: "text-xs italic" }, [
+                  _vm._v("Dibuat pada " + _vm._s(_vm.thread.date)),
                 ]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex justify-between py-1.5" }, [
-                  _c("button", {
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex m-1" }, [
+              _c("div", { staticClass: "flex flex-col items-center ml-2" }, [
+                _c(
+                  "button",
+                  {
                     staticClass:
-                      "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2",
+                      "flex items-center justify-center rounded-sm h-7 w-7",
+                    class:
+                      _vm.thread.pilihan == "naik"
+                        ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                        : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
                     on: {
                       click: function ($event) {
                         $event.preventDefault()
-                        return _vm.tanggapi()
+                        return _vm.dukung(_vm.thread.idt, "naik")
                       },
+                    },
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 15l7-7 7 7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(_vm.thread.tdukungan))]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex items-center justify-center rounded-sm h-7 w-7",
+                    class:
+                      _vm.thread.pilihan == "turun"
+                        ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                        : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                    on: {
+                      click: function ($event) {
+                        $event.preventDefault()
+                        return _vm.dukung(_vm.thread.idt, "turun")
+                      },
+                    },
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-4 w-4",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M19 9l-7 7-7-7",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex flex-col ml-3.5" }, [
+                _c("span", {
+                  staticClass: "font-bold text-lg mb-2",
+                  domProps: { innerHTML: _vm._s(_vm.thread.judul) },
+                }),
+                _vm._v(" "),
+                _c("span", { domProps: { innerHTML: _vm._s(_vm.thread.isi) } }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-between py-1.5" }, [
+              _vm.thread.tmenanggapi == 0
+                ? _c("span", { staticClass: "font-semibold ml-2" }, [
+                    _vm._v("Belum ada tanggapan "),
+                  ])
+                : _c("span", { staticClass: "font-semibold ml-2" }, [
+                    _vm._v(_vm._s(_vm.thread.tmenanggapi) + " tanggapan"),
+                  ]),
+              _vm._v(" "),
+              _c(
+                "svg",
+                {
+                  staticClass: "h-7 w-7",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    "stroke-width": "2",
+                  },
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
                     },
                   }),
-                  _vm._v(" "),
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-7 w-7",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        fill: "none",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round",
-                          d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
-                        },
-                      }),
-                    ]
-                  ),
-                ]),
-              ]
-            )
-          }),
-          _vm._v(" "),
-          _c("div", {
-            staticClass: "bg-birumateri w-full h-0.5 rounded-3xl my-1.5",
-          }),
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "mt-2" }, [
-        _c("span", { staticClass: "font-bold text-lg mt-2" }, [
-          _vm._v("Tambah Tanggapan"),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "bg-white w-full py-3 rounded-lg" }, [
-          _c(
-            "div",
-            { staticClass: "col-sm-12 mb-2" },
-            [
-              _c("vue-editor", {
-                model: {
-                  value: _vm.fields.isi,
-                  callback: function ($$v) {
-                    _vm.$set(_vm.fields, "isi", $$v)
-                  },
-                  expression: "fields.isi",
-                },
-              }),
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: " flex justify-between -mb-1 " }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3",
-                on: {
-                  click: function ($event) {
-                    $event.preventDefault()
-                    return _vm.simpandraft()
-                  },
-                },
-              },
-              [
-                _vm._v(
-                  "\r\n                        Simpan Draft\r\n                    "
-                ),
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass:
-                  "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
-                on: {
-                  click: function ($event) {
-                    $event.preventDefault()
-                    return _vm.tanggapi()
-                  },
-                },
-              },
-              [
-                _vm._v(
-                  "\r\n                        Tanggapi\r\n                    "
-                ),
-              ]
-            ),
+                ]
+              ),
+            ]),
           ]),
         ]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mb-5" }),
-    ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "mt-6" },
+          [
+            _vm.thread.tmenanggapi != 0
+              ? _c("span", { staticClass: "font-bold text-base" }, [
+                  _vm._v("Tanggapan"),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.daftartanggapan, function (tanggapan) {
+              return _c(
+                "div",
+                {
+                  key: tanggapan.idtn,
+                  staticClass: "bg-white w-full px-3 pt-3 rounded-lg mb-3",
+                },
+                [
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-12 w-12",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                          },
+                        }),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ml-2" }, [
+                      _c("div", { staticClass: "font-semibold" }, [
+                        _vm._v(_vm._s(tanggapan.nama) + " "),
+                        _c("span", { staticClass: "text-xxs" }, [
+                          _vm._v("(" + _vm._s(tanggapan.nim) + ")"),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-xs italic" }, [
+                        _vm._v("Menanggapi pada " + _vm._s(tanggapan.date)),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex m-1" }, [
+                    _c(
+                      "div",
+                      { staticClass: "flex flex-col items-center ml-2" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "flex items-center justify-center rounded-sm h-7 w-7",
+                            class:
+                              tanggapan.pilihan == "naik"
+                                ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                                : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                            on: {
+                              click: function ($event) {
+                                $event.preventDefault()
+                                return _vm.dukungtanggapan(
+                                  tanggapan.idtn,
+                                  "naik"
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "h-4 w-4",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M5 15l7-7 7 7",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(tanggapan.tdukungan))]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "flex items-center justify-center rounded-sm h-7 w-7",
+                            class:
+                              tanggapan.pilihan == "turun"
+                                ? "bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700"
+                                : "bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200",
+                            on: {
+                              click: function ($event) {
+                                $event.preventDefault()
+                                return _vm.dukungtanggapan(
+                                  tanggapan.idtn,
+                                  "turun"
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "h-4 w-4",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                },
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M19 9l-7 7-7-7",
+                                  },
+                                }),
+                              ]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("span", {
+                      staticClass: "ml-2",
+                      domProps: { innerHTML: _vm._s(tanggapan.isi) },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex justify-between py-1.5" }, [
+                    _c("button", {
+                      staticClass:
+                        "font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.tanggapi()
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "h-7 w-7",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
+                          },
+                        }),
+                      ]
+                    ),
+                  ]),
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _c("div", {
+              staticClass: "bg-birumateri w-full h-0.5 rounded-3xl my-1.5",
+            }),
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-2" }, [
+          _c("span", { staticClass: "font-bold text-lg mt-2" }, [
+            _vm._v("Tambah Tanggapan"),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white w-full py-3 rounded-lg" }, [
+            _c(
+              "div",
+              { staticClass: "col-sm-12 mb-2" },
+              [
+                _c("vue-editor", {
+                  model: {
+                    value: _vm.fields.isi,
+                    callback: function ($$v) {
+                      _vm.$set(_vm.fields, "isi", $$v)
+                    },
+                    expression: "fields.isi",
+                  },
+                }),
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: " flex justify-between -mb-1 " }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.simpandraft()
+                    },
+                  },
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Simpan Draft\r\n                    "
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.tanggapi()
+                    },
+                  },
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Tanggapi\r\n                    "
+                  ),
+                ]
+              ),
+            ]),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-5" }),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []

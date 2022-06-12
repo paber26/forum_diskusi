@@ -20,6 +20,7 @@ class UserThread extends Controller
             $stt = [
                 'idd' => uniqid(),
                 'nim' => Auth::user()->nim,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
                 'isi' => $isi,
             ];
@@ -28,6 +29,7 @@ class UserThread extends Controller
             $stt = [
                 'idt' => uniqid(),
                 'nim' => Auth::user()->nim,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
                 'isi' => $isi,
             ];
@@ -81,6 +83,7 @@ class UserThread extends Controller
                     array_push($daftarthread, [
                         'idt' => $row->idt,
                         'nim' => $row->nim,
+                        'kategori' => $row->kategori,
                         'nama' => $row->nama,
                         'judul' => $row->judul,
                         'isi' => $row->isi,
