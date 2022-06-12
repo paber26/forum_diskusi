@@ -28,6 +28,10 @@ Route::group(
     ['middleware' => 'auth:api'],
     function () {
         Route::post('user/buat_thread', [UserThread::class, 'buat_thread']);
+        Route::delete('user/buat_thread/hapus/{idd}', [UserThread::class, 'hapus']);
+
+        Route::get('user/getdraftthread', [UserThread::class, 'getdraftthread']);
+        Route::get('user/getdraftthread/{idd}', [UserThread::class, 'getdraftthread']);
         Route::get('user/getthread', [UserThread::class, 'getthread']);
         Route::get('user/getthread/{idt}', [UserThread::class, 'getthread']);
         Route::post('user/tanggapi', [UserThread::class, 'tanggapi']);

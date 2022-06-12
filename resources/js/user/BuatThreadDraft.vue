@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="flex justify-between -mb-1">
-                        <button @click.prevent="simpandraft()" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3">
+                        <button @click.prevent="simpan()" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3">
                             Simpan Draft
                         </button>
                         <button @click.prevent="hapus()" class="bg-red-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
@@ -34,7 +34,7 @@
                 <div class="bg-white w-full p-2 rounded-md mb-2">
                     <label class="font-medium text-sm">Draft</label>
                     <div v-for="draft in daftardraft" :key="draft.idd">
-                        <a @click.prevent="buka(draft.idd)" class="hover:underline cursor-pointer">
+                        <a :href="'/user/buat_thread/' + draft.idd" class="hover:underline cursor-pointer">
                             <div class="text-xs font-semibold">{{ draft.judul }}</div>
                             <span class="text-xxs italic">{{ draft.date }}</span>
                             <hr class="my-2">
@@ -54,15 +54,6 @@
             </div>
 
         </div>
-
-        <!-- <div class="mt-3" v-if="fields.judul != '' || fields.isi != ''">
-            <span class="font-bold text-lg mb-2">Tampilan Thread</span>
-            <div class="bg-white w-full p-3 rounded-lg">
-                <span class="font-bold text-gray-700" v-html="fields.judul"></span>
-                <div class="mt-2" v-html="fields.isi"></div>
-                <div class="mt-2">{{ fields.isi }}</div>
-            </div>
-        </div> -->
     </div>
     <div class="mb-5"></div>
 </div>
@@ -70,35 +61,41 @@
 
 <script>
 export default {
-    props: ['user'],
+    props: ['user', 'idd'],
     data() {
         return {
             fields: {
                 judul: '',
-                isi: '',
-                draft: true,
+                isi: ''
             },
             daftardraft: ''
         }
     },
     mounted() {
-        this.getdraftthread()
+        axios.get('/api/user/getdraftthread/' + this.idd, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
+            this.fields.judul = response.data.judul
+            this.fields.isi = response.data.isi
+        })
+        axios.get('/api/user/getdraftthread', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
+            this.daftardraft = response.data
+            console.log(this.daftardraft)
+        })
+        console.log(this.idd)
     },
     methods: {
         buka(idd) {
             this.$router.push({
                 path: '/user/buat_thread/' + idd
-            })
-        },
-        getdraftthread() {
-            axios.get('/api/user/getdraftthread', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + this.user.api_token
-                },
-            }).then((response) => {
-                this.daftardraft = response.data
-                console.log(this.daftardraft)
             })
         },
         upload() {
@@ -110,7 +107,6 @@ export default {
                 this.$swal('Masukkan Isi')
                 return
             }
-            this.fields.draft = false
             axios.post('/api/user/buat_thread', this.fields, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -123,29 +119,6 @@ export default {
                 }
             })
         },
-        simpandraft() {
-            if (this.fields.judul == '') {
-                this.$swal('Masukkan Judul Thread')
-                return
-            }
-            console.log(this.fields.judul)
-            console.log(this.fields.isi)
-            console.log(this.fields.draft)
-            axios.post('/api/user/buat_thread', this.fields, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + this.user.api_token
-                },
-            }).then(response => {
-                console.log(response.data)
-                if (response.data == 'Berhasil') {
-                    this.$swal('Draft Berhasil Disimpan')
-                    this.fields.judul = ''
-                    this.fields.isi = ''
-                }
-                this.getdraftthread()
-            })
-        },
         hapus() {
             this.$swal({
                 title: 'Apakah kamu yakin ingin menghapus?',
@@ -153,9 +126,22 @@ export default {
                 confirmButtonText: 'Hapus',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    this.fields.judul = ''
-                    this.fields.isi = ''
-                    this.$swal('Berhasil Menghapus')
+                    axios.delete('/api/user/buat_thread/hapus/' + this.idd + '', {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + this.user.api_token
+                        },
+                    }).then((response) => {
+                        this.$swal({
+                            text: 'Berhasil menghapus',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                        // this.$swal('Berhasil menghapus')
+                        window.location.href = response.data
+                        console.log(response.data)
+                    })
                 }
             })
         }

@@ -94,8 +94,6 @@ class Profil extends Controller
                 ]);
             }
 
-            // return response()->json($daftarthread);
-
             return response()->json(array($q->count(), $daftarthread));
         }
     }

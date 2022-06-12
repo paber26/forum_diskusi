@@ -6,20 +6,48 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\VarDumper\VarDumper;
 
 class UserThread extends Controller
 {
     public function buat_thread(Request $request)
     {
-        $stt = [
-            'idt' => uniqid(),
-            'nim' => Auth::user()->nim,
-            'judul' => $request->judul,
-            'isi' => $request->isi,
-        ];
-        DB::table('thread')->insert($stt);
-
+        $isi = $request->isi;
+        if ($isi == null) {
+            $isi = '';
+        }
+        if ($request->draft == true) {
+            $stt = [
+                'idd' => uniqid(),
+                'nim' => Auth::user()->nim,
+                'judul' => $request->judul,
+                'isi' => $isi,
+            ];
+            DB::table('draft_thread')->insert($stt);
+        } else {
+            $stt = [
+                'idt' => uniqid(),
+                'nim' => Auth::user()->nim,
+                'judul' => $request->judul,
+                'isi' => $isi,
+            ];
+            DB::table('thread')->insert($stt);
+        }
         return 'Berhasil';
+    }
+
+    public function getdraftthread($idd = null)
+    {
+        if ($idd == null) {
+            $q = DB::table('draft_thread')->where('nim', Auth::user()->nim)->get();
+            if ($q == null) {
+                return 0;
+            } else {
+                return $q;
+            }
+        } else {
+            return DB::table('draft_thread')->where(['nim' => Auth::user()->nim, 'idd' => $idd])->first();
+        }
     }
 
     public function getthread($idt = null)
@@ -227,5 +255,12 @@ class UserThread extends Controller
                 $q2->update(['tdukungan' => $jlhdukungan + 2]);
             }
         }
+    }
+
+    public function hapus($idd)
+    {
+        DB::table('draft_thread')->where(['idd' => $idd, 'nim' => Auth::user()->nim])->delete();
+
+        return url('/user/buat_thread');
     }
 }
