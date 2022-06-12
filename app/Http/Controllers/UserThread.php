@@ -52,6 +52,78 @@ class UserThread extends Controller
         }
     }
 
+    public function getthreadfilter(Request $request)
+    {
+        $urutan = $request->urutan;
+        $kategori = $request->kategori;
+
+        // return $kategori;
+
+        $q = DB::table('thread')
+            ->select('thread.*', 'users.nama')
+            ->leftJoin('users', 'thread.nim', '=', 'users.nim');
+
+        if ($urutan == 'Terbaru' && $kategori == 'Semua') {
+            $q = $q->orderBy('thread.date', 'desc')->get();
+        } else if ($urutan == 'Terbaru' && $kategori != 'Semua') {
+            $q = $q->where('thread.kategori', $kategori)
+                ->orderBy('thread.date', 'desc')->get();
+        }
+
+        if ($urutan == 'Terlama' && $kategori == 'Semua') {
+            $q = $q->orderBy('thread.date', 'asc')->get();
+        } else if ($urutan == 'Terlama' && $kategori != 'Semua') {
+            $q = $q->where('thread.kategori', $kategori)
+                ->orderBy('thread.date', 'asc')->get();
+        }
+
+        if ($urutan == 'Populer' && $kategori == 'Semua') {
+            $q = $q->orderBy('tdukungan', 'desc')->get();
+        } else if ($urutan == 'Populer' && $kategori != 'Semua') {
+            $q = $q->where('thread.kategori', $kategori)
+                ->orderBy('tdukungan', 'desc')->get();
+        }
+
+        // return $q;
+        if ($q == null) {
+            return 0;
+        } else {
+            $q2 = DB::table('thread')->select('thread.idt', 'dukungan_thread.pilihan')
+                ->leftJoin('dukungan_thread', 'thread.idt', '=', 'dukungan_thread.idt')
+                ->where('dukungan_thread.nim', Auth::user()->nim)->get()->toArray();
+
+            $daftarthread = [];
+            foreach ($q as $row) {
+                $cari = array_search(
+                    $row->idt,
+                    array_column($q2, 'idt')
+                );
+
+
+                if (strval($cari) == null) {
+                    $pilihan = '';
+                } else {
+                    $pilihan = $q2[$cari]->pilihan;
+                }
+                array_push($daftarthread, [
+                    'idt' => $row->idt,
+                    'nim' => $row->nim,
+                    'kategori' => $row->kategori,
+                    'nama' => $row->nama,
+                    'judul' => $row->judul,
+                    'isi' => $row->isi,
+                    'date' => $row->date,
+                    'tdukungan' => $row->tdukungan,
+                    'tmenanggapi' => $row->tmenanggapi,
+                    'tmelihat' => $row->tmelihat,
+                    'pilihan' => $pilihan
+                ]);
+            }
+
+            return response()->json($daftarthread);
+        }
+    }
+
     public function getthread($idt = null)
     {
         if ($idt === null) {

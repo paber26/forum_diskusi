@@ -5645,12 +5645,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       daftarthread: '',
-      isOptionsExpanded: false
+      isOptionsExpanded: false,
+      fields: {
+        urutan: 'Terbaru',
+        kategori: 'Semua'
+      }
     };
   },
   mounted: function mounted() {
@@ -5706,6 +5737,25 @@ __webpack_require__.r(__webpack_exports__);
           _this2.$swal('Kamu sudah melaporkan');
         }
       });
+    },
+    cari: function cari() {
+      var _this3 = this;
+
+      var detail = {
+        'urutan': this.fields.urutan,
+        'kategori': this.fields.kategori
+      };
+      console.log(detail);
+      axios.post('/api/user/getthreadfilter', detail, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data);
+        _this3.daftarthread = response.data;
+        console.log(_this3.daftarthread);
+      });
     }
   }
 });
@@ -5723,16 +5773,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -66963,16 +67003,153 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
-    _c(
-      "div",
-      { staticClass: "w-5/6 sm:w-2/3 lg:w-1/2 flex flex-col justify-center" },
-      [
+    _c("div", { staticClass: "w-5/6 sm:w-3/4 flex flex-col justify-center" }, [
+      _c("div", { staticClass: "grid grid-cols-12 gap-3 mt-3" }, [
         _c(
           "div",
-          { staticClass: "mt-4" },
+          { staticClass: "col-span-12 sm:col-span-4 lg:col-span-3 mt-4" },
           [
-            _c("span", { staticClass: "font-bold text-lg mt-4" }, [
-              _vm._v("Thread Terbaru"),
+            _c("div", { staticClass: "bg-white w-full p-2 rounded-md mb-2" }, [
+              _c("label", { staticClass: "font-medium text-sm" }, [
+                _vm._v("Urut Berdasarkan"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fields.urutan,
+                      expression: "fields.urutan",
+                    },
+                  ],
+                  staticClass:
+                    "bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5",
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.fields,
+                        "urutan",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                  },
+                },
+                [
+                  _c("option", { attrs: { value: "Terbaru", selected: "" } }, [
+                    _vm._v("Terbaru"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Terlama" } }, [
+                    _vm._v("Terlama"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Populer" } }, [
+                    _vm._v("Populer"),
+                  ]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "bg-white w-full p-2 rounded-md mb-2" }, [
+              _c("label", { staticClass: "font-medium text-sm" }, [
+                _vm._v("Pilih Kategori"),
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.fields.kategori,
+                      expression: "fields.kategori",
+                    },
+                  ],
+                  staticClass:
+                    "bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5",
+                  on: {
+                    change: function ($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function (o) {
+                          return o.selected
+                        })
+                        .map(function (o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.fields,
+                        "kategori",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                  },
+                },
+                [
+                  _c("option", { attrs: { value: "Semua", selected: "" } }, [
+                    _vm._v("Semua Kategori"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Pertanyaan" } }, [
+                    _vm._v("Pertanyaan"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Informasi" } }, [
+                    _vm._v("Informasi Statistik"),
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Ulasan" } }, [
+                    _vm._v("Ulasan Jurnal/Buku/Sumber lainnya"),
+                  ]),
+                ]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "bg-white w-full p-2 rounded-md mb-2" }, [
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 w-full",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.cari()
+                    },
+                  },
+                },
+                [
+                  _vm._v(
+                    "\r\n                        Cari\r\n                    "
+                  ),
+                ]
+              ),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-span-12 sm:col-span-8 lg:col-span-9" },
+          [
+            _c("span", { staticClass: "font-bold text-xl mb-2" }, [
+              _vm._v("Beranda"),
             ]),
             _vm._v(" "),
             _vm._l(_vm.daftarthread, function (thread) {
@@ -67257,8 +67434,10 @@ var render = function () {
           ],
           2
         ),
-      ]
-    ),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mb-5" }),
   ])
 }
 var staticRenderFns = []

@@ -51,17 +51,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-        <!-- <div class="mt-3" v-if="fields.judul != '' || fields.isi != ''">
-            <span class="font-bold text-lg mb-2">Tampilan Thread</span>
-            <div class="bg-white w-full p-3 rounded-lg">
-                <span class="font-bold text-gray-700" v-html="fields.judul"></span>
-                <div class="mt-2" v-html="fields.isi"></div>
-                <div class="mt-2">{{ fields.isi }}</div>
-            </div>
-        </div> -->
     </div>
     <div class="mb-5"></div>
 </div>
