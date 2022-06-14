@@ -13,6 +13,7 @@ class Authen extends Controller
 {
     public function register(Request $request)
     {
+        $nim = $request->nim;
         $nama = $request->nama;
         $email = $request->email;
         $password = $request->password;
@@ -23,9 +24,12 @@ class Authen extends Controller
             return 'Sudah terdaftar';
         } else {
             $stt = [
+                'nim' => $nim,
                 'nama' => strtoupper($nama),
                 'email' => $email,
                 'password' => Hash::make($password),
+                'alamat' => '',
+                'nowa' => '',
                 'gambar' => '',
                 'api_token' => Str::random(40),
             ];

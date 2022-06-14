@@ -36,18 +36,18 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                                 </svg>
-                                <span class="ml-2 text-lg font-bold">{{ daftartanggapan[index-1].judul }}</span>
+                                <span class="ml-2 font-bold">{{ daftartanggapan[index-1].judul }}</span>
                             </a>
                             <hr>
                             <div class="text-xs italic">Menanggapi pada {{ daftartanggapan[index-1].date }}</div>
                             <span v-html="daftartanggapan[index-1].isi"></span>
                         </td>
                         <td class="p-3">
-                            <button @click.prevent="hapus(daftartanggapan[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <button @click.prevent="hapus(daftartanggapan[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
-                                Hapus
+                                <span class="text-sm">Hapus</span>
                             </button>
                         </td>
                     </tr>

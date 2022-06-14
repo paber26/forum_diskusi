@@ -20,6 +20,7 @@
                     <tr class="text-center divide-x divide-gray-400">
                         <th class="px-3 py-2">No</th>
                         <th class="px-3 py-2">Nama Pengguna</th>
+                        <th class="px-3 py-2">Kategori</th>
                         <th class="px-3 py-2">Isi Thread</th>
                         <th class="px-3 py-2">Dukungan</th>
                         <th class="px-3 py-2">Tanggapan</th>
@@ -33,6 +34,7 @@
                             <span>{{ daftarthread[index-1].nama }}</span>
                             <div class="text-xxs">(NIM: {{ daftarthread[index-1].nim }})</div>
                         </td>
+                        <td class="p-3 text-center">{{ daftarthread[index-1].kategori }}</td>
                         <td class="p-3">
                             <div class="text-xs italic">Dibuat pada {{ daftarthread[index-1].date }}</div>
                             <a @click.prevent="lihattanggapan(daftarthread[index-1].idt, 'Tanggapan')" class="cursor-pointer font-semibold">
@@ -43,11 +45,11 @@
                         <td class="p-3 text-center">{{ daftarthread[index-1].tdukungan }}</td>
                         <td class="p-3 text-center">{{ daftarthread[index-1].tmenanggapi }}</td>
                         <td class="p-3">
-                            <button @click.prevent="hapus(daftarthread[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <button @click.prevent="hapus(daftarthread[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
-                                Hapus
+                                <span class="text-sm">Hapus</span>
                             </button>
                         </td>
                     </tr>

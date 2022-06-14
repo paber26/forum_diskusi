@@ -2758,6 +2758,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -3024,10 +3026,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       user: {
+        nim: '',
         nama: '',
         email: '',
         password: ''
@@ -59814,15 +59820,11 @@ var render = function () {
                             ]
                           ),
                           _vm._v(" "),
-                          _c(
-                            "span",
-                            { staticClass: "ml-2 text-lg font-bold" },
-                            [
-                              _vm._v(
-                                _vm._s(_vm.daftartanggapan[index - 1].judul)
-                              ),
-                            ]
-                          ),
+                          _c("span", { staticClass: "ml-2 font-bold" }, [
+                            _vm._v(
+                              _vm._s(_vm.daftartanggapan[index - 1].judul)
+                            ),
+                          ]),
                         ]
                       ),
                       _vm._v(" "),
@@ -59847,7 +59849,7 @@ var render = function () {
                         "button",
                         {
                           staticClass:
-                            "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex justify-center",
+                            "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center",
                           on: {
                             click: function ($event) {
                               $event.preventDefault()
@@ -59861,7 +59863,7 @@ var render = function () {
                           _c(
                             "svg",
                             {
-                              staticClass: "h-6 w-6",
+                              staticClass: "h-4 w-4",
                               attrs: {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 fill: "none",
@@ -59880,9 +59882,10 @@ var render = function () {
                               }),
                             ]
                           ),
-                          _vm._v(
-                            "\r\n                                Hapus\r\n                            "
-                          ),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "text-sm" }, [
+                            _vm._v("Hapus"),
+                          ]),
                         ]
                       ),
                     ]),
@@ -60408,6 +60411,10 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
+                    _c("td", { staticClass: "p-3 text-center" }, [
+                      _vm._v(_vm._s(_vm.daftarthread[index - 1].kategori)),
+                    ]),
+                    _vm._v(" "),
                     _c("td", { staticClass: "p-3" }, [
                       _c("div", { staticClass: "text-xs italic" }, [
                         _vm._v(
@@ -60453,7 +60460,7 @@ var render = function () {
                         "button",
                         {
                           staticClass:
-                            "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex justify-center",
+                            "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center",
                           on: {
                             click: function ($event) {
                               $event.preventDefault()
@@ -60465,7 +60472,7 @@ var render = function () {
                           _c(
                             "svg",
                             {
-                              staticClass: "h-6 w-6",
+                              staticClass: "h-4 w-4",
                               attrs: {
                                 xmlns: "http://www.w3.org/2000/svg",
                                 fill: "none",
@@ -60484,9 +60491,10 @@ var render = function () {
                               }),
                             ]
                           ),
-                          _vm._v(
-                            "\r\n                                Hapus\r\n                            "
-                          ),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "text-sm" }, [
+                            _vm._v("Hapus"),
+                          ]),
                         ]
                       ),
                     ]),
@@ -60516,6 +60524,8 @@ var staticRenderFns = [
           _c("th", { staticClass: "px-3 py-2" }, [_vm._v("No")]),
           _vm._v(" "),
           _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Nama Pengguna")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Kategori")]),
           _vm._v(" "),
           _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Isi Thread")]),
           _vm._v(" "),
@@ -60858,6 +60868,35 @@ var render = function () {
           },
         },
         [
+          _c(
+            "label",
+            { staticClass: "text-birumateri font-semibold text-base" },
+            [_vm._v("NIM")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user.nim,
+                expression: "user.nim",
+              },
+            ],
+            staticClass:
+              "w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+            attrs: { type: "text" },
+            domProps: { value: _vm.user.nim },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.user, "nim", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
           _c(
             "label",
             { staticClass: "text-birumateri font-semibold text-base" },
@@ -67206,7 +67245,13 @@ var render = function () {
                         "span",
                         {
                           staticClass:
-                            "inline-flex items-center px-2 py-1 text-xs font-bold leading-none text-white bg-indigo-600 rounded",
+                            "inline-flex items-center px-2 py-1 text-xs font-bold leading-none text-white rounded",
+                          class:
+                            thread.kategori == "Pertanyaan"
+                              ? "bg-red-600"
+                              : thread.kategori == "Informasi"
+                              ? "bg-green-600"
+                              : "bg-indigo-600",
                         },
                         [_vm._v(_vm._s(thread.kategori))]
                       ),

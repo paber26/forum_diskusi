@@ -39,7 +39,7 @@
                                 <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
                             </div>
                         </div>
-                        <span class="inline-flex items-center px-2 py-1 text-xs font-bold leading-none text-white bg-indigo-600 rounded">{{ thread.kategori }}</span>
+                        <span :class="thread.kategori == 'Pertanyaan' ? 'bg-red-600': thread.kategori=='Informasi' ? 'bg-green-600' : 'bg-indigo-600'" class="inline-flex items-center px-2 py-1 text-xs font-bold leading-none text-white rounded">{{ thread.kategori }}</span>
                     </div>
                     <div class="flex m-1">
                         <div class="flex flex-col items-center ml-2">

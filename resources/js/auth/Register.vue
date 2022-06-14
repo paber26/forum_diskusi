@@ -3,6 +3,9 @@
     <div class="border-2 border-gray-300 p-4 rounded-xl">
         <form @submit.prevent="register()" class="">
             <!-- {{ csrf_token() }} -->
+            <label class="text-birumateri font-semibold text-base">NIM</label>
+            <input v-model="user.nim" type="text" class="w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+
             <label class="text-birumateri font-semibold text-base">Nama</label>
             <input v-model="user.nama" type="text" class="w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
 
@@ -45,6 +48,7 @@ export default {
     data() {
         return {
             user: {
+                nim: '',
                 nama: '',
                 email: '',
                 password: ''
