@@ -21,7 +21,7 @@
                         <th class="px-3 py-2">No</th>
                         <th class="px-3 py-2">Nama Pengguna</th>
                         <th class="px-3 py-2">Kategori</th>
-                        <th class="px-3 py-2">Isi Thread</th>
+                        <th class="px-3 py-2">Judul Thread</th>
                         <th class="px-3 py-2">Dukungan</th>
                         <th class="px-3 py-2">Tanggapan</th>
                         <th class="px-3 py-2"></th>

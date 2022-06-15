@@ -63,11 +63,9 @@ export default {
     data() {
         return {
             fields: {
-                idd: '',
                 kategori: '',
                 judul: '',
                 isi: '',
-                draft: true,
             },
             daftardraft: ''
         }
@@ -126,8 +124,7 @@ export default {
             console.log(this.fields.kategori)
             console.log(this.fields.judul)
             console.log(this.fields.isi)
-            console.log(this.fields.draft)
-            axios.post('/api/user/buat_thread', this.fields, {
+            axios.post('/api/user/draft_thread', this.fields, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token

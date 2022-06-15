@@ -12,39 +12,71 @@ class UserThread extends Controller
 {
     public function buat_thread(Request $request)
     {
+        $kategori = $request->kategori;
         $isi = $request->isi;
         $idd = $request->idd;
+
+        if ($kategori == null) {
+            $kategori = '';
+        }
         if ($isi == null) {
             $isi = '';
         }
-        if ($request->draft == true) {
-            if ($request->idd == null) {
-                $stt = [
-                    'idd' => uniqid(),
-                    'nim' => Auth::user()->nim,
-                    'kategori' => $request->kategori,
-                    'judul' => $request->judul,
-                    'isi' => $isi,
-                ];
-                DB::table('draft_thread')->insert($stt);
-            } else {
-                $stt = [
-                    'kategori' => $request->kategori,
-                    'judul' => $request->judul,
-                    'isi' => $isi,
-                ];
-                DB::table('draft_thread')->where('idd', $idd)->update($stt);
-            }
-        } else {
+
+        if ($idd == null) {
             $stt = [
                 'idt' => uniqid(),
                 'nim' => Auth::user()->nim,
-                'kategori' => $request->kategori,
+                'kategori' => $kategori,
+                'judul' => $request->judul,
+                'isi' => $isi,
+            ];
+            DB::table('thread')->insert($stt);
+        } else {
+            $stt = [
+                'idt' => $idd,
+                'nim' => Auth::user()->nim,
+                'kategori' => $kategori,
                 'judul' => $request->judul,
                 'isi' => $isi,
             ];
             DB::table('thread')->insert($stt);
         }
+
+        return 'Berhasil';
+    }
+
+    public function draft_thread(Request $request)
+    {
+        $kategori = $request->kategori;
+        $isi = $request->isi;
+        $idd = $request->idd;
+
+        if ($kategori == null) {
+            $kategori = '';
+        }
+        if ($isi == null) {
+            $isi = '';
+        }
+
+        if ($idd == null) {
+            $stt = [
+                'idd' => uniqid(),
+                'nim' => Auth::user()->nim,
+                'kategori' => $kategori,
+                'judul' => $request->judul,
+                'isi' => $isi,
+            ];
+            DB::table('draft_thread')->insert($stt);
+        } else {
+            $stt = [
+                'kategori' => $kategori,
+                'judul' => $request->judul,
+                'isi' => $isi
+            ];
+            DB::table('draft_thread')->where('idd', $idd)->update($stt);
+        }
+
         return 'Berhasil';
     }
 
@@ -66,8 +98,6 @@ class UserThread extends Controller
     {
         $urutan = $request->urutan;
         $kategori = $request->kategori;
-
-        // return $kategori;
 
         $q = DB::table('thread')
             ->select('thread.*', 'users.nama')
@@ -94,7 +124,6 @@ class UserThread extends Controller
                 ->orderBy('tdukungan', 'desc')->get();
         }
 
-        // return $q;
         if ($q == null) {
             return 0;
         } else {
@@ -134,76 +163,75 @@ class UserThread extends Controller
         }
     }
 
-    public function getthread($idt = null)
+    public function getthread($idt)
     {
-        if ($idt === null) {
-            $q = DB::table('thread')
-                ->select('thread.*', 'users.nama')
-                ->leftJoin('users', 'thread.nim', '=', 'users.nim')
-                ->orderBy('date', 'desc')->get();
-            if ($q == null) {
-                return 0;
-            } else {
-                $q2 = DB::table('thread')->select('thread.idt', 'dukungan_thread.pilihan')
-                    ->leftJoin('dukungan_thread', 'thread.idt', '=', 'dukungan_thread.idt')
-                    ->where('dukungan_thread.nim', Auth::user()->nim)->get()->toArray();
-                // return $q2;
+        // if ($idt === null) {
+        // $q = DB::table('thread')
+        //     ->select('thread.*', 'users.nama')
+        //     ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+        //     ->orderBy('date', 'desc')->get();
+        // if ($q == null) {
+        //     return 0;
+        // } else {
+        //     $q2 = DB::table('thread')->select('thread.idt', 'dukungan_thread.pilihan')
+        //         ->leftJoin('dukungan_thread', 'thread.idt', '=', 'dukungan_thread.idt')
+        //         ->where('dukungan_thread.nim', Auth::user()->nim)->get()->toArray();
+        //     // return $q2;
 
-                $daftarthread = [];
-                foreach ($q as $row) {
-                    $cari = array_search(
-                        $row->idt,
-                        array_column($q2, 'idt')
-                    );
+        //     $daftarthread = [];
+        //     foreach ($q as $row) {
+        //         $cari = array_search(
+        //             $row->idt,
+        //             array_column($q2, 'idt')
+        //         );
 
-                    if (strval($cari) == null) {
-                        $pilihan = '';
-                    } else {
-                        $pilihan = $q2[$cari]->pilihan;
-                    }
-                    array_push($daftarthread, [
-                        'idt' => $row->idt,
-                        'nim' => $row->nim,
-                        'kategori' => $row->kategori,
-                        'nama' => $row->nama,
-                        'judul' => $row->judul,
-                        'isi' => $row->isi,
-                        'date' => $row->date,
-                        'tdukungan' => $row->tdukungan,
-                        'tmenanggapi' => $row->tmenanggapi,
-                        'tmelihat' => $row->tmelihat,
-                        'pilihan' => $pilihan
-                    ]);
-                }
+        //         if (strval($cari) == null) {
+        //             $pilihan = '';
+        //         } else {
+        //             $pilihan = $q2[$cari]->pilihan;
+        //         }
+        //         array_push($daftarthread, [
+        //             'idt' => $row->idt,
+        //             'nim' => $row->nim,
+        //             'kategori' => $row->kategori,
+        //             'nama' => $row->nama,
+        //             'judul' => $row->judul,
+        //             'isi' => $row->isi,
+        //             'date' => $row->date,
+        //             'tdukungan' => $row->tdukungan,
+        //             'tmenanggapi' => $row->tmenanggapi,
+        //             'tmelihat' => $row->tmelihat,
+        //             'pilihan' => $pilihan
+        //         ]);
+        //     }
 
-                return response()->json($daftarthread);
-            }
+        //     return response()->json($daftarthread);
+        // }
+        // } else {
+        $q = DB::table('thread')
+            ->select('thread.*', 'users.nama')
+            ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+            ->where('idt', $idt)->first();
+        $q2 = DB::table('dukungan_thread')->where(['idt' => $idt, 'nim' => Auth::user()->nim])->first();
+
+        if ($q2 == null) {
+            $pilihan = '';
         } else {
-            $q = DB::table('thread')
-                ->select('thread.*', 'users.nama')
-                ->leftJoin('users', 'thread.nim', '=', 'users.nim')
-                ->where('idt', $idt)->first();
-            $q2 = DB::table('dukungan_thread')->where(['idt' => $idt, 'nim' => Auth::user()->nim])->first();
-
-            if ($q2 == null) {
-                $pilihan = '';
-            } else {
-                $pilihan = $q2->pilihan;
-            }
-            // return $pilihan;
-            return [
-                'idt' => $q->idt,
-                'nim' => $q->nim,
-                'nama' => $q->nama,
-                'judul' => $q->judul,
-                'isi' => $q->isi,
-                'date' => $q->date,
-                'tdukungan' => $q->tdukungan,
-                'tmenanggapi' => $q->tmenanggapi,
-                'tmelihat' => $q->tmelihat,
-                'pilihan' => $pilihan
-            ];
+            $pilihan = $q2->pilihan;
         }
+        return [
+            'idt' => $q->idt,
+            'nim' => $q->nim,
+            'nama' => $q->nama,
+            'judul' => $q->judul,
+            'isi' => $q->isi,
+            'date' => $q->date,
+            'tdukungan' => $q->tdukungan,
+            'tmenanggapi' => $q->tmenanggapi,
+            'tmelihat' => $q->tmelihat,
+            'pilihan' => $pilihan
+        ];
+        // }
     }
 
     public function tanggapi(Request $request)

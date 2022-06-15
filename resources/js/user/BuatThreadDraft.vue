@@ -69,7 +69,6 @@ export default {
                 kategori: '',
                 judul: '',
                 isi: '',
-                draft: true,
             },
             daftardraft: ''
         }
@@ -103,6 +102,10 @@ export default {
             })
         },
         upload() {
+            if (this.fields.kategori == '') {
+                this.$swal('Pilih Kategori Thread')
+                return
+            }
             if (this.fields.judul == '') {
                 this.$swal('Masukkan Judul')
                 return
@@ -117,6 +120,7 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
+                console.log(response.data)
                 if (response.data == 'Berhasil') {
                     this.$swal('Thread Berhasil Ditambahkan')
                     this.$router.push('/user')
@@ -131,9 +135,8 @@ export default {
             console.log(this.fields.kategori)
             console.log(this.fields.judul)
             console.log(this.fields.isi)
-            console.log(this.fields.draft)
             
-            axios.post('/api/user/buat_thread', this.fields, {
+            axios.post('/api/user/draft_thread', this.fields, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
@@ -148,7 +151,6 @@ export default {
                 this.$router.push({
                     path: '/user/buat_thread'
                 })
-                this.getdraftthread()
             })
         },
         hapus() {

@@ -97,7 +97,7 @@ export default {
         }
     },
     mounted() {
-        this.getthread()
+        this.cari()
     },
     methods: {
         getthread() {
@@ -126,7 +126,7 @@ export default {
                 },
             }).then(response => {
                 console.log(response.data)
-                this.getthread()
+                this.cari()
             })
         },
         laporthread(idt) {

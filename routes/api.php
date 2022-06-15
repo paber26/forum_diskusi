@@ -28,6 +28,7 @@ Route::group(
     ['middleware' => 'auth:api'],
     function () {
         Route::post('user/buat_thread', [UserThread::class, 'buat_thread']);
+        Route::post('user/draft_thread', [UserThread::class, 'draft_thread']);
         Route::delete('user/buat_thread/hapus/{idd}', [UserThread::class, 'hapus']);
 
         Route::post('user/getthreadfilter', [UserThread::class, 'getthreadfilter']);
