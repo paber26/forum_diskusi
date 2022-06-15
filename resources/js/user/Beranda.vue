@@ -63,7 +63,7 @@
                     <hr>
                     <div class="flex justify-between py-1.5">
                         <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
-                        <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-else>Lihat {{ thread.tmenanggapi }} jawaban</button>
+                        <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-else>Lihat {{ thread.tmenanggapi }} tanggapan</button>
                         <div class="relative">
                             <button @click="isOptionsExpanded = !isOptionsExpanded" @blur="isOptionsExpanded = false" class="relative flex items-center px-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -124,9 +124,10 @@ export default {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
-            }).then(
+            }).then(response => {
+                console.log(response.data)
                 this.getthread()
-            )
+            })
         },
         laporthread(idt) {
             console.log(idt)

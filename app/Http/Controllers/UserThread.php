@@ -131,13 +131,13 @@ class UserThread extends Controller
                 ->select('thread.*', 'users.nama')
                 ->leftJoin('users', 'thread.nim', '=', 'users.nim')
                 ->orderBy('date', 'desc')->get();
-            // return $q;
             if ($q == null) {
                 return 0;
             } else {
                 $q2 = DB::table('thread')->select('thread.idt', 'dukungan_thread.pilihan')
                     ->leftJoin('dukungan_thread', 'thread.idt', '=', 'dukungan_thread.idt')
                     ->where('dukungan_thread.nim', Auth::user()->nim)->get()->toArray();
+                // return $q2;
 
                 $daftarthread = [];
                 foreach ($q as $row) {
@@ -219,37 +219,33 @@ class UserThread extends Controller
     public function gettanggapan($idt)
     {
         $q = DB::table('tanggapan')->where('idt', $idt)->get();
-        if ($q == null) {
-            return 0;
-        } else {
-            $q2 = DB::table('tanggapan')->select('tanggapan.idtn', 'dukungan_tanggapan.pilihan')
-                ->leftJoin('dukungan_tanggapan', 'tanggapan.idtn', '=', 'dukungan_tanggapan.idtn')
-                ->where('dukungan_tanggapan.nim', Auth::user()->nim)->get()->toArray();
+        $q2 = DB::table('tanggapan')->select('tanggapan.idtn', 'dukungan_tanggapan.pilihan')
+            ->leftJoin('dukungan_tanggapan', 'tanggapan.idtn', '=', 'dukungan_tanggapan.idtn')
+            ->where('dukungan_tanggapan.nim', Auth::user()->nim)->get()->toArray();
 
-            $daftartanggapan = [];
-            foreach ($q as $row) {
-                $cari = array_search(
-                    $row->idtn,
-                    array_column($q2, 'idtn')
-                );
+        $daftartanggapan = [];
+        foreach ($q as $row) {
+            $cari = array_search(
+                $row->idtn,
+                array_column($q2, 'idtn')
+            );
 
-                if (strval($cari) == null) {
-                    $pilihan = '';
-                } else {
-                    $pilihan = $q2[$cari]->pilihan;
-                }
-                array_push($daftartanggapan, [
-                    'idtn' => $row->idtn,
-                    'nim' => $row->nim,
-                    'isi' => $row->isi,
-                    'date' => $row->date,
-                    'tdukungan' => $row->tdukungan,
-                    'pilihan' => $pilihan
-                ]);
+            if (strval($cari) == null) {
+                $pilihan = '';
+            } else {
+                $pilihan = $q2[$cari]->pilihan;
             }
-
-            return response()->json($daftartanggapan);
+            array_push($daftartanggapan, [
+                'idtn' => $row->idtn,
+                'nim' => $row->nim,
+                'isi' => $row->isi,
+                'date' => $row->date,
+                'tdukungan' => $row->tdukungan,
+                'pilihan' => $pilihan
+            ]);
         }
+
+        return response()->json($daftartanggapan);
     }
 
     public function dukungthread(Request $request)
@@ -275,6 +271,7 @@ class UserThread extends Controller
                 'pilihan' => $pilihan
             ];
             DB::table('dukungan_thread')->insert($stt);
+            return $stt;
         } else {
             if (($q->first()->pilihan == 'naik') && ($pilihan == 'naik')) {
                 $q->delete();

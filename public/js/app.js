@@ -5711,6 +5711,8 @@ __webpack_require__.r(__webpack_exports__);
       this.$router.push('/user/tanggapi/' + idt);
     },
     dukung: function dukung(idt, pilihan) {
+      var _this2 = this;
+
       var detail = {
         'idt': idt,
         'pilihan': pilihan
@@ -5720,10 +5722,14 @@ __webpack_require__.r(__webpack_exports__);
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + this.user.api_token
         }
-      }).then(this.getthread());
+      }).then(function (response) {
+        console.log(response.data);
+
+        _this2.getthread();
+      });
     },
     laporthread: function laporthread(idt) {
-      var _this2 = this;
+      var _this3 = this;
 
       console.log(idt);
       var detail = {
@@ -5738,14 +5744,14 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
 
         if (response.data == 'Berhasil') {
-          _this2.$swal('Berhasil melaporkan');
+          _this3.$swal('Berhasil melaporkan');
         } else if (response.data == 'Sudah') {
-          _this2.$swal('Kamu sudah melaporkan');
+          _this3.$swal('Kamu sudah melaporkan');
         }
       });
     },
     cari: function cari() {
-      var _this3 = this;
+      var _this4 = this;
 
       var detail = {
         'urutan': this.fields.urutan,
@@ -5759,8 +5765,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         console.log(response.data);
-        _this3.daftarthread = response.data;
-        console.log(_this3.daftarthread);
+        _this4.daftarthread = response.data;
+        console.log(_this4.daftarthread);
       });
     }
   }
@@ -6034,7 +6040,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       fields: {
         judul: '',
-        isi: ''
+        isi: '',
+        kategori: ''
       },
       daftardraft: ''
     };
@@ -6050,6 +6057,7 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function (response) {
       _this.fields.judul = response.data.judul;
       _this.fields.isi = response.data.isi;
+      _this.fields.kategori = response.data.kategori;
     });
     axios.get('/api/user/getdraftthread', {
       headers: {
@@ -67395,7 +67403,9 @@ var render = function () {
                           },
                           [
                             _vm._v(
-                              "Lihat " + _vm._s(thread.tmenanggapi) + " jawaban"
+                              "Lihat " +
+                                _vm._s(thread.tmenanggapi) +
+                                " tanggapan"
                             ),
                           ]
                         ),
@@ -67763,13 +67773,69 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
-    _c("div", { staticClass: "w-5/6 sm:w-4/5 flex flex-col justify-center" }, [
+    _c("div", { staticClass: "w-5/6 sm:w-3/4 flex flex-col justify-center" }, [
       _c("span", { staticClass: "font-bold text-xl mt-3 mb-2" }, [
         _vm._v("Buat Thread"),
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "grid grid-cols-12 gap-3" }, [
         _c("div", { staticClass: "col-span-12 sm:col-span-8 lg:col-span-9" }, [
+          _c("div", { staticClass: "bg-white w-full p-2 rounded-md mb-2" }, [
+            _c("label", { staticClass: "font-medium text-sm" }, [
+              _vm._v("Pilih Kategori"),
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fields.kategori,
+                    expression: "fields.kategori",
+                  },
+                ],
+                staticClass:
+                  "bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5",
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.fields,
+                      "kategori",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                },
+              },
+              [
+                _c("option", { attrs: { value: "", selected: "" } }, [
+                  _vm._v("Kategori"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Pertanyaan" } }, [
+                  _vm._v("Pertanyaan"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Informasi" } }, [
+                  _vm._v("Informasi Statistik"),
+                ]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "Ulasan" } }, [
+                  _vm._v("Ulasan Jurnal/Buku/Sumber lainnya"),
+                ]),
+              ]
+            ),
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" }, [
             _c("div", { staticClass: "grid grid-cols-6 items-center" }, [
               _c("label", { staticClass: "col-span-1" }, [
@@ -67931,8 +67997,6 @@ var render = function () {
               ],
               2
             ),
-            _vm._v(" "),
-            _vm._m(0),
           ]
         ),
       ]),
@@ -67941,38 +68005,7 @@ var render = function () {
     _c("div", { staticClass: "mb-5" }),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-white w-full p-2 rounded-md" }, [
-      _c("label", { staticClass: "font-medium text-sm" }, [
-        _vm._v("Pilih Kategori"),
-      ]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass:
-            "bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5",
-          attrs: { id: "countries" },
-        },
-        [
-          _c("option", { attrs: { selected: "" } }, [_vm._v("Kategori")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "US" } }, [_vm._v("United States")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "CA" } }, [_vm._v("Canada")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "FR" } }, [_vm._v("France")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "DE" } }, [_vm._v("Germany")]),
-        ]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
