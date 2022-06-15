@@ -4,7 +4,7 @@
         <span class="font-bold text-2xl mt-4 mb-3">Kelola Tanggapan</span>
         <!-- <span class="font-bold text-2xl mt-4">Kelola Thread</span> -->
 
-        <div class="relative overflow-x-auto sm:rounded-lg">
+        <div class="relative overflow-x-auto">
             <div class="pb-3 flex justify-end">
                 <div class="relative mt-1">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">

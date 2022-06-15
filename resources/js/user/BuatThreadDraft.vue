@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="flex justify-between -mb-1">
-                        <button @click.prevent="simpan()" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3">
+                        <button @click.prevent="simpandraft()" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3">
                             Simpan Draft
                         </button>
                         <button @click.prevent="hapus()" class="bg-red-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
@@ -50,7 +50,7 @@
                         </a>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
@@ -65,9 +65,11 @@ export default {
     data() {
         return {
             fields: {
+                idd: this.idd,
+                kategori: '',
                 judul: '',
                 isi: '',
-                kategori: ''
+                draft: true,
             },
             daftardraft: ''
         }
@@ -121,6 +123,34 @@ export default {
                 }
             })
         },
+        simpandraft() {
+            if (this.fields.judul == '') {
+                this.$swal('Masukkan Judul Thread')
+                return
+            }
+            console.log(this.fields.kategori)
+            console.log(this.fields.judul)
+            console.log(this.fields.isi)
+            console.log(this.fields.draft)
+            
+            axios.post('/api/user/buat_thread', this.fields, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then(response => {
+                console.log(response.data)
+                if (response.data == 'Berhasil') {
+                    this.$swal('Draft Berhasil Disimpan')
+                    this.fields.judul = ''
+                    this.fields.isi = ''
+                }
+                this.$router.push({
+                    path: '/user/buat_thread'
+                })
+                this.getdraftthread()
+            })
+        },
         hapus() {
             this.$swal({
                 title: 'Apakah kamu yakin ingin menghapus?',
@@ -147,6 +177,7 @@ export default {
                 }
             })
         }
+        
     }
 }
 </script>

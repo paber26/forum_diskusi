@@ -9,6 +9,20 @@ use Illuminate\Support\Facades\DB;
 
 class AdminThread extends Controller
 {
+    public function getjumlah()
+    {
+        $stt = [
+            'thread' => DB::table('thread')->count(),
+            'tanggapan' => DB::table('tanggapan')->count(),
+            'users' => DB::table('users')->count()
+        ];
+        // $jthread = DB::table('thread')->count();
+        // $jtanggapan = DB::table('tanggapan')->count();
+        // $jpeserta = DB::table('users')->count();
+        // return response()->json(array($jthread, $jtanggapan, $jpeserta));
+        return $stt;
+    }
+
     public function getthread($idt = null)
     {
         if ($idt == null) {

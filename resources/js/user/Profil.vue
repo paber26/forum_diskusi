@@ -10,13 +10,13 @@
                         </svg>
 
                         <div class="ml-2">
-                            <div class="font-semibold">{{ user.nama }}</div>
-                            <div class="text-xs">0 Pengikut | 5 Mengikuti</div>
+                            <div class="font-bold">{{ user.nama }}</div>
+                            <!-- <div class="text-xs">0 Pengikut | 5 Mengikuti</div> -->
                         </div>
                     </div>
-                    <button @click.prevent="profiledit()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full">
+                    <router-link to="/user/profil/edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full">
                         Edit Profil
-                    </button>
+                    </router-link>
                 </div>
             </div>
 
@@ -182,9 +182,6 @@ export default {
                 this.daftarthread = response.data[1]
                 console.log(this.daftarthread)
             })
-        },
-        profiledit() {
-            this.$router.push({})
         },
         tanggapi(idt) {
             this.$router.push('/user/tanggapi/' + idt)

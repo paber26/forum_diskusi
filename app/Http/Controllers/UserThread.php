@@ -13,18 +13,28 @@ class UserThread extends Controller
     public function buat_thread(Request $request)
     {
         $isi = $request->isi;
+        $idd = $request->idd;
         if ($isi == null) {
             $isi = '';
         }
         if ($request->draft == true) {
-            $stt = [
-                'idd' => uniqid(),
-                'nim' => Auth::user()->nim,
-                'kategori' => $request->kategori,
-                'judul' => $request->judul,
-                'isi' => $isi,
-            ];
-            DB::table('draft_thread')->insert($stt);
+            if ($request->idd == null) {
+                $stt = [
+                    'idd' => uniqid(),
+                    'nim' => Auth::user()->nim,
+                    'kategori' => $request->kategori,
+                    'judul' => $request->judul,
+                    'isi' => $isi,
+                ];
+                DB::table('draft_thread')->insert($stt);
+            } else {
+                $stt = [
+                    'kategori' => $request->kategori,
+                    'judul' => $request->judul,
+                    'isi' => $isi,
+                ];
+                DB::table('draft_thread')->where('idd', $idd)->update($stt);
+            }
         } else {
             $stt = [
                 'idt' => uniqid(),
@@ -145,7 +155,6 @@ class UserThread extends Controller
                         $row->idt,
                         array_column($q2, 'idt')
                     );
-
 
                     if (strval($cari) == null) {
                         $pilihan = '';
@@ -271,7 +280,6 @@ class UserThread extends Controller
                 'pilihan' => $pilihan
             ];
             DB::table('dukungan_thread')->insert($stt);
-            return $stt;
         } else {
             if (($q->first()->pilihan == 'naik') && ($pilihan == 'naik')) {
                 $q->delete();

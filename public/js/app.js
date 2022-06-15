@@ -2158,22 +2158,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       daftarthread: '',
       daftartanggapan: '',
-      isactive: 'thread'
+      isactive: 'thread',
+      jumlah: ''
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/admin/getjumlah', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
+      _this.jumlah = response.data;
+      console.log(_this.jumlah);
+    });
     this.getthread();
     this.gettanggapan();
   },
   methods: {
     getthread: function getthread() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/api/admin/getthread', {
         headers: {
@@ -2181,12 +2207,12 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        _this.daftarthread = response.data;
-        console.log(_this.daftarthread);
+        _this2.daftarthread = response.data;
+        console.log(_this2.daftarthread);
       });
     },
     gettanggapan: function gettanggapan() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get('/api/admin/gettanggapan', {
         headers: {
@@ -2194,7 +2220,7 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        _this2.daftartanggapan = response.data;
+        _this3.daftartanggapan = response.data;
       });
     },
     lihat: function lihat(ktg) {
@@ -5849,6 +5875,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {
+        idd: '',
         kategori: '',
         judul: '',
         isi: '',
@@ -6039,9 +6066,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       fields: {
+        idd: this.idd,
+        kategori: '',
         judul: '',
         isi: '',
-        kategori: ''
+        draft: true
       },
       daftardraft: ''
     };
@@ -6102,8 +6131,42 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    hapus: function hapus() {
+    simpandraft: function simpandraft() {
       var _this3 = this;
+
+      if (this.fields.judul == '') {
+        this.$swal('Masukkan Judul Thread');
+        return;
+      }
+
+      console.log(this.fields.kategori);
+      console.log(this.fields.judul);
+      console.log(this.fields.isi);
+      console.log(this.fields.draft);
+      axios.post('/api/user/buat_thread', this.fields, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data);
+
+        if (response.data == 'Berhasil') {
+          _this3.$swal('Draft Berhasil Disimpan');
+
+          _this3.fields.judul = '';
+          _this3.fields.isi = '';
+        }
+
+        _this3.$router.push({
+          path: '/user/buat_thread'
+        });
+
+        _this3.getdraftthread();
+      });
+    },
+    hapus: function hapus() {
+      var _this4 = this;
 
       this.$swal({
         title: 'Apakah kamu yakin ingin menghapus?',
@@ -6111,13 +6174,13 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Hapus'
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios["delete"]('/api/user/buat_thread/hapus/' + _this3.idd + '', {
+          axios["delete"]('/api/user/buat_thread/hapus/' + _this4.idd + '', {
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + _this3.user.api_token
+              'Authorization': 'Bearer ' + _this4.user.api_token
             }
           }).then(function (response) {
-            _this3.$swal({
+            _this4.$swal({
               text: 'Berhasil menghapus',
               icon: 'success',
               showConfirmButton: false,
@@ -6388,9 +6451,6 @@ __webpack_require__.r(__webpack_exports__);
         _this2.daftarthread = response.data[1];
         console.log(_this2.daftarthread);
       });
-    },
-    profiledit: function profiledit() {
-      this.$router.push({});
     },
     tanggapi: function tanggapi(idt) {
       this.$router.push('/user/tanggapi/' + idt);
@@ -58594,6 +58654,99 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _c(
+      "div",
+      { staticClass: "w-11/12 grid grid-cols-3 gap-2 justify-center mt-4" },
+      [
+        _c(
+          "div",
+          { staticClass: "col-span-3 lg:col-span-1 bg-white rounded-lg" },
+          [
+            _c(
+              "button",
+              { staticClass: "p-3 hover:bg-red-300 rounded-lg w-full" },
+              [
+                _c(
+                  "h5",
+                  {
+                    staticClass:
+                      "mb-2 text-xl font-semibold text-gray-900 text-left",
+                  },
+                  [_vm._v("Jumlah Thread")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-gray-700 text-3xl font-bold text-right",
+                  },
+                  [_vm._v(_vm._s(_vm.jumlah.thread))]
+                ),
+              ]
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-span-3 lg:col-span-1 bg-white rounded-lg" },
+          [
+            _c(
+              "button",
+              { staticClass: "p-3 hover:bg-red-300 rounded-lg w-full" },
+              [
+                _c(
+                  "h5",
+                  {
+                    staticClass:
+                      "mb-2 text-xl font-semibold text-gray-900 text-left",
+                  },
+                  [_vm._v("Jumlah Tanggapan")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-gray-700 text-3xl font-bold text-right",
+                  },
+                  [_vm._v(_vm._s(_vm.jumlah.tanggapan))]
+                ),
+              ]
+            ),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-span-3 lg:col-span-1 bg-white rounded-lg" },
+          [
+            _c(
+              "button",
+              { staticClass: "p-3 hover:bg-red-300 rounded-lg w-full" },
+              [
+                _c(
+                  "h5",
+                  {
+                    staticClass:
+                      "mb-2 text-xl font-semibold text-gray-900 text-left",
+                  },
+                  [_vm._v("Jumlah Pengguna")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "text-gray-700 text-3xl font-bold text-right",
+                  },
+                  [_vm._v(_vm._s(_vm.jumlah.users))]
+                ),
+              ]
+            ),
+          ]
+        ),
+      ]
+    ),
+    _vm._v(" "),
     _c("div", { staticClass: "w-5/6 sm:w-2/3 flex flex-col justify-center" }, [
       _c("div", { staticClass: "bg-white p-1 rounded-lg mt-4" }, [
         _c(
@@ -58645,7 +58798,7 @@ var render = function () {
       _c(
         "div",
         {
-          staticClass: "mt-4",
+          staticClass: "mt-2",
           class: _vm.isactive == "thread" ? "" : "hidden",
         },
         [
@@ -58866,7 +59019,7 @@ var render = function () {
       _c(
         "div",
         {
-          staticClass: "my-4",
+          staticClass: "my-2",
           class: _vm.isactive == "tanggapan" ? "" : "hidden",
         },
         [
@@ -59708,7 +59861,7 @@ var render = function () {
           _vm._v("Kelola Tanggapan"),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "relative overflow-x-auto sm:rounded-lg" }, [
+        _c("div", { staticClass: "relative overflow-x-auto" }, [
           _c("div", { staticClass: "pb-3 flex justify-end" }, [
             _c("div", { staticClass: "relative mt-1" }, [
               _c(
@@ -60338,7 +60491,7 @@ var render = function () {
           _vm._v("Kelola Thread"),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "relative overflow-x-auto sm:rounded-lg" }, [
+        _c("div", { staticClass: "relative overflow-x-auto" }, [
           _c("div", { staticClass: "pb-3 flex justify-end" }, [
             _c("div", { staticClass: "relative mt-1" }, [
               _c(
@@ -61198,9 +61351,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-row items-center w-36" }, [
+    return _c("div", { staticClass: "flex flex-row items-center w-52" }, [
       _c("div", { staticClass: "font-bold text-right" }, [
-        _c("div", { staticClass: "text-2xl" }, [_vm._v("Modul")]),
+        _c("div", { staticClass: "text-2xl" }, [_vm._v("Forum Diskusi")]),
         _vm._v(" "),
         _c("div", { staticClass: "text-lg -mt-2" }, [_vm._v("Polstat STIS")]),
       ]),
@@ -61431,9 +61584,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-row items-center w-36" }, [
+    return _c("div", { staticClass: "flex flex-row items-center w-52" }, [
       _c("div", { staticClass: "font-bold text-right" }, [
-        _c("div", { staticClass: "text-2xl" }, [_vm._v("Modul")]),
+        _c("div", { staticClass: "text-2xl" }, [_vm._v("Forum Diskusi")]),
         _vm._v(" "),
         _c("div", { staticClass: "text-lg -mt-2" }, [_vm._v("Polstat STIS")]),
       ]),
@@ -67905,7 +68058,7 @@ var render = function () {
                   on: {
                     click: function ($event) {
                       $event.preventDefault()
-                      return _vm.simpan()
+                      return _vm.simpandraft()
                     },
                   },
                 },
@@ -68166,61 +68319,57 @@ var render = function () {
     _c("div", { staticClass: "w-5/6 sm:w-2/3 flex flex-col justify-center" }, [
       _c("div", { staticClass: "mt-4" }, [
         _c("div", { staticClass: "bg-white w-full px-3 rounded-lg mb-3" }, [
-          _c("div", { staticClass: "flex items-center justify-between" }, [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-36 w-36",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
+          _c(
+            "div",
+            { staticClass: "flex items-center justify-between" },
+            [
+              _c("div", { staticClass: "flex items-center" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "h-36 w-36",
                     attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      viewBox: "0 0 24 24",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
                     },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "ml-2" }, [
-                _c("div", { staticClass: "font-semibold" }, [
-                  _vm._v(_vm._s(_vm.user.nama)),
-                ]),
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                      },
+                    }),
+                  ]
+                ),
                 _vm._v(" "),
-                _c("div", { staticClass: "text-xs" }, [
-                  _vm._v("0 Pengikut | 5 Mengikuti"),
+                _c("div", { staticClass: "ml-2" }, [
+                  _c("div", { staticClass: "font-bold" }, [
+                    _vm._v(_vm._s(_vm.user.nama)),
+                  ]),
                 ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass:
-                  "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full",
-                on: {
-                  click: function ($event) {
-                    $event.preventDefault()
-                    return _vm.profiledit()
-                  },
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass:
+                    "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full",
+                  attrs: { to: "/user/profil/edit" },
                 },
-              },
-              [
-                _vm._v(
-                  "\r\n                        Edit Profil\r\n                    "
-                ),
-              ]
-            ),
-          ]),
+                [
+                  _vm._v(
+                    "\r\n                        Edit Profil\r\n                    "
+                  ),
+                ]
+              ),
+            ],
+            1
+          ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "grid grid-cols-12 gap-3" }, [

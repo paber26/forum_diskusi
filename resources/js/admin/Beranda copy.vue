@@ -1,26 +1,5 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-11/12 grid grid-cols-3 gap-2 justify-center mt-4">
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg">
-            <button class="p-3 hover:bg-red-300 rounded-lg w-full">
-                <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Thread</h5>
-                <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.thread }}</p>
-            </button>
-        </div>
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg">
-            <button class="p-3 hover:bg-red-300 rounded-lg w-full">
-                <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Tanggapan</h5>
-                <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.tanggapan }}</p>
-            </button>
-        </div>
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg">
-            <button class="p-3 hover:bg-red-300 rounded-lg w-full">
-                <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Pengguna</h5>
-                <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.users }}</p>
-            </button>
-        </div>
-    </div>
-
     <div class="w-5/6 sm:w-2/3 flex flex-col justify-center">
         <div class="bg-white p-1 rounded-lg mt-4">
             <div class="grid grid-cols-2 justify-center items-center gap-3 mb-0.5 text-gray-700">
@@ -32,7 +11,7 @@
                 </button>
             </div>
         </div>
-        <div class="mt-2" :class="(isactive == 'thread') ? '':'hidden'">
+        <div class="mt-4" :class="(isactive == 'thread') ? '':'hidden'">
             <span class="font-bold text-lg mt-4">Thread Terbaru</span>
             <div class="bg-white w-full px-2 pt-3 rounded-lg mb-3" v-for="thread in daftarthread" :key="thread.idt">
                 <div class="flex items-center">
@@ -63,6 +42,13 @@
                         <a @click.prevent="lihattanggapan(thread.idt, 'Thread')" class="flex items-center cursor-pointer">
                             <span class="font-bold text-lg mb-2" v-html="thread.judul"></span>
                         </a>
+                        <!-- <a @click.prevent="lihattanggapan(thread.idt)" class="flex items-center cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                            </svg>
+                            <span class="ml-2 text-lg font-bold">{{ tanggapan.judul }}</span>
+                        </a>
+                        <a @click.prevent="tanggapi(thread.idt)" class="font-bold text-lg mb-2 cursor-pointer" v-html="thread.judul"></a> -->
                         <span v-html="thread.isi"></span>
                     </div>
                 </div>
@@ -78,7 +64,7 @@
             <!-- <span class="font-semibold italic flex justify-end -mt-2">Lihat Selengkapnya</span> -->
         </div>
 
-        <div class="my-2" :class="(isactive == 'tanggapan') ? '':'hidden'">
+        <div class="my-4" :class="(isactive == 'tanggapan') ? '':'hidden'">
             <span class="font-bold text-lg mt-4">Tanggapan Terbaru</span>
             <div class="bg-white w-full p-3 rounded-lg mb-2.5" v-for="tanggapan in daftartanggapan" :key="tanggapan.idtn">
                 <div class="flex items-center">
@@ -112,20 +98,10 @@ export default {
         return {
             daftarthread: '',
             daftartanggapan: '',
-            isactive: 'thread',
-            jumlah: ''
+            isactive: 'thread'
         }
     },
     mounted() {
-        axios.get('/api/admin/getjumlah', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.user.api_token
-            },
-        }).then((response) => {
-            this.jumlah = response.data
-            console.log(this.jumlah)
-        })
         this.getthread()
         this.gettanggapan()
     },

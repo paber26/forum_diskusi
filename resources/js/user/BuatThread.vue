@@ -63,6 +63,7 @@ export default {
     data() {
         return {
             fields: {
+                idd: '',
                 kategori: '',
                 judul: '',
                 isi: '',
