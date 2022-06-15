@@ -22,7 +22,6 @@ class AdminThread extends Controller
     public function getthread($idt = null)
     {
         if ($idt == null) {
-            // $q = DB::table('thread')->orderBy('date', 'desc')->get();
             $q = DB::table('thread')
                 ->select('thread.*', 'users.nama')
                 ->leftJoin('users', 'thread.nim', '=', 'users.nim')
@@ -37,6 +36,20 @@ class AdminThread extends Controller
                 ->leftJoin('users', 'thread.nim', '=', 'users.nim')
                 ->where('idt', $idt)->first();
         }
+    }
+
+    public function hapus_thread($idt)
+    {
+        $tanggapan = DB::table('tanggapan')->select('idtn', 'nim')->where('idt', $idt)->get();
+
+        foreach ($tanggapan as $row) {
+            DB::table('tanggapan')->where('idtn', $row->idtn)->delete();
+            DB::table('dukungan_tanggapan')->where('idtn', $row->idtn)->delete();
+        }
+
+        DB::table('dukungan_thread')->where('idt', $idt)->delete();
+        DB::table('thread')->where('idt', $idt)->delete();
+        return 'Berhasil';
     }
 
     public function gettanggapan($idt = null)
@@ -56,6 +69,7 @@ class AdminThread extends Controller
     public function hapus_tanggapan($idtn)
     {
         DB::table('tanggapan')->where('idtn', $idtn)->delete();
+        DB::table('dukungan_tanggapan')->where('idtn', $idtn)->delete();
         return 'Berhasil';
     }
 }

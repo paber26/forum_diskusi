@@ -134,7 +134,6 @@ export default {
             let detail = {
                 'idt': idt
             }
-
             axios.post('/api/user/laporthread', detail, {
                 headers: {
                     'Content-Type': 'application/json',

@@ -386,6 +386,7 @@ class UserThread extends Controller
                 'idlt' => uniqid(),
                 'nim' => Auth::user()->nim,
                 'idt' => $idt,
+                'alasan' => ''
             ];
 
             DB::table('laporan_thread')->insert($stt);

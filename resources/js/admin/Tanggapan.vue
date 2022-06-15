@@ -86,7 +86,6 @@ export default {
             })
         },
         hapus(idtn) {
-            console.log(idtn)
             this.$swal({
                 title: 'Apakah yakin untuk menghapus?',
                 text: "Tindakan ini tidak dapat dikembalikan",

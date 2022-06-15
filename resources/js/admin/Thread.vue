@@ -70,34 +70,46 @@ export default {
         }
     },
     mounted() {
-        axios.get('/api/admin/getthread', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.user.api_token
-            },
-        }).then((response) => {
-            this.daftarthread = response.data
-            console.log(this.daftarthread)
-        })
+        this.getthread()
     },
     methods: {
-        hapus(idtn) {
-            console.log(idtn)
-            axios.post('/api/admin/hapus_tanggapan', idtn, {
+        getthread() {
+            axios.get('/api/admin/getthread', {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
-            }).then(response => {
-                console.log(response.data)
-                // if (response.data == 'Berhasil') {
-                //     this.$swal('Draft Berhasil Disimpan')
-                //     this.fields.judul = ''
-                //     this.fields.isi = ''
-                // }
-                // this.getdraftthread()
+            }).then((response) => {
+                this.daftarthread = response.data
+                console.log(this.daftarthread)
             })
-            this.$swal('Apakah kamu yakin ingin menghapus?');
+        },
+        hapus(idt) {
+            console.log(idt)
+            this.$swal({
+                title: 'Apakah yakin untuk menghapus?',
+                text: "Tindakan ini tidak dapat dikembalikan",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete('/api/admin/hapus_thread/' + idt, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + this.user.api_token
+                        },
+                    }).then(response => {
+                        console.log(response.data)
+                        if (response.data == 'Berhasil') {
+                            this.$swal('Berhasil menghapus')
+                            this.getthread()
+                        }
+                    })
+                }
+            })
         },
         lihattanggapan(idt, ktg) {
             this.$router.push('/admin/tanggapan/' + idt + '/' + ktg)

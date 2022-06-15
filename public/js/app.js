@@ -2569,7 +2569,6 @@ __webpack_require__.r(__webpack_exports__);
     hapus: function hapus(idtn) {
       var _this2 = this;
 
-      console.log(idtn);
       this.$swal({
         title: 'Apakah yakin untuk menghapus?',
         text: "Tindakan ini tidak dapat dikembalikan",
@@ -2825,35 +2824,52 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/admin/getthread', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.user.api_token
-      }
-    }).then(function (response) {
-      _this.daftarthread = response.data;
-      console.log(_this.daftarthread);
-    });
+    this.getthread();
   },
   methods: {
-    hapus: function hapus(idtn) {
-      console.log(idtn);
-      axios.post('/api/admin/hapus_tanggapan', idtn, {
+    getthread: function getthread() {
+      var _this = this;
+
+      axios.get('/api/admin/getthread', {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        console.log(response.data); // if (response.data == 'Berhasil') {
-        //     this.$swal('Draft Berhasil Disimpan')
-        //     this.fields.judul = ''
-        //     this.fields.isi = ''
-        // }
-        // this.getdraftthread()
+        _this.daftarthread = response.data;
+        console.log(_this.daftarthread);
       });
-      this.$swal('Apakah kamu yakin ingin menghapus?');
+    },
+    hapus: function hapus(idt) {
+      var _this2 = this;
+
+      console.log(idt);
+      this.$swal({
+        title: 'Apakah yakin untuk menghapus?',
+        text: "Tindakan ini tidak dapat dikembalikan",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios["delete"]('/api/admin/hapus_thread/' + idt, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + _this2.user.api_token
+            }
+          }).then(function (response) {
+            console.log(response.data);
+
+            if (response.data == 'Berhasil') {
+              _this2.$swal('Berhasil menghapus');
+
+              _this2.getthread();
+            }
+          });
+        }
+      });
     },
     lihattanggapan: function lihattanggapan(idt, ktg) {
       this.$router.push('/admin/tanggapan/' + idt + '/' + ktg);
@@ -60331,7 +60347,7 @@ var render = function () {
                 "div",
                 {
                   key: tanggapan.idtn,
-                  staticClass: "bg-white w-full px-3 pt-3 rounded-lg",
+                  staticClass: "bg-white w-full px-3 pt-3 rounded-lg mb-3",
                   attrs: { id: "yes1" },
                 },
                 [
