@@ -110,6 +110,7 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
+                console.log(response.data)
                 if (response.data == 'Berhasil') {
                     this.$swal('Thread Berhasil Ditambahkan')
                     this.$router.push('/user')

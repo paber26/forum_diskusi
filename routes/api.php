@@ -39,9 +39,11 @@ Route::group(
         Route::get('user/getthread/{idt}', [UserThread::class, 'getthread']);
         Route::post('user/tanggapi', [UserThread::class, 'tanggapi']);
         Route::post('user/laporthread', [UserThread::class, 'laporthread']);
+
         Route::get('user/gettanggapan/{idt}', [UserThread::class, 'gettanggapan']);
         Route::post('user/dukung/thread', [UserThread::class, 'dukungthread']);
         Route::post('user/dukung/tanggapan', [UserThread::class, 'dukungtanggapan']);
+        Route::post('user/laportanggapan', [UserThread::class, 'laportanggapan']);
 
 
         Route::post('user/profil/edit', [Profil::class, 'edit']);
@@ -59,6 +61,8 @@ Route::group(
         Route::get('admin/gettanggapan/{idtn}', [AdminThread::class, 'gettanggapan']);
         Route::delete('admin/hapus_tanggapan/{idtn}', [AdminThread::class, 'hapus_tanggapan']);
 
+        Route::get('admin/getlaporan_thread', [AdminThread::class, 'getlaporan_thread']);
+        Route::get('admin/getlaporan_tanggapan', [AdminThread::class, 'getlaporan_tanggapan']);
 
 
 

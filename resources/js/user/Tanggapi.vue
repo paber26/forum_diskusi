@@ -37,9 +37,16 @@
                 <div class="flex justify-between py-1.5">
                     <span class="font-semibold ml-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan </span>
                     <span class="font-semibold ml-2" v-else>{{ thread.tmenanggapi }} tanggapan</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                    </svg>
+                    <div class="relative">
+                        <button @click="isexpandthread = !isexpandthread" @blur="isexpandthread = false" class="relative flex items-center px-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                            </svg>
+                        </button>
+                        <div v-show="isexpandthread" class="origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border">
+                            <a class="block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer" @mousedown.prevent="laporthread(thread.idt)">Laporkan</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,11 +82,18 @@
                     <span class="ml-2" v-html="tanggapan.isi"></span>
                 </div>
                 <hr>
-                <div class="flex justify-between py-1.5">
-                    <button @click.prevent="tanggapi()" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2"></button>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                    </svg>
+                <div class="flex justify-end py-1.5">
+                    <!-- <button @click.prevent="tanggapi()" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2"></button> -->
+                    <div class="relative">
+                        <button @click="isexpandtanggapan = !isexpandtanggapan" @blur="isexpandtanggapan = false" class="relative flex items-center px-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                            </svg>
+                        </button>
+                        <div v-show="isexpandtanggapan" class="origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border">
+                            <a class="block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer" @mousedown.prevent="laportanggapan(tanggapan.idtn)">Laporkan</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="bg-birumateri w-full h-0.5 rounded-3xl my-1.5"></div>
@@ -113,6 +127,8 @@ export default {
         return {
             thread: '',
             daftartanggapan: '',
+            isexpandthread: false,
+            isexpandtanggapan: false,
             fields: {
                 idt: this.idt,
                 isi: ''
@@ -196,7 +212,26 @@ export default {
                 }
             })
             console.log(this.fields)
-        }
+        },
+        laportanggapan(idtn) {
+            console.log(idtn)
+            let detail = {
+                'idtn': idtn
+            }
+            axios.post('/api/user/laportanggapan', detail, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then(response => {
+                console.log(response.data)
+                if (response.data == 'Berhasil') {
+                    this.$swal('Berhasil melaporkan')
+                } else if (response.data == 'Sudah') {
+                    this.$swal('Kamu sudah melaporkan')
+                }
+            })
+        },
     }
 }
 </script>

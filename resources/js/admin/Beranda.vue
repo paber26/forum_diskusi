@@ -1,22 +1,34 @@
 <template>
 <div class="flex flex-col items-center w-full">
     <div class="w-11/12 grid grid-cols-3 gap-2 justify-center mt-4">
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg">
+        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
             <div class="p-3 rounded-lg w-full">
                 <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Thread</h5>
                 <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.thread }}</p>
             </div>
         </div>
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg">
+        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
             <div class="p-3 rounded-lg w-full">
                 <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Tanggapan</h5>
                 <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.tanggapan }}</p>
             </div>
         </div>
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg">
+        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
             <div class="p-3 rounded-lg w-full">
                 <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Pengguna</h5>
                 <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.users }}</p>
+            </div>
+        </div>
+        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
+            <div class="p-3 rounded-lg w-full">
+                <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Laporan</h5>
+                <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.laporan }}</p>
+            </div>
+        </div>
+        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
+            <div class="p-3 rounded-lg w-full">
+                <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Kategori</h5>
+                <p class="text-gray-700 text-3xl font-bold text-right">3</p>
             </div>
         </div>
     </div>
@@ -60,7 +72,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col ml-3.5">
-                        <a @click.prevent="lihattanggapan(thread.idt, 'Thread')" class="flex items-center cursor-pointer">
+                        <a @click.prevent="lihatthread(thread.idt)" class="flex items-center cursor-pointer">
                             <span class="font-bold text-lg mb-2" v-html="thread.judul"></span>
                         </a>
                         <span v-html="thread.isi"></span>
@@ -68,8 +80,8 @@
                 </div>
                 <hr>
                 <div class="flex justify-between py-1.5">
-                    <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
-                    <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-else>Lihat {{ thread.tmenanggapi }} jawaban</button>
+                    <button @click.prevent="lihatthread(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
+                    <button @click.prevent="lihatthread(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-else>Lihat {{ thread.tmenanggapi }} tanggapan</button>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                     </svg>
@@ -91,15 +103,15 @@
                         <div class="text-xs italic">Menanggapi pada {{ tanggapan.date }}</div>
                     </div>
                 </div>
-                <a @click.prevent="lihattanggapan(tanggapan.idt, 'Tanggapan')" class="flex items-center cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <a @click.prevent="lihatthread(tanggapan.idt)" class="flex items-center cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                     </svg>
                     <span class="ml-2 text-lg font-bold">{{ tanggapan.judul }}</span>
                 </a>
                 <span v-html="tanggapan.isi"></span>
             </div>
-            <span class="font-semibold italic flex justify-end -mt-2">Lihat Selengkapnya</span>
+            <!-- <span class="font-semibold italic flex justify-end -mt-2">Lihat Selengkapnya</span> -->
         </div>
     </div>
 </div>
@@ -160,8 +172,8 @@ export default {
                 this.gettanggapan()
             }
         },
-        lihattanggapan(idt, ktg) {
-            this.$router.push('/admin/tanggapan/' + idt + '/' + ktg)
+        lihatthread(idt) {
+            this.$router.push('/admin/thread/' + idt)
         },
     }
 }

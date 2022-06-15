@@ -12,6 +12,7 @@ const AdminLogin = require('../admin/auth/Login.vue').default;
 
 const AdminBeranda = require('../admin/Beranda.vue').default;
 const AdminThread = require('../admin/Thread.vue').default;
+const AdminThreadLihat = require('../admin/ThreadLihat.vue').default;
 const AdminTanggapan = require('../admin/Tanggapan.vue').default;
 const AdminTanggapanLihat = require('../admin/TanggapanLihat.vue').default;
 const AdminLaporan = require('../admin/Laporan.vue').default;
@@ -204,6 +205,11 @@ const routes = [
     {
         path: '/admin/thread',
         component: AdminThread
+    },
+    {
+        path: '/admin/thread/:idt',
+        component: AdminThreadLihat,
+        props: true
     },
     {
         path: '/admin/tanggapan',

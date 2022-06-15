@@ -40,6 +40,7 @@ class UserThread extends Controller
                 'judul' => $request->judul,
                 'isi' => $isi,
             ];
+            DB::table('draft_thread')->where('idd', $idd)->delete();
             DB::table('thread')->insert($stt);
         }
 
@@ -240,6 +241,7 @@ class UserThread extends Controller
         $q = DB::table('thread')->where('idt', $idt);
         $tmenanggapi = $q->first()->tmenanggapi;
 
+
         $q->update(['tmenanggapi' => $tmenanggapi + 1]);
 
         $stt = [
@@ -249,6 +251,7 @@ class UserThread extends Controller
             'isi' => $request->isi,
         ];
 
+        // return $stt;
         DB::table('tanggapan')->insert($stt);
         return 'Berhasil';
     }
@@ -390,6 +393,31 @@ class UserThread extends Controller
             ];
 
             DB::table('laporan_thread')->insert($stt);
+            return 'Berhasil';
+        } else {
+            return 'Sudah';
+        }
+    }
+
+    public function laportanggapan(Request $request)
+    {
+        $idtn = $request->idtn;
+
+        $q = DB::table('laporan_tanggapan')->where(['idtn' => $idtn, 'nim' => Auth::user()->nim])->first();
+
+        if ($q == null) {
+            $q2 = DB::table('tanggapan')->where('idtn', $idtn);
+            $tmelapor = $q2->first()->tmelapor;
+
+            $q2->update(['tmelapor' => $tmelapor + 1]);
+            $stt = [
+                'idltn' => uniqid(),
+                'nim' => Auth::user()->nim,
+                'idtn' => $idtn,
+                'alasan' => ''
+            ];
+
+            DB::table('laporan_tanggapan')->insert($stt);
             return 'Berhasil';
         } else {
             return 'Sudah';
