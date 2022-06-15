@@ -52,8 +52,10 @@ Route::group(
         Route::get('admin/getjumlah', [AdminThread::class, 'getjumlah']);
         Route::get('admin/getthread', [AdminThread::class, 'getthread']);
         Route::get('admin/getthread/{idt}', [AdminThread::class, 'getthread']);
+
         Route::get('admin/gettanggapan', [AdminThread::class, 'gettanggapan']);
         Route::get('admin/gettanggapan/{idtn}', [AdminThread::class, 'gettanggapan']);
+        Route::delete('admin/hapus_tanggapan/{idtn}', [AdminThread::class, 'hapus_tanggapan']);
 
 
 

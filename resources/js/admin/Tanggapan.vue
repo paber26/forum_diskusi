@@ -44,7 +44,7 @@
                         </td>
                         <td class="p-3">
                             <div class="flex justify-center">
-                                <button @click.prevent="hapus(daftartanggapan[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                                <button @click.prevent="hapus(daftartanggapan[index-1].idtn)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
@@ -71,19 +71,45 @@ export default {
         }
     },
     mounted() {
-        axios.get('/api/admin/gettanggapan', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.user.api_token
-            },
-        }).then((response) => {
-            this.daftartanggapan = response.data
-            console.log(this.daftartanggapan)
-        })
+        this.gettanggapan()
     },
     methods: {
-        hapus(idt) {
-            this.$swal('Apakah kamu yakin ingin menghapus?');
+        gettanggapan() {
+            axios.get('/api/admin/gettanggapan', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
+                this.daftartanggapan = response.data
+                console.log(this.daftartanggapan)
+            })
+        },
+        hapus(idtn) {
+            console.log(idtn)
+            this.$swal({
+                title: 'Apakah yakin untuk menghapus?',
+                text: "Tindakan ini tidak dapat dikembalikan",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete('/api/admin/hapus_tanggapan/' + idtn, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + this.user.api_token
+                        },
+                    }).then(response => {
+                        if (response.data == 'Berhasil') {
+                            this.$swal('Berhasil menghapus')
+                            this.gettanggapan()
+                        }
+                    })
+                }
+            })
         },
         lihattanggapan(idt, ktg) {
             this.$router.push('/admin/tanggapan/' + idt + '/' + ktg)

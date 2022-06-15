@@ -40,7 +40,6 @@
                             <a @click.prevent="lihattanggapan(daftarthread[index-1].idt, 'Tanggapan')" class="cursor-pointer font-semibold">
                                 {{ daftarthread[index-1].judul }}
                             </a>
-                            <!-- <span class="font-semibold">{{ daftarthread[index-1].judul }}</span> -->
                         </td>
                         <td class="p-3 text-center">{{ daftarthread[index-1].tdukungan }}</td>
                         <td class="p-3 text-center">{{ daftarthread[index-1].tmenanggapi }}</td>
@@ -82,7 +81,22 @@ export default {
         })
     },
     methods: {
-        hapus(idt) {
+        hapus(idtn) {
+            console.log(idtn)
+            axios.post('/api/admin/hapus_tanggapan', idtn, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then(response => {
+                console.log(response.data)
+                // if (response.data == 'Berhasil') {
+                //     this.$swal('Draft Berhasil Disimpan')
+                //     this.fields.judul = ''
+                //     this.fields.isi = ''
+                // }
+                // this.getdraftthread()
+            })
             this.$swal('Apakah kamu yakin ingin menghapus?');
         },
         lihattanggapan(idt, ktg) {

@@ -16,10 +16,6 @@ class AdminThread extends Controller
             'tanggapan' => DB::table('tanggapan')->count(),
             'users' => DB::table('users')->count()
         ];
-        // $jthread = DB::table('thread')->count();
-        // $jtanggapan = DB::table('tanggapan')->count();
-        // $jpeserta = DB::table('users')->count();
-        // return response()->json(array($jthread, $jtanggapan, $jpeserta));
         return $stt;
     }
 
@@ -55,5 +51,11 @@ class AdminThread extends Controller
         } else {
             return DB::table('tanggapan')->where('idt', $idt)->get();
         }
+    }
+
+    public function hapus_tanggapan($idtn)
+    {
+        DB::table('tanggapan')->where('idtn', $idtn)->delete();
+        return 'Berhasil';
     }
 }

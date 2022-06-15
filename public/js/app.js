@@ -2550,21 +2550,50 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/admin/gettanggapan', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.user.api_token
-      }
-    }).then(function (response) {
-      _this.daftartanggapan = response.data;
-      console.log(_this.daftartanggapan);
-    });
+    this.gettanggapan();
   },
   methods: {
-    hapus: function hapus(idt) {
-      this.$swal('Apakah kamu yakin ingin menghapus?');
+    gettanggapan: function gettanggapan() {
+      var _this = this;
+
+      axios.get('/api/admin/gettanggapan', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        _this.daftartanggapan = response.data;
+        console.log(_this.daftartanggapan);
+      });
+    },
+    hapus: function hapus(idtn) {
+      var _this2 = this;
+
+      console.log(idtn);
+      this.$swal({
+        title: 'Apakah yakin untuk menghapus?',
+        text: "Tindakan ini tidak dapat dikembalikan",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios["delete"]('/api/admin/hapus_tanggapan/' + idtn, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + _this2.user.api_token
+            }
+          }).then(function (response) {
+            if (response.data == 'Berhasil') {
+              _this2.$swal('Berhasil menghapus');
+
+              _this2.gettanggapan();
+            }
+          });
+        }
+      });
     },
     lihattanggapan: function lihattanggapan(idt, ktg) {
       this.$router.push('/admin/tanggapan/' + idt + '/' + ktg);
@@ -2787,7 +2816,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -2810,7 +2838,21 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    hapus: function hapus(idt) {
+    hapus: function hapus(idtn) {
+      console.log(idtn);
+      axios.post('/api/admin/hapus_tanggapan', idtn, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        console.log(response.data); // if (response.data == 'Berhasil') {
+        //     this.$swal('Draft Berhasil Disimpan')
+        //     this.fields.judul = ''
+        //     this.fields.isi = ''
+        // }
+        // this.getdraftthread()
+      });
       this.$swal('Apakah kamu yakin ingin menghapus?');
     },
     lihattanggapan: function lihattanggapan(idt, ktg) {
@@ -60000,7 +60042,7 @@ var render = function () {
                               click: function ($event) {
                                 $event.preventDefault()
                                 return _vm.hapus(
-                                  _vm.daftartanggapan[index - 1].idt
+                                  _vm.daftartanggapan[index - 1].idtn
                                 )
                               },
                             },
