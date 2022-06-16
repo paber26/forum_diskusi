@@ -11,7 +11,6 @@
         <router-link to="/admin/tanggapan" class="p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold">Tanggapan</router-link>
         <router-link to="/admin/laporan" class="p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold">Laporan</router-link>
         <router-link to="/admin/kelolaakun" class="p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold">Kelola Akun</router-link>
-        <router-link to="/admin/logout" class="p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold">Logout </router-link>
     </div>
 </div>
 </template>

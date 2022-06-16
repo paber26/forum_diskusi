@@ -27,16 +27,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in laporanthread.length" :key="index.idlt">
+                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in lt.length" :key="index.idlt">
                         <td class="p-3 text-center font-medium text-gray-900">{{ index }}</td>
                         <td class="p-3 text-center">
-                            <span>{{ laporanthread[index-1].nama }}</span>
-                            <div class="text-xxs">(NIM: {{ laporanthread[index-1].nim }})</div>
+                            <span>{{ lt[index-1].nama }}</span>
+                            <div class="text-xxs">(NIM: {{ lt[index-1].nim }})</div>
                         </td>
                         <td class="p-3">
-                            <div class="text-xs italic">Dibuat pada {{ laporanthread[index-1].date }}</div>
-                            <a @click.prevent="lihatthread(laporanthread[index-1].idt)" class="cursor-pointer font-semibold text-base">
-                                {{ laporanthread[index-1].judul }}
+                            <div class="text-xs italic">Dibuat pada {{ lt[index-1].date }}</div>
+                            <a @click.prevent="lihatthread(lt[index-1].idt)" class="cursor-pointer font-semibold text-base">
+                                {{ lt[index-1].judul }}
                             </a>
                         </td>
                         <td class="p-3">
@@ -49,7 +49,7 @@
                         </td>
                         <td></td>
                         <td class="p-3 text-right">
-                            <button @click.prevent="hapusthread(laporanthread[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                            <button @click.prevent="hapusthread(lt[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -78,33 +78,37 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in laporantanggapan.length" :key="index.idltn">
+                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in ltn.length" :key="index.idltn">
                         <td class="p-3 text-center font-medium text-gray-900">{{ index }}</td>
                         <td class="p-3 text-center">
-                            <span>{{ laporantanggapan[index-1].nama }}</span>
-                            <div class="text-xxs">(NIM: {{ laporantanggapan[index-1].nim }})</div>
+                            <span class="font-semibold">{{ ltn[index-1].namapemilik }}</span>
+                            <div class="text-xxs">(NIM: {{ ltn[index-1].nimpemilik }})</div>
                         </td>
                         <td class="p-3">
-                            <div class="text-xs italic">Menanggapi pada {{ laporantanggapan[index-1].date }}</div>
-                            <a @click.prevent="lihatthread(laporantanggapan.idt)" class="flex items-center cursor-pointer">
+                            <div class="text-xs italic">Menanggapi pada {{ ltn[index-1].date }}</div>
+                            <a @click.prevent="lihatthread(ltn.idt)" class="flex items-center cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                                 </svg>
-                                <span class="ml-2 text-lg font-bold">{{ laporantanggapan.judul }}</span>
+                                <span class="ml-2 text-lg font-bold">{{ ltn[index-1].judul }}</span>
                             </a>
-                            <span v-html="laporantanggapan[index-1].isi"></span>
+                            <hr>
+                            <span v-html="ltn[index-1].isi"></span>
                         </td>
-                        <td class="p-3">
+                        <!-- <td class="p-3">
                             <div class=" flex flex-col">
                                 <span class="mb-2">Jumlah: 1 orang</span>
                                 <ol class="list-decimal ml-3">
-                                    <li>Bernaldo Napitupulu</li>
+                                    <li>{{ ltn[index-1].namapelapor }}</li>
                                 </ol>
                             </div>
+                        </td> -->
+                        <td class="p-3">
+                            <span>{{ ltn[index-1].namapelapor }}</span>
                         </td>
                         <td></td>
-                        <td class="p-3 text-right" >
-                            <button @click.prevent="hapustanggapan(laporantanggapan[index-1].idtn)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                        <td class="p-3 text-right">
+                            <button @click.prevent="hapus_laporantanggapan(ltn[index-1].idt, ltn[index-1].idtn, ltn[index-1].idltn)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -115,7 +119,7 @@
                 </tbody>
             </table>
         </div>
-
+        <div class="mb-12"></div>
     </div>
 </div>
 </template>
@@ -125,9 +129,9 @@ export default {
     props: ['user'],
     data() {
         return {
-            laporanthread: '',
-            laporantanggapan: '',
-            isactive: 'thread',
+            lt: '',
+            ltn: '',
+            isactive: 'tanggapan',
         }
     },
     mounted() {
@@ -142,7 +146,7 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then((response) => {
-                this.laporanthread = response.data
+                this.lt = response.data
             })
         },
         getlaporan_tanggapan() {
@@ -153,7 +157,7 @@ export default {
                 },
             }).then((response) => {
                 console.log(response.data)
-                this.laporantanggapan = response.data
+                this.ltn = response.data
             })
         },
         lihat(ktg) {
@@ -162,32 +166,6 @@ export default {
             } else if (ktg == 'tanggapan') {
                 this.isactive = 'tanggapan'
             }
-        },
-        hapustanggapan(idtn) {
-            this.$swal({
-                title: 'Apakah yakin untuk menghapus?',
-                text: "Tindakan ini tidak dapat dikembalikan",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    axios.delete('/api/admin/hapus_tanggapan/' + idtn, {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer ' + this.user.api_token
-                        },
-                    }).then(response => {
-                        console.log(response.data)
-                        if (response.data == 'Berhasil') {
-                            this.$swal('Berhasil menghapus')
-                            this.getlaporan_tanggapan()
-                        }
-                    })
-                }
-            })
         },
         hapusthread(idt) {
             console.log(idt)
@@ -211,6 +189,35 @@ export default {
                         if (response.data == 'Berhasil') {
                             this.$swal('Berhasil menghapus')
                             this.getthread()
+                        }
+                    })
+                }
+            })
+        },
+        hapus_laporantanggapan(idt, idtn, idltn) {
+            console.log(idt)
+            console.log(idtn)
+            console.log(idltn)
+            this.$swal({
+                title: 'Apakah yakin untuk menghapus?',
+                text: "Tindakan ini tidak dapat dikembalikan",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete('/api/admin/hapus_laporantanggapan/' + idt +'/' + idtn + '/' + idltn, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + this.user.api_token
+                        },
+                    }).then(response => {
+                        console.log(response.data)
+                        if (response.data == 'Berhasil') {
+                            this.$swal('Berhasil menghapus')
+                            this.getlaporan_tanggapan()
                         }
                     })
                 }

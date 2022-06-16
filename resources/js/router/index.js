@@ -41,7 +41,7 @@ const routes = [
         component: Register
     },
     
-    
+
     {
         path: '/user',
         component: UserBeranda

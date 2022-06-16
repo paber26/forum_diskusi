@@ -412,8 +412,8 @@ class UserThread extends Controller
             $q2->update(['tmelapor' => $tmelapor + 1]);
             $stt = [
                 'idltn' => uniqid(),
-                'nim' => Auth::user()->nim,
                 'idtn' => $idtn,
+                'nim' => Auth::user()->nim,
                 'alasan' => ''
             ];
 

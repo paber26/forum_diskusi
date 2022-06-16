@@ -84,6 +84,7 @@ class Profil extends Controller
                 array_push($daftarthread, [
                     'idt' => $row->idt,
                     'nim' => $row->nim,
+                    'nama' => Auth::user()->nama,
                     'judul' => $row->judul,
                     'isi' => $row->isi,
                     'date' => $row->date,

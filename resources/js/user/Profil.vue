@@ -166,7 +166,6 @@ export default {
         }).then((response) => {
             this.totaltanggapan = response.data[0]
             this.daftartanggapan = response.data[1]
-            console.log(this.daftartanggapan)
         })
         this.getthreadprofil()
     },

@@ -37,7 +37,7 @@
                         <td class="p-3 text-center">{{ daftarthread[index-1].kategori }}</td>
                         <td class="p-3">
                             <div class="text-xs italic">Dibuat pada {{ daftarthread[index-1].date }}</div>
-                            <a @click.prevent="lihattanggapan(daftarthread[index-1].idt, 'Tanggapan')" class="cursor-pointer font-semibold">
+                            <a @click.prevent="lihatthread(daftarthread[index-1].idt)" class="cursor-pointer font-semibold">
                                 {{ daftarthread[index-1].judul }}
                             </a>
                         </td>
@@ -111,8 +111,8 @@ export default {
                 }
             })
         },
-        lihattanggapan(idt, ktg) {
-            this.$router.push('/admin/tanggapan/' + idt + '/' + ktg)
+        lihatthread(idt) {
+            this.$router.push('/admin/thread/' + idt)
         },
     }
 }

@@ -228,7 +228,7 @@ export default {
                 if (response.data == 'Berhasil') {
                     this.$swal('Berhasil melaporkan')
                 } else if (response.data == 'Sudah') {
-                    this.$swal('Kamu sudah melaporkan')
+                    this.$swal('Kamu sudah melaporkan tanggapan ini')
                 }
             })
         },

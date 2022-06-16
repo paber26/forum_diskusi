@@ -2385,13 +2385,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
-      laporanthread: '',
-      laporantanggapan: '',
-      isactive: 'thread'
+      lt: '',
+      ltn: '',
+      isactive: 'tanggapan'
     };
   },
   mounted: function mounted() {
@@ -2408,7 +2412,7 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        _this.laporanthread = response.data;
+        _this.lt = response.data;
       });
     },
     getlaporan_tanggapan: function getlaporan_tanggapan() {
@@ -2421,7 +2425,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         console.log(response.data);
-        _this2.laporantanggapan = response.data;
+        _this2.ltn = response.data;
       });
     },
     lihat: function lihat(ktg) {
@@ -2431,38 +2435,8 @@ __webpack_require__.r(__webpack_exports__);
         this.isactive = 'tanggapan';
       }
     },
-    hapustanggapan: function hapustanggapan(idtn) {
-      var _this3 = this;
-
-      this.$swal({
-        title: 'Apakah yakin untuk menghapus?',
-        text: "Tindakan ini tidak dapat dikembalikan",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, hapus!'
-      }).then(function (result) {
-        if (result.isConfirmed) {
-          axios["delete"]('/api/admin/hapus_tanggapan/' + idtn, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + _this3.user.api_token
-            }
-          }).then(function (response) {
-            console.log(response.data);
-
-            if (response.data == 'Berhasil') {
-              _this3.$swal('Berhasil menghapus');
-
-              _this3.getlaporan_tanggapan();
-            }
-          });
-        }
-      });
-    },
     hapusthread: function hapusthread(idt) {
-      var _this4 = this;
+      var _this3 = this;
 
       console.log(idt);
       this.$swal({
@@ -2478,6 +2452,39 @@ __webpack_require__.r(__webpack_exports__);
           axios["delete"]('/api/admin/hapus_thread/' + idt, {
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + _this3.user.api_token
+            }
+          }).then(function (response) {
+            console.log(response.data);
+
+            if (response.data == 'Berhasil') {
+              _this3.$swal('Berhasil menghapus');
+
+              _this3.getthread();
+            }
+          });
+        }
+      });
+    },
+    hapus_laporantanggapan: function hapus_laporantanggapan(idt, idtn, idltn) {
+      var _this4 = this;
+
+      console.log(idt);
+      console.log(idtn);
+      console.log(idltn);
+      this.$swal({
+        title: 'Apakah yakin untuk menghapus?',
+        text: "Tindakan ini tidak dapat dikembalikan",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios["delete"]('/api/admin/hapus_laporantanggapan/' + idt + '/' + idtn + '/' + idltn, {
+            headers: {
+              'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + _this4.user.api_token
             }
           }).then(function (response) {
@@ -2486,7 +2493,7 @@ __webpack_require__.r(__webpack_exports__);
             if (response.data == 'Berhasil') {
               _this4.$swal('Berhasil menghapus');
 
-              _this4.getthread();
+              _this4.getlaporan_tanggapan();
             }
           });
         }
@@ -2511,8 +2518,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
 //
 //
 //
@@ -2599,7 +2604,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.daftartanggapan);
       });
     },
-    hapus: function hapus(idtn) {
+    hapus_tanggapan: function hapus_tanggapan(idt, idtn) {
       var _this2 = this;
 
       this.$swal({
@@ -2612,7 +2617,7 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: 'Ya, hapus!'
       }).then(function (result) {
         if (result.isConfirmed) {
-          axios["delete"]('/api/admin/hapus_tanggapan/' + idtn, {
+          axios["delete"]('/api/admin/hapus_tanggapan/' + idt + '/' + idtn, {
             headers: {
               'Content-Type': 'application/json',
               'Authorization': 'Bearer ' + _this2.user.api_token
@@ -2627,8 +2632,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    lihattanggapan: function lihattanggapan(idt, ktg) {
-      this.$router.push('/admin/tanggapan/' + idt + '/' + ktg);
+    lihatthread: function lihatthread(idt, ktg) {
+      this.$router.push('/admin/thread/' + idt);
     }
   }
 });
@@ -2904,8 +2909,8 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    lihattanggapan: function lihattanggapan(idt, ktg) {
-      this.$router.push('/admin/tanggapan/' + idt + '/' + ktg);
+    lihatthread: function lihatthread(idt) {
+      this.$router.push('/admin/thread/' + idt);
     }
   }
 });
@@ -3065,15 +3070,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3491,7 +3487,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -4437,7 +4432,6 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function (response) {
       _this.totaltanggapan = response.data[0];
       _this.daftartanggapan = response.data[1];
-      console.log(_this.daftartanggapan);
     });
     this.getthreadprofil();
   },
@@ -4853,7 +4847,7 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data == 'Berhasil') {
           _this4.$swal('Berhasil melaporkan');
         } else if (response.data == 'Sudah') {
-          _this4.$swal('Kamu sudah melaporkan');
+          _this4.$swal('Kamu sudah melaporkan tanggapan ini');
         }
       });
     }
@@ -56151,7 +56145,7 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.laporanthread.length, function (index) {
+                _vm._l(_vm.lt.length, function (index) {
                   return _c(
                     "tr",
                     {
@@ -56169,15 +56163,11 @@ var render = function () {
                       ),
                       _vm._v(" "),
                       _c("td", { staticClass: "p-3 text-center" }, [
-                        _c("span", [
-                          _vm._v(_vm._s(_vm.laporanthread[index - 1].nama)),
-                        ]),
+                        _c("span", [_vm._v(_vm._s(_vm.lt[index - 1].nama))]),
                         _vm._v(" "),
                         _c("div", { staticClass: "text-xxs" }, [
                           _vm._v(
-                            "(NIM: " +
-                              _vm._s(_vm.laporanthread[index - 1].nim) +
-                              ")"
+                            "(NIM: " + _vm._s(_vm.lt[index - 1].nim) + ")"
                           ),
                         ]),
                       ]),
@@ -56185,8 +56175,7 @@ var render = function () {
                       _c("td", { staticClass: "p-3" }, [
                         _c("div", { staticClass: "text-xs italic" }, [
                           _vm._v(
-                            "Dibuat pada " +
-                              _vm._s(_vm.laporanthread[index - 1].date)
+                            "Dibuat pada " + _vm._s(_vm.lt[index - 1].date)
                           ),
                         ]),
                         _vm._v(" "),
@@ -56198,16 +56187,14 @@ var render = function () {
                             on: {
                               click: function ($event) {
                                 $event.preventDefault()
-                                return _vm.lihatthread(
-                                  _vm.laporanthread[index - 1].idt
-                                )
+                                return _vm.lihatthread(_vm.lt[index - 1].idt)
                               },
                             },
                           },
                           [
                             _vm._v(
                               "\r\n                                " +
-                                _vm._s(_vm.laporanthread[index - 1].judul) +
+                                _vm._s(_vm.lt[index - 1].judul) +
                                 "\r\n                            "
                             ),
                           ]
@@ -56227,9 +56214,7 @@ var render = function () {
                             on: {
                               click: function ($event) {
                                 $event.preventDefault()
-                                return _vm.hapusthread(
-                                  _vm.laporanthread[index - 1].idt
-                                )
+                                return _vm.hapusthread(_vm.lt[index - 1].idt)
                               },
                             },
                           },
@@ -56291,7 +56276,7 @@ var render = function () {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.laporantanggapan.length, function (index) {
+              _vm._l(_vm.ltn.length, function (index) {
                 return _c(
                   "tr",
                   {
@@ -56309,15 +56294,13 @@ var render = function () {
                     ),
                     _vm._v(" "),
                     _c("td", { staticClass: "p-3 text-center" }, [
-                      _c("span", [
-                        _vm._v(_vm._s(_vm.laporantanggapan[index - 1].nama)),
+                      _c("span", { staticClass: "font-semibold" }, [
+                        _vm._v(_vm._s(_vm.ltn[index - 1].namapemilik)),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "text-xxs" }, [
                         _vm._v(
-                          "(NIM: " +
-                            _vm._s(_vm.laporantanggapan[index - 1].nim) +
-                            ")"
+                          "(NIM: " + _vm._s(_vm.ltn[index - 1].nimpemilik) + ")"
                         ),
                       ]),
                     ]),
@@ -56325,8 +56308,7 @@ var render = function () {
                     _c("td", { staticClass: "p-3" }, [
                       _c("div", { staticClass: "text-xs italic" }, [
                         _vm._v(
-                          "Menanggapi pada " +
-                            _vm._s(_vm.laporantanggapan[index - 1].date)
+                          "Menanggapi pada " + _vm._s(_vm.ltn[index - 1].date)
                         ),
                       ]),
                       _vm._v(" "),
@@ -56337,7 +56319,7 @@ var render = function () {
                           on: {
                             click: function ($event) {
                               $event.preventDefault()
-                              return _vm.lihatthread(_vm.laporantanggapan.idt)
+                              return _vm.lihatthread(_vm.ltn.idt)
                             },
                           },
                         },
@@ -56368,21 +56350,23 @@ var render = function () {
                           _c(
                             "span",
                             { staticClass: "ml-2 text-lg font-bold" },
-                            [_vm._v(_vm._s(_vm.laporantanggapan.judul))]
+                            [_vm._v(_vm._s(_vm.ltn[index - 1].judul))]
                           ),
                         ]
                       ),
                       _vm._v(" "),
+                      _c("hr"),
+                      _vm._v(" "),
                       _c("span", {
-                        domProps: {
-                          innerHTML: _vm._s(
-                            _vm.laporantanggapan[index - 1].isi
-                          ),
-                        },
+                        domProps: { innerHTML: _vm._s(_vm.ltn[index - 1].isi) },
                       }),
                     ]),
                     _vm._v(" "),
-                    _vm._m(3, true),
+                    _c("td", { staticClass: "p-3" }, [
+                      _c("span", [
+                        _vm._v(_vm._s(_vm.ltn[index - 1].namapelapor)),
+                      ]),
+                    ]),
                     _vm._v(" "),
                     _c("td"),
                     _vm._v(" "),
@@ -56395,8 +56379,10 @@ var render = function () {
                           on: {
                             click: function ($event) {
                               $event.preventDefault()
-                              return _vm.hapustanggapan(
-                                _vm.laporantanggapan[index - 1].idtn
+                              return _vm.hapus_laporantanggapan(
+                                _vm.ltn[index - 1].idt,
+                                _vm.ltn[index - 1].idtn,
+                                _vm.ltn[index - 1].idltn
                               )
                             },
                           },
@@ -56438,6 +56424,8 @@ var render = function () {
             ),
           ]),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-12" }),
       ]
     ),
   ])
@@ -56504,20 +56492,6 @@ var staticRenderFns = [
         ]),
       ]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", { staticClass: "p-3" }, [
-      _c("div", { staticClass: " flex flex-col" }, [
-        _c("span", { staticClass: "mb-2" }, [_vm._v("Jumlah: 1 orang")]),
-        _vm._v(" "),
-        _c("ol", { staticClass: "list-decimal ml-3" }, [
-          _c("li", [_vm._v("Bernaldo Napitupulu")]),
-        ]),
-      ]),
-    ])
   },
 ]
 render._withStripped = true
@@ -56596,9 +56570,8 @@ var render = function () {
                           on: {
                             click: function ($event) {
                               $event.preventDefault()
-                              return _vm.lihattanggapan(
-                                _vm.daftartanggapan[index - 1].idt,
-                                "Tanggapan"
+                              return _vm.lihatthread(
+                                _vm.daftartanggapan[index - 1].idt
                               )
                             },
                           },
@@ -56661,7 +56634,8 @@ var render = function () {
                             on: {
                               click: function ($event) {
                                 $event.preventDefault()
-                                return _vm.hapus(
+                                return _vm.hapus_tanggapan(
+                                  _vm.daftartanggapan[index - 1].idt,
                                   _vm.daftartanggapan[index - 1].idtn
                                 )
                               },
@@ -57195,9 +57169,8 @@ var render = function () {
                           on: {
                             click: function ($event) {
                               $event.preventDefault()
-                              return _vm.lihattanggapan(
-                                _vm.daftarthread[index - 1].idt,
-                                "Tanggapan"
+                              return _vm.lihatthread(
+                                _vm.daftarthread[index - 1].idt
                               )
                             },
                           },
@@ -58617,16 +58590,6 @@ var render = function () {
             attrs: { to: "/admin/kelolaakun" },
           },
           [_vm._v("Kelola Akun")]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass:
-              "p-1.5 m-1.5 rounded-md hover:bg-yellow-300 font-semibold",
-            attrs: { to: "/admin/logout" },
-          },
-          [_vm._v("Logout ")]
         ),
       ],
       1

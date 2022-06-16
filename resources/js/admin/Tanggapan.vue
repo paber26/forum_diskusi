@@ -2,8 +2,6 @@
 <div class="flex flex-col items-center w-full">
     <div class="w-5/6 sm:w-11/12 flex flex-col justify-center">
         <span class="font-bold text-2xl mt-4 mb-3">Kelola Tanggapan</span>
-        <!-- <span class="font-bold text-2xl mt-4">Kelola Thread</span> -->
-
         <div class="relative overflow-x-auto">
             <!-- <div class="pb-3 flex justify-end">
                 <div class="relative mt-1">
@@ -32,7 +30,7 @@
                             <div class="text-xxs">(NIM: {{ daftartanggapan[index-1].nimtn }})</div>
                         </td>
                         <td class="p-3">
-                            <a @click.prevent="lihattanggapan(daftartanggapan[index-1].idt, 'Tanggapan')" class="flex items-center cursor-pointer">
+                            <a @click.prevent="lihatthread(daftartanggapan[index-1].idt)" class="flex items-center cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                                 </svg>
@@ -44,7 +42,7 @@
                         </td>
                         <td class="p-3">
                             <div class="flex justify-center">
-                                <button @click.prevent="hapus(daftartanggapan[index-1].idtn)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                                <button @click.prevent="hapus_tanggapan(daftartanggapan[index-1].idt, daftartanggapan[index-1].idtn)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
@@ -85,7 +83,7 @@ export default {
                 console.log(this.daftartanggapan)
             })
         },
-        hapus(idtn) {
+        hapus_tanggapan(idt, idtn) {
             this.$swal({
                 title: 'Apakah yakin untuk menghapus?',
                 text: "Tindakan ini tidak dapat dikembalikan",
@@ -96,7 +94,7 @@ export default {
                 confirmButtonText: 'Ya, hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete('/api/admin/hapus_tanggapan/' + idtn, {
+                    axios.delete('/api/admin/hapus_tanggapan/' + idt + '/' + idtn, {
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': 'Bearer ' + this.user.api_token
@@ -110,8 +108,8 @@ export default {
                 }
             })
         },
-        lihattanggapan(idt, ktg) {
-            this.$router.push('/admin/tanggapan/' + idt + '/' + ktg)
+        lihatthread(idt, ktg) {
+            this.$router.push('/admin/thread/' + idt)
         },
     }
 }

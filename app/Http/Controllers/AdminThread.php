@@ -67,11 +67,16 @@ class AdminThread extends Controller
         }
     }
 
-    public function hapus_tanggapan($idtn)
+    public function hapus_tanggapan($idt, $idtn)
     {
+        $q2 = DB::table('thread')->where('idt', $idt);
+        $tmenanggapi = $q2->first()->tmenanggapi;
+        $q2->update(['tmenanggapi' => $tmenanggapi - 1]);
+
         DB::table('tanggapan')->where('idtn', $idtn)->delete();
         DB::table('dukungan_tanggapan')->where('idtn', $idtn)->delete();
         DB::table('laporan_tanggapan')->where('idtn', $idtn)->delete();
+
         return 'Berhasil';
     }
 
@@ -85,10 +90,43 @@ class AdminThread extends Controller
 
     public function getlaporan_tanggapan()
     {
-        // return 'yes';
-        return DB::table('laporan_tanggapan AS ltn')
-            ->select('ltn.date', 'ltn.alasan', 'ltn.idtn', 'tn.date', 'tn.nim', 'tn.isi')
-            ->leftJoin('tanggapan AS tn', 'tn.idtn', '=', 'ltn.idtn')
-            ->get();
+        $daftarlaporan = [];
+        $laporan = DB::table('laporan_tanggapan AS ltn')
+            ->select('ltn.idltn', 'ltn.nim AS nimpelapor', 'ltn.idtn', 'tn.idt', 'tn.nim AS nimpemilik', 'tn.isi', 'tn.date')
+            ->join('tanggapan AS tn', 'ltn.idtn', '=', 'tn.idtn')->get();
+        foreach ($laporan as $l) {
+            array_push($daftarlaporan, [
+                'namapemilik' => DB::table('users')->where('nim', $l->nimpemilik)->first()->nama,
+                'namapelapor' => DB::table('users')->where('nim', $l->nimpelapor)->first()->nama,
+                'nimpemilik' => $l->nimpemilik,
+                'nimpelapor' => $l->nimpelapor,
+                'idltn' => $l->idltn,
+                'idtn' => $l->idtn,
+                'idt' => $l->idt,
+                'judul' => DB::table('thread')->where('idt', $l->idt)->first()->judul,
+                'isi' => $l->isi,
+                'date' => $l->date
+            ]);
+        }
+
+        return $daftarlaporan;
+    }
+
+    public function hapus_laporantanggapan($idt, $idtn, $idltn)
+    {
+        // return array($idt, $idtn, $idltn);
+
+        $q2 = DB::table('thread')->where('idt', $idt);
+        $tmenanggapi = $q2->first()->tmenanggapi;
+        $q2->update(['tmenanggapi' => $tmenanggapi - 1]);
+        // return $tmenanggapi;
+
+        // $q3 = DB::table('laporan_tanggapan')->where('idtn', $idtn)->count();
+
+        DB::table('tanggapan')->where('idtn', $idtn)->delete();
+        DB::table('dukungan_tanggapan')->where('idtn', $idtn)->delete();
+        DB::table('laporan_tanggapan')->where('idltn', $idltn)->delete();
+
+        return 'Berhasil';
     }
 }
