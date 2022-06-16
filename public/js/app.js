@@ -2408,7 +2408,6 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        // console.log(response.data)
         _this.laporanthread = response.data;
       });
     },
@@ -2427,9 +2426,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     lihat: function lihat(ktg) {
       if (ktg == 'thread') {
-        this.isactive = 'thread'; // this.getthread()
+        this.isactive = 'thread';
       } else if (ktg == 'tanggapan') {
-        this.isactive = 'tanggapan'; // this.gettanggapan()
+        this.isactive = 'tanggapan';
       }
     },
     hapustanggapan: function hapustanggapan(idtn) {
@@ -2457,6 +2456,37 @@ __webpack_require__.r(__webpack_exports__);
               _this3.$swal('Berhasil menghapus');
 
               _this3.getlaporan_tanggapan();
+            }
+          });
+        }
+      });
+    },
+    hapusthread: function hapusthread(idt) {
+      var _this4 = this;
+
+      console.log(idt);
+      this.$swal({
+        title: 'Apakah yakin untuk menghapus?',
+        text: "Tindakan ini tidak dapat dikembalikan",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          axios["delete"]('/api/admin/hapus_thread/' + idt, {
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + _this4.user.api_token
+            }
+          }).then(function (response) {
+            console.log(response.data);
+
+            if (response.data == 'Berhasil') {
+              _this4.$swal('Berhasil menghapus');
+
+              _this4.getthread();
             }
           });
         }
@@ -3280,6 +3310,11 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
+      if (this.user.nim == '') {
+        this.$swal('Masukkan nim kamu');
+        return;
+      }
+
       if (this.user.email == '') {
         this.$swal('Masukkan email kamu');
         return;
@@ -3296,6 +3331,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
+      console.log(this.user);
       axios.post('/register', this.user).then(function (response) {
         console.log(response.data);
 
@@ -3386,7 +3422,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -5821,6 +5856,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -59670,7 +59708,7 @@ var render = function () {
                             on: {
                               click: function ($event) {
                                 $event.preventDefault()
-                                return _vm.hapus(
+                                return _vm.hapusthread(
                                   _vm.laporanthread[index - 1].idt
                                 )
                               },
@@ -61849,16 +61887,6 @@ var render = function () {
               attrs: { to: "/user/profil" },
             },
             [_vm._v("Profil")]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass:
-                "px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold",
-              attrs: { to: "/user/pencarian" },
-            },
-            [_vm._v("Pencarian")]
           ),
         ],
         1
@@ -67746,6 +67774,12 @@ var render = function () {
             _c("span", { staticClass: "font-bold text-xl mb-2" }, [
               _vm._v("Beranda"),
             ]),
+            _vm._v(" "),
+            _vm.daftarthread == ""
+              ? _c("div", { staticClass: "font-semibold italic mt-3" }, [
+                  _c("span", [_vm._v("Thread Masih Kosong")]),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _vm._l(_vm.daftarthread, function (thread) {
               return _c(

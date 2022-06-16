@@ -61,6 +61,10 @@ export default {
                 this.$swal('Masukkan nama kamu')
                 return
             }
+            if (this.user.nim == '') {
+                this.$swal('Masukkan nim kamu')
+                return
+            }
             if (this.user.email == '') {
                 this.$swal('Masukkan email kamu')
                 return
@@ -76,6 +80,7 @@ export default {
                 return
             }
 
+            console.log(this.user)
             axios.post('/register', this.user).then(response => {
                 console.log(response.data)
                 if (response.data == 'Sudah terdaftar') {

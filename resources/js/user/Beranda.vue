@@ -28,6 +28,9 @@
             </div>
             <div class="col-span-12 sm:col-span-8 lg:col-span-9">
                 <span class="font-bold text-xl mb-2">Beranda</span>
+                <div class="font-semibold italic mt-3" v-if="daftarthread == ''">
+                    <span>Thread Masih Kosong</span>
+                </div>
                 <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3" v-for="thread in daftarthread" :key="thread.idt">
                     <div class="flex justify-between items-start">
                         <div class="flex items-center">

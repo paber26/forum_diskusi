@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Symfony\Component\VarDumper\VarDumper;
 
 class Authen extends Controller
 {
@@ -18,22 +19,27 @@ class Authen extends Controller
         $email = $request->email;
         $password = $request->password;
 
+
         $user = DB::table('users')->where(['email' => $email])->first();
 
         if ($user != null) {
             return 'Sudah terdaftar';
         } else {
             $stt = [
-                'nim' => $nim,
                 'nama' => strtoupper($nama),
+                'nim' => $nim,
                 'email' => $email,
                 'password' => Hash::make($password),
-                'alamat' => '',
-                'nowa' => '',
                 'gambar' => '',
+                'nowa' => '',
+                'deskripsi' => '',
+                'alamat' => '',
+                'is_admin' => 0,
                 'api_token' => Str::random(40),
             ];
             DB::table('users')->insert($stt);
+            // var_dump($stt);
+            // exit;
 
             return 'Berhasil';
         }
