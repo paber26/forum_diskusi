@@ -135,8 +135,10 @@ class AdminThread extends Controller
         return DB::table('users')->select('nama', 'nim', 'is_admin')->get();
     }
 
-    public function antiakses($nim)
+    public function gantiakses($nim, $akses)
     {
-        return $nim;
+        DB::table('users')->where('nim', $nim)->update(['is_admin' => $akses]);
+
+        return 'Berhasil';
     }
 }

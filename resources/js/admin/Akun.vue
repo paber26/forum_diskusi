@@ -28,58 +28,12 @@
                         <td class="p-3 font-medium text-gray-900 text-center">{{ index }}</td>
                         <td class="p-3 font-medium text-gray-900">{{ daftarakun[index-1].nama }}</td>
                         <td class="p-3 font-medium text-gray-900 text-center">{{ daftarakun[index-1].nim }}</td>
-                        <td class="p-3 font-medium text-gray-900 text-center" v-html="daftarakun[index-1].is_admin ? 'Admin' : 'Pengguna'"></td>
-                        <!-- <td class="p-3">
+                        <td class="p-3 font-medium text-gray-900 text-center" v-html="daftarakun[index-1].is_admin ? 'Admin' : 'Anggota'"></td>
+                        <td class="p-3">
                             <div class="flex justify-center">
-                                <button @click.prevent="gantiakses($daftarakun[index-1].nim)" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                                <button @click.prevent="gantiakses(daftarakun[index-1].nim, daftarakun[index-1].nama)" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
                                     <span class="text-sm">Ganti Akses</span>
                                 </button>
-                            </div>
-                        </td> -->
-                        <td class="p-3">{{ expand[index] }}{{ expand[index] }} ayo {{ expand[index] }}</td>
-                        <h1>{{ expand[index] }}</h1>
-
-                        <td class="p-3">
-                            <!-- <select class="text-sm rounded-lg bg-green-500 text-white font-bold p-1.5">
-                                <option selected>Ubah Akes</option>
-                                <option value="Admin" @select="gantiakses($daftarakun[index-1].nim, 'akses')">Admin</option>
-                                <option value="Pengguna" @select="gantiakses($daftarakun[index-1].nim, 'pengguna')">Pengguna</option>
-                            </select> -->
-                            <!-- <div class="dropdown">
-                                <label tabindex="0" class="btn m-1">Click</label>
-                                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
-                                </ul>
-                            </div> -->
-                            <!-- <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
-                            <!-- <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path> -->
-                            <!-- </svg></button> -->
-                            <!-- Dropdown menu -->
-                            <!-- <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700">
-                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-                                    </li>
-                                </ul>
-                            </div> -->
-                            <button @click.prevent="ekspand(expand[index])" @blur="expand[index] = false" class="relative flex items-center px-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                                </svg>
-                            </button>
-                            <h1>{{ expand[index] }}</h1>
-                            <div v-show="expand[index]" class="origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border">
-                                <a class="block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer" @mousedown.prevent="laporthread(thread.idt)">Laporkan</a>
                             </div>
                         </td>
                     </tr>
@@ -92,45 +46,30 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
     props: ['user'],
     data() {
         return {
             daftarakun: '',
             daftartanggapan: '',
+            expand: [],
             isactive: 'thread',
         }
     },
     mounted() {
-        axios.get('/api/admin/getakun', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.user.api_token
-            },
-        }).then((response) => {
-            this.daftarakun = response.data
-            console.log(this.daftarakun)
+        this.getakun()
 
-            this.expand.push('false');
-            this.expand.push('false');
-            this.expand.push('false');
-            this.expand.push('false');
-            this.expand.push('false');
-            console.log(this.expand)
-        })
-
-    },
-    computed: {
-        ...mapGetters({
-            expand: [],
-        })
     },
     methods: {
-        ekspand(index) {
-            this.expand[index] = !this.expand[index]
-            console.log(this.expand[index])
+        getakun() {
+            axios.get('/api/admin/getakun', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + this.user.api_token
+                },
+            }).then((response) => {
+                this.daftarakun = response.data
+            })
         },
         gettanggapan() {
             axios.get('/api/admin/gettanggapan', {
@@ -168,18 +107,42 @@ export default {
                 }
             })
         },
-        gantiakses(nim, akses) {
-            console.log(nim)
-            console.log(akses)
-            // axios.get('/api/admin/gantiakses/' + nim, {
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'Authorization': 'Bearer ' + this.user.api_token
-            //     },
-            // }).then((response) => {
-            //     this.daftarakun = response.data
-            //     console.log(this.daftarakun)
-            // })
+        gantiakses(nim, nama) {
+            const {
+                value: akses
+            } = this.$swal({
+                title: 'Pilih Akses Akun',
+                text: nama + ' (' + nim + ')',
+                input: 'select',
+                inputOptions: {
+                    '1': 'Admin',
+                    '0': 'Anggota'
+                },
+                inputPlaceholder: 'Pilih akses akun',
+                showCancelButton: true,
+                inputValidator: (value) => {
+                    if (value != null) {
+                        axios.get('/api/admin/gantiakses/' + nim + '/' + value, {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + this.user.api_token
+                            },
+                        }).then((response) => {
+                            this.getakun()
+                            console.log(response.data)
+                            // this.daftartanggapan = response.data
+                            // console.log(this.daftartanggapan)
+                        })
+                    }
+                    if (value === 'admin') {
+                        console.log(value)
+                    } else if (value === 'anggota') {
+                        console.log(value)
+                    }
+
+                    console.log('Selesai')
+                }
+            })
         }
     }
 }

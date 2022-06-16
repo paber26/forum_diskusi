@@ -2065,13 +2065,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-Object(function webpackMissingModule() { var e = new Error("Cannot find module 'vuex'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -2119,94 +2112,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       daftarakun: '',
       daftartanggapan: '',
+      expand: [],
       isactive: 'thread'
     };
   },
   mounted: function mounted() {
-    var _this = this;
-
-    axios.get('/api/admin/getakun', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.user.api_token
-      }
-    }).then(function (response) {
-      _this.daftarakun = response.data;
-      console.log(_this.daftarakun);
-
-      _this.expand.push('false');
-
-      _this.expand.push('false');
-
-      _this.expand.push('false');
-
-      _this.expand.push('false');
-
-      _this.expand.push('false');
-
-      console.log(_this.expand);
-    });
+    this.getakun();
   },
-  computed: _objectSpread({}, Object(function webpackMissingModule() { var e = new Error("Cannot find module 'vuex'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())({
-    expand: []
-  })),
   methods: {
-    ekspand: function ekspand(index) {
-      this.expand[index] = !this.expand[index];
-      console.log(this.expand[index]);
+    getakun: function getakun() {
+      var _this = this;
+
+      axios.get('/api/admin/getakun', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.user.api_token
+        }
+      }).then(function (response) {
+        _this.daftarakun = response.data;
+      });
     },
     gettanggapan: function gettanggapan() {
       var _this2 = this;
@@ -2249,17 +2179,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
-    gantiakses: function gantiakses(nim, akses) {
-      console.log(nim);
-      console.log(akses); // axios.get('/api/admin/gantiakses/' + nim, {
-      //     headers: {
-      //         'Content-Type': 'application/json',
-      //         'Authorization': 'Bearer ' + this.user.api_token
-      //     },
-      // }).then((response) => {
-      //     this.daftarakun = response.data
-      //     console.log(this.daftarakun)
-      // })
+    gantiakses: function gantiakses(nim, nama) {
+      var _this4 = this;
+
+      var _this$$swal = this.$swal({
+        title: 'Pilih Akses Akun',
+        text: nama + ' (' + nim + ')',
+        input: 'select',
+        inputOptions: {
+          '1': 'Admin',
+          '0': 'Anggota'
+        },
+        inputPlaceholder: 'Pilih akses akun',
+        showCancelButton: true,
+        inputValidator: function inputValidator(value) {
+          if (value != null) {
+            axios.get('/api/admin/gantiakses/' + nim + '/' + value, {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + _this4.user.api_token
+              }
+            }).then(function (response) {
+              _this4.getakun();
+
+              console.log(response.data); // this.daftartanggapan = response.data
+              // console.log(this.daftartanggapan)
+            });
+          }
+
+          if (value === 'admin') {
+            console.log(value);
+          } else if (value === 'anggota') {
+            console.log(value);
+          }
+
+          console.log('Selesai');
+        }
+      }),
+          akses = _this$$swal.value;
     }
   }
 });
@@ -55922,96 +55879,35 @@ var render = function () {
                         innerHTML: _vm._s(
                           _vm.daftarakun[index - 1].is_admin
                             ? "Admin"
-                            : "Pengguna"
+                            : "Anggota"
                         ),
                       },
                     }),
                     _vm._v(" "),
                     _c("td", { staticClass: "p-3" }, [
-                      _vm._v(
-                        _vm._s(_vm.expand[index]) +
-                          _vm._s(_vm.expand[index]) +
-                          " ayo " +
-                          _vm._s(_vm.expand[index])
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("h1", [_vm._v(_vm._s(_vm.expand[index]))]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "p-3" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "relative flex items-center px-3",
-                          on: {
-                            click: function ($event) {
-                              $event.preventDefault()
-                              return _vm.ekspand(_vm.expand[index])
-                            },
-                            blur: function ($event) {
-                              _vm.expand[index] = false
+                      _c("div", { staticClass: "flex justify-center" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              "bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded-full flex items-center",
+                            on: {
+                              click: function ($event) {
+                                $event.preventDefault()
+                                return _vm.gantiakses(
+                                  _vm.daftarakun[index - 1].nim,
+                                  _vm.daftarakun[index - 1].nama
+                                )
+                              },
                             },
                           },
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "h-7 w-7 hover:text-blue-900",
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                fill: "none",
-                                viewBox: "0 0 24 24",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
-                              },
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round",
-                                  d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
-                                },
-                              }),
-                            ]
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("h1", [_vm._v(_vm._s(_vm.expand[index]))]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.expand[index],
-                              expression: "expand[index]",
-                            },
-                          ],
-                          staticClass:
-                            "origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border",
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer",
-                              on: {
-                                mousedown: function ($event) {
-                                  $event.preventDefault()
-                                  return _vm.laporthread(_vm.thread.idt)
-                                },
-                              },
-                            },
-                            [_vm._v("Laporkan")]
-                          ),
-                        ]
-                      ),
+                          [
+                            _c("span", { staticClass: "text-sm" }, [
+                              _vm._v("Ganti Akses"),
+                            ]),
+                          ]
+                        ),
+                      ]),
                     ]),
                   ]
                 )
