@@ -16,6 +16,7 @@ const AdminThreadLihat = require('../admin/ThreadLihat.vue').default;
 const AdminTanggapan = require('../admin/Tanggapan.vue').default;
 const AdminTanggapanLihat = require('../admin/TanggapanLihat.vue').default;
 const AdminLaporan = require('../admin/Laporan.vue').default;
+const AdminAkun = require('../admin/Akun.vue').default;
 
 
 // Bagian User
@@ -114,6 +115,10 @@ const routes = [
     {
         path: '/admin/laporan',
         component: AdminLaporan
+    },
+    {
+        path: '/admin/kelolaakun',
+        component: AdminAkun
     },
 ]
 

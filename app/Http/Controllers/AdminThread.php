@@ -57,7 +57,7 @@ class AdminThread extends Controller
     {
         if ($idt == null) {
             return DB::table('tanggapan AS tn')
-                ->select('tn.idtn', 'tn.date', 'tn.nim AS nimtn', 'tn.isi', 't.idt', 't.nim AS nimt', 't.judul', 'users.nama')
+                ->select('tn.idtn', 'tn.date', 'tn.nim AS nimtn', 'tn.isi', 't.idt', 't.nim AS nimt', 't.judul', 't.kategori', 'users.nama')
                 ->leftJoin('thread AS t', 'tn.idt', '=', 't.idt')
                 ->leftJoin('users', 'tn.nim', '=', 'users.nim')
                 ->orderBy('tn.date', 'desc')
@@ -128,5 +128,15 @@ class AdminThread extends Controller
         DB::table('laporan_tanggapan')->where('idltn', $idltn)->delete();
 
         return 'Berhasil';
+    }
+
+    public function getakun()
+    {
+        return DB::table('users')->select('nama', 'nim', 'is_admin')->get();
+    }
+
+    public function antiakses($nim)
+    {
+        return $nim;
     }
 }

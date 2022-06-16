@@ -65,6 +65,8 @@ Route::group(
         Route::get('admin/getlaporan_tanggapan', [AdminThread::class, 'getlaporan_tanggapan']);
         Route::delete('admin/hapus_laporantanggapan/{idt}/{idtn}/{idltn}', [AdminThread::class, 'hapus_laporantanggapan']);
 
+        Route::get('admin/getakun', [AdminThread::class, 'getakun']);
+        Route::get('admin/gantiakses', [AdminThread::class, 'gantiakses']);
 
 
 
