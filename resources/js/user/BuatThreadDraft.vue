@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-5/6 sm:w-3/4 flex flex-col justify-center">
+    <div class="w-5/6 sm:w-3/4 mt-3 sm:mt-0 flex flex-col justify-center">
         <span class="font-bold text-xl mt-3 mb-2">Buat Thread</span>
         <div class="grid grid-cols-12 gap-3">
             <div class="col-span-12 sm:col-span-8 lg:col-span-9">

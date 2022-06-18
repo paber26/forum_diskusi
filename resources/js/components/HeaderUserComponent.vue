@@ -30,19 +30,20 @@
             </svg>
             <span class="text-sm font-bold">Menu</span>
         </button>
-        <div v-show="showsidebar" class="bg-white absolute ml-4 mt-32 border-2 border-blue-200 shadow-lg">
+        <div v-show="showsidebar" class="bg-white absolute ml-4 mt-40 border-2 border-blue-200 shadow-lg">
             <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="ke('/user')">Beranda</a>
             <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="ke('/user/buat_thread')">Buat Thread</a>
             <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="ke('/user/profil')">Profil</a>
             <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="ke('/user/pengguna')">Pengguna</a>
+            <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="logout()">Logout</a>
         </div>
-        <div class="flex flex-row items-center w-52 m-1">
+        <a href="/user" class="flex flex-row items-center w-52 m-1">
             <div class="font-bold text-right">
                 <div class="text-2xl">Forum Diskusi</div>
                 <div class="text-lg -mt-2">Polstat STIS</div>
             </div>
             <img src="/img/polstat-stis.png" alt="Logo Polstat STIS" class="w-10 h-10">
-        </div>
+        </a>
     </div>
 </div>
 </template>
@@ -58,7 +59,6 @@ export default {
     },
     methods: {
         logout() {
-            console.log('logout')
             axios.post("/user/logout").then(response => {
                 window.location.href = response.data;
             });

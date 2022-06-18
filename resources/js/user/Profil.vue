@@ -1,10 +1,10 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-5/6 sm:w-2/3 flex flex-col justify-center">
+    <div class="w-5/6 sm:w-2/3 flex flex-col justify-center min-w-max">
         <div class="mt-4">
-            <div class="bg-white w-full px-3 rounded-lg mb-3">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
+            <div class="bg-white w-full p-3 rounded-lg mb-3">
+                <div class="grid grid-cols-4 items-center justify-between">
+                    <div class="col-span-4 sm:col-span-3 flex items-center">
                         <img :src="user.gambar" class="h-36 w-36 rounded-full p-2" v-if="user.gambar!=''">
                         <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-36 w-36" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -13,7 +13,7 @@
                             <div class="font-bold">{{ user.nama }}</div>
                         </div>
                     </div>
-                    <router-link to="/user/profil/edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full">
+                    <router-link to="/user/profil/edit" class="col-span-4 sm:col-span-1 bg-blue-500 hover:bg-blue-700 text-white text-center font-bold py-1 px-3 rounded-full">
                         Edit Profil
                     </router-link>
                 </div>

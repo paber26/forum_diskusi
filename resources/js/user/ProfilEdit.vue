@@ -3,7 +3,7 @@
     <div class="w-5/6 sm:w-2/3 flex flex-col justify-center">
         <span class="font-bold text-xl mt-3 mb-2">Edit Profil</span>
         <div class="grid grid-cols-12 gap-3">
-            <div class="col-span-12 sm:col-span-4 lg:col-span-3 order-last sm:order-first">
+            <div class="col-span-12 sm:col-span-4 lg:col-span-3">
                 <div class="bg-white w-full p-2 pb-3 rounded-md mb-2">
                     <div class="flex flex-col items-center">
                         <img :src="user.gambar" class="h-44 w-44 rounded-full" v-if="user.gambar!=''">
