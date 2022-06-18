@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\VarDumper\VarDumper;
 
 class Authen extends Controller
@@ -38,8 +40,6 @@ class Authen extends Controller
                 'api_token' => Str::random(40),
             ];
             DB::table('users')->insert($stt);
-            // var_dump($stt);
-            // exit;
 
             return 'Berhasil';
         }
@@ -93,5 +93,47 @@ class Authen extends Controller
     {
         Auth::logout();
         return url('/login');
+    }
+
+    public function redirectToProvider()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleProviderCallback(Request $request)
+    {
+        try {
+            $user_google    = Socialite::driver('google')->user();
+            $user           = User::where('email', $user_google->getEmail())->first();
+
+            $email = $user_google->getEmail();
+
+            if (explode("@", $email)[1] != "stis.ac.id") {
+                return redirect()->route('logingagal');
+            };
+
+            $password = '00000';
+            if ($user != null) {
+                Auth::attempt(['email' => $email, 'password' => $password]);
+            } else {
+                $stt = [
+                    'nama' => strtoupper($user_google->getName()),
+                    'nim' => explode("@", $email)[0],
+                    'email' => $email,
+                    'password' => Hash::make($password),
+                    'gambar' => $user_google->getAvatar(),
+                    'nowa' => '',
+                    'deskripsi' => '',
+                    'alamat' => '',
+                    'is_admin' => 0,
+                    'api_token' => Str::random(40),
+                ];
+                DB::table('users')->insert($stt);
+                Auth::attempt(['email' => $email, 'password' => $password]);
+            }
+            return redirect('/user');
+        } catch (\Exception $e) {
+            return redirect()->route('login');
+        }
     }
 }

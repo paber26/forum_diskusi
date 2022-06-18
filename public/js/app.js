@@ -2352,15 +2352,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -2410,6 +2401,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this3.daftartanggapan = response.data;
+        console.log(response.data);
       });
     },
     lihat: function lihat(ktg) {
@@ -3188,6 +3180,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user', 'idt'],
   data: function data() {
@@ -3237,6 +3231,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -3355,6 +3353,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -3363,6 +3368,111 @@ __webpack_require__.r(__webpack_exports__);
         password: ''
       }
     };
+  },
+  methods: {
+    login: function login() {
+      var _this = this;
+
+      if (this.user.email != '' && this.user.password != '') {
+        axios.post('/login', this.user).then(function (response) {
+          console.log(response.data);
+
+          if (response.data == "Tidak terdaftar") {
+            _this.$swal('Email belum terdaftar');
+          } else if (response.data == "Password salah") {
+            _this.$swal('Password salah');
+          } else {
+            _this.$swal({
+              text: 'Berhasil masuk ...',
+              icon: 'success',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 4000
+            });
+
+            window.location.href = response.data;
+          }
+        });
+      } else {
+        this.$swal('Email atau Password tidak boleh kosong');
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/LoginGagal.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/LoginGagal.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    };
+  },
+  mounted: function mounted() {
+    this.$swal({
+      title: 'Login Gagal',
+      text: 'Gunakan email stis untuk login',
+      icon: 'error',
+      timer: 3000
+    });
   },
   methods: {
     login: function login() {
@@ -3559,6 +3669,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -3588,6 +3702,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -3786,6 +3901,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -4724,8 +4840,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -5157,7 +5271,9 @@ Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 var Register = (__webpack_require__(/*! ../auth/Register.vue */ "./resources/js/auth/Register.vue")["default"]);
 
-var Login = (__webpack_require__(/*! ../auth/Login.vue */ "./resources/js/auth/Login.vue")["default"]); // Bagian Admin
+var Login = (__webpack_require__(/*! ../auth/Login.vue */ "./resources/js/auth/Login.vue")["default"]);
+
+var LoginGagal = (__webpack_require__(/*! ../auth/LoginGagal.vue */ "./resources/js/auth/LoginGagal.vue")["default"]); // Bagian Admin
 
 
 var AdminLogin = (__webpack_require__(/*! ../admin/auth/Login.vue */ "./resources/js/admin/auth/Login.vue")["default"]);
@@ -5192,75 +5308,78 @@ var UserProfilEdit = (__webpack_require__(/*! ../user/ProfilEdit.vue */ "./resou
 var UserTanggapi = (__webpack_require__(/*! ../user/Tanggapi.vue */ "./resources/js/user/Tanggapi.vue")["default"]);
 
 var routes = [{
-  path: '/',
+  path: "/",
   component: Login
 }, {
-  path: '/login',
+  path: "/login",
   component: Login
 }, {
-  path: '/register',
+  path: "/login/gagal",
+  component: LoginGagal
+}, {
+  path: "/register",
   component: Register
 }, {
-  path: '/user',
+  path: "/user",
   component: UserBeranda
 }, {
-  path: '/user/petunjuk',
+  path: "/user/petunjuk",
   component: UserPetunjuk
 }, {
-  path: '/user/buat_thread',
+  path: "/user/buat_thread",
   component: UserBuatThread
 }, {
-  path: '/user/buat_thread/:idd',
+  path: "/user/buat_thread/:idd",
   component: UserBuatThreadDraft,
   props: true
 }, {
-  path: '/user/profil',
+  path: "/user/profil",
   component: UserProfil
 }, {
-  path: '/user/profil/edit',
+  path: "/user/profil/edit",
   component: UserProfilEdit
 }, {
-  path: '/user/tanggapi/:idt',
+  path: "/user/tanggapi/:idt",
   component: UserTanggapi,
   props: true
 }, {
-  path: '/admin/login',
+  path: "/admin/login",
   component: AdminLogin
 }, {
-  path: '/admin',
+  path: "/admin",
   component: AdminBeranda
 }, {
-  path: '/admin/thread',
+  path: "/admin/thread",
   component: AdminThread
 }, {
-  path: '/admin/tanggapan',
+  path: "/admin/tanggapan",
   component: AdminTanggapan
 }, {
-  path: '/admin/laporan',
+  path: "/admin/laporan",
   component: AdminLaporan
 }, {
-  path: '/admin/thread',
+  path: "/admin/thread",
   component: AdminThread
 }, {
-  path: '/admin/thread/:idt',
+  path: "/admin/thread/:idt",
   component: AdminThreadLihat,
   props: true
 }, {
-  path: '/admin/tanggapan',
+  path: "/admin/tanggapan",
   component: AdminTanggapan
 }, {
-  path: '/admin/tanggapan/:idt/:ktg',
+  path: "/admin/tanggapan/:idt/:ktg",
   component: AdminTanggapanLihat,
   props: true
 }, {
-  path: '/admin/laporan',
+  path: "/admin/laporan",
   component: AdminLaporan
 }, {
-  path: '/admin/kelolaakun',
+  path: "/admin/kelolaakun",
   component: AdminAkun
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  mode: 'history',
+  mode: "history",
   routes: routes
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -54577,6 +54696,45 @@ component.options.__file = "resources/js/auth/Login.vue"
 
 /***/ }),
 
+/***/ "./resources/js/auth/LoginGagal.vue":
+/*!******************************************!*\
+  !*** ./resources/js/auth/LoginGagal.vue ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _LoginGagal_vue_vue_type_template_id_78a07da8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LoginGagal.vue?vue&type=template&id=78a07da8& */ "./resources/js/auth/LoginGagal.vue?vue&type=template&id=78a07da8&");
+/* harmony import */ var _LoginGagal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LoginGagal.vue?vue&type=script&lang=js& */ "./resources/js/auth/LoginGagal.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LoginGagal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LoginGagal_vue_vue_type_template_id_78a07da8___WEBPACK_IMPORTED_MODULE_0__.render,
+  _LoginGagal_vue_vue_type_template_id_78a07da8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/auth/LoginGagal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/auth/Register.vue":
 /*!****************************************!*\
   !*** ./resources/js/auth/Register.vue ***!
@@ -55226,6 +55384,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/auth/LoginGagal.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./resources/js/auth/LoginGagal.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginGagal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LoginGagal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/LoginGagal.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginGagal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/auth/Register.vue?vue&type=script&lang=js&":
 /*!*****************************************************************!*\
   !*** ./resources/js/auth/Register.vue?vue&type=script&lang=js& ***!
@@ -55567,6 +55741,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_3d143c20___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Login_vue_vue_type_template_id_3d143c20___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Login.vue?vue&type=template&id=3d143c20& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/Login.vue?vue&type=template&id=3d143c20&");
+
+
+/***/ }),
+
+/***/ "./resources/js/auth/LoginGagal.vue?vue&type=template&id=78a07da8&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/auth/LoginGagal.vue?vue&type=template&id=78a07da8& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginGagal_vue_vue_type_template_id_78a07da8___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginGagal_vue_vue_type_template_id_78a07da8___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LoginGagal_vue_vue_type_template_id_78a07da8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./LoginGagal.vue?vue&type=template&id=78a07da8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/LoginGagal.vue?vue&type=template&id=78a07da8&");
 
 
 /***/ }),
@@ -56172,28 +56363,33 @@ var render = function () {
               [
                 _c("div", { staticClass: "flex justify-between items-start" }, [
                   _c("div", { staticClass: "flex items-center" }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-12 w-12",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    thread.gambar != ""
+                      ? _c("img", {
+                          staticClass: "h-12 w-12 rounded-full",
+                          attrs: { src: thread.gambar },
+                        })
+                      : _c(
+                          "svg",
+                          {
+                            staticClass: "h-12 w-12",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
                           },
-                        }),
-                      ]
-                    ),
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                              },
+                            }),
+                          ]
+                        ),
                     _vm._v(" "),
                     _c("div", { staticClass: "ml-2" }, [
                       _c("div", { staticClass: "font-semibold" }, [
@@ -56410,39 +56606,44 @@ var render = function () {
               [
                 _c("div", { staticClass: "flex justify-between items-start" }, [
                   _c("div", { staticClass: "flex items-center" }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-12 w-12",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    tanggapan.gambar != ""
+                      ? _c("img", {
+                          staticClass: "h-12 w-12 rounded-full",
+                          attrs: { src: tanggapan.gambar },
+                        })
+                      : _c(
+                          "svg",
+                          {
+                            staticClass: "h-12 w-12",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
                           },
-                        }),
-                      ]
-                    ),
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                              },
+                            }),
+                          ]
+                        ),
                     _vm._v(" "),
                     _c("div", { staticClass: "ml-2" }, [
                       _c("div", { staticClass: "font-semibold" }, [
                         _vm._v(_vm._s(tanggapan.nama) + " "),
                         _c("span", { staticClass: "text-xxs" }, [
-                          _vm._v("(" + _vm._s(tanggapan.nim) + ")"),
+                          _vm._v("(" + _vm._s(tanggapan.nimtn) + ")"),
                         ]),
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "text-xs italic" }, [
-                        _vm._v("Dibuat pada " + _vm._s(tanggapan.date)),
+                        _vm._v("Menanggapi pada " + _vm._s(tanggapan.date)),
                       ]),
                     ]),
                   ]),
@@ -57797,28 +57998,33 @@ var render = function () {
         _vm._v(" "),
         _c("div", { staticClass: "bg-white w-full px-3 pt-3 rounded-lg" }, [
           _c("div", { staticClass: "flex items-center" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "h-12 w-12",
-                attrs: {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  fill: "none",
-                  viewBox: "0 0 24 24",
-                  stroke: "currentColor",
-                  "stroke-width": "2",
-                },
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round",
-                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+            _vm.thread.gambar != ""
+              ? _c("img", {
+                  staticClass: "h-12 w-12 rounded-full",
+                  attrs: { src: _vm.thread.gambar },
+                })
+              : _c(
+                  "svg",
+                  {
+                    staticClass: "h-12 w-12",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      viewBox: "0 0 24 24",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
+                    },
                   },
-                }),
-              ]
-            ),
+                  [
+                    _c("path", {
+                      attrs: {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                      },
+                    }),
+                  ]
+                ),
             _vm._v(" "),
             _c("div", { staticClass: "ml-2" }, [
               _c("div", { staticClass: "font-semibold" }, [
@@ -57970,28 +58176,33 @@ var render = function () {
               },
               [
                 _c("div", { staticClass: "flex items-center" }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-12 w-12",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        fill: "none",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round",
-                          d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                  tanggapan.gambar != ""
+                    ? _c("img", {
+                        staticClass: "h-12 w-12 rounded-full",
+                        attrs: { src: tanggapan.gambar },
+                      })
+                    : _c(
+                        "svg",
+                        {
+                          staticClass: "h-12 w-12",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
                         },
-                      }),
-                    ]
-                  ),
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
+                      ),
                   _vm._v(" "),
                   _c("div", { staticClass: "ml-2" }, [
                     _c("div", { staticClass: "font-semibold" }, [
@@ -58145,6 +58356,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "w-full bg-white rounded-xl p-2.5" }, [
     _c("div", { staticClass: "border-2 border-gray-300 p-4 rounded-xl" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c(
         "form",
         {
@@ -58214,11 +58427,11 @@ var render = function () {
             },
           }),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(1),
         ]
       ),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(2),
       _vm._v(" "),
       _c(
         "div",
@@ -58240,6 +58453,20 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex justify-center flex-col" }, [
+      _c(
+        "span",
+        { staticClass: "font-bold text-center text-3xl text-birumateri" },
+        [_vm._v("Forum Diskusi")]
+      ),
+      _vm._v(" "),
+      _c("hr", { staticClass: "my-2" }),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -58292,6 +58519,8 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "w-full bg-white rounded-xl p-2.5" }, [
     _c("div", { staticClass: "border-2 border-gray-300 p-4 rounded-xl" }, [
+      _vm._m(0),
+      _vm._v(" "),
       _c(
         "form",
         {
@@ -58361,32 +58590,31 @@ var render = function () {
             },
           }),
           _vm._v(" "),
-          _vm._m(0),
+          _vm._m(1),
         ]
       ),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(2),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "flex justify-center items-end m-3" },
-        [
-          _c(
-            "router-link",
-            {
-              staticClass:
-                "bg-yellow-500 py-1.5 px-3 rounded-md text-white font-semibold text-base",
-              attrs: { to: "/register" },
-            },
-            [_vm._v("Daftar")]
-          ),
-        ],
-        1
-      ),
+      _vm._m(3),
     ]),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex justify-center flex-col" }, [
+      _c(
+        "span",
+        { staticClass: "font-bold text-center text-3xl text-birumateri" },
+        [_vm._v("Forum Diskusi")]
+      ),
+      _vm._v(" "),
+      _c("hr", { staticClass: "my-2" }),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -58412,6 +58640,186 @@ var staticRenderFns = [
       _c("span", { staticClass: "mx-2 font-thin italic" }, [_vm._v("atau")]),
       _vm._v(" "),
       _c("hr", { staticClass: "w-full" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex justify-center items-end m-3" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "bg-danger py-1.5 px-3 rounded-md text-white font-semibold text-base",
+          attrs: { href: "/auth/redirect" },
+        },
+        [_vm._v("Google")]
+      ),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/LoginGagal.vue?vue&type=template&id=78a07da8&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/auth/LoginGagal.vue?vue&type=template&id=78a07da8& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "w-full bg-white rounded-xl p-2.5" }, [
+    _c("div", { staticClass: "border-2 border-gray-300 p-4 rounded-xl" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          on: {
+            submit: function ($event) {
+              $event.preventDefault()
+              return _vm.login()
+            },
+          },
+        },
+        [
+          _c(
+            "label",
+            { staticClass: "text-birumateri font-semibold text-base" },
+            [_vm._v("Email")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user.email,
+                expression: "user.email",
+              },
+            ],
+            staticClass:
+              "w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+            attrs: { type: "text" },
+            domProps: { value: _vm.user.email },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.user, "email", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "text-birumateri font-semibold text-base mt-3" },
+            [_vm._v("Password")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.user.password,
+                expression: "user.password",
+              },
+            ],
+            staticClass:
+              "w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50",
+            attrs: { type: "password" },
+            domProps: { value: _vm.user.password },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.user, "password", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _vm._m(1),
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex justify-center flex-col" }, [
+      _c(
+        "span",
+        { staticClass: "font-bold text-center text-3xl text-birumateri" },
+        [_vm._v("Forum Diskusi")]
+      ),
+      _vm._v(" "),
+      _c("hr", { staticClass: "my-2" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex justify-center items-end m-3" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-birumateri py-1.5 px-3 rounded-md text-white font-semibold text-base",
+        },
+        [_vm._v("Masuk")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex items-center justify-between" }, [
+      _c("hr", { staticClass: "w-full" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "mx-2 font-thin italic" }, [_vm._v("atau")]),
+      _vm._v(" "),
+      _c("hr", { staticClass: "w-full" }),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex justify-center items-end m-3" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "bg-danger py-1.5 px-3 rounded-md text-white font-semibold text-base",
+          attrs: { href: "/auth/redirect" },
+        },
+        [_vm._v("Google")]
+      ),
     ])
   },
 ]
@@ -58671,72 +59079,91 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "bg-blue-200 p-2.5" }, [
     _c("div", { staticClass: "sm:flex justify-end hidden" }, [
-      _c(
-        "svg",
-        {
-          staticClass: "h-6 w-6",
-          attrs: {
-            xmlns: "http://www.w3.org/2000/svg",
-            fill: "none",
-            viewBox: "0 0 24 24",
-            stroke: "currentColor",
-            "stroke-width": "2",
-          },
-        },
-        [
-          _c("path", {
-            attrs: {
-              "stroke-linecap": "round",
-              "stroke-linejoin": "round",
-              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-            },
-          }),
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "font-semibold text-base ml-2 mr-3",
-          on: {
-            click: function ($event) {
-              _vm.show = !_vm.show
-            },
-          },
-        },
-        [_vm._v(_vm._s(_vm.user.nama))]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.show,
-              expression: "show",
-            },
-          ],
-          staticClass:
-            "flex flex-col mt-4 bg-white rounded-md ring-2 ring-black ring-opacity-5  absolute -0 w-44",
-        },
-        [
+      _c("div", { staticClass: "flex items-center" }, [
+        _vm.user.gambar != ""
+          ? _c("img", {
+              staticClass: "h-7 w-7 rounded-full",
+              attrs: { src: _vm.user.gambar },
+            })
+          : _c(
+              "svg",
+              {
+                staticClass: "h-7 w-h-7",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  fill: "none",
+                  viewBox: "0 0 24 24",
+                  stroke: "currentColor",
+                  "stroke-width": "2",
+                },
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                  },
+                }),
+              ]
+            ),
+        _vm._v(" "),
+        _c("div", { staticClass: "relative" }, [
           _c(
             "button",
             {
-              staticClass:
-                "block text-center font-medium pt-1 rounded-b-md hover:bg-yellow-200  hover:no-underline",
+              staticClass: "font-semibold ml-2 mr-3",
               on: {
                 click: function ($event) {
-                  return _vm.logout()
+                  _vm.show = !_vm.show
+                },
+                blur: function ($event) {
+                  _vm.show = false
                 },
               },
             },
-            [_vm._v("Log Out")]
+            [
+              _vm._v(
+                "\r\n                    " +
+                  _vm._s(_vm.user.nama) +
+                  "\r\n                "
+              ),
+            ]
           ),
-        ]
-      ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.show,
+                  expression: "show",
+                },
+              ],
+              staticClass:
+                "origin-top-right absolute right-0 mt-1 mr-2 w-36 bg-white rounded-lg border text-center",
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer",
+                  on: {
+                    mousedown: function ($event) {
+                      $event.preventDefault()
+                      return _vm.logout()
+                    },
+                  },
+                },
+                [_vm._v("Log Out")]
+              ),
+            ]
+          ),
+        ]),
+      ]),
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "sm:hidden flex justify-between items-center" }, [
@@ -58862,28 +59289,33 @@ var render = function () {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "flex items-center" }, [
-        _c(
-          "svg",
-          {
-            staticClass: "h-7 w-h-7",
-            attrs: {
-              xmlns: "http://www.w3.org/2000/svg",
-              fill: "none",
-              viewBox: "0 0 24 24",
-              stroke: "currentColor",
-              "stroke-width": "2",
-            },
-          },
-          [
-            _c("path", {
-              attrs: {
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round",
-                d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+        _vm.user.gambar != ""
+          ? _c("img", {
+              staticClass: "h-7 w-7 rounded-full",
+              attrs: { src: _vm.user.gambar },
+            })
+          : _c(
+              "svg",
+              {
+                staticClass: "h-7 w-h-7",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  fill: "none",
+                  viewBox: "0 0 24 24",
+                  stroke: "currentColor",
+                  "stroke-width": "2",
+                },
               },
-            }),
-          ]
-        ),
+              [
+                _c("path", {
+                  attrs: {
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                  },
+                }),
+              ]
+            ),
         _vm._v(" "),
         _c("div", { staticClass: "relative" }, [
           _c(
@@ -59579,28 +60011,33 @@ var render = function () {
                     { staticClass: "flex justify-between items-start" },
                     [
                       _c("div", { staticClass: "flex items-center" }, [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "h-12 w-12",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              fill: "none",
-                              viewBox: "0 0 24 24",
-                              stroke: "currentColor",
-                              "stroke-width": "2",
-                            },
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round",
-                                d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                        thread.gambar != ""
+                          ? _c("img", {
+                              staticClass: "h-12 w-12 rounded-full",
+                              attrs: { src: thread.gambar },
+                            })
+                          : _c(
+                              "svg",
+                              {
+                                staticClass: "h-12 w-12",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  fill: "none",
+                                  viewBox: "0 0 24 24",
+                                  stroke: "currentColor",
+                                  "stroke-width": "2",
+                                },
                               },
-                            }),
-                          ]
-                        ),
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round",
+                                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                                  },
+                                }),
+                              ]
+                            ),
                         _vm._v(" "),
                         _c("div", { staticClass: "ml-2" }, [
                           _c("div", { staticClass: "font-semibold" }, [
@@ -60504,28 +60941,33 @@ var render = function () {
             { staticClass: "flex items-center justify-between" },
             [
               _c("div", { staticClass: "flex items-center" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "h-36 w-36",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      fill: "none",
-                      viewBox: "0 0 24 24",
-                      stroke: "currentColor",
-                      "stroke-width": "2",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                _vm.user.gambar != ""
+                  ? _c("img", {
+                      staticClass: "h-36 w-36 rounded-full p-2",
+                      attrs: { src: _vm.user.gambar },
+                    })
+                  : _c(
+                      "svg",
+                      {
+                        staticClass: "h-36 w-36",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
                       },
-                    }),
-                  ]
-                ),
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                          },
+                        }),
+                      ]
+                    ),
                 _vm._v(" "),
                 _c("div", { staticClass: "ml-2" }, [
                   _c("div", { staticClass: "font-bold" }, [
@@ -61131,47 +61573,33 @@ var render = function () {
               { staticClass: "bg-white w-full p-2 pb-3 rounded-md mb-2" },
               [
                 _c("div", { staticClass: "flex flex-col items-center" }, [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "h-44 w-44",
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        fill: "none",
-                        viewBox: "0 0 24 24",
-                        stroke: "currentColor",
-                        "stroke-width": "2",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: {
-                          "stroke-linecap": "round",
-                          "stroke-linejoin": "round",
-                          d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                  _vm.user.gambar != ""
+                    ? _c("img", {
+                        staticClass: "h-44 w-44 rounded-full",
+                        attrs: { src: _vm.user.gambar },
+                      })
+                    : _c(
+                        "svg",
+                        {
+                          staticClass: "h-44 w-44",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
+                            "stroke-width": "2",
+                          },
                         },
-                      }),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass:
-                        "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-full",
-                      on: {
-                        click: function ($event) {
-                          $event.preventDefault()
-                          return _vm.profiledit()
-                        },
-                      },
-                    },
-                    [
-                      _vm._v(
-                        "\r\n                            Ubah Foto\r\n                        "
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                            },
+                          }),
+                        ]
                       ),
-                    ]
-                  ),
                 ]),
               ]
             ),
@@ -61298,74 +61726,6 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c("label", { staticClass: "col-sm-2 col-form-label" }, [
-                    _vm._v("Password"),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-10" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.fields.password,
-                          expression: "fields.password",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        name: "password",
-                        type: "text",
-                        placeholder: "Masukkan Password",
-                      },
-                      domProps: { value: _vm.fields.password },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.fields, "password", $event.target.value)
-                        },
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group row" }, [
-                  _c("label", { staticClass: "col-sm-2 col-form-label" }, [
-                    _vm._v("Ulangi Password"),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-10" }, [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.fields.upassword,
-                          expression: "fields.upassword",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        name: "upassword",
-                        type: "text",
-                        placeholder: "Ulangi Masukkan Password",
-                      },
-                      domProps: { value: _vm.fields.upassword },
-                      on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.fields, "upassword", $event.target.value)
-                        },
-                      },
-                    }),
-                  ]),
-                ]),
-                _vm._v(" "),
                 _vm._m(0),
               ]
             ),
@@ -61432,28 +61792,33 @@ var render = function () {
           _c("div", { staticClass: "bg-white w-full px-3 pt-3 rounded-lg" }, [
             _c("div", { staticClass: "flex justify-between items-start" }, [
               _c("div", { staticClass: "flex items-center" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "h-12 w-12",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      fill: "none",
-                      viewBox: "0 0 24 24",
-                      stroke: "currentColor",
-                      "stroke-width": "2",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                _vm.thread.gambar != ""
+                  ? _c("img", {
+                      staticClass: "h-12 w-12 rounded-full",
+                      attrs: { src: _vm.thread.gambar },
+                    })
+                  : _c(
+                      "svg",
+                      {
+                        staticClass: "h-12 w-12",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          fill: "none",
+                          viewBox: "0 0 24 24",
+                          stroke: "currentColor",
+                          "stroke-width": "2",
+                        },
                       },
-                    }),
-                  ]
-                ),
+                      [
+                        _c("path", {
+                          attrs: {
+                            "stroke-linecap": "round",
+                            "stroke-linejoin": "round",
+                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                          },
+                        }),
+                      ]
+                    ),
                 _vm._v(" "),
                 _c("div", { staticClass: "ml-2" }, [
                   _c("div", { staticClass: "font-semibold" }, [
@@ -61654,28 +62019,33 @@ var render = function () {
                 },
                 [
                   _c("div", { staticClass: "flex items-center" }, [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-12 w-12",
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
-                        },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                    tanggapan.gambar != ""
+                      ? _c("img", {
+                          staticClass: "h-12 w-12 rounded-full",
+                          attrs: { src: tanggapan.gambar },
+                        })
+                      : _c(
+                          "svg",
+                          {
+                            staticClass: "h-12 w-12",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
                           },
-                        }),
-                      ]
-                    ),
+                          [
+                            _c("path", {
+                              attrs: {
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                              },
+                            }),
+                          ]
+                        ),
                     _vm._v(" "),
                     _c("div", { staticClass: "ml-2" }, [
                       _c("div", { staticClass: "font-semibold" }, [

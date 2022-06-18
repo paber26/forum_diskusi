@@ -101,7 +101,7 @@ class UserThread extends Controller
         $kategori = $request->kategori;
 
         $q = DB::table('thread')
-            ->select('thread.*', 'users.nama')
+            ->select('thread.*', 'users.nama', 'users.gambar')
             ->leftJoin('users', 'thread.nim', '=', 'users.nim');
 
         if ($urutan == 'Terbaru' && $kategori == 'Semua') {
@@ -148,6 +148,7 @@ class UserThread extends Controller
                 array_push($daftarthread, [
                     'idt' => $row->idt,
                     'nim' => $row->nim,
+                    'gambar' => $row->gambar,
                     'kategori' => $row->kategori,
                     'nama' => $row->nama,
                     'judul' => $row->judul,
@@ -167,7 +168,7 @@ class UserThread extends Controller
     public function getthread($idt)
     {
         $q = DB::table('thread')
-            ->select('thread.*', 'users.nama')
+            ->select('thread.*', 'users.nama', 'users.gambar')
             ->leftJoin('users', 'thread.nim', '=', 'users.nim')
             ->where('idt', $idt)->first();
         $q2 = DB::table('dukungan_thread')->where(['idt' => $idt, 'nim' => Auth::user()->nim])->first();
@@ -180,6 +181,7 @@ class UserThread extends Controller
         return [
             'idt' => $q->idt,
             'nim' => $q->nim,
+            'gambar' => $q->gambar,
             'kategori' => $q->kategori,
             'nama' => $q->nama,
             'judul' => $q->judul,
@@ -215,7 +217,14 @@ class UserThread extends Controller
 
     public function gettanggapan($idt)
     {
-        $q = DB::table('tanggapan')->where('idt', $idt)->get();
+        $q = DB::table('tanggapan')
+            ->select('tanggapan.*', 'users.nama', 'users.gambar')
+            ->leftJoin('users', 'tanggapan.nim', '=', 'users.nim')
+            ->where('idt', $idt)->get();
+
+        // return $q;
+        // exit;
+        // $q = DB::table('tanggapan')->where('idt', $idt)->get();
         $q2 = DB::table('tanggapan')->select('tanggapan.idtn', 'dukungan_tanggapan.pilihan')
             ->leftJoin('dukungan_tanggapan', 'tanggapan.idtn', '=', 'dukungan_tanggapan.idtn')
             ->where('dukungan_tanggapan.nim', Auth::user()->nim)->get()->toArray();
@@ -234,6 +243,8 @@ class UserThread extends Controller
             }
             array_push($daftartanggapan, [
                 'idtn' => $row->idtn,
+                'nama' => $row->nama,
+                'gambar' => $row->gambar,
                 'nim' => $row->nim,
                 'isi' => $row->isi,
                 'date' => $row->date,

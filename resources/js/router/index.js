@@ -1,130 +1,132 @@
+window.Vue = require("vue").default;
 
-window.Vue = require('vue').default;
-
-import VueRouter from 'vue-router'
+import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
-const Register = require('../auth/Register.vue').default;
-const Login = require('../auth/Login.vue').default;
+const Register = require("../auth/Register.vue").default;
+const Login = require("../auth/Login.vue").default;
+const LoginGagal = require("../auth/LoginGagal.vue").default;
 
 // Bagian Admin
-const AdminLogin = require('../admin/auth/Login.vue').default;
+const AdminLogin = require("../admin/auth/Login.vue").default;
 
-const AdminBeranda = require('../admin/Beranda.vue').default;
-const AdminThread = require('../admin/Thread.vue').default;
-const AdminThreadLihat = require('../admin/ThreadLihat.vue').default;
-const AdminTanggapan = require('../admin/Tanggapan.vue').default;
-const AdminTanggapanLihat = require('../admin/TanggapanLihat.vue').default;
-const AdminLaporan = require('../admin/Laporan.vue').default;
-const AdminAkun = require('../admin/Akun.vue').default;
-
+const AdminBeranda = require("../admin/Beranda.vue").default;
+const AdminThread = require("../admin/Thread.vue").default;
+const AdminThreadLihat = require("../admin/ThreadLihat.vue").default;
+const AdminTanggapan = require("../admin/Tanggapan.vue").default;
+const AdminTanggapanLihat = require("../admin/TanggapanLihat.vue").default;
+const AdminLaporan = require("../admin/Laporan.vue").default;
+const AdminAkun = require("../admin/Akun.vue").default;
 
 // Bagian User
-const UserBeranda = require('../user/Beranda.vue').default;
-const UserBuatThread = require('../user/BuatThread.vue').default;
-const UserBuatThreadDraft = require('../user/BuatThreadDraft.vue').default;
-const UserPetunjuk = require('../user/Petunjuk.vue').default;
-const UserProfil = require('../user/Profil.vue').default;
-const UserProfilEdit = require('../user/ProfilEdit.vue').default;
-const UserTanggapi = require('../user/Tanggapi.vue').default;
+const UserBeranda = require("../user/Beranda.vue").default;
+const UserBuatThread = require("../user/BuatThread.vue").default;
+const UserBuatThreadDraft = require("../user/BuatThreadDraft.vue").default;
+const UserPetunjuk = require("../user/Petunjuk.vue").default;
+const UserProfil = require("../user/Profil.vue").default;
+const UserProfilEdit = require("../user/ProfilEdit.vue").default;
+const UserTanggapi = require("../user/Tanggapi.vue").default;
 
 const routes = [
     {
-        path: '/',
-        component: Login
+        path: "/",
+        component: Login,
     },
     {
-        path: '/login',
-        component: Login
+        path: "/login",
+        component: Login,
     },
     {
-        path: '/register',
-        component: Register
+        path: "/login/gagal",
+        component: LoginGagal,
     },
-    
+    {
+        path: "/register",
+        component: Register,
+    },
 
     {
-        path: '/user',
-        component: UserBeranda
+        path: "/user",
+        component: UserBeranda,
     },
     {
-        path: '/user/petunjuk',
-        component: UserPetunjuk
+        path: "/user/petunjuk",
+        component: UserPetunjuk,
     },
     {
-        path: '/user/buat_thread',
-        component: UserBuatThread
+        path: "/user/buat_thread",
+        component: UserBuatThread,
     },
     {
-        path: '/user/buat_thread/:idd',
+        path: "/user/buat_thread/:idd",
         component: UserBuatThreadDraft,
-        props: true
+        props: true,
     },
     {
-        path: '/user/profil',
-        component: UserProfil
+        path: "/user/profil",
+        component: UserProfil,
     },
     {
-        path: '/user/profil/edit',
-        component: UserProfilEdit
+        path: "/user/profil/edit",
+        component: UserProfilEdit,
     },
     {
-        path: '/user/tanggapi/:idt',
+        path: "/user/tanggapi/:idt",
         component: UserTanggapi,
-        props: true
+        props: true,
     },
 
     {
-        path: '/admin/login',
-        component: AdminLogin
+        path: "/admin/login",
+        component: AdminLogin,
     },
     {
-        path: '/admin',
-        component: AdminBeranda
+        path: "/admin",
+        component: AdminBeranda,
     },
     {
-        path: '/admin/thread',
-        component: AdminThread
+        path: "/admin/thread",
+        component: AdminThread,
     },
     {
-        path: '/admin/tanggapan',
-        component: AdminTanggapan
+        path: "/admin/tanggapan",
+        component: AdminTanggapan,
     },
     {
-        path: '/admin/laporan',
-        component: AdminLaporan
+        path: "/admin/laporan",
+        component: AdminLaporan,
     },
     {
-        path: '/admin/thread',
-        component: AdminThread
+        path: "/admin/thread",
+        component: AdminThread,
     },
     {
-        path: '/admin/thread/:idt',
+        path: "/admin/thread/:idt",
         component: AdminThreadLihat,
-        props: true
+        props: true,
     },
     {
-        path: '/admin/tanggapan',
-        component: AdminTanggapan
+        path: "/admin/tanggapan",
+        component: AdminTanggapan,
     },
     {
-        path: '/admin/tanggapan/:idt/:ktg',
+        path: "/admin/tanggapan/:idt/:ktg",
         component: AdminTanggapanLihat,
-        props: true
+        props: true,
     },
     {
-        path: '/admin/laporan',
-        component: AdminLaporan
+        path: "/admin/laporan",
+        component: AdminLaporan,
     },
     {
-        path: '/admin/kelolaakun',
-        component: AdminAkun
+        path: "/admin/kelolaakun",
+        component: AdminAkun,
     },
-]
+];
 
 const router = new VueRouter({
-    mode: 'history',
-    routes
-})
+    mode: "history",
+    routes,
+});
 
 export default router;

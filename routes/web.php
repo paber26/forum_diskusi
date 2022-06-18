@@ -22,6 +22,10 @@ Route::get('/login', function () {
     return view('auth');
 })->name('login');
 
+Route::get('/login/gagal', function () {
+    return view('authgagal');
+})->name('logingagal');
+
 Route::post('/register', [Authen::class, 'register']);
 Route::post('/login', [Authen::class, 'login']);
 
@@ -30,6 +34,10 @@ Route::get('/admin/login', function () {
 })->name('adminlogin');
 
 Route::post('/admin/login', [Authen::class, 'adminlogin']);
+
+
+Route::get('/auth/redirect', [Authen::class, 'redirectToProvider']);
+Route::get('/auth/callback', [Authen::class, 'handleProviderCallback']);
 
 Route::group(
     ['middleware' => 'admin'],
@@ -73,3 +81,7 @@ Route::group(
         Route::post('/user/logout', [Authen::class, 'logout']);
     }
 );
+
+
+// Route::get('/auth/redirect', 'Auth\LoginController@redirectToProvider');
+// Route::get('/auth/callback', 'Auth\LoginController@handleProviderCallback');

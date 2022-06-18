@@ -1,8 +1,8 @@
 <template>
 <div class="flex flex-col items-center w-full">
     <div class="w-5/6 sm:w-2/3 flex flex-col justify-center">
-    <!-- <div class="w-5/6 sm:w-2/3 lg:w-1/2 flex flex-col justify-center"> -->
-    <!-- <div class="w-11/12 grid grid-cols-3 gap-2 justify-center mt-4"> -->
+        <!-- <div class="w-5/6 sm:w-2/3 lg:w-1/2 flex flex-col justify-center"> -->
+        <!-- <div class="w-11/12 grid grid-cols-3 gap-2 justify-center mt-4"> -->
         <div class="mt-4">
             <div class="flex justify-between">
                 <span class="font-bold text-lg">Thread</span>
@@ -10,7 +10,8 @@
             </div>
             <div class="bg-white w-full px-3 pt-3 rounded-lg">
                 <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <img :src="thread.gambar" class="h-12 w-12 rounded-full" v-if="thread.gambar!=''">
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
 
@@ -53,7 +54,8 @@
             <span class="font-bold text-base mb-3" v-if="thread.tmenanggapi != 0">Tanggapan</span>
             <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3" id="yes1" v-for="tanggapan in daftartanggapan" :key="tanggapan.idtn">
                 <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <img :src="tanggapan.gambar" class="h-12 w-12 rounded-full" v-if="tanggapan.gambar!=''">
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
 

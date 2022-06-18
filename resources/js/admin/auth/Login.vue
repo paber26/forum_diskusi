@@ -1,6 +1,10 @@
 <template>
 <div class="w-full bg-white rounded-xl p-2.5">
     <div class="border-2 border-gray-300 p-4 rounded-xl">
+        <div class="flex justify-center flex-col">
+            <span class="font-bold text-center text-3xl text-birumateri">Forum Diskusi</span>
+            <hr class="my-2">
+        </div>
         <form @submit.prevent="login()">
             <label class="text-birumateri font-semibold text-base">Email</label>
             <input v-model="user.email" type="text" class="w-full p-1.5 bg-white border-2 border-birumateri rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50">

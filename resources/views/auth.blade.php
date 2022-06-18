@@ -15,7 +15,7 @@
         <div class="min-h-screen bg-gray-300 flex justify-center items-center py-8">
             <div class="flex flex-col items-center w-4/5 sm:w-1/2 lg:w-1/4">
                 <div class="flex justify-center mb-2">
-                    <img src="/img/polstat-stis.png" alt="Logo Polstat STIS" class="w-36 sm:w-48">
+                    <img src="/img/polstat-stis.png" alt="Logo Polstat STIS" class="w-32 sm:w-40">
                 </div>
                 <router-view></router-view>
             </div>

@@ -24,7 +24,7 @@ class AdminThread extends Controller
     {
         if ($idt == null) {
             $q = DB::table('thread')
-                ->select('thread.*', 'users.nama')
+                ->select('thread.*', 'users.nama', 'users.gambar')
                 ->leftJoin('users', 'thread.nim', '=', 'users.nim')
                 ->orderBy('date', 'desc')->get();
             if ($q == null) {
@@ -33,7 +33,7 @@ class AdminThread extends Controller
                 return $q;
             }
         } else {
-            return DB::table('thread')->select('thread.*', 'users.nama')
+            return DB::table('thread')->select('thread.*', 'users.nama', 'users.gambar')
                 ->leftJoin('users', 'thread.nim', '=', 'users.nim')
                 ->where('idt', $idt)->first();
         }
@@ -57,7 +57,7 @@ class AdminThread extends Controller
     {
         if ($idt == null) {
             return DB::table('tanggapan AS tn')
-                ->select('tn.idtn', 'tn.date', 'tn.nim AS nimtn', 'tn.isi', 't.idt', 't.nim AS nimt', 't.judul', 't.kategori', 'users.nama')
+                ->select('tn.idtn', 'tn.date', 'tn.nim AS nimtn', 'tn.isi', 't.idt', 't.nim AS nimt', 't.judul', 't.kategori', 'users.nama', 'users.gambar')
                 ->leftJoin('thread AS t', 'tn.idt', '=', 't.idt')
                 ->leftJoin('users', 'tn.nim', '=', 'users.nim')
                 ->orderBy('tn.date', 'desc')
