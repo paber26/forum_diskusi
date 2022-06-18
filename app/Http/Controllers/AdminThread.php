@@ -92,7 +92,7 @@ class AdminThread extends Controller
     {
         $daftarlaporan = [];
         $laporan = DB::table('laporan_tanggapan AS ltn')
-            ->select('ltn.idltn', 'ltn.nim AS nimpelapor', 'ltn.idtn', 'tn.idt', 'tn.nim AS nimpemilik', 'tn.isi', 'tn.date')
+            ->select('ltn.idltn', 'ltn.nim AS nimpelapor', 'ltn.idtn', 'ltn.alasan', 'tn.idt', 'tn.nim AS nimpemilik', 'tn.isi', 'tn.date')
             ->join('tanggapan AS tn', 'ltn.idtn', '=', 'tn.idtn')->get();
         foreach ($laporan as $l) {
             array_push($daftarlaporan, [
@@ -105,6 +105,7 @@ class AdminThread extends Controller
                 'idt' => $l->idt,
                 'judul' => DB::table('thread')->where('idt', $l->idt)->first()->judul,
                 'isi' => $l->isi,
+                'alasan' => $l->alasan,
                 'date' => $l->date
             ]);
         }

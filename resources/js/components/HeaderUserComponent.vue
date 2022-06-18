@@ -23,9 +23,12 @@
 
     </div>
     <div class="sm:hidden flex justify-between items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-        </svg>
+        <div class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+            </svg>
+            <span class="text-sm font-bold">Menu</span>
+        </div>
         <div class="flex flex-row items-center w-52">
             <div class="font-bold text-right">
                 <div class="text-2xl">Forum Diskusi</div>

@@ -67,15 +67,12 @@
                     <div class="flex justify-between py-1.5">
                         <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
                         <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-else>Lihat {{ thread.tmenanggapi }} tanggapan</button>
-                        <div class="relative">
-                            <button @click="isOptionsExpanded = !isOptionsExpanded" @blur="isOptionsExpanded = false" class="relative flex items-center px-3">
+                        <div class="flex justify-center">
+                            <button @click.prevent="laporthread(thread.idt)" class="relative flex items-center px-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
                                 </svg>
                             </button>
-                            <div v-show="isOptionsExpanded" class="origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border">
-                                <a class="block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer" @mousedown.prevent="laporthread(thread.idt)">Laporkan</a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,21 +130,32 @@ export default {
             })
         },
         laporthread(idt) {
-            console.log(idt)
-            let detail = {
-                'idt': idt
-            }
-            axios.post('/api/user/laporthread', detail, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + this.user.api_token
-                },
-            }).then(response => {
-                console.log(response.data)
-                if (response.data == 'Berhasil') {
-                    this.$swal('Berhasil melaporkan')
-                } else if (response.data == 'Sudah') {
-                    this.$swal('Kamu sudah melaporkan')
+            this.$swal({
+                text: 'Masukkan Alasan Melaporkan Thread Ini',
+                input: 'text',
+                showCancelButton: true,
+                inputValidator: (value) => {
+                    if (value != null) {
+                        let detail = {
+                            'idt': idt,
+                            'alasan': value
+                        }
+                        console.log(detail)
+                        axios.post('/api/user/laporthread', detail, {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Authorization': 'Bearer ' + this.user.api_token
+                            },
+                        }).then(response => {
+                            console.log(response.data)
+                            if (response.data == 'Berhasil') {
+                                this.$swal('Berhasil melaporkan')
+                            } else if (response.data == 'Sudah') {
+                                this.$swal('Kamu sudah melaporkan')
+                            }
+                        })
+                    }
+                    console.log('Selesai')
                 }
             })
         },

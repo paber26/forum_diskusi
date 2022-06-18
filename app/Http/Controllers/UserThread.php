@@ -166,49 +166,6 @@ class UserThread extends Controller
 
     public function getthread($idt)
     {
-        // if ($idt === null) {
-        // $q = DB::table('thread')
-        //     ->select('thread.*', 'users.nama')
-        //     ->leftJoin('users', 'thread.nim', '=', 'users.nim')
-        //     ->orderBy('date', 'desc')->get();
-        // if ($q == null) {
-        //     return 0;
-        // } else {
-        //     $q2 = DB::table('thread')->select('thread.idt', 'dukungan_thread.pilihan')
-        //         ->leftJoin('dukungan_thread', 'thread.idt', '=', 'dukungan_thread.idt')
-        //         ->where('dukungan_thread.nim', Auth::user()->nim)->get()->toArray();
-        //     // return $q2;
-
-        //     $daftarthread = [];
-        //     foreach ($q as $row) {
-        //         $cari = array_search(
-        //             $row->idt,
-        //             array_column($q2, 'idt')
-        //         );
-
-        //         if (strval($cari) == null) {
-        //             $pilihan = '';
-        //         } else {
-        //             $pilihan = $q2[$cari]->pilihan;
-        //         }
-        //         array_push($daftarthread, [
-        //             'idt' => $row->idt,
-        //             'nim' => $row->nim,
-        //             'kategori' => $row->kategori,
-        //             'nama' => $row->nama,
-        //             'judul' => $row->judul,
-        //             'isi' => $row->isi,
-        //             'date' => $row->date,
-        //             'tdukungan' => $row->tdukungan,
-        //             'tmenanggapi' => $row->tmenanggapi,
-        //             'tmelihat' => $row->tmelihat,
-        //             'pilihan' => $pilihan
-        //         ]);
-        //     }
-
-        //     return response()->json($daftarthread);
-        // }
-        // } else {
         $q = DB::table('thread')
             ->select('thread.*', 'users.nama')
             ->leftJoin('users', 'thread.nim', '=', 'users.nim')
@@ -223,6 +180,7 @@ class UserThread extends Controller
         return [
             'idt' => $q->idt,
             'nim' => $q->nim,
+            'kategori' => $q->kategori,
             'nama' => $q->nama,
             'judul' => $q->judul,
             'isi' => $q->isi,
@@ -232,7 +190,6 @@ class UserThread extends Controller
             'tmelihat' => $q->tmelihat,
             'pilihan' => $pilihan
         ];
-        // }
     }
 
     public function tanggapi(Request $request)
@@ -378,6 +335,7 @@ class UserThread extends Controller
     public function laporthread(Request $request)
     {
         $idt = $request->idt;
+        $alasan = $request->alasan;
 
         $q = DB::table('laporan_thread')->where(['idt' => $idt, 'nim' => Auth::user()->nim])->first();
 
@@ -389,7 +347,7 @@ class UserThread extends Controller
                 'idlt' => uniqid(),
                 'nim' => Auth::user()->nim,
                 'idt' => $idt,
-                'alasan' => ''
+                'alasan' => $alasan
             ];
 
             DB::table('laporan_thread')->insert($stt);
@@ -402,7 +360,7 @@ class UserThread extends Controller
     public function laportanggapan(Request $request)
     {
         $idtn = $request->idtn;
-
+        $alasan = $request->alasan;
         $q = DB::table('laporan_tanggapan')->where(['idtn' => $idtn, 'nim' => Auth::user()->nim])->first();
 
         if ($q == null) {
@@ -414,7 +372,7 @@ class UserThread extends Controller
                 'idltn' => uniqid(),
                 'idtn' => $idtn,
                 'nim' => Auth::user()->nim,
-                'alasan' => ''
+                'alasan' => $alasan
             ];
 
             DB::table('laporan_tanggapan')->insert($stt);

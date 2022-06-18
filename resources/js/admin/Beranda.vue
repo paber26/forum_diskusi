@@ -1,34 +1,28 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-11/12 grid grid-cols-3 gap-2 justify-center mt-4">
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
+    <div class="w-11/12 grid grid-cols-4 gap-2 justify-center mt-4">
+        <div class="col-span-4 lg:col-span-1 bg-white rounded-lg shadow-md">
             <div class="p-3 rounded-lg w-full">
                 <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Thread</h5>
                 <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.thread }}</p>
             </div>
         </div>
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
+        <div class="col-span-4 lg:col-span-1 bg-white rounded-lg shadow-md">
             <div class="p-3 rounded-lg w-full">
                 <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Tanggapan</h5>
                 <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.tanggapan }}</p>
             </div>
         </div>
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
+        <div class="col-span-4 lg:col-span-1 bg-white rounded-lg shadow-md">
             <div class="p-3 rounded-lg w-full">
                 <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Pengguna</h5>
                 <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.users }}</p>
             </div>
         </div>
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
+        <div class="col-span-4 lg:col-span-1 bg-white rounded-lg shadow-md">
             <div class="p-3 rounded-lg w-full">
                 <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Laporan</h5>
                 <p class="text-gray-700 text-3xl font-bold text-right">{{ jumlah.laporan }}</p>
-            </div>
-        </div>
-        <div class="col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md">
-            <div class="p-3 rounded-lg w-full">
-                <h5 class="mb-2 text-xl font-semibold text-gray-900 text-left">Jumlah Kategori</h5>
-                <p class="text-gray-700 text-3xl font-bold text-right">3</p>
             </div>
         </div>
     </div>

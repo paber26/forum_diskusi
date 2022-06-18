@@ -85,6 +85,7 @@ class Profil extends Controller
                     'idt' => $row->idt,
                     'nim' => $row->nim,
                     'nama' => Auth::user()->nama,
+                    'kategori' => $row->kategori,
                     'judul' => $row->judul,
                     'isi' => $row->isi,
                     'date' => $row->date,

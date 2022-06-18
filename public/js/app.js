@@ -2182,7 +2182,7 @@ __webpack_require__.r(__webpack_exports__);
     gantiakses: function gantiakses(nim, nama) {
       var _this4 = this;
 
-      var _this$$swal = this.$swal({
+      this.$swal({
         title: 'Pilih Akses Akun',
         text: nama + ' (' + nim + ')',
         input: 'select',
@@ -2202,8 +2202,9 @@ __webpack_require__.r(__webpack_exports__);
             }).then(function (response) {
               _this4.getakun();
 
-              console.log(response.data); // this.daftartanggapan = response.data
-              // console.log(this.daftartanggapan)
+              if (response.data == 'Berhasil') {
+                _this4.swal('Berhasil mengubah akses');
+              }
             });
           }
 
@@ -2215,8 +2216,7 @@ __webpack_require__.r(__webpack_exports__);
 
           console.log('Selesai');
         }
-      }),
-          akses = _this$$swal.value;
+      });
     }
   }
 });
@@ -2234,12 +2234,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2446,16 +2440,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3572,6 +3556,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -3601,6 +3588,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -3881,9 +3871,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -3937,22 +3924,34 @@ __webpack_require__.r(__webpack_exports__);
     laporthread: function laporthread(idt) {
       var _this3 = this;
 
-      console.log(idt);
-      var detail = {
-        'idt': idt
-      };
-      axios.post('/api/user/laporthread', detail, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + this.user.api_token
-        }
-      }).then(function (response) {
-        console.log(response.data);
+      this.$swal({
+        text: 'Masukkan Alasan Melaporkan Thread Ini',
+        input: 'text',
+        showCancelButton: true,
+        inputValidator: function inputValidator(value) {
+          if (value != null) {
+            var detail = {
+              'idt': idt,
+              'alasan': value
+            };
+            console.log(detail);
+            axios.post('/api/user/laporthread', detail, {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + _this3.user.api_token
+              }
+            }).then(function (response) {
+              console.log(response.data);
 
-        if (response.data == 'Berhasil') {
-          _this3.$swal('Berhasil melaporkan');
-        } else if (response.data == 'Sudah') {
-          _this3.$swal('Kamu sudah melaporkan');
+              if (response.data == 'Berhasil') {
+                _this3.$swal('Berhasil melaporkan');
+              } else if (response.data == 'Sudah') {
+                _this3.$swal('Kamu sudah melaporkan');
+              }
+            });
+          }
+
+          console.log('Selesai');
         }
       });
     },
@@ -4593,6 +4592,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -4906,15 +4907,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user', 'idt'],
   data: function data() {
@@ -4932,7 +4924,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     this.getthread();
     this.gettanggapan();
-    console.log(this.idt);
   },
   methods: {
     getthread: function getthread() {
@@ -4944,7 +4935,7 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        _this.thread = response.data; // console.log(response.data)
+        _this.thread = response.data;
       });
     },
     gettanggapan: function gettanggapan() {
@@ -5006,31 +4997,64 @@ __webpack_require__.r(__webpack_exports__);
           _this3.gettanggapan();
 
           _this3.fields.isi = '';
-        } else {
-          console.log(response.data);
-        }
+        } else {}
       });
-      console.log(this.fields);
     },
-    laportanggapan: function laportanggapan(idtn) {
+    laporthread: function laporthread(idt) {
       var _this4 = this;
 
-      console.log(idtn);
-      var detail = {
-        'idtn': idtn
-      };
-      axios.post('/api/user/laportanggapan', detail, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + this.user.api_token
+      this.$swal({
+        text: 'Masukkan Alasan Melaporkan Thread Ini',
+        input: 'text',
+        showCancelButton: true,
+        inputValidator: function inputValidator(value) {
+          if (value != null) {
+            var detail = {
+              'idt': idt,
+              'alasan': value
+            };
+            axios.post('/api/user/laporthread', detail, {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + _this4.user.api_token
+              }
+            }).then(function (response) {
+              if (response.data == 'Berhasil') {
+                _this4.$swal('Berhasil melaporkan');
+              } else if (response.data == 'Sudah') {
+                _this4.$swal('Kamu sudah melaporkan');
+              }
+            });
+          }
         }
-      }).then(function (response) {
-        console.log(response.data);
+      });
+    },
+    laportanggapan: function laportanggapan(idtn) {
+      var _this5 = this;
 
-        if (response.data == 'Berhasil') {
-          _this4.$swal('Berhasil melaporkan');
-        } else if (response.data == 'Sudah') {
-          _this4.$swal('Kamu sudah melaporkan tanggapan ini');
+      this.$swal({
+        text: 'Masukkan Alasan Melaporkan Tanggapan Ini',
+        input: 'text',
+        showCancelButton: true,
+        inputValidator: function inputValidator(value) {
+          if (value != null) {
+            var detail = {
+              'idtn': idtn,
+              'alasan': value
+            };
+            axios.post('/api/user/laportanggapan', detail, {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + _this5.user.api_token
+              }
+            }).then(function (response) {
+              if (response.data == 'Berhasil') {
+                _this5.$swal('Berhasil melaporkan');
+              } else if (response.data == 'Sudah') {
+                _this5.$swal('Kamu sudah melaporkan');
+              }
+            });
+          }
         }
       });
     }
@@ -55971,13 +55995,13 @@ var render = function () {
   return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
     _c(
       "div",
-      { staticClass: "w-11/12 grid grid-cols-3 gap-2 justify-center mt-4" },
+      { staticClass: "w-11/12 grid grid-cols-4 gap-2 justify-center mt-4" },
       [
         _c(
           "div",
           {
             staticClass:
-              "col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md",
+              "col-span-4 lg:col-span-1 bg-white rounded-lg shadow-md",
           },
           [
             _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
@@ -56003,7 +56027,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md",
+              "col-span-4 lg:col-span-1 bg-white rounded-lg shadow-md",
           },
           [
             _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
@@ -56029,7 +56053,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md",
+              "col-span-4 lg:col-span-1 bg-white rounded-lg shadow-md",
           },
           [
             _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
@@ -56055,7 +56079,7 @@ var render = function () {
           "div",
           {
             staticClass:
-              "col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md",
+              "col-span-4 lg:col-span-1 bg-white rounded-lg shadow-md",
           },
           [
             _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
@@ -56076,8 +56100,6 @@ var render = function () {
             ]),
           ]
         ),
-        _vm._v(" "),
-        _vm._m(0),
       ]
     ),
     _vm._v(" "),
@@ -56492,34 +56514,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-span-3 lg:col-span-1 bg-white rounded-lg shadow-md" },
-      [
-        _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
-          _c(
-            "h5",
-            {
-              staticClass: "mb-2 text-xl font-semibold text-gray-900 text-left",
-            },
-            [_vm._v("Jumlah Kategori")]
-          ),
-          _vm._v(" "),
-          _c(
-            "p",
-            { staticClass: "text-gray-700 text-3xl font-bold text-right" },
-            [_vm._v("3")]
-          ),
-        ]),
-      ]
-    )
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -56841,12 +56836,12 @@ var render = function () {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "p-3" }, [
-                      _c("span", [
-                        _vm._v(_vm._s(_vm.ltn[index - 1].namapelapor)),
-                      ]),
+                      _vm._v(_vm._s(_vm.ltn[index - 1].namapelapor)),
                     ]),
                     _vm._v(" "),
-                    _c("td"),
+                    _c("td", { staticClass: "p-3" }, [
+                      _vm._v(_vm._s(_vm.ltn[index - 1].alasan)),
+                    ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "p-3 text-right" }, [
                       _c(
@@ -58745,28 +58740,32 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "sm:hidden flex justify-between items-center" }, [
-      _c(
-        "svg",
-        {
-          staticClass: "h-6 w-6",
-          attrs: {
-            xmlns: "http://www.w3.org/2000/svg",
-            fill: "none",
-            viewBox: "0 0 24 24",
-            stroke: "currentColor",
-          },
-        },
-        [
-          _c("path", {
+      _c("div", { staticClass: "flex items-center" }, [
+        _c(
+          "svg",
+          {
+            staticClass: "h-6 w-6",
             attrs: {
-              "stroke-linecap": "round",
-              "stroke-linejoin": "round",
-              "stroke-width": "2",
-              d: "M4 6h16M4 12h16M4 18h7",
+              xmlns: "http://www.w3.org/2000/svg",
+              fill: "none",
+              viewBox: "0 0 24 24",
+              stroke: "currentColor",
             },
-          }),
-        ]
-      ),
+          },
+          [
+            _c("path", {
+              attrs: {
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                "stroke-width": "2",
+                d: "M4 6h16M4 12h16M4 18h7",
+              },
+            }),
+          ]
+        ),
+        _vm._v(" "),
+        _c("span", { staticClass: "text-sm font-bold" }, [_vm._v("Menu")]),
+      ]),
       _vm._v(" "),
       _vm._m(0),
     ]),
@@ -58945,28 +58944,32 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "sm:hidden flex justify-between items-center" }, [
-      _c(
-        "svg",
-        {
-          staticClass: "h-6 w-6",
-          attrs: {
-            xmlns: "http://www.w3.org/2000/svg",
-            fill: "none",
-            viewBox: "0 0 24 24",
-            stroke: "currentColor",
-          },
-        },
-        [
-          _c("path", {
+      _c("div", { staticClass: "flex items-center" }, [
+        _c(
+          "svg",
+          {
+            staticClass: "h-6 w-6",
             attrs: {
-              "stroke-linecap": "round",
-              "stroke-linejoin": "round",
-              "stroke-width": "2",
-              d: "M4 6h16M4 12h16M4 18h7",
+              xmlns: "http://www.w3.org/2000/svg",
+              fill: "none",
+              viewBox: "0 0 24 24",
+              stroke: "currentColor",
             },
-          }),
-        ]
-      ),
+          },
+          [
+            _c("path", {
+              attrs: {
+                "stroke-linecap": "round",
+                "stroke-linejoin": "round",
+                "stroke-width": "2",
+                d: "M4 6h16M4 12h16M4 18h7",
+              },
+            }),
+          ]
+        ),
+        _vm._v(" "),
+        _c("span", { staticClass: "text-sm font-bold" }, [_vm._v("Menu")]),
+      ]),
       _vm._v(" "),
       _vm._m(0),
     ]),
@@ -59774,17 +59777,15 @@ var render = function () {
                           ]
                         ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "relative" }, [
+                    _c("div", { staticClass: "flex justify-center" }, [
                       _c(
                         "button",
                         {
                           staticClass: "relative flex items-center px-3",
                           on: {
                             click: function ($event) {
-                              _vm.isOptionsExpanded = !_vm.isOptionsExpanded
-                            },
-                            blur: function ($event) {
-                              _vm.isOptionsExpanded = false
+                              $event.preventDefault()
+                              return _vm.laporthread(thread.idt)
                             },
                           },
                         },
@@ -59810,38 +59811,6 @@ var render = function () {
                                 },
                               }),
                             ]
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.isOptionsExpanded,
-                              expression: "isOptionsExpanded",
-                            },
-                          ],
-                          staticClass:
-                            "origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border",
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer",
-                              on: {
-                                mousedown: function ($event) {
-                                  $event.preventDefault()
-                                  return _vm.laporthread(thread.idt)
-                                },
-                              },
-                            },
-                            [_vm._v("Laporkan")]
                           ),
                         ]
                       ),
@@ -60866,43 +60835,66 @@ var render = function () {
                             "bg-white w-full px-3 pt-3 rounded-lg mb-3",
                         },
                         [
-                          _c("div", { staticClass: "flex items-center" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "h-12 w-12",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  fill: "none",
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round",
-                                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                          _c(
+                            "div",
+                            { staticClass: "flex justify-between items-start" },
+                            [
+                              _c("div", { staticClass: "flex items-center" }, [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "h-12 w-12",
+                                    attrs: {
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                      fill: "none",
+                                      viewBox: "0 0 24 24",
+                                      stroke: "currentColor",
+                                      "stroke-width": "2",
+                                    },
                                   },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "ml-2" }, [
-                              _c("div", { staticClass: "font-semibold" }, [
-                                _vm._v(_vm._s(thread.nama) + " "),
-                                _c("span", { staticClass: "text-xxs" }, [
-                                  _vm._v("(" + _vm._s(thread.nim) + ")"),
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "stroke-linecap": "round",
+                                        "stroke-linejoin": "round",
+                                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "ml-2" }, [
+                                  _c("div", { staticClass: "font-semibold" }, [
+                                    _vm._v(_vm._s(thread.nama) + " "),
+                                    _c("span", { staticClass: "text-xxs" }, [
+                                      _vm._v("(" + _vm._s(thread.nim) + ")"),
+                                    ]),
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "text-xs italic" }, [
+                                    _vm._v(
+                                      "Dibuat pada " + _vm._s(thread.date)
+                                    ),
+                                  ]),
                                 ]),
                               ]),
                               _vm._v(" "),
-                              _c("div", { staticClass: "text-xs italic" }, [
-                                _vm._v("Dibuat pada " + _vm._s(thread.date)),
-                              ]),
-                            ]),
-                          ]),
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "inline-flex items-center px-2 py-1 text-xs font-bold leading-none text-white rounded",
+                                  class:
+                                    thread.kategori == "Pertanyaan"
+                                      ? "bg-red-600"
+                                      : thread.kategori == "Informasi"
+                                      ? "bg-green-600"
+                                      : "bg-indigo-600",
+                                },
+                                [_vm._v(_vm._s(thread.kategori))]
+                              ),
+                            ]
+                          ),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex m-1" }, [
                             _c(
@@ -61438,42 +61430,59 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "bg-white w-full px-3 pt-3 rounded-lg" }, [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "h-12 w-12",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    fill: "none",
-                    viewBox: "0 0 24 24",
-                    stroke: "currentColor",
-                    "stroke-width": "2",
-                  },
-                },
-                [
-                  _c("path", {
+            _c("div", { staticClass: "flex justify-between items-start" }, [
+              _c("div", { staticClass: "flex items-center" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "h-12 w-12",
                     attrs: {
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                      d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      fill: "none",
+                      viewBox: "0 0 24 24",
+                      stroke: "currentColor",
+                      "stroke-width": "2",
                     },
-                  }),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "ml-2" }, [
-                _c("div", { staticClass: "font-semibold" }, [
-                  _vm._v(_vm._s(_vm.thread.nama) + " "),
-                  _c("span", { staticClass: "text-xxs" }, [
-                    _vm._v("(" + _vm._s(_vm.thread.nim) + ")"),
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                      },
+                    }),
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "ml-2" }, [
+                  _c("div", { staticClass: "font-semibold" }, [
+                    _vm._v(_vm._s(_vm.thread.nama) + " "),
+                    _c("span", { staticClass: "text-xxs" }, [
+                      _vm._v("(" + _vm._s(_vm.thread.nim) + ")"),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-xs italic" }, [
+                    _vm._v("Dibuat pada " + _vm._s(_vm.thread.date)),
                   ]),
                 ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-xs italic" }, [
-                  _vm._v("Dibuat pada " + _vm._s(_vm.thread.date)),
-                ]),
               ]),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  staticClass:
+                    "inline-flex items-center px-2 py-1 text-xs font-bold leading-none text-white rounded",
+                  class:
+                    _vm.thread.kategori == "Pertanyaan"
+                      ? "bg-red-600"
+                      : _vm.thread.kategori == "Informasi"
+                      ? "bg-green-600"
+                      : "bg-indigo-600",
+                },
+                [_vm._v(_vm._s(_vm.thread.kategori))]
+              ),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "flex m-1" }, [
@@ -61586,78 +61595,42 @@ var render = function () {
                     _vm._v(_vm._s(_vm.thread.tmenanggapi) + " tanggapan"),
                   ]),
               _vm._v(" "),
-              _c("div", { staticClass: "relative" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "relative flex items-center px-3",
-                    on: {
-                      click: function ($event) {
-                        _vm.isexpandthread = !_vm.isexpandthread
-                      },
-                      blur: function ($event) {
-                        _vm.isexpandthread = false
-                      },
+              _c(
+                "button",
+                {
+                  staticClass: "relative flex items-center px-3",
+                  on: {
+                    click: function ($event) {
+                      $event.preventDefault()
+                      return _vm.laporthread(_vm.thread.idt)
                     },
                   },
-                  [
-                    _c(
-                      "svg",
-                      {
-                        staticClass: "h-7 w-7 hover:text-blue-900",
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "h-7 w-7 hover:text-blue-900",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        fill: "none",
+                        viewBox: "0 0 24 24",
+                        stroke: "currentColor",
+                        "stroke-width": "2",
+                      },
+                    },
+                    [
+                      _c("path", {
                         attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          fill: "none",
-                          viewBox: "0 0 24 24",
-                          stroke: "currentColor",
-                          "stroke-width": "2",
+                          "stroke-linecap": "round",
+                          "stroke-linejoin": "round",
+                          d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
                         },
-                      },
-                      [
-                        _c("path", {
-                          attrs: {
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
-                          },
-                        }),
-                      ]
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.isexpandthread,
-                        expression: "isexpandthread",
-                      },
-                    ],
-                    staticClass:
-                      "origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border",
-                  },
-                  [
-                    _c(
-                      "a",
-                      {
-                        staticClass:
-                          "block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer",
-                        on: {
-                          mousedown: function ($event) {
-                            $event.preventDefault()
-                            return _vm.laporthread(_vm.thread.idt)
-                          },
-                        },
-                      },
-                      [_vm._v("Laporkan")]
-                    ),
-                  ]
-                ),
-              ]),
+                      }),
+                    ]
+                  ),
+                ]
+              ),
             ]),
           ]),
         ]),
@@ -61826,78 +61799,42 @@ var render = function () {
                   _c("hr"),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex justify-end py-1.5" }, [
-                    _c("div", { staticClass: "relative" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "relative flex items-center px-3",
-                          on: {
-                            click: function ($event) {
-                              _vm.isexpandtanggapan = !_vm.isexpandtanggapan
-                            },
-                            blur: function ($event) {
-                              _vm.isexpandtanggapan = false
-                            },
+                    _c(
+                      "button",
+                      {
+                        staticClass: "relative flex items-center px-3",
+                        on: {
+                          click: function ($event) {
+                            $event.preventDefault()
+                            return _vm.laportanggapan(tanggapan.idtn)
                           },
                         },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "h-7 w-7 hover:text-blue-900",
+                      },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass: "h-7 w-7 hover:text-blue-900",
+                            attrs: {
+                              xmlns: "http://www.w3.org/2000/svg",
+                              fill: "none",
+                              viewBox: "0 0 24 24",
+                              stroke: "currentColor",
+                              "stroke-width": "2",
+                            },
+                          },
+                          [
+                            _c("path", {
                               attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                fill: "none",
-                                viewBox: "0 0 24 24",
-                                stroke: "currentColor",
-                                "stroke-width": "2",
+                                "stroke-linecap": "round",
+                                "stroke-linejoin": "round",
+                                d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
                               },
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  "stroke-linecap": "round",
-                                  "stroke-linejoin": "round",
-                                  d: "M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z",
-                                },
-                              }),
-                            ]
-                          ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.isexpandtanggapan,
-                              expression: "isexpandtanggapan",
-                            },
-                          ],
-                          staticClass:
-                            "origin-top-right absolute bottom-6 right-0 w-32 bg-white rounded-lg border",
-                        },
-                        [
-                          _c(
-                            "a",
-                            {
-                              staticClass:
-                                "block hover:bg-gray-200 px-4 py-1 font-medium text-gray-800 text-center cursor-pointer",
-                              on: {
-                                mousedown: function ($event) {
-                                  $event.preventDefault()
-                                  return _vm.laportanggapan(tanggapan.idtn)
-                                },
-                              },
-                            },
-                            [_vm._v("Laporkan")]
-                          ),
-                        ]
-                      ),
-                    ]),
+                            }),
+                          ]
+                        ),
+                      ]
+                    ),
                   ]),
                 ]
               )

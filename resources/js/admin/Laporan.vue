@@ -95,18 +95,8 @@
                             <hr>
                             <span v-html="ltn[index-1].isi"></span>
                         </td>
-                        <!-- <td class="p-3">
-                            <div class=" flex flex-col">
-                                <span class="mb-2">Jumlah: 1 orang</span>
-                                <ol class="list-decimal ml-3">
-                                    <li>{{ ltn[index-1].namapelapor }}</li>
-                                </ol>
-                            </div>
-                        </td> -->
-                        <td class="p-3">
-                            <span>{{ ltn[index-1].namapelapor }}</span>
-                        </td>
-                        <td></td>
+                        <td class="p-3">{{ ltn[index-1].namapelapor }}</td>
+                        <td class="p-3">{{ ltn[index-1].alasan }}</td>
                         <td class="p-3 text-right">
                             <button @click.prevent="hapus_laporantanggapan(ltn[index-1].idt, ltn[index-1].idtn, ltn[index-1].idltn)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

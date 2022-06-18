@@ -108,9 +108,7 @@ export default {
             })
         },
         gantiakses(nim, nama) {
-            const {
-                value: akses
-            } = this.$swal({
+            this.$swal({
                 title: 'Pilih Akses Akun',
                 text: nama + ' (' + nim + ')',
                 input: 'select',
@@ -129,9 +127,9 @@ export default {
                             },
                         }).then((response) => {
                             this.getakun()
-                            console.log(response.data)
-                            // this.daftartanggapan = response.data
-                            // console.log(this.daftartanggapan)
+                            if(response.data == 'Berhasil'){
+                                this.swal('Berhasil mengubah akses')
+                            }
                         })
                     }
                     if (value === 'admin') {
