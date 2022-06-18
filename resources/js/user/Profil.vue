@@ -11,7 +11,6 @@
                         </svg>
                         <div class="ml-2">
                             <div class="font-bold">{{ user.nama }}</div>
-                            <!-- <div class="text-xs">0 Pengikut | 5 Mengikuti</div> -->
                         </div>
                     </div>
                     <router-link to="/user/profil/edit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded-full">
@@ -21,7 +20,7 @@
             </div>
 
             <div class="grid grid-cols-12 gap-3">
-                <div class="col-span-12 sm:col-span-4 lg:col-span-3 order-last sm:order-first">
+                <div class="col-span-12 sm:col-span-4 lg:col-span-3 order-first">
                     <div class="bg-white w-full p-2 rounded-md mb-2">
                         <span class="font-semibold text-base italic">Status</span>
                         <div class="grid grid-cols-2 justify-center">
@@ -85,7 +84,6 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
                                 </svg>
                                 <span class="font-bold text-lg mb-2 cursor-pointer" v-html="tanggapan.judul"></span>
-                                <!-- <span class="ml-2 text-lg font-bold">{{ tanggapan.judul }}</span> -->
                             </a>
                             <hr>
                             <span v-html="tanggapan.isi"></span>
@@ -130,9 +128,6 @@
                             <div class="flex justify-between py-1.5">
                                 <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
                                 <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-else>Lihat {{ thread.tmenanggapi }} jawaban</button>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                                </svg>
                             </div>
                         </div>
                     </div>

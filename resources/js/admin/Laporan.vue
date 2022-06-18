@@ -27,11 +27,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in lt.length" :key="index.idlt">
+                    <tr v-if="lt.length==0" class="font-italic font-semibold">Laporan Thread Kosong</tr>
+                    <tr v-else class="bg-white border-b divide-x divide-gray-400" v-for="index in lt.length" :key="index.idlt">
                         <td class="p-3 text-center font-medium text-gray-900">{{ index }}</td>
                         <td class="p-3 text-center">
-                            <span>{{ lt[index-1].nama }}</span>
-                            <div class="text-xxs">(NIM: {{ lt[index-1].nim }})</div>
+                            <span>{{ lt[index-1].namapemilik }}</span>
+                            <div class="text-xxs">(NIM: {{ lt[index-1].nimpemilik }})</div>
                         </td>
                         <td class="p-3">
                             <div class="text-xs italic">Dibuat pada {{ lt[index-1].date }}</div>
@@ -39,17 +40,13 @@
                                 {{ lt[index-1].judul }}
                             </a>
                         </td>
-                        <td class="p-3">
-                            <div class=" flex flex-col">
-                                <span class="mb-2">Jumlah: 1 orang</span>
-                                <ol class="list-decimal ml-3">
-                                    <li>Bernaldo Napitupulu</li>
-                                </ol>
-                            </div>
+                        <td class="p-3 text-center">
+                            <span>{{ lt[index-1].namapelapor }}</span>
+                            <div class="text-xxs">(NIM: {{ lt[index-1].nimpelapor }})</div>
                         </td>
-                        <td></td>
+                        <td>{{ lt[index-1].alasan }}</td>
                         <td class="p-3 text-right">
-                            <button @click.prevent="hapusthread(lt[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                            <button @click.prevent="hapus_laporanthread(lt[index-1].idt)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -78,7 +75,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in ltn.length" :key="index.idltn">
+                    <tr v-if="ltn.length==0" class="font-italic font-semibold">Laporan Tanggapan Kosong</tr>
+                    <tr v-else class="bg-white border-b divide-x divide-gray-400" v-for="index in ltn.length" :key="index.idltn">
                         <td class="p-3 text-center font-medium text-gray-900">{{ index }}</td>
                         <td class="p-3 text-center">
                             <span class="font-semibold">{{ ltn[index-1].namapemilik }}</span>
@@ -137,6 +135,7 @@ export default {
                 },
             }).then((response) => {
                 this.lt = response.data
+                console.log(this.lt)
             })
         },
         getlaporan_tanggapan() {
@@ -146,7 +145,6 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then((response) => {
-                console.log(response.data)
                 this.ltn = response.data
             })
         },
@@ -157,8 +155,7 @@ export default {
                 this.isactive = 'tanggapan'
             }
         },
-        hapusthread(idt) {
-            console.log(idt)
+        hapus_laporanthread(idt) {
             this.$swal({
                 title: 'Apakah yakin untuk menghapus?',
                 text: "Tindakan ini tidak dapat dikembalikan",
@@ -169,7 +166,7 @@ export default {
                 confirmButtonText: 'Ya, hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    axios.delete('/api/admin/hapus_thread/' + idt, {
+                    axios.delete('/api/admin/hapus_laporanthread/' + idt, {
                         headers: {
                             'Content-Type': 'application/json',
                             'Authorization': 'Bearer ' + this.user.api_token
@@ -178,16 +175,13 @@ export default {
                         console.log(response.data)
                         if (response.data == 'Berhasil') {
                             this.$swal('Berhasil menghapus')
-                            this.getthread()
+                            this.getlaporan_thread()
                         }
                     })
                 }
             })
         },
         hapus_laporantanggapan(idt, idtn, idltn) {
-            console.log(idt)
-            console.log(idtn)
-            console.log(idltn)
             this.$swal({
                 title: 'Apakah yakin untuk menghapus?',
                 text: "Tindakan ini tidak dapat dikembalikan",
@@ -204,7 +198,6 @@ export default {
                             'Authorization': 'Bearer ' + this.user.api_token
                         },
                     }).then(response => {
-                        console.log(response.data)
                         if (response.data == 'Berhasil') {
                             this.$swal('Berhasil menghapus')
                             this.getlaporan_tanggapan()

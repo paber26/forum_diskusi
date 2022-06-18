@@ -39,16 +39,11 @@ class AdminThread extends Controller
         }
     }
 
-    public function hapus_thread($idt)
+    public function hapus_laporanthread($idt)
     {
-        $tanggapan = DB::table('tanggapan')->select('idtn', 'nim')->where('idt', $idt)->get();
-
-        foreach ($tanggapan as $row) {
-            DB::table('tanggapan')->where('idtn', $row->idtn)->delete();
-            DB::table('dukungan_tanggapan')->where('idtn', $row->idtn)->delete();
-        }
-
         DB::table('dukungan_thread')->where('idt', $idt)->delete();
+        DB::table('tanggapan')->where('idt', $idt)->delete();
+        DB::table('laporan_thread')->where('idt', $idt)->delete();
         DB::table('thread')->where('idt', $idt)->delete();
         return 'Berhasil';
     }
@@ -82,10 +77,27 @@ class AdminThread extends Controller
 
     public function getlaporan_thread()
     {
-        return DB::table('laporan_thread AS lt')
-            ->select('lt.date', 'lt.alasan', 'lt.idt', 't.date', 't.nim', 't.judul')
-            ->leftJoin('thread AS t', 't.idt', '=', 'lt.idt')
-            ->get();
+        $daftarlaporan = [];
+        $laporan = DB::table('laporan_thread AS lt')
+            ->select('lt.idlt', 'lt.nim AS nimpelapor', 'lt.idt', 'lt.alasan', 't.nim AS nimpemilik', 't.judul', 't.date')
+            ->leftJoin('thread AS t', 'lt.idt', '=', 't.idt')->get();
+
+        // return $laporan;
+        foreach ($laporan as $l) {
+            array_push($daftarlaporan, [
+                'namapemilik' => DB::table('users')->where('nim', $l->nimpemilik)->first()->nama,
+                'namapelapor' => DB::table('users')->where('nim', $l->nimpelapor)->first()->nama,
+                'nimpemilik' => $l->nimpemilik,
+                'nimpelapor' => $l->nimpelapor,
+                'idlt' => $l->idlt,
+                'idt' => $l->idt,
+                'judul' => DB::table('thread')->where('idt', $l->idt)->first()->judul,
+                'alasan' => $l->alasan,
+                'date' => $l->date
+            ]);
+        }
+
+        return $daftarlaporan;
     }
 
     public function getlaporan_tanggapan()
@@ -115,14 +127,9 @@ class AdminThread extends Controller
 
     public function hapus_laporantanggapan($idt, $idtn, $idltn)
     {
-        // return array($idt, $idtn, $idltn);
-
         $q2 = DB::table('thread')->where('idt', $idt);
         $tmenanggapi = $q2->first()->tmenanggapi;
         $q2->update(['tmenanggapi' => $tmenanggapi - 1]);
-        // return $tmenanggapi;
-
-        // $q3 = DB::table('laporan_tanggapan')->where('idtn', $idtn)->count();
 
         DB::table('tanggapan')->where('idtn', $idtn)->delete();
         DB::table('dukungan_tanggapan')->where('idtn', $idtn)->delete();

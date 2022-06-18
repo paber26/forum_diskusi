@@ -41,9 +41,7 @@
                     <span class="font-semibold ml-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan </span>
                     <span class="font-semibold ml-2" v-else>{{ thread.tmenanggapi }} tanggapan</span>
                     <button @click.prevent="laporthread(thread.idt)" class="relative flex items-center px-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                        </svg>
+                        <span class="font-semibold">Laporkan</span>
                     </button>
                 </div>
             </div>
@@ -81,9 +79,7 @@
                 <hr>
                 <div class="flex justify-end py-1.5">
                     <button @click.prevent="laportanggapan(tanggapan.idtn)" class="relative flex items-center px-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hover:text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-                        </svg>
+                        <span class="font-semibold">Laporkan</span>
                     </button>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 <div class="bg-blue-200 fixed inset-x-0 z-50">
     <div class="sm:flex justify-between hidden">
         <div class="flex items-center">
-            <router-link to="/user" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-bold text-2xl mx-2">FORUM DISKUSI</router-link>
+            <router-link to="/user" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-bold text-2xl mx-2 text-center">FORUM DISKUSI</router-link>
             <router-link to="/user/buat_thread" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Buat Thread</router-link>
             <router-link to="/user/profil" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Profil</router-link>
             <router-link to="/user/pengguna" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Pengguna</router-link>
@@ -24,11 +24,17 @@
 
     </div>
     <div class="sm:hidden flex justify-between items-center">
-        <div class="flex items-center">
+        <button class="flex items-center" @click="showsidebar = !showsidebar" @blur="showsidebar = false">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
             </svg>
             <span class="text-sm font-bold">Menu</span>
+        </button>
+        <div v-show="showsidebar" class="bg-white absolute ml-4 mt-32 border-2 border-blue-200 shadow-lg">
+            <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="ke('/user')">Beranda</a>
+            <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="ke('/user/buat_thread')">Buat Thread</a>
+            <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="ke('/user/profil')">Profil</a>
+            <a class="block hover:bg-gray-200 px-4 py-2 font-medium text-gray-800 cursor-pointer" @mousedown.prevent="ke('/user/pengguna')">Pengguna</a>
         </div>
         <div class="flex flex-row items-center w-52 m-1">
             <div class="font-bold text-right">
@@ -46,7 +52,8 @@ export default {
     props: ['user'],
     data() {
         return {
-            show: false
+            show: false,
+            showsidebar: false
         }
     },
     methods: {
@@ -55,6 +62,10 @@ export default {
             axios.post("/user/logout").then(response => {
                 window.location.href = response.data;
             });
+        },
+        ke(link) {
+            this.$router.push(link)
+            this.showsidebar = false
         }
     }
 }

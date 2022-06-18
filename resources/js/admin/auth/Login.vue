@@ -23,8 +23,9 @@
             <hr class="w-full">
         </div>
 
-        <div class="flex justify-center items-end m-3">
-            <router-link to="/register" class="bg-yellow-500 py-1.5 px-3 rounded-md text-white font-semibold text-base">Daftar</router-link>
+        <div class="flex justify-center items-end m-3 bg-red-600 py-1.5 px-3 rounded-md">
+            <img src="/img/google.svg" class="h-6 w-6 bg-white mr-2">
+            <a href="/auth/redirect" class="text-white font-semibold text-base">Masuk dengan Google</a>
         </div>
     </div>
 </div>
