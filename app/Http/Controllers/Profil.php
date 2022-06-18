@@ -49,18 +49,69 @@ class Profil extends Controller
 
     public function gettanggapanprofil()
     {
-        $q = DB::table('tanggapan')->join('thread', 'tanggapan.idt', '=', 'thread.idt')
-            ->select('thread.judul', 'tanggapan.*', 'users.nama')
-            ->select('thread.*', 'users.nama')
-            ->leftJoin('users', 'thread.nim', '=', 'users.nim')
-            ->get();
+        $q = DB::table('tanggapan')
+            ->select('tanggapan.*', 'users.nama', 'users.gambar', 'thread.judul', 'thread.nim AS nimt')
+            ->leftJoin('thread', 'tanggapan.idt', '=', 'thread.idt')
+            ->leftJoin('users', 'tanggapan.nim', '=', 'users.nim')
+            ->where('tanggapan.nim', Auth::user()->nim)->get();
 
-        return response()->json(array($q->count(), $q));
+        // return response()->json(array($q->count(), $daftarthread));
+
+        $daftartanggapan = [];
+        foreach ($q as $row) {
+            // return DB::table('users')->select('nama')->where('nim', $row->nimt)->first()->nama;
+            // return response()->json(array($q->count(), $q));
+            array_push($daftartanggapan, [
+                'idt' => $row->idt,
+                'idtn' => $row->idtn,
+                'namapemilik' => DB::table('users')->select('nama')->where('nim', $row->nimt)->first()->nama,
+                'judul' => $row->judul,
+                'isi' => $row->isi,
+                'date' => $row->date,
+            ]);
+        }
+
+        return response()->json(array(count($daftartanggapan), $daftartanggapan));
+
+        // // $q = DB::table('tanggapan')->where('idt', $idt)->get();
+        // $q2 = DB::table('tanggapan')->select('tanggapan.idtn', 'dukungan_tanggapan.pilihan')
+        //     ->leftJoin('dukungan_tanggapan', 'tanggapan.idtn', '=', 'dukungan_tanggapan.idtn')
+        //     ->where('dukungan_tanggapan.nim', Auth::user()->nim)->get()->toArray();
+
+        // $daftartanggapan = [];
+        // foreach ($q as $row) {
+        //     $cari = array_search(
+        //         $row->idtn,
+        //         array_column($q2, 'idtn')
+        //     );
+
+        //     if (strval($cari) == null) {
+        //         $pilihan = '';
+        //     } else {
+        //         $pilihan = $q2[$cari]->pilihan;
+        //     }
+        //     array_push($daftartanggapan, [
+        //         'idtn' => $row->idtn,
+        //         'nama' => $row->nama,
+        //         'gambar' => $row->gambar,
+        //         'nim' => $row->nim,
+        //         'isi' => $row->isi,
+        //         'date' => $row->date,
+        //         'tdukungan' => $row->tdukungan,
+        //         'pilihan' => $pilihan
+        //     ]);
+        // }
     }
 
     public function getthreadprofil()
     {
-        $q = DB::table('thread')->where('nim', Auth::user()->nim)->get();
+        $q = DB::table('thread')
+            ->select('thread.*', 'users.nama', 'users.gambar')
+            ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+            ->where('thread.nim', Auth::user()->nim)->get();
+        // $q = DB::table('thread')
+        //     ->select('thread.*', 'users.nama', 'users.gambar')
+        //     ->leftJoin('users', 'thread.nim', '=', 'users.nim');
         if ($q == null) {
             return 0;
         } else {
@@ -84,6 +135,7 @@ class Profil extends Controller
                 array_push($daftarthread, [
                     'idt' => $row->idt,
                     'nim' => $row->nim,
+                    'gambar' => $row->gambar,
                     'nama' => Auth::user()->nama,
                     'kategori' => $row->kategori,
                     'judul' => $row->judul,

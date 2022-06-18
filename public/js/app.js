@@ -2554,7 +2554,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       lt: '',
       ltn: '',
-      isactive: 'tanggapan'
+      isactive: 'thread'
     };
   },
   mounted: function mounted() {
@@ -3744,7 +3744,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -4706,10 +4705,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -4731,7 +4726,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     }).then(function (response) {
       _this.totaltanggapan = response.data[0];
-      _this.daftartanggapan = response.data[1];
+      _this.daftartanggapan = response.data[1]; // console.log(response.data)
     });
     this.getthreadprofil();
   },
@@ -59260,16 +59255,6 @@ var render = function () {
             {
               staticClass:
                 "px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold",
-              attrs: { to: "/user/petunjuk" },
-            },
-            [_vm._v("Petunjuk")]
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass:
-                "px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold",
               attrs: { to: "/user/buat_thread" },
             },
             [_vm._v("Buat Thread")]
@@ -61169,40 +61154,13 @@ var render = function () {
                         },
                         [
                           _c("div", { staticClass: "flex items-center" }, [
-                            _c(
-                              "svg",
-                              {
-                                staticClass: "h-12 w-12",
-                                attrs: {
-                                  xmlns: "http://www.w3.org/2000/svg",
-                                  fill: "none",
-                                  viewBox: "0 0 24 24",
-                                  stroke: "currentColor",
-                                  "stroke-width": "2",
-                                },
-                              },
-                              [
-                                _c("path", {
-                                  attrs: {
-                                    "stroke-linecap": "round",
-                                    "stroke-linejoin": "round",
-                                    d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                                  },
-                                }),
-                              ]
-                            ),
-                            _vm._v(" "),
                             _c("div", { staticClass: "ml-2" }, [
-                              _c("div", { staticClass: "font-semibold" }, [
-                                _vm._v(_vm._s(tanggapan.nama) + " "),
-                                _c("span", { staticClass: "text-xxs" }, [
-                                  _vm._v("(" + _vm._s(tanggapan.nim) + ")"),
-                                ]),
-                              ]),
-                              _vm._v(" "),
                               _c("div", { staticClass: "text-xs italic" }, [
                                 _vm._v(
-                                  "Menanggapi pada " + _vm._s(tanggapan.date)
+                                  "Menanggapi thread " +
+                                    _vm._s(tanggapan.namapemilik) +
+                                    " pada " +
+                                    _vm._s(tanggapan.date)
                                 ),
                               ]),
                             ]),
@@ -61282,28 +61240,33 @@ var render = function () {
                             { staticClass: "flex justify-between items-start" },
                             [
                               _c("div", { staticClass: "flex items-center" }, [
-                                _c(
-                                  "svg",
-                                  {
-                                    staticClass: "h-12 w-12",
-                                    attrs: {
-                                      xmlns: "http://www.w3.org/2000/svg",
-                                      fill: "none",
-                                      viewBox: "0 0 24 24",
-                                      stroke: "currentColor",
-                                      "stroke-width": "2",
-                                    },
-                                  },
-                                  [
-                                    _c("path", {
-                                      attrs: {
-                                        "stroke-linecap": "round",
-                                        "stroke-linejoin": "round",
-                                        d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                                thread.gambar != ""
+                                  ? _c("img", {
+                                      staticClass: "h-12 w-12 rounded-full",
+                                      attrs: { src: thread.gambar },
+                                    })
+                                  : _c(
+                                      "svg",
+                                      {
+                                        staticClass: "h-12 w-12",
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          fill: "none",
+                                          viewBox: "0 0 24 24",
+                                          stroke: "currentColor",
+                                          "stroke-width": "2",
+                                        },
                                       },
-                                    }),
-                                  ]
-                                ),
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            "stroke-linecap": "round",
+                                            "stroke-linejoin": "round",
+                                            d: "M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
                                 _vm._v(" "),
                                 _c("div", { staticClass: "ml-2" }, [
                                   _c("div", { staticClass: "font-semibold" }, [

@@ -121,7 +121,7 @@ export default {
         return {
             lt: '',
             ltn: '',
-            isactive: 'tanggapan',
+            isactive: 'thread',
         }
     },
     mounted() {
