@@ -48,7 +48,11 @@ Route::group(
 
         Route::post('user/profil/edit', [Profil::class, 'edit']);
         Route::get('user/gettanggapanprofil', [Profil::class, 'gettanggapanprofil']);
+        Route::get('user/gettanggapanprofil/{nim}', [Profil::class, 'gettanggapanprofil']);
         Route::get('user/getthreadprofil', [Profil::class, 'getthreadprofil']);
+        Route::get('user/getthreadprofil/{nim}', [Profil::class, 'getthreadprofil']);
+        Route::get('user/getprofil/{nim}', [Profil::class, 'getprofil']);
+        Route::get('user/getdaftarpengguna', [Profil::class, 'getdaftarpengguna']);
 
 
         Route::get('admin/getjumlah', [AdminThread::class, 'getjumlah']);

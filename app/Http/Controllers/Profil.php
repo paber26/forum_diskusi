@@ -47,20 +47,29 @@ class Profil extends Controller
         return response()->json(array('Berhasil', url('/user/profil')));
     }
 
-    public function gettanggapanprofil()
+    public function getprofil($nim)
     {
-        $q = DB::table('tanggapan')
-            ->select('tanggapan.*', 'users.nama', 'users.gambar', 'thread.judul', 'thread.nim AS nimt')
-            ->leftJoin('thread', 'tanggapan.idt', '=', 'thread.idt')
-            ->leftJoin('users', 'tanggapan.nim', '=', 'users.nim')
-            ->where('tanggapan.nim', Auth::user()->nim)->get();
+        return DB::table('users')->where('nim', $nim)->first();
+    }
 
-        // return response()->json(array($q->count(), $daftarthread));
+    public function gettanggapanprofil($nim = null)
+    {
+        if ($nim == null) {
+            $q = DB::table('tanggapan')
+                ->select('tanggapan.*', 'users.nama', 'users.gambar', 'thread.judul', 'thread.nim AS nimt')
+                ->leftJoin('thread', 'tanggapan.idt', '=', 'thread.idt')
+                ->leftJoin('users', 'tanggapan.nim', '=', 'users.nim')
+                ->where('tanggapan.nim', Auth::user()->nim)->get();
+        } else {
+            $q = DB::table('tanggapan')
+                ->select('tanggapan.*', 'users.nama', 'users.gambar', 'thread.judul', 'thread.nim AS nimt')
+                ->leftJoin('thread', 'tanggapan.idt', '=', 'thread.idt')
+                ->leftJoin('users', 'tanggapan.nim', '=', 'users.nim')
+                ->where('tanggapan.nim', $nim)->get();
+        }
 
         $daftartanggapan = [];
         foreach ($q as $row) {
-            // return DB::table('users')->select('nama')->where('nim', $row->nimt)->first()->nama;
-            // return response()->json(array($q->count(), $q));
             array_push($daftartanggapan, [
                 'idt' => $row->idt,
                 'idtn' => $row->idtn,
@@ -72,46 +81,21 @@ class Profil extends Controller
         }
 
         return response()->json(array(count($daftartanggapan), $daftartanggapan));
-
-        // // $q = DB::table('tanggapan')->where('idt', $idt)->get();
-        // $q2 = DB::table('tanggapan')->select('tanggapan.idtn', 'dukungan_tanggapan.pilihan')
-        //     ->leftJoin('dukungan_tanggapan', 'tanggapan.idtn', '=', 'dukungan_tanggapan.idtn')
-        //     ->where('dukungan_tanggapan.nim', Auth::user()->nim)->get()->toArray();
-
-        // $daftartanggapan = [];
-        // foreach ($q as $row) {
-        //     $cari = array_search(
-        //         $row->idtn,
-        //         array_column($q2, 'idtn')
-        //     );
-
-        //     if (strval($cari) == null) {
-        //         $pilihan = '';
-        //     } else {
-        //         $pilihan = $q2[$cari]->pilihan;
-        //     }
-        //     array_push($daftartanggapan, [
-        //         'idtn' => $row->idtn,
-        //         'nama' => $row->nama,
-        //         'gambar' => $row->gambar,
-        //         'nim' => $row->nim,
-        //         'isi' => $row->isi,
-        //         'date' => $row->date,
-        //         'tdukungan' => $row->tdukungan,
-        //         'pilihan' => $pilihan
-        //     ]);
-        // }
     }
 
-    public function getthreadprofil()
+    public function getthreadprofil($nim = null)
     {
-        $q = DB::table('thread')
-            ->select('thread.*', 'users.nama', 'users.gambar')
-            ->leftJoin('users', 'thread.nim', '=', 'users.nim')
-            ->where('thread.nim', Auth::user()->nim)->get();
-        // $q = DB::table('thread')
-        //     ->select('thread.*', 'users.nama', 'users.gambar')
-        //     ->leftJoin('users', 'thread.nim', '=', 'users.nim');
+        if ($nim == null) {
+            $q = DB::table('thread')
+                ->select('thread.*', 'users.nama', 'users.gambar')
+                ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+                ->where('thread.nim', Auth::user()->nim)->get();
+        } else {
+            $q = DB::table('thread')
+                ->select('thread.*', 'users.nama', 'users.gambar')
+                ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+                ->where('thread.nim', $nim)->get();
+        }
         if ($q == null) {
             return 0;
         } else {
@@ -150,5 +134,22 @@ class Profil extends Controller
 
             return response()->json(array($q->count(), $daftarthread));
         }
+    }
+
+    public function getdaftarpengguna()
+    {
+        $q = DB::table('users')->get();
+        $daftarpengguna = [];
+        foreach ($q as $row) {
+            $tthread = DB::table('thread')->where('nim', $row->nim)->count();
+            $ttanggapan = DB::table('tanggapan')->where('nim', $row->nim)->count();
+            array_push($daftarpengguna, [
+                'nim' => $row->nim,
+                'nama' => $row->nama,
+                'tthread' => $tthread,
+                'ttanggapan' => $ttanggapan,
+            ]);
+        }
+        return $daftarpengguna;
     }
 }

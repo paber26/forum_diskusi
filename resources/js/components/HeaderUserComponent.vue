@@ -5,6 +5,7 @@
             <router-link to="/user" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-bold text-2xl mx-2">FORUM DISKUSI</router-link>
             <router-link to="/user/buat_thread" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Buat Thread</router-link>
             <router-link to="/user/profil" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Profil</router-link>
+            <router-link to="/user/pengguna" class="px-3 py-1 m-1.5 rounded-md hover:bg-yellow-300 hover:no-underline font-semibold">Pengguna</router-link>
         </div>
         <div class="flex items-center">
             <img :src="user.gambar" class="h-7 w-7 rounded-full" v-if="user.gambar != ''">
@@ -29,7 +30,7 @@
             </svg>
             <span class="text-sm font-bold">Menu</span>
         </div>
-        <div class="flex flex-row items-center w-52">
+        <div class="flex flex-row items-center w-52 m-1">
             <div class="font-bold text-right">
                 <div class="text-2xl">Forum Diskusi</div>
                 <div class="text-lg -mt-2">Polstat STIS</div>

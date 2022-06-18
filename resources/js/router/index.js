@@ -25,7 +25,9 @@ const UserBuatThreadDraft = require("../user/BuatThreadDraft.vue").default;
 const UserPetunjuk = require("../user/Petunjuk.vue").default;
 const UserProfil = require("../user/Profil.vue").default;
 const UserProfilEdit = require("../user/ProfilEdit.vue").default;
+const UserProfilPenggunaLain = require("../user/ProfilPenggunaLain.vue").default;
 const UserTanggapi = require("../user/Tanggapi.vue").default;
+const UserPengguna = require("../user/Pengguna.vue").default;
 
 const routes = [
     {
@@ -71,11 +73,22 @@ const routes = [
         component: UserProfilEdit,
     },
     {
+        path: "/user/profil/:nim",
+        component: UserProfilPenggunaLain,
+        props: true
+    },
+    {
         path: "/user/tanggapi/:idt",
         component: UserTanggapi,
         props: true,
     },
+    {
+        path: "/user/pengguna",
+        component: UserPengguna,
+    },
 
+
+    // untuk admin
     {
         path: "/admin/login",
         component: AdminLogin,
