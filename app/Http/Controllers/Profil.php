@@ -146,6 +146,7 @@ class Profil extends Controller
             array_push($daftarpengguna, [
                 'nim' => $row->nim,
                 'nama' => $row->nama,
+                'gambar' => $row->gambar,
                 'tthread' => $tthread,
                 'ttanggapan' => $ttanggapan,
             ]);

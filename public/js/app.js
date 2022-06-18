@@ -4527,6 +4527,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -61498,6 +61502,13 @@ var render = function () {
                   ),
                   _vm._v(" "),
                   _c("td", { staticClass: "p-3" }, [
+                    _c("img", {
+                      staticClass: "rounded-full",
+                      attrs: { src: _vm.dpengguna[index - 1].gambar, alt: "" },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "p-3" }, [
                     _c("span", [_vm._v(_vm._s(_vm.dpengguna[index - 1].nama))]),
                     _vm._v(" "),
                     _c("div", { staticClass: "text-xxs" }, [
@@ -61558,6 +61569,8 @@ var staticRenderFns = [
       [
         _c("tr", { staticClass: "text-center divide-x divide-gray-400" }, [
           _c("th", { staticClass: "px-3 py-2" }, [_vm._v("No")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Gambar")]),
           _vm._v(" "),
           _c("th", { staticClass: "px-3 py-2" }, [_vm._v("Nama Pengguna")]),
           _vm._v(" "),

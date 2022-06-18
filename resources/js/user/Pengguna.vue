@@ -6,6 +6,7 @@
                 <thead class="text-base text-gray-700 uppercase bg-blue-300">
                     <tr class="text-center divide-x divide-gray-400">
                         <th class="px-3 py-2">No</th>
+                        <th class="px-3 py-2">Gambar</th>
                         <th class="px-3 py-2">Nama Pengguna</th>
                         <th class="px-3 py-2">Jumlah Thread</th>
                         <th class="px-3 py-2">Jumlah Tanggapan</th>
@@ -15,6 +16,9 @@
                 <tbody>
                     <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in dpengguna.length" :key="index.id">
                         <td class="p-3 font-medium text-gray-900 text-center">{{ index }}</td>
+                        <td class="p-3">
+                            <img :src="dpengguna[index-1].gambar" class="rounded-full" alt="">
+                        </td>
                         <td class="p-3">
                             <span>{{ dpengguna[index-1].nama }}</span>
                             <div class="text-xxs">(NIM : {{ dpengguna[index-1].nim }})</div>
