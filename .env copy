@@ -14,9 +14,9 @@ DB_DATABASE=kuydinas_forum_diskusi
 DB_USERNAME=kuydinas_bernaldo
 DB_PASSWORD=DatabaseKuydinas2022
 
-GOOGLE_CLIENT_ID=410888573551-pp5ua9ks010fofkvb57q0flvs31k28ct.apps.googleusercontent.com
-GOOGLE_APP_SECRET=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
-GOOGLE_REDIRECT=http://127.0.0.1:8000/auth/callback
+GOOGLE_CLIENT_ID=193833456773-bhing04m9fmmj437jreig7cepfbbqbf6.apps.googleusercontent.com
+GOOGLE_APP_SECRET=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
+GOOGLE_REDIRECT=https://skripsialdo.kuydinas.id/auth/callback
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
