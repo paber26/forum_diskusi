@@ -62,6 +62,16 @@ class AdminThread extends Controller
         }
     }
 
+    public function hapus_thread($idt)
+    {
+        DB::table('dukungan_thread')->where('idt', $idt)->delete();
+        DB::table('tanggapan')->where('idt', $idt)->delete();
+        DB::table('laporan_thread')->where('idt', $idt)->delete();
+        DB::table('thread')->where('idt', $idt)->delete();
+
+        return 'Berhasil';
+    }
+
     public function hapus_tanggapan($idt, $idtn)
     {
         $q2 = DB::table('thread')->where('idt', $idt);

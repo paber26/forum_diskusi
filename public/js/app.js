@@ -62421,7 +62421,7 @@ var render = function () {
                       attrs: {
                         name: "deskripsi",
                         placeholder:
-                          "Beritahu tentang kamm, seperti kegiatan dan hal yang kamu sukai ...",
+                          "Beritahu tentang kamu, seperti kegiatan dan hal yang kamu sukai ...",
                         rows: "3",
                       },
                       domProps: { value: _vm.fields.deskripsi },

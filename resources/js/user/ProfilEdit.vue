@@ -20,7 +20,7 @@
                     <form @submit.prevent="simpan">
                         <div class="form-group row"><label class="col-sm-2 col-form-label">Deskripsi</label>
                             <div class="col-sm-10">
-                                <textarea v-model="fields.deskripsi" name="deskripsi" class="form-control" placeholder="Beritahu tentang kamm, seperti kegiatan dan hal yang kamu sukai ..." rows="3"></textarea>
+                                <textarea v-model="fields.deskripsi" name="deskripsi" class="form-control" placeholder="Beritahu tentang kamu, seperti kegiatan dan hal yang kamu sukai ..." rows="3"></textarea>
                             </div>
                         </div>
                         <div class="form-group row"><label class="col-sm-2 col-form-label">No WA</label>
