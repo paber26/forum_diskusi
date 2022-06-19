@@ -92,10 +92,7 @@
                 <div class="col-sm-12 mb-2">
                     <vue-editor v-model="fields.isi"></vue-editor>
                 </div>
-                <div class=" flex justify-between -mb-1 ">
-                    <button @click.prevent="simpandraft()" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3">
-                        Simpan Draft
-                    </button>
+                <div class=" flex justify-end -mb-1 ">
                     <button @click.prevent="tanggapi()" class="bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
                         Tanggapi
                     </button>

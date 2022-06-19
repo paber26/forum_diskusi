@@ -33,17 +33,6 @@
                                 <input v-model="fields.alamat" name="alamat" type="text" class="form-control" placeholder="Masukkan Alamat Kos">
                             </div>
                         </div>
-                        <!-- <div class="form-group row"><label class="col-sm-2 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                                <input v-model="fields.password" name="password" type="text" class="form-control" placeholder="Masukkan Password">
-                            </div>
-                        </div>
-                        <div class="form-group row"><label class="col-sm-2 col-form-label">Ulangi Password</label>
-                            <div class="col-sm-10">
-                                <input v-model="fields.upassword" name="upassword" type="text" class="form-control" placeholder="Ulangi Masukkan Password">
-                            </div>
-                        </div> -->
-
                         <div class="form-group row flex justify-end">
                             <button type="submit" value="submit" class="bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
                                 Simpan Perubahan

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
-    <title>SIRADIG - Politeknik Statistika STIS</title>
+    <title>Forum Diskusi - Politeknik Statistika STIS</title>
 </head>
 
 <body>

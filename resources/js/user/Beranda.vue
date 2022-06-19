@@ -107,7 +107,6 @@ export default {
                 },
             }).then((response) => {
                 this.daftarthread = response.data
-                console.log(this.daftarthread)
             })
         },
         tanggapi(idt) {
@@ -124,7 +123,6 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
-                console.log(response.data)
                 this.cari()
             })
         },
@@ -139,14 +137,12 @@ export default {
                             'idt': idt,
                             'alasan': value
                         }
-                        console.log(detail)
                         axios.post('/api/user/laporthread', detail, {
                             headers: {
                                 'Content-Type': 'application/json',
                                 'Authorization': 'Bearer ' + this.user.api_token
                             },
                         }).then(response => {
-                            console.log(response.data)
                             if (response.data == 'Berhasil') {
                                 this.$swal('Berhasil melaporkan')
                             } else if (response.data == 'Sudah') {
@@ -154,7 +150,6 @@ export default {
                             }
                         })
                     }
-                    console.log('Selesai')
                 }
             })
         },
@@ -163,16 +158,13 @@ export default {
                 'urutan': this.fields.urutan,
                 'kategori': this.fields.kategori
             }
-            console.log(detail)
             axios.post('/api/user/getthreadfilter', detail, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
-                console.log(response.data)
                 this.daftarthread = response.data
-                console.log(this.daftarthread)
             })
         }
     }

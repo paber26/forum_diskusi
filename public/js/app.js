@@ -3996,7 +3996,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this.daftarthread = response.data;
-        console.log(_this.daftarthread);
       });
     },
     tanggapi: function tanggapi(idt) {
@@ -4015,8 +4014,6 @@ __webpack_require__.r(__webpack_exports__);
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        console.log(response.data);
-
         _this2.cari();
       });
     },
@@ -4033,15 +4030,12 @@ __webpack_require__.r(__webpack_exports__);
               'idt': idt,
               'alasan': value
             };
-            console.log(detail);
             axios.post('/api/user/laporthread', detail, {
               headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + _this3.user.api_token
               }
             }).then(function (response) {
-              console.log(response.data);
-
               if (response.data == 'Berhasil') {
                 _this3.$swal('Berhasil melaporkan');
               } else if (response.data == 'Sudah') {
@@ -4049,8 +4043,6 @@ __webpack_require__.r(__webpack_exports__);
               }
             });
           }
-
-          console.log('Selesai');
         }
       });
     },
@@ -4061,16 +4053,13 @@ __webpack_require__.r(__webpack_exports__);
         'urutan': this.fields.urutan,
         'kategori': this.fields.kategori
       };
-      console.log(detail);
       axios.post('/api/user/getthreadfilter', detail, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        console.log(response.data);
         _this4.daftarthread = response.data;
-        console.log(_this4.daftarthread);
       });
     }
   }
@@ -4914,17 +4903,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -5211,9 +5189,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
 //
 //
 //
@@ -59144,7 +59119,8 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "flex items-center m-3 bg-red-600 py-1.5 px-3 rounded-md",
+        staticClass:
+          "flex justify-center items-center m-3 bg-red-600 py-1.5 px-3 rounded-md",
       },
       [
         _c("img", {
@@ -59318,7 +59294,8 @@ var staticRenderFns = [
     return _c(
       "div",
       {
-        staticClass: "flex items-center m-3 bg-red-600 py-1.5 px-3 rounded-md",
+        staticClass:
+          "flex justify-center items-center m-3 bg-red-600 py-1.5 px-3 rounded-md",
       },
       [
         _c("img", {
@@ -63566,26 +63543,7 @@ var render = function () {
               1
             ),
             _vm._v(" "),
-            _c("div", { staticClass: " flex justify-between -mb-1 " }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-blue-500 hover:bg-blue-700 text-xs text-white font-bold py-1 px-2 rounded-lg ml-3",
-                  on: {
-                    click: function ($event) {
-                      $event.preventDefault()
-                      return _vm.simpandraft()
-                    },
-                  },
-                },
-                [
-                  _vm._v(
-                    "\r\n                        Simpan Draft\r\n                    "
-                  ),
-                ]
-              ),
-              _vm._v(" "),
+            _c("div", { staticClass: " flex justify-end -mb-1 " }, [
               _c(
                 "button",
                 {
