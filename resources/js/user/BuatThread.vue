@@ -87,7 +87,6 @@ export default {
                 },
             }).then((response) => {
                 this.daftardraft = response.data
-                console.log(this.daftardraft)
             })
         },
         upload() {
@@ -110,7 +109,6 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
-                console.log(response.data)
                 if (response.data == 'Berhasil') {
                     this.$swal('Thread Berhasil Ditambahkan')
                     this.$router.push('/user')
@@ -122,16 +120,12 @@ export default {
                 this.$swal('Masukkan Judul Thread')
                 return
             }
-            console.log(this.fields.kategori)
-            console.log(this.fields.judul)
-            console.log(this.fields.isi)
             axios.post('/api/user/draft_thread', this.fields, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
-                console.log(response.data)
                 if (response.data == 'Berhasil') {
                     this.$swal('Draft Berhasil Disimpan')
                     this.fields.judul = ''

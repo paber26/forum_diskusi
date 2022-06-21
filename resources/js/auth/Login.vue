@@ -48,7 +48,6 @@ export default {
         login() {
             if ((this.user.email != '') && (this.user.password != '')) {
                 axios.post('/login', this.user).then(response => {
-                    console.log(response.data)
                     if (response.data == "Tidak terdaftar") {
                         this.$swal('Email belum terdaftar')
                     } else if (response.data == "Password salah") {

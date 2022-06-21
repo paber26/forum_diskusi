@@ -61,7 +61,6 @@ export default {
         }
     },
     mounted() {
-        console.log(this.user)
     },
     methods: {
         profiledit() {
@@ -90,7 +89,6 @@ export default {
                         this.$swal('Berhasil menyimpan perubahan')
                         window.location.href = response.data[1]
                     } else {
-                        console.log(response.data)
                     }
                 })
             }

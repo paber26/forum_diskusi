@@ -80,7 +80,6 @@ export default {
                 },
             }).then((response) => {
                 this.daftartanggapan = response.data
-                console.log(this.daftartanggapan)
             })
         },
         hapus_tanggapan(idt, idtn) {

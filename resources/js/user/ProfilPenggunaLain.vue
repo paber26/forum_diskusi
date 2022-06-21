@@ -166,7 +166,6 @@ export default {
         }).then((response) => {
             this.totaltanggapan = response.data[0]
             this.daftartanggapan = response.data[1]
-            // console.log(response.data)
         })
         this.getthreadprofil()
     },
@@ -180,7 +179,6 @@ export default {
             }).then((response) => {
                 this.totalthread = response.data[0]
                 this.daftarthread = response.data[1]
-                console.log(this.daftarthread)
             })
         },
         tanggapi(idt) {

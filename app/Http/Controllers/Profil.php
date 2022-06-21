@@ -120,18 +120,18 @@ class Profil extends Controller
                     'idt' => $row->idt,
                     'nim' => $row->nim,
                     'gambar' => $row->gambar,
-                    'nama' => Auth::user()->nama,
+                    'nama' => $row->nama,
                     'kategori' => $row->kategori,
                     'judul' => $row->judul,
                     'isi' => $row->isi,
                     'date' => $row->date,
                     'tdukungan' => $row->tdukungan,
                     'tmenanggapi' => $row->tmenanggapi,
-                    'tmelihat' => $row->tmelihat,
                     'pilihan' => $pilihan
                 ]);
             }
 
+            // return $q2;
             return response()->json(array($q->count(), $daftarthread));
         }
     }

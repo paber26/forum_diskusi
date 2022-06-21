@@ -135,7 +135,6 @@ export default {
                 },
             }).then((response) => {
                 this.lt = response.data
-                console.log(this.lt)
             })
         },
         getlaporan_tanggapan() {
@@ -172,7 +171,6 @@ export default {
                             'Authorization': 'Bearer ' + this.user.api_token
                         },
                     }).then(response => {
-                        console.log(response.data)
                         if (response.data == 'Berhasil') {
                             this.$swal('Berhasil menghapus')
                             this.getlaporan_thread()

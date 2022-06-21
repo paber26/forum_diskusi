@@ -142,7 +142,6 @@ export default {
                 },
             }).then((response) => {
                 this.daftartanggapan = response.data
-                console.log(response.data)
             })
         },
         dukung(idt, pilihan) {

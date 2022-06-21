@@ -156,7 +156,6 @@ class UserThread extends Controller
                     'date' => $row->date,
                     'tdukungan' => $row->tdukungan,
                     'tmenanggapi' => $row->tmenanggapi,
-                    'tmelihat' => $row->tmelihat,
                     'pilihan' => $pilihan
                 ]);
             }
@@ -189,7 +188,6 @@ class UserThread extends Controller
             'date' => $q->date,
             'tdukungan' => $q->tdukungan,
             'tmenanggapi' => $q->tmenanggapi,
-            'tmelihat' => $q->tmelihat,
             'pilihan' => $pilihan
         ];
     }

@@ -135,7 +135,6 @@ export default {
             },
         }).then((response) => {
             this.jumlah = response.data
-            console.log(this.jumlah)
         })
         this.getthread()
         this.gettanggapan()
@@ -149,7 +148,6 @@ export default {
                 },
             }).then((response) => {
                 this.daftarthread = response.data
-                console.log(this.daftarthread)
             })
         },
         gettanggapan() {
@@ -160,7 +158,6 @@ export default {
                 },
             }).then((response) => {
                 this.daftartanggapan = response.data
-                console.log(response.data)
             })
         },
         lihat(ktg) {

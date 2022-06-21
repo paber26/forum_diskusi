@@ -110,7 +110,6 @@ export default {
             },
         }).then((response) => {
             this.thread = response.data
-            console.log(response.data)
         })
         axios.get('/api/user/gettanggapan/' + this.idt, {
             headers: {
@@ -119,7 +118,6 @@ export default {
             },
         }).then((response) => {
             this.daftartanggapan = response.data
-            console.log(response.data)
         })
     },
 }

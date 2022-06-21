@@ -91,9 +91,7 @@ export default {
             },
         }).then((response) => {
             this.daftardraft = response.data
-            console.log(this.daftardraft)
         })
-        console.log(this.idd)
     },
     methods: {
         buka(idd) {
@@ -120,7 +118,6 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
-                console.log(response.data)
                 if (response.data == 'Berhasil') {
                     this.$swal('Thread Berhasil Ditambahkan')
                     this.$router.push('/user')
@@ -132,9 +129,6 @@ export default {
                 this.$swal('Masukkan Judul Thread')
                 return
             }
-            console.log(this.fields.kategori)
-            console.log(this.fields.judul)
-            console.log(this.fields.isi)
             
             axios.post('/api/user/draft_thread', this.fields, {
                 headers: {
@@ -142,7 +136,6 @@ export default {
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then(response => {
-                console.log(response.data)
                 if (response.data == 'Berhasil') {
                     this.$swal('Draft Berhasil Disimpan')
                     this.fields.judul = ''
@@ -174,7 +167,6 @@ export default {
                         })
                         // this.$swal('Berhasil menghapus')
                         window.location.href = response.data
-                        console.log(response.data)
                     })
                 }
             })

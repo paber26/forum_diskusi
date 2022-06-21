@@ -81,11 +81,9 @@ export default {
                 },
             }).then((response) => {
                 this.daftarthread = response.data
-                console.log(this.daftarthread)
             })
         },
         hapus(idt) {
-            console.log(idt)
             this.$swal({
                 title: 'Apakah yakin untuk menghapus?',
                 text: "Tindakan ini tidak dapat dikembalikan",
@@ -102,7 +100,6 @@ export default {
                             'Authorization': 'Bearer ' + this.user.api_token
                         },
                     }).then(response => {
-                        console.log(response.data)
                         if (response.data == 'Berhasil') {
                             this.$swal('Berhasil menghapus')
                             this.getthread()

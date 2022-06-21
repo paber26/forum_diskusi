@@ -80,9 +80,7 @@ export default {
                 return
             }
 
-            console.log(this.user)
             axios.post('/register', this.user).then(response => {
-                console.log(response.data)
                 if (response.data == 'Sudah terdaftar') {
                     this.$swal('Email sudah terdaftar')
                 } else if (response.data == 'Berhasil') {

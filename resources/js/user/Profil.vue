@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col items-center w-full">
-    <div class="w-5/6 sm:w-2/3 flex flex-col justify-center min-w-max">
+    <div class="w-5/6 sm:w-2/3 flex flex-col justify-center">
         <div class="mt-4">
             <div class="bg-white w-full p-3 rounded-lg mb-3">
                 <div class="grid grid-cols-4 items-center justify-between">
@@ -159,7 +159,6 @@ export default {
         }).then((response) => {
             this.totaltanggapan = response.data[0]
             this.daftartanggapan = response.data[1]
-            // console.log(response.data)
         })
         this.getthreadprofil()
     },
@@ -173,7 +172,6 @@ export default {
             }).then((response) => {
                 this.totalthread = response.data[0]
                 this.daftarthread = response.data[1]
-                console.log(this.daftarthread)
             })
         },
         tanggapi(idt) {
