@@ -13,6 +13,19 @@
                         <option value="Ulasan">Ulasan Jurnal/Buku/Sumber lainnya</option>
                     </select>
                 </div>
+                <div class="bg-white flex flex-col w-full p-2 rounded-md mb-2">
+                    <label class="font-medium text-sm">Status Tanggapan</label>
+                    <div class="flex items-center">
+                        <input type="radio" value="aktif" v-model="fields.stanggapan">
+                        <div class="font-semibold ml-1" for="aktif">Aktifkan Tanggapan</div>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" value="nonaktif" v-model="fields.stanggapan">
+                        <div class="font-semibold ml-1" for="nonaktif">Nonaktifkan Tanggapan</div>
+                    </div>
+                    
+                    <span class="text-xs italic mt-1">Nonaktifkan tanggapan berfungsi agar thread tidak dapat ditanggapi pengguna lain</span>
+                </div>
                 <div class="bg-white w-full p-3 rounded-lg mb-2.5">
                     <div class="grid grid-cols-6 items-center">
                         <label class="col-span-1">Judul Thread</label>
@@ -66,6 +79,7 @@ export default {
                 kategori: '',
                 judul: '',
                 isi: '',
+                stanggapan: 'aktif'
             },
             daftardraft: ''
         }
@@ -102,7 +116,6 @@ export default {
                 this.$swal('Masukkan Isi')
                 return
             }
-            this.fields.draft = false
             axios.post('/api/user/buat_thread', this.fields, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -128,8 +141,10 @@ export default {
             }).then(response => {
                 if (response.data == 'Berhasil') {
                     this.$swal('Draft Berhasil Disimpan')
+                    this.fields.kategori = ''
                     this.fields.judul = ''
                     this.fields.isi = ''
+                    this.fields.stanggapan = 'aktif'
                 }
                 this.getdraftthread()
             })

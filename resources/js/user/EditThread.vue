@@ -13,6 +13,19 @@
                         <option value="Ulasan">Ulasan Jurnal/Buku/Sumber lainnya</option>
                     </select>
                 </div>
+                <div class="bg-white flex flex-col w-full p-2 rounded-md mb-2">
+                    <label class="font-medium text-sm">Status Tanggapan</label>
+                    <div class="flex items-center">
+                        <input type="radio" value="aktif" v-model="fields.stanggapan">
+                        <div class="font-semibold ml-1" for="aktif">Aktifkan Tanggapan</div>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" value="nonaktif" v-model="fields.stanggapan">
+                        <div class="font-semibold ml-1" for="nonaktif">Nonaktifkan Tanggapan</div>
+                    </div>
+                    
+                    <span class="text-xs italic mt-1">Nonaktifkan tanggapan berfungsi agar thread tidak dapat ditanggapi pengguna lain</span>
+                </div>
                 <div class="bg-white w-full p-3 rounded-lg mb-2.5">
                     <div class="grid grid-cols-6 items-center">
                         <label class="col-span-1">Judul Thread</label>
@@ -66,6 +79,7 @@ export default {
                 kategori: '',
                 judul: '',
                 isi: '',
+                stanggapan: ''
             },
             daftardraft: ''
         }
@@ -77,10 +91,12 @@ export default {
                 'Authorization': 'Bearer ' + this.user.api_token
             },
         }).then((response) => {
+            console.log(response.data)
             this.thread = response.data
             this.fields.kategori = response.data.kategori
             this.fields.judul = response.data.judul
             this.fields.isi = response.data.isi
+            this.fields.stanggapan = response.data.stanggapan
         })
         axios.get('/api/user/getdraftthread', {
             headers: {

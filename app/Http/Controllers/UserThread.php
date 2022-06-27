@@ -12,26 +12,26 @@ class UserThread extends Controller
 {
     public function buat_thread(Request $request)
     {
-        $kategori = $request->kategori;
-        $isi = $request->isi;
         $idd = $request->idd;
 
         if ($idd == null) {
             $stt = [
                 'idt' => uniqid(),
                 'nim' => Auth::user()->nim,
-                'kategori' => $kategori,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
-                'isi' => $isi,
+                'isi' => $request->isi,
+                'stanggapan' => $request->stanggapan,
             ];
             DB::table('thread')->insert($stt);
         } else {
             $stt = [
                 'idt' => $idd,
                 'nim' => Auth::user()->nim,
-                'kategori' => $kategori,
+                'kategori' => $request->kategori,
                 'judul' => $request->judul,
-                'isi' => $isi,
+                'isi' => $request->isi,
+                'stanggapan' => $request->stanggapan,
             ];
             DB::table('draft_thread')->where('idd', $idd)->delete();
             DB::table('thread')->insert($stt);
@@ -60,13 +60,15 @@ class UserThread extends Controller
                 'kategori' => $kategori,
                 'judul' => $request->judul,
                 'isi' => $isi,
+                'stanggapan' => $request->stanggapan,
             ];
             DB::table('draft_thread')->insert($stt);
         } else {
             $stt = [
                 'kategori' => $kategori,
                 'judul' => $request->judul,
-                'isi' => $isi
+                'isi' => $isi,
+                'stanggapan' => $request->stanggapan
             ];
             DB::table('draft_thread')->where('idd', $idd)->update($stt);
         }
@@ -178,6 +180,7 @@ class UserThread extends Controller
             'nama' => $q->nama,
             'judul' => $q->judul,
             'isi' => $q->isi,
+            'stanggapan' => $q->stanggapan,
             'date' => $q->date,
             'tdukungan' => $q->tdukungan,
             'tmenanggapi' => $q->tmenanggapi,
@@ -362,15 +365,14 @@ class UserThread extends Controller
 
     public function edit_thread(Request $request)
     {
-        $kategori = $request->kategori;
-        $isi = $request->isi;
         $idt = $request->idt;
 
         $stt = [
             'nim' => Auth::user()->nim,
-            'kategori' => $kategori,
+            'kategori' => $request->kategori,
             'judul' => $request->judul,
-            'isi' => $isi,
+            'isi' => $request->isi,
+            'stanggapan' => $request->stanggapan
         ];
         DB::table('thread')->where('idt', $idt)->update($stt);
 

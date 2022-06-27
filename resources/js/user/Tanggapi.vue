@@ -91,7 +91,7 @@
             <div class="bg-birumateri w-full h-0.5 rounded-3xl my-1.5"></div>
         </div>
 
-        <div class="mt-2">
+        <div v-if="thread.stanggapan == 'aktif'" class="mt-2">
             <span class="font-bold text-lg mt-2">Tambah Tanggapan</span>
             <div class="bg-white w-full py-3 rounded-lg">
                 <div class="col-sm-12 mb-2">
@@ -103,6 +103,9 @@
                     </button>
                 </div>
             </div>
+        </div>
+        <div v-else class="mt-2">
+            <span class="font-bold text-lg mt-2 italic">Tanggapan telah nonaktifkan</span>
         </div>
         <div class="mb-5"></div>
     </div>
@@ -135,6 +138,7 @@ export default {
                 },
             }).then((response) => {
                 this.thread = response.data
+                console.log(this.thread)
             })
         },
         gettanggapan() {

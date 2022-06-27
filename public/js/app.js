@@ -4124,6 +4124,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -4131,7 +4144,8 @@ __webpack_require__.r(__webpack_exports__);
       fields: {
         kategori: '',
         judul: '',
-        isi: ''
+        isi: '',
+        stanggapan: 'aktif'
       },
       daftardraft: ''
     };
@@ -4175,7 +4189,6 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      this.fields.draft = false;
       axios.post('/api/user/buat_thread', this.fields, {
         headers: {
           'Content-Type': 'application/json',
@@ -4206,8 +4219,10 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data == 'Berhasil') {
           _this3.$swal('Draft Berhasil Disimpan');
 
+          _this3.fields.kategori = '';
           _this3.fields.judul = '';
           _this3.fields.isi = '';
+          _this3.fields.stanggapan = 'aktif';
         }
 
         _this3.getdraftthread();
@@ -4306,6 +4321,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user', 'idd'],
   data: function data() {
@@ -4314,7 +4342,8 @@ __webpack_require__.r(__webpack_exports__);
         idd: this.idd,
         kategori: '',
         judul: '',
-        isi: ''
+        isi: '',
+        stanggapan: ''
       },
       daftardraft: ''
     };
@@ -4328,9 +4357,10 @@ __webpack_require__.r(__webpack_exports__);
         'Authorization': 'Bearer ' + this.user.api_token
       }
     }).then(function (response) {
+      _this.fields.kategori = response.data.kategori;
       _this.fields.judul = response.data.judul;
       _this.fields.isi = response.data.isi;
-      _this.fields.kategori = response.data.kategori;
+      _this.fields.stanggapan = response.data.stanggapan;
     });
     axios.get('/api/user/getdraftthread', {
       headers: {
@@ -4812,6 +4842,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user', 'idt'],
   data: function data() {
@@ -4820,7 +4863,8 @@ __webpack_require__.r(__webpack_exports__);
         idt: this.idt,
         kategori: '',
         judul: '',
-        isi: ''
+        isi: '',
+        stanggapan: ''
       },
       daftardraft: ''
     };
@@ -4834,10 +4878,12 @@ __webpack_require__.r(__webpack_exports__);
         'Authorization': 'Bearer ' + this.user.api_token
       }
     }).then(function (response) {
+      console.log(response.data);
       _this.thread = response.data;
       _this.fields.kategori = response.data.kategori;
       _this.fields.judul = response.data.judul;
       _this.fields.isi = response.data.isi;
+      _this.fields.stanggapan = response.data.stanggapan;
     });
     axios.get('/api/user/getdraftthread', {
       headers: {
@@ -5760,6 +5806,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user', 'idt'],
   data: function data() {
@@ -5787,6 +5836,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this.thread = response.data;
+        console.log(_this.thread);
       });
     },
     gettanggapan: function gettanggapan() {
@@ -61642,6 +61692,87 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
+                {
+                  staticClass:
+                    "bg-white flex flex-col w-full p-2 rounded-md mb-2",
+                },
+                [
+                  _c("label", { staticClass: "font-medium text-sm" }, [
+                    _vm._v("Status Tanggapan"),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields.stanggapan,
+                          expression: "fields.stanggapan",
+                        },
+                      ],
+                      attrs: { type: "radio", value: "aktif" },
+                      domProps: {
+                        checked: _vm._q(_vm.fields.stanggapan, "aktif"),
+                      },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.fields, "stanggapan", "aktif")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "font-semibold ml-1",
+                        attrs: { for: "aktif" },
+                      },
+                      [_vm._v("Aktifkan Tanggapan")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields.stanggapan,
+                          expression: "fields.stanggapan",
+                        },
+                      ],
+                      attrs: { type: "radio", value: "nonaktif" },
+                      domProps: {
+                        checked: _vm._q(_vm.fields.stanggapan, "nonaktif"),
+                      },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.fields, "stanggapan", "nonaktif")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "font-semibold ml-1",
+                        attrs: { for: "nonaktif" },
+                      },
+                      [_vm._v("Nonaktifkan Tanggapan")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-xs italic mt-1" }, [
+                    _vm._v(
+                      "Nonaktifkan tanggapan berfungsi agar thread tidak dapat ditanggapi pengguna lain"
+                    ),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
                 { staticClass: "bg-white w-full p-3 rounded-lg mb-2.5" },
                 [
                   _c("div", { staticClass: "grid grid-cols-6 items-center" }, [
@@ -61915,6 +62046,87 @@ var render = function () {
                       ]),
                     ]
                   ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-white flex flex-col w-full p-2 rounded-md mb-2",
+                },
+                [
+                  _c("label", { staticClass: "font-medium text-sm" }, [
+                    _vm._v("Status Tanggapan"),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields.stanggapan,
+                          expression: "fields.stanggapan",
+                        },
+                      ],
+                      attrs: { type: "radio", value: "aktif" },
+                      domProps: {
+                        checked: _vm._q(_vm.fields.stanggapan, "aktif"),
+                      },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.fields, "stanggapan", "aktif")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "font-semibold ml-1",
+                        attrs: { for: "aktif" },
+                      },
+                      [_vm._v("Aktifkan Tanggapan")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields.stanggapan,
+                          expression: "fields.stanggapan",
+                        },
+                      ],
+                      attrs: { type: "radio", value: "nonaktif" },
+                      domProps: {
+                        checked: _vm._q(_vm.fields.stanggapan, "nonaktif"),
+                      },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.fields, "stanggapan", "nonaktif")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "font-semibold ml-1",
+                        attrs: { for: "nonaktif" },
+                      },
+                      [_vm._v("Nonaktifkan Tanggapan")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-xs italic mt-1" }, [
+                    _vm._v(
+                      "Nonaktifkan tanggapan berfungsi agar thread tidak dapat ditanggapi pengguna lain"
+                    ),
+                  ]),
                 ]
               ),
               _vm._v(" "),
@@ -62690,6 +62902,87 @@ var render = function () {
                       ]),
                     ]
                   ),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "bg-white flex flex-col w-full p-2 rounded-md mb-2",
+                },
+                [
+                  _c("label", { staticClass: "font-medium text-sm" }, [
+                    _vm._v("Status Tanggapan"),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields.stanggapan,
+                          expression: "fields.stanggapan",
+                        },
+                      ],
+                      attrs: { type: "radio", value: "aktif" },
+                      domProps: {
+                        checked: _vm._q(_vm.fields.stanggapan, "aktif"),
+                      },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.fields, "stanggapan", "aktif")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "font-semibold ml-1",
+                        attrs: { for: "aktif" },
+                      },
+                      [_vm._v("Aktifkan Tanggapan")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex items-center" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields.stanggapan,
+                          expression: "fields.stanggapan",
+                        },
+                      ],
+                      attrs: { type: "radio", value: "nonaktif" },
+                      domProps: {
+                        checked: _vm._q(_vm.fields.stanggapan, "nonaktif"),
+                      },
+                      on: {
+                        change: function ($event) {
+                          return _vm.$set(_vm.fields, "stanggapan", "nonaktif")
+                        },
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "font-semibold ml-1",
+                        attrs: { for: "nonaktif" },
+                      },
+                      [_vm._v("Nonaktifkan Tanggapan")]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-xs italic mt-1" }, [
+                    _vm._v(
+                      "Nonaktifkan tanggapan berfungsi agar thread tidak dapat ditanggapi pengguna lain"
+                    ),
+                  ]),
                 ]
               ),
               _vm._v(" "),
@@ -65030,51 +65323,57 @@ var render = function () {
           2
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "mt-2" }, [
-          _c("span", { staticClass: "font-bold text-lg mt-2" }, [
-            _vm._v("Tambah Tanggapan"),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "bg-white w-full py-3 rounded-lg" }, [
-            _c(
-              "div",
-              { staticClass: "col-sm-12 mb-2" },
-              [
-                _c("vue-editor", {
-                  model: {
-                    value: _vm.fields.isi,
-                    callback: function ($$v) {
-                      _vm.$set(_vm.fields, "isi", $$v)
+        _vm.thread.stanggapan == "aktif"
+          ? _c("div", { staticClass: "mt-2" }, [
+              _c("span", { staticClass: "font-bold text-lg mt-2" }, [
+                _vm._v("Tambah Tanggapan"),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "bg-white w-full py-3 rounded-lg" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-sm-12 mb-2" },
+                  [
+                    _c("vue-editor", {
+                      model: {
+                        value: _vm.fields.isi,
+                        callback: function ($$v) {
+                          _vm.$set(_vm.fields, "isi", $$v)
+                        },
+                        expression: "fields.isi",
+                      },
+                    }),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: " flex justify-end -mb-1 " }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.tanggapi()
+                        },
+                      },
                     },
-                    expression: "fields.isi",
-                  },
-                }),
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: " flex justify-end -mb-1 " }, [
-              _c(
-                "button",
-                {
-                  staticClass:
-                    "bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3",
-                  on: {
-                    click: function ($event) {
-                      $event.preventDefault()
-                      return _vm.tanggapi()
-                    },
-                  },
-                },
-                [
-                  _vm._v(
-                    "\r\n                        Tanggapi\r\n                    "
+                    [
+                      _vm._v(
+                        "\r\n                        Tanggapi\r\n                    "
+                      ),
+                    ]
                   ),
-                ]
-              ),
+                ]),
+              ]),
+            ])
+          : _c("div", { staticClass: "mt-2" }, [
+              _c("span", { staticClass: "font-bold text-lg mt-2 italic" }, [
+                _vm._v("Tanggapan telah nonaktifkan"),
+              ]),
             ]),
-          ]),
-        ]),
         _vm._v(" "),
         _c("div", { staticClass: "mb-5" }),
       ]
