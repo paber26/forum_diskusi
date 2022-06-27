@@ -11,7 +11,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <div class="ml-2">
-                            <button @click.prevent="lihatprofil(thread.nim)" class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></button>
+                            <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
                             <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
                         </div>
                     </div>
@@ -40,66 +40,65 @@
                 <div class="flex justify-between py-1.5">
                     <span class="font-semibold ml-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan </span>
                     <span class="font-semibold ml-2" v-else>{{ thread.tmenanggapi }} tanggapan</span>
-                    <button v-if="thread.nim != user.nim" @click.prevent="laporthread(thread.idt)" class="relative flex items-center px-3">
+                    <button @click.prevent="laporthread(thread.idt)" class="relative flex items-center px-3">
                         <span class="font-semibold">Laporkan</span>
-                    </button>
-                    <button v-else @click.prevent="editthread(thread.idt)" class="flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1">
-                        <span class="font-semibold">Edit</span>
                     </button>
                 </div>
             </div>
         </div>
         <div class="mt-6">
             <span class="font-bold text-base" v-if="thread.tmenanggapi != 0">Tanggapan</span>
-            <div class="bg-white w-full px-3 pt-3 rounded-lg mb-3" v-for="tanggapan in daftartanggapan" :key="tanggapan.idtn">
-                <div class="flex items-center">
-                    <img :src="tanggapan.gambar" class="h-12 w-12 rounded-full" v-if="tanggapan.gambar!=''">
-                    <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <div class="ml-2">
-                        <button @click.prevent="lihatprofil(tanggapan.nim)" class="font-semibold">{{ tanggapan.nama }} <span class="text-xxs">({{ tanggapan.nim }})</span></button>
-                        <div class="text-xs italic">Menanggapi pada {{ tanggapan.date }}</div>
+            <div class="bg-white w-full rounded-lg" v-for="tanggapan in daftartanggapan" :key="tanggapan.idtn">
+                <div class="px-3 pt-3 mb-3" v-if="tanggapan.idtn != idtn">
+                    <div class="flex items-center">
+                        <img :src="tanggapan.gambar" class="h-12 w-12 rounded-full" v-if="tanggapan.gambar!=''">
+                        <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div class="ml-2">
+                            <div class="font-semibold">{{ tanggapan.nama }} <span class="text-xxs">({{ tanggapan.nim }})</span></div>
+                            <div class="text-xs italic">Menanggapi pada {{ tanggapan.date }}</div>
+                        </div>
                     </div>
-                </div>
-                <div class="flex m-1">
-                    <div class="flex flex-col items-center ml-2">
-                        <button @click.prevent="dukungtanggapan(tanggapan.idtn, 'naik')" class="flex items-center justify-center rounded-sm h-7 w-7" :class="(tanggapan.pilihan == 'naik') ? 'bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700':'bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200'">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
-                            </svg>
-                        </button>
-                        <span>{{ tanggapan.tdukungan }}</span>
-                        <button @click.prevent="dukungtanggapan(tanggapan.idtn, 'turun')" class="flex items-center justify-center rounded-sm h-7 w-7" :class="(tanggapan.pilihan == 'turun') ? 'bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700':'bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200'">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
+                    <div class="flex m-1">
+                        <div class="flex flex-col items-center ml-2">
+                            <button @click.prevent="dukungtanggapan(tanggapan.idtn, 'naik')" class="flex items-center justify-center rounded-sm h-7 w-7" :class="(tanggapan.pilihan == 'naik') ? 'bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700':'bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200'">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                                </svg>
+                            </button>
+                            <span>{{ tanggapan.tdukungan }}</span>
+                            <button @click.prevent="dukungtanggapan(tanggapan.idtn, 'turun')" class="flex items-center justify-center rounded-sm h-7 w-7" :class="(tanggapan.pilihan == 'turun') ? 'bg-birumateri text-white hover:bg-blue-400 hover:text-gray-700':'bg-gray-50 hover:bg-gray-400 text-gray-700 border border-gray-200'">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="ml-2" v-html="tanggapan.isi"></span>
+                    </div>
+                    <hr>
+                    <div class="flex justify-end py-1.5">
+                        <button @click.prevent="laportanggapan(tanggapan.idtn)" class="relative flex items-center px-3">
+                            <span class="font-semibold">Laporkan</span>
                         </button>
                     </div>
-                    <span class="ml-2" v-html="tanggapan.isi"></span>
-                </div>
-                <hr>
-                <div class="flex justify-end py-1.5">
-                    <button v-if="tanggapan.nim != user.nim" @click.prevent="laportanggapan(tanggapan.idtn)" class="relative flex items-center px-3">
-                        <span class="font-semibold">Laporkan</span>
-                    </button>
-                    <button v-else @click.prevent="edittanggapan(thread.idt, tanggapan.idtn)" class="flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1">
-                        <span class="font-semibold">Edit</span>
-                    </button>
                 </div>
             </div>
             <div class="bg-birumateri w-full h-0.5 rounded-3xl my-1.5"></div>
         </div>
 
         <div class="mt-2">
-            <span class="font-bold text-lg mt-2">Tambah Tanggapan</span>
+            <span class="font-bold text-lg mt-2">Edit Tanggapan</span>
             <div class="bg-white w-full py-3 rounded-lg">
                 <div class="col-sm-12 mb-2">
                     <vue-editor v-model="fields.isi"></vue-editor>
                 </div>
-                <div class=" flex justify-end -mb-1 ">
-                    <button @click.prevent="tanggapi()" class="bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
-                        Tanggapi
+                <div class="flex justify-between -mb-1 mx-3">
+                    <button @click.prevent="hapus(idt, idtn)" class="bg-red-500 hover:bg-red-700 text-xs text-white font-bold py-1 px-2 rounded-lg mr-3">
+                        Hapus Tanggapan
+                    </button>
+                    <button @click.prevent="simpanperubahantanggapan()" class="bg-green-500 hover:bg-green-700 text-xs text-white font-bold py-1 px-2 rounded-lg">
+                        Simpan Perubahan
                     </button>
                 </div>
             </div>
@@ -111,13 +110,12 @@
 
 <script>
 export default {
-    props: ['user', 'idt'],
+    props: ['user', 'idt', 'idtn'],
     data() {
         return {
             thread: '',
             daftartanggapan: '',
             fields: {
-                idt: this.idt,
                 isi: ''
             }
         }
@@ -125,6 +123,14 @@ export default {
     mounted() {
         this.getthread()
         this.gettanggapan()
+        axios.get('/api/user/getisitanggapan/' + this.idtn, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
+            this.fields.isi = response.data
+        })
     },
     methods: {
         getthread() {
@@ -175,7 +181,7 @@ export default {
                 this.gettanggapan()
             )
         },
-        tanggapi() {
+        simpanperubahantanggapan() {
             if (this.fields.isi == '') {
                 this.$swal('Masukkan Isi Tanggaapan')
                 return
@@ -188,10 +194,8 @@ export default {
             }).then(response => {
                 if (response.data == 'Berhasil') {
                     this.$swal('Berhasil Menanggapi')
-                    this.getthread()
-                    this.gettanggapan()
-                    this.fields.isi = ''
-                } else {}
+                    this.$router.push('/user/tanggapi/' + this.idt)
+                }
             })
         },
         laporthread(idt) {
@@ -248,15 +252,30 @@ export default {
                 }
             })
         },
-        lihatprofil(nim) {
-            this.$router.push('/user/profil/' + nim)
-        },
-        editthread(idt) {
-            this.$router.push('/user/edit_thread/' + idt)
-        },
-        edittanggapan(idt, idtn){
-            this.$router.push('/user/edit_tanggapan/' + idt + '/' + idtn)
-        },
+        hapus() {
+            this.$swal({
+                title: 'Apakah kamu yakin ingin menghapus?',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios.delete('/api/user/edit_tanggapan/hapus/' + this.idt + '/' + this.idtn, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer ' + this.user.api_token
+                        },
+                    }).then((response) => {
+                        this.$swal({
+                            text: 'Berhasil menghapus',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                        this.$router.push('/user/tanggapi/' + this.idt)
+                    })
+                }
+            })
+        }
     }
 }
 </script>

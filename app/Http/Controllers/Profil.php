@@ -59,6 +59,7 @@ class Profil extends Controller
                 ->select('tanggapan.*', 'users.nama', 'users.gambar', 'thread.judul', 'thread.nim AS nimt')
                 ->leftJoin('thread', 'tanggapan.idt', '=', 'thread.idt')
                 ->leftJoin('users', 'tanggapan.nim', '=', 'users.nim')
+                ->orderBy('tanggapan.date', 'desc')
                 ->where('tanggapan.nim', Auth::user()->nim)->get();
         } else {
             $q = DB::table('tanggapan')
@@ -89,7 +90,9 @@ class Profil extends Controller
             $q = DB::table('thread')
                 ->select('thread.*', 'users.nama', 'users.gambar')
                 ->leftJoin('users', 'thread.nim', '=', 'users.nim')
-                ->where('thread.nim', Auth::user()->nim)->get();
+                ->where('thread.nim', Auth::user()->nim)
+                ->orderBy('thread.date', 'desc')
+                ->get();
         } else {
             $q = DB::table('thread')
                 ->select('thread.*', 'users.nama', 'users.gambar')
@@ -101,7 +104,9 @@ class Profil extends Controller
         } else {
             $q2 = DB::table('thread')->select('thread.idt', 'dukungan_thread.pilihan')
                 ->leftJoin('dukungan_thread', 'thread.idt', '=', 'dukungan_thread.idt')
-                ->where('dukungan_thread.nim', Auth::user()->nim)->get()->toArray();
+                ->where('dukungan_thread.nim', Auth::user()->nim)
+                ->orderBy('thread.date', 'desc')
+                ->get()->toArray();
 
             $daftarthread = [];
             foreach ($q as $row) {
@@ -131,7 +136,6 @@ class Profil extends Controller
                 ]);
             }
 
-            // return $q2;
             return response()->json(array($q->count(), $daftarthread));
         }
     }

@@ -39,7 +39,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <div class="ml-2">
-                                <div class="font-semibold">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></div>
+                                <button @click.prevent="lihatprofil(thread.nim)" class="font-semibold hover:text-gray-500">{{ thread.nama }} <span class="text-xxs">({{ thread.nim }})</span></button>
                                 <div class="text-xs italic">Dibuat pada {{ thread.date }}</div>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                             </button>
                         </div>
                         <div class="flex flex-col ml-3.5">
-                            <span class="font-bold text-lg mb-2" v-html="thread.judul"></span>
+                            <a @click.prevent="tanggapi(thread.idt)" class="inline-block font-bold text-lg mb-2 cursor-pointer" v-html="thread.judul"></a>
                             <span v-html="thread.isi"></span>
                         </div>
                     </div>
@@ -69,8 +69,11 @@
                         <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
                         <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-2" v-else>Lihat {{ thread.tmenanggapi }} tanggapan</button>
                         <div class="flex justify-center">
-                            <button @click.prevent="laporthread(thread.idt)" class="relative flex items-center px-3">
+                            <button v-if="thread.nim != user.nim" @click.prevent="laporthread(thread.idt)" class="relative flex items-center px-3">
                                 <span class="font-semibold">Laporkan</span>
+                            </button>
+                            <button v-else @click.prevent="editthread(thread.idt)" class="flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1">
+                                <span class="font-semibold">Edit</span>
                             </button>
                         </div>
                     </div>
@@ -166,6 +169,12 @@ export default {
             }).then(response => {
                 this.daftarthread = response.data
             })
+        },
+        lihatprofil(nim) {
+            this.$router.push('/user/profil/' + nim)
+        },
+        editthread(idt){
+            this.$router.push('/user/edit_thread/' + idt)
         }
     }
 }

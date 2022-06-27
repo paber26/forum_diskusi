@@ -29,7 +29,9 @@ Route::group(
     function () {
         Route::post('user/buat_thread', [UserThread::class, 'buat_thread']);
         Route::post('user/draft_thread', [UserThread::class, 'draft_thread']);
-        Route::delete('user/buat_thread/hapus/{idd}', [UserThread::class, 'hapus']);
+        Route::delete('user/buat_thread/hapus/{idd}', [UserThread::class, 'hapus_draft']);
+        Route::post('user/edit_thread', [UserThread::class, 'edit_thread']);
+        Route::delete('user/edit_thread/hapus/{idt}', [UserThread::class, 'hapus_thread']);
 
         Route::post('user/getthreadfilter', [UserThread::class, 'getthreadfilter']);
         Route::get('user/getdraftthread/{idd}', [UserThread::class, 'getdraftthread']);
@@ -39,8 +41,11 @@ Route::group(
         Route::get('user/getthread/{idt}', [UserThread::class, 'getthread']);
         Route::post('user/tanggapi', [UserThread::class, 'tanggapi']);
         Route::post('user/laporthread', [UserThread::class, 'laporthread']);
+        Route::post('user/edit_tanggapan', [UserThread::class, 'edit_tanggapan']);
+        Route::delete('user/edit_tanggapan/hapus/{idt}/{idtn}', [UserThread::class, 'hapus_tanggapan']);
 
         Route::get('user/gettanggapan/{idt}', [UserThread::class, 'gettanggapan']);
+        Route::get('user/getisitanggapan/{idtn}', [UserThread::class, 'getisitanggapan']);
         Route::post('user/dukung/thread', [UserThread::class, 'dukungthread']);
         Route::post('user/dukung/tanggapan', [UserThread::class, 'dukungtanggapan']);
         Route::post('user/laportanggapan', [UserThread::class, 'laportanggapan']);

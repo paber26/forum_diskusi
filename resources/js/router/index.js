@@ -21,12 +21,14 @@ const AdminAkun = require("../admin/Akun.vue").default;
 // Bagian User
 const UserBeranda = require("../user/Beranda.vue").default;
 const UserBuatThread = require("../user/BuatThread.vue").default;
+const UserEditThread = require("../user/EditThread.vue").default;
 const UserBuatThreadDraft = require("../user/BuatThreadDraft.vue").default;
 const UserPetunjuk = require("../user/Petunjuk.vue").default;
 const UserProfil = require("../user/Profil.vue").default;
 const UserProfilEdit = require("../user/ProfilEdit.vue").default;
 const UserProfilPenggunaLain = require("../user/ProfilPenggunaLain.vue").default;
 const UserTanggapi = require("../user/Tanggapi.vue").default;
+const UserEditTanggapan = require("../user/EditTanggapan.vue").default;
 const UserPengguna = require("../user/Pengguna.vue").default;
 
 const routes = [
@@ -65,6 +67,11 @@ const routes = [
         props: true,
     },
     {
+        path: "/user/edit_thread/:idt",
+        component: UserEditThread,
+        props: true,
+    },
+    {
         path: "/user/profil",
         component: UserProfil,
     },
@@ -80,6 +87,11 @@ const routes = [
     {
         path: "/user/tanggapi/:idt",
         component: UserTanggapi,
+        props: true,
+    },
+    {
+        path: "/user/edit_tanggapan/:idt/:idtn",
+        component: UserEditTanggapan,
         props: true,
     },
     {

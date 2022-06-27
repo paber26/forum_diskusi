@@ -16,13 +16,6 @@ class UserThread extends Controller
         $isi = $request->isi;
         $idd = $request->idd;
 
-        if ($kategori == null) {
-            $kategori = '';
-        }
-        if ($isi == null) {
-            $isi = '';
-        }
-
         if ($idd == null) {
             $stt = [
                 'idt' => uniqid(),
@@ -198,7 +191,6 @@ class UserThread extends Controller
         $q = DB::table('thread')->where('idt', $idt);
         $tmenanggapi = $q->first()->tmenanggapi;
 
-
         $q->update(['tmenanggapi' => $tmenanggapi + 1]);
 
         $stt = [
@@ -208,7 +200,6 @@ class UserThread extends Controller
             'isi' => $request->isi,
         ];
 
-        // return $stt;
         DB::table('tanggapan')->insert($stt);
         return 'Berhasil';
     }
@@ -218,11 +209,9 @@ class UserThread extends Controller
         $q = DB::table('tanggapan')
             ->select('tanggapan.*', 'users.nama', 'users.gambar')
             ->leftJoin('users', 'tanggapan.nim', '=', 'users.nim')
+            ->orderBy('tdukungan', 'desc')
             ->where('idt', $idt)->get();
 
-        // return $q;
-        // exit;
-        // $q = DB::table('tanggapan')->where('idt', $idt)->get();
         $q2 = DB::table('tanggapan')->select('tanggapan.idtn', 'dukungan_tanggapan.pilihan')
             ->leftJoin('dukungan_tanggapan', 'tanggapan.idtn', '=', 'dukungan_tanggapan.idtn')
             ->where('dukungan_tanggapan.nim', Auth::user()->nim)->get()->toArray();
@@ -252,6 +241,11 @@ class UserThread extends Controller
         }
 
         return response()->json($daftartanggapan);
+    }
+
+    public function getisitanggapan($idtn)
+    {
+        return DB::table('tanggapan')->where('idtn', $idtn)->first()->isi;
     }
 
     public function dukungthread(Request $request)
@@ -334,7 +328,7 @@ class UserThread extends Controller
         }
     }
 
-    public function hapus($idd)
+    public function hapus_draft($idd)
     {
         DB::table('draft_thread')->where(['idd' => $idd, 'nim' => Auth::user()->nim])->delete();
 
@@ -364,6 +358,58 @@ class UserThread extends Controller
         } else {
             return 'Sudah';
         }
+    }
+
+    public function edit_thread(Request $request)
+    {
+        $kategori = $request->kategori;
+        $isi = $request->isi;
+        $idt = $request->idt;
+
+        $stt = [
+            'nim' => Auth::user()->nim,
+            'kategori' => $kategori,
+            'judul' => $request->judul,
+            'isi' => $isi,
+        ];
+        DB::table('thread')->where('idt', $idt)->update($stt);
+
+        return 'Berhasil';
+    }
+
+    public function hapus_thread($idt)
+    {
+        DB::table('dukungan_thread')->where('idt', $idt)->delete();
+        DB::table('tanggapan')->where('idt', $idt)->delete();
+        DB::table('laporan_thread')->where('idt', $idt)->delete();
+        DB::table('thread')->where('idt', $idt)->delete();
+
+        return 'Berhasil';
+    }
+
+    public function hapus_tanggapan($idt, $idtn)
+    {
+        $q2 = DB::table('thread')->where('idt', $idt);
+        $tmenanggapi = $q2->first()->tmenanggapi;
+        $q2->update(['tmenanggapi' => $tmenanggapi - 1]);
+
+        DB::table('tanggapan')->where('idtn', $idtn)->delete();
+        DB::table('dukungan_tanggapan')->where('idtn', $idtn)->delete();
+        DB::table('laporan_tanggapan')->where('idtn', $idtn)->delete();
+
+        return 'Berhasil';
+    }
+
+    public function edit_tanggapan(Request $request)
+    {
+        $idtn = $request->idtn;
+
+        $stt = [
+            'isi' => $request->isi,
+        ];
+
+        DB::table('tanggapan')->where('idtn', $idtn)->update($stt);
+        return 'Berhasil';
     }
 
     public function laportanggapan(Request $request)

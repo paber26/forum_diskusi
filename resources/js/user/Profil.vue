@@ -87,6 +87,14 @@
                             </a>
                             <hr>
                             <span v-html="tanggapan.isi"></span>
+                            <hr>
+                            <div class="flex justify-end py-1.5">
+                                <div class="flex justify-between">
+                                    <button @click.prevent="edittanggapan(tanggapan.idt, tanggapan.idtn)" class="flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1">
+                                        <span class="font-semibold">Edit</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -128,6 +136,11 @@
                             <div class="flex justify-between py-1.5">
                                 <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-if="thread.tmenanggapi == 0">Belum ada tanggapan</button>
                                 <button @click.prevent="tanggapi(thread.idt)" class="font-semibold ml-2 hover:bg-blue-200 rounded-2xl px-3" v-else>Lihat {{ thread.tmenanggapi }} jawaban</button>
+                                <div class="flex justify-center">
+                                    <button @click.prevent="editthread(thread.idt)" class="flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1">
+                                        <span class="font-semibold">Edit</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -176,6 +189,12 @@ export default {
         },
         tanggapi(idt) {
             this.$router.push('/user/tanggapi/' + idt)
+        },
+        editthread(idt){
+            this.$router.push('/user/edit_thread/' + idt)
+        },
+        edittanggapan(idt, idtn){
+            this.$router.push('/user/edit_tanggapan/' + idt + '/' + idtn)
         },
         dukung(idt, pilihan) {
             let detail = {
