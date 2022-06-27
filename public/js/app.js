@@ -5289,7 +5289,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -61560,7 +61559,7 @@ var render = function () {
                               "button",
                               {
                                 staticClass:
-                                  "flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1",
+                                  "flex items-center bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-2 py-1",
                                 on: {
                                   click: function ($event) {
                                     $event.preventDefault()
@@ -63736,8 +63735,6 @@ var render = function () {
                             domProps: { innerHTML: _vm._s(tanggapan.isi) },
                           }),
                           _vm._v(" "),
-                          _c("hr"),
-                          _vm._v(" "),
                           _c(
                             "div",
                             { staticClass: "flex justify-end py-1.5" },
@@ -63750,7 +63747,7 @@ var render = function () {
                                     "button",
                                     {
                                       staticClass:
-                                        "flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1",
+                                        "flex items-center bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-2 py-1",
                                       on: {
                                         click: function ($event) {
                                           $event.preventDefault()
@@ -64022,7 +64019,7 @@ var render = function () {
                                     "button",
                                     {
                                       staticClass:
-                                        "flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1",
+                                        "flex items-center bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-2 py-1",
                                       on: {
                                         click: function ($event) {
                                           $event.preventDefault()
@@ -65294,7 +65291,7 @@ var render = function () {
                           "button",
                           {
                             staticClass:
-                              "flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1",
+                              "flex items-center bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-2 py-1",
                             on: {
                               click: function ($event) {
                                 $event.preventDefault()

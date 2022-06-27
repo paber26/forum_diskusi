@@ -72,7 +72,7 @@
                             <button v-if="thread.nim != user.nim" @click.prevent="laporthread(thread.idt)" class="relative flex items-center px-3">
                                 <span class="font-semibold">Laporkan</span>
                             </button>
-                            <button v-else @click.prevent="editthread(thread.idt)" class="flex items-center bg-red-500 hover:bg-red-700 text-white text-xs px-2 py-1">
+                            <button v-else @click.prevent="editthread(thread.idt)" class="flex items-center bg-yellow-500 hover:bg-yellow-600 text-white text-xs px-2 py-1">
                                 <span class="font-semibold">Edit</span>
                             </button>
                         </div>
