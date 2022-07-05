@@ -138,7 +138,6 @@ export default {
                 },
             }).then((response) => {
                 this.thread = response.data
-                console.log(this.thread)
             })
         },
         gettanggapan() {

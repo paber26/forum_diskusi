@@ -2112,6 +2112,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -2119,17 +2132,15 @@ __webpack_require__.r(__webpack_exports__);
       daftarakun: '',
       daftartanggapan: '',
       expand: [],
-      isactive: 'thread'
+      isactive: 'thread',
+      keyword: ''
     };
   },
-  mounted: function mounted() {
-    this.getakun();
-  },
-  methods: {
-    getakun: function getakun() {
+  computed: {
+    akunsfilters: function akunsfilters() {
       var _this = this;
 
-      axios.get('/api/admin/getakun', {
+      axios.get('/api/admin/getcariakun/' + this.keyword, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + this.user.api_token
@@ -2137,7 +2148,10 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this.daftarakun = response.data;
       });
-    },
+      return this.daftarakun;
+    }
+  },
+  methods: {
     gettanggapan: function gettanggapan() {
       var _this2 = this;
 
@@ -2203,7 +2217,7 @@ __webpack_require__.r(__webpack_exports__);
               _this4.getakun();
 
               if (response.data == 'Berhasil') {
-                _this4.swal('Berhasil mengubah akses');
+                _this4.$swal('Berhasil mengubah akses');
               }
             });
           }
@@ -2579,6 +2593,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this2.ltn = response.data;
+        console.log(response.data);
       });
     },
     lihat: function lihat(ktg) {
@@ -5835,7 +5850,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this.thread = response.data;
-        console.log(_this.thread);
       });
     },
     gettanggapan: function gettanggapan() {
@@ -57148,12 +57162,29 @@ var render = function () {
               ),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.keyword,
+                    expression: "keyword",
+                  },
+                ],
                 staticClass:
-                  "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500",
+                  "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5",
                 attrs: {
                   type: "text",
                   id: "table-search",
                   placeholder: "Cari Akun",
+                },
+                domProps: { value: _vm.keyword },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.keyword = $event.target.value
+                  },
                 },
               }),
             ]),
@@ -57164,7 +57195,7 @@ var render = function () {
             _vm._v(" "),
             _c(
               "tbody",
-              _vm._l(_vm.daftarakun.length, function (index) {
+              _vm._l(_vm.akunsfilters, function (akun, index) {
                 return _c(
                   "tr",
                   {
@@ -57178,11 +57209,11 @@ var render = function () {
                         staticClass:
                           "p-3 font-medium text-gray-900 text-center",
                       },
-                      [_vm._v(_vm._s(index))]
+                      [_vm._v(_vm._s(index + 1))]
                     ),
                     _vm._v(" "),
                     _c("td", { staticClass: "p-3 font-medium text-gray-900" }, [
-                      _vm._v(_vm._s(_vm.daftarakun[index - 1].nama)),
+                      _vm._v(_vm._s(akun.nama)),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -57191,17 +57222,13 @@ var render = function () {
                         staticClass:
                           "p-3 font-medium text-gray-900 text-center",
                       },
-                      [_vm._v(_vm._s(_vm.daftarakun[index - 1].nim))]
+                      [_vm._v(_vm._s(akun.nim))]
                     ),
                     _vm._v(" "),
                     _c("td", {
                       staticClass: "p-3 font-medium text-gray-900 text-center",
                       domProps: {
-                        innerHTML: _vm._s(
-                          _vm.daftarakun[index - 1].is_admin
-                            ? "Admin"
-                            : "Anggota"
-                        ),
+                        innerHTML: _vm._s(akun.is_admin ? "Admin" : "Anggota"),
                       },
                     }),
                     _vm._v(" "),
@@ -57215,10 +57242,7 @@ var render = function () {
                             on: {
                               click: function ($event) {
                                 $event.preventDefault()
-                                return _vm.gantiakses(
-                                  _vm.daftarakun[index - 1].nim,
-                                  _vm.daftarakun[index - 1].nama
-                                )
+                                return _vm.gantiakses(akun.nim, akun.nama)
                               },
                             },
                           },

@@ -145,6 +145,7 @@ export default {
                 },
             }).then((response) => {
                 this.ltn = response.data
+                console.log(response.data)
             })
         },
         lihat(ktg) {

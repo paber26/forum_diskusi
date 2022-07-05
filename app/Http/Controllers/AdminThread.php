@@ -153,6 +153,18 @@ class AdminThread extends Controller
         return DB::table('users')->select('nama', 'nim', 'is_admin')->get();
     }
 
+    public function getcariakun($keyword = null)
+    {
+        if ($keyword == null) {
+            return DB::table('users')->select('nama', 'nim', 'is_admin')->get();
+        } else {
+            return DB::table('users')->select('nama', 'nim', 'is_admin')
+                ->where('nama', 'like', '%' . $keyword . '%')
+                ->orWhere('nim', 'like', '%' . $keyword . '%')
+                ->get();
+        }
+    }
+
     public function gantiakses($nim, $akses)
     {
         DB::table('users')->where('nim', $nim)->update(['is_admin' => $akses]);

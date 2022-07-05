@@ -10,7 +10,7 @@
                             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                         </svg>
                     </div>
-                    <input type="text" id="table-search" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cari Akun">
+                    <input type="text" id="table-search" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5" placeholder="Cari Akun" v-model="keyword">
                 </div>
             </div>
             <table class="w-full text-left">
@@ -24,7 +24,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in daftarakun.length" :key="index.idtn">
+                    <tr class="bg-white border-b divide-x divide-gray-400" v-for="(akun, index) in akunsfilters" :key="index.idtn">
+                        <td class="p-3 font-medium text-gray-900 text-center">{{ index+1 }}</td>
+                        <td class="p-3 font-medium text-gray-900">{{ akun.nama }}</td>
+                        <td class="p-3 font-medium text-gray-900 text-center">{{ akun.nim }}</td>
+                        <td class="p-3 font-medium text-gray-900 text-center" v-html="akun.is_admin ? 'Admin' : 'Anggota'"></td>
+                        <td class="p-3">
+                            <div class="flex justify-center">
+                                <button @click.prevent="gantiakses(akun.nim, akun.nama)" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
+                                    <span class="text-sm">Ganti Akses</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in daftarakun.length" :key="index.idtn">
                         <td class="p-3 font-medium text-gray-900 text-center">{{ index }}</td>
                         <td class="p-3 font-medium text-gray-900">{{ daftarakun[index-1].nama }}</td>
                         <td class="p-3 font-medium text-gray-900 text-center">{{ daftarakun[index-1].nim }}</td>
@@ -36,7 +49,7 @@
                                 </button>
                             </div>
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -54,15 +67,12 @@ export default {
             daftartanggapan: '',
             expand: [],
             isactive: 'thread',
+            keyword: ''
         }
     },
-    mounted() {
-        this.getakun()
-
-    },
-    methods: {
-        getakun() {
-            axios.get('/api/admin/getakun', {
+    computed: {
+        akunsfilters() {
+            axios.get('/api/admin/getcariakun/' + this.keyword, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
@@ -70,7 +80,10 @@ export default {
             }).then((response) => {
                 this.daftarakun = response.data
             })
-        },
+            return this.daftarakun
+        }
+    },
+    methods: {
         gettanggapan() {
             axios.get('/api/admin/gettanggapan', {
                 headers: {
@@ -127,8 +140,8 @@ export default {
                             },
                         }).then((response) => {
                             this.getakun()
-                            if(response.data == 'Berhasil'){
-                                this.swal('Berhasil mengubah akses')
+                            if (response.data == 'Berhasil') {
+                                this.$swal('Berhasil mengubah akses')
                             }
                         })
                     }
