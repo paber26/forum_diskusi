@@ -23,6 +23,11 @@
                                 <textarea v-model="fields.deskripsi" name="deskripsi" class="form-control" placeholder="Beritahu tentang kamu, seperti kegiatan dan hal yang kamu sukai ..." rows="3"></textarea>
                             </div>
                         </div>
+                        <div class="form-group row"><label class="col-sm-2 col-form-label">Kelas</label>
+                            <div class="col-sm-10">
+                                <input v-model="fields.kelas" name="kelas" type="text" class="form-control" placeholder="Masukkan Kelas">
+                            </div>
+                        </div>
                         <div class="form-group row"><label class="col-sm-2 col-form-label">No WA</label>
                             <div class="col-sm-10">
                                 <input v-model="fields.nowa" name="nowa" type="text" class="form-control" placeholder="Masukkan No WA">
@@ -53,6 +58,7 @@ export default {
         return {
             fields: {
                 deskripsi: this.user.deskripsi,
+                kelas: this.user.kelas,
                 nowa: this.user.nowa,
                 alamat: this.user.alamat,
                 password: '',

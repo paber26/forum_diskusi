@@ -44,6 +44,10 @@
                                     <span class="ml-3 text-gray-600">{{ user.deskripsi }}</span>
                                 </div>
                                 <div class="flex flex-col mb-3">
+                                    <span>Kelas</span>
+                                    <span class="ml-3 text-gray-600">{{ user.kelas }}</span>
+                                </div>
+                                <div class="flex flex-col mb-3">
                                     <span>NIM</span>
                                     <span class="ml-3 text-gray-600">{{ user.nim }}</span>
                                 </div>

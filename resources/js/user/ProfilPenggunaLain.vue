@@ -45,6 +45,10 @@
                                     <span class="ml-3 text-gray-600">{{ profil.nim }}</span>
                                 </div>
                                 <div class="flex flex-col mb-3">
+                                    <span>Kelas</span>
+                                    <span class="ml-3 text-gray-600">{{ profil.kelas }}</span>
+                                </div>
+                                <div class="flex flex-col mb-3">
                                     <span>No WA</span>
                                     <span class="ml-3 text-gray-600">{{ profil.nowa }}</span>
                                 </div>

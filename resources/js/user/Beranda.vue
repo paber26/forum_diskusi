@@ -25,6 +25,34 @@
                         Cari
                     </button>
                 </div>
+                <div class="bg-white w-full p-2 rounded-md mt-4">
+                    <label class="font-medium text-sm">Teraktif (Thread)</label>
+                    <div class="flex flex-col items-center mt-3" v-for="top in topuserthread" :key="top.idt">
+                        <img :src="top.gambar" class="h-12 w-12 rounded-full">
+                        <div class="ml-2">
+                            <button @click.prevent="lihatprofil(top.nim)" class="font-semibold hover:text-gray-500 text-left">{{ top.nama }}<br> </button>
+                        </div>
+                        <div class="text-xxs flex">
+                            <div>({{ top.nim }})</div>
+                            <div class="ml-2">({{ top.jumlah }} Thread)</div>
+                        </div>
+                        <hr class="w-full">
+                    </div>
+                </div>
+                <div class="bg-white w-full p-2 rounded-md mt-2">
+                    <label class="font-medium text-sm">Teraktif (Tanggapan)</label>
+                    <div class="flex flex-col items-center mt-3" v-for="top in topusertanggapan" :key="top.idt">
+                        <img :src="top.gambar" class="h-12 w-12 rounded-full">
+                        <div class="ml-2">
+                            <button @click.prevent="lihatprofil(top.nim)" class="font-semibold hover:text-gray-500 text-left">{{ top.nama }}<br> </button>
+                        </div>
+                        <div class="text-xxs flex">
+                            <div>({{ top.nim }})</div>
+                            <div class="ml-2">({{ top.jumlah }} Tanggapan)</div>
+                        </div>
+                        <hr class="w-full">
+                    </div>
+                </div>
             </div>
             <div class="col-span-12 sm:col-span-8 lg:col-span-9">
                 <span class="font-bold text-xl mb-2">Beranda</span>
@@ -91,7 +119,8 @@ export default {
     data() {
         return {
             daftarthread: '',
-            isOptionsExpanded: false,
+            topuserthread:'',
+            topusertanggapan:'',
             fields: {
                 urutan: 'Terbaru',
                 kategori: 'Semua'
@@ -100,18 +129,18 @@ export default {
     },
     mounted() {
         this.cari()
+        axios.get('/api/user/gettopuser', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.user.api_token
+            },
+        }).then((response) => {
+            console.log(response.data[0])
+            this.topuserthread = response.data[0]
+            this.topusertanggapan = response.data[1]
+        })
     },
     methods: {
-        getthread() {
-            axios.get('/api/user/getthread', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + this.user.api_token
-                },
-            }).then((response) => {
-                this.daftarthread = response.data
-            })
-        },
         tanggapi(idt) {
             this.$router.push('/user/tanggapi/' + idt)
         },
@@ -173,7 +202,7 @@ export default {
         lihatprofil(nim) {
             this.$router.push('/user/profil/' + nim)
         },
-        editthread(idt){
+        editthread(idt) {
             this.$router.push('/user/edit_thread/' + idt)
         }
     }

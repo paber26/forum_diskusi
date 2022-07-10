@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Symfony\Component\VarDumper\VarDumper;
 
 class UserThread extends Controller
 {
@@ -157,6 +156,40 @@ class UserThread extends Controller
 
             return response()->json($daftarthread);
         }
+    }
+
+    public function gettopuser()
+    {
+        $q = DB::table('thread')->selectRaw('nim, COUNT(*)')
+            ->groupBy('nim')->orderBy('COUNT(*)', 'desc')
+            ->limit(3)->get();
+
+        $daftartopbythread = [];
+        foreach ($q as $row) {
+            $q2 = DB::table('users')->where('nim', $row->nim)->first();
+            array_push($daftartopbythread, [
+                'nim' => $row->nim,
+                'jumlah' => DB::table('thread')->where('nim', $row->nim)->count(),
+                'nama' => $q2->nama,
+                'gambar' => $q2->gambar,
+            ]);
+        }
+
+        $q = DB::table('tanggapan')->selectRaw('nim, COUNT(*)')
+            ->groupBy('nim')->orderBy('COUNT(*)', 'desc')
+            ->limit(3)->get();
+
+        $daftartopbytanggapan = [];
+        foreach ($q as $row) {
+            $q2 = DB::table('users')->where('nim', $row->nim)->first();
+            array_push($daftartopbytanggapan, [
+                'nim' => $row->nim,
+                'jumlah' => DB::table('tanggapan')->where('nim', $row->nim)->count(),
+                'nama' => $q2->nama,
+                'gambar' => $q2->gambar,
+            ]);
+        }
+        return array($daftartopbythread, $daftartopbytanggapan);
     }
 
     public function getthread($idt)

@@ -3966,12 +3966,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       daftarthread: '',
-      isOptionsExpanded: false,
+      topuserthread: '',
+      topusertanggapan: '',
       fields: {
         urutan: 'Terbaru',
         kategori: 'Semua'
@@ -3979,21 +4008,21 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.cari();
+    axios.get('/api/user/gettopuser', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.user.api_token
+      }
+    }).then(function (response) {
+      console.log(response.data[0]);
+      _this.topuserthread = response.data[0];
+      _this.topusertanggapan = response.data[1];
+    });
   },
   methods: {
-    getthread: function getthread() {
-      var _this = this;
-
-      axios.get('/api/user/getthread', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + this.user.api_token
-        }
-      }).then(function (response) {
-        _this.daftarthread = response.data;
-      });
-    },
     tanggapi: function tanggapi(idt) {
       this.$router.push('/user/tanggapi/' + idt);
     },
@@ -5304,6 +5333,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
@@ -5428,12 +5461,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       fields: {
         deskripsi: this.user.deskripsi,
+        kelas: this.user.kelas,
         nowa: this.user.nowa,
         alamat: this.user.alamat,
         password: '',
@@ -5492,6 +5531,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -61307,6 +61350,114 @@ var render = function () {
                   ),
                 ]
               ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "bg-white w-full p-2 rounded-md mt-4" },
+                [
+                  _c("label", { staticClass: "font-medium text-sm" }, [
+                    _vm._v("Teraktif (Thread)"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.topuserthread, function (top) {
+                    return _c(
+                      "div",
+                      {
+                        key: top.idt,
+                        staticClass: "flex flex-col items-center mt-3",
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "h-12 w-12 rounded-full",
+                          attrs: { src: top.gambar },
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "ml-2" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "font-semibold hover:text-gray-500 text-left",
+                              on: {
+                                click: function ($event) {
+                                  $event.preventDefault()
+                                  return _vm.lihatprofil(top.nim)
+                                },
+                              },
+                            },
+                            [_vm._v(_vm._s(top.nama)), _c("br")]
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "text-xxs flex" }, [
+                          _c("div", [_vm._v("(" + _vm._s(top.nim) + ")")]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "ml-2" }, [
+                            _vm._v("(" + _vm._s(top.jumlah) + " Thread)"),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("hr", { staticClass: "w-full" }),
+                      ]
+                    )
+                  }),
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "bg-white w-full p-2 rounded-md mt-2" },
+                [
+                  _c("label", { staticClass: "font-medium text-sm" }, [
+                    _vm._v("Teraktif (Tanggapan)"),
+                  ]),
+                  _vm._v(" "),
+                  _vm._l(_vm.topusertanggapan, function (top) {
+                    return _c(
+                      "div",
+                      {
+                        key: top.idt,
+                        staticClass: "flex flex-col items-center mt-3",
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "h-12 w-12 rounded-full",
+                          attrs: { src: top.gambar },
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "ml-2" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "font-semibold hover:text-gray-500 text-left",
+                              on: {
+                                click: function ($event) {
+                                  $event.preventDefault()
+                                  return _vm.lihatprofil(top.nim)
+                                },
+                              },
+                            },
+                            [_vm._v(_vm._s(top.nama)), _c("br")]
+                          ),
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "text-xxs flex" }, [
+                          _c("div", [_vm._v("(" + _vm._s(top.nim) + ")")]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "ml-2" }, [
+                            _vm._v("(" + _vm._s(top.jumlah) + " Tanggapan)"),
+                          ]),
+                        ]),
+                        _vm._v(" "),
+                        _c("hr", { staticClass: "w-full" }),
+                      ]
+                    )
+                  }),
+                ],
+                2
+              ),
             ]
           ),
           _vm._v(" "),
@@ -63600,6 +63751,14 @@ var render = function () {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "flex flex-col mb-3" }, [
+                        _c("span", [_vm._v("Kelas")]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                          _vm._v(_vm._s(_vm.user.kelas)),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "flex flex-col mb-3" }, [
                         _c("span", [_vm._v("NIM")]),
                         _vm._v(" "),
                         _c("span", { staticClass: "ml-3 text-gray-600" }, [
@@ -64198,6 +64357,40 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "form-group row" }, [
                   _c("label", { staticClass: "col-sm-2 col-form-label" }, [
+                    _vm._v("Kelas"),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-10" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.fields.kelas,
+                          expression: "fields.kelas",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        name: "kelas",
+                        type: "text",
+                        placeholder: "Masukkan Kelas",
+                      },
+                      domProps: { value: _vm.fields.kelas },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.fields, "kelas", $event.target.value)
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group row" }, [
+                  _c("label", { staticClass: "col-sm-2 col-form-label" }, [
                     _vm._v("No WA"),
                   ]),
                   _vm._v(" "),
@@ -64443,6 +64636,14 @@ var render = function () {
                         _vm._v(" "),
                         _c("span", { staticClass: "ml-3 text-gray-600" }, [
                           _vm._v(_vm._s(_vm.profil.nim)),
+                        ]),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "flex flex-col mb-3" }, [
+                        _c("span", [_vm._v("Kelas")]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "ml-3 text-gray-600" }, [
+                          _vm._v(_vm._s(_vm.profil.kelas)),
                         ]),
                       ]),
                       _vm._v(" "),

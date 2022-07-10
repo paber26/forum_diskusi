@@ -34,6 +34,7 @@ Route::group(
         Route::delete('user/edit_thread/hapus/{idt}', [UserThread::class, 'hapus_thread']);
 
         Route::post('user/getthreadfilter', [UserThread::class, 'getthreadfilter']);
+        Route::get('user/gettopuser', [UserThread::class, 'gettopuser']);
         Route::get('user/getdraftthread/{idd}', [UserThread::class, 'getdraftthread']);
         Route::get('user/getthread', [UserThread::class, 'getthread']);
 

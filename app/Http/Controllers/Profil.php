@@ -13,12 +13,16 @@ class Profil extends Controller
     public function edit(Request $request)
     {
         $deskripsi = $request->deskripsi;
+        $kelas = $request->kelas;
         $nowa = $request->nowa;
         $alamat = $request->alamat;
         $password = $request->password;
 
         if ($deskripsi == null) {
             $deskripsi = '-';
+        }
+        if ($kelas == null) {
+            $kelas = '-';
         }
         if ($nowa == null) {
             $nowa = '-';
@@ -30,12 +34,14 @@ class Profil extends Controller
         if ($password == null) {
             $stt = [
                 'deskripsi' => $deskripsi,
+                'kelas' => $kelas,
                 'nowa' => $nowa,
                 'alamat' => $alamat,
             ];
         } else {
             $stt = [
                 'deskripsi' => $deskripsi,
+                'kelas' => $kelas,
                 'nowa' => $nowa,
                 'alamat' => $alamat,
                 'password' => Hash::make($password),

@@ -122,6 +122,7 @@ class Authen extends Controller
                     'email' => $email,
                     'password' => Hash::make($password),
                     'gambar' => $user_google->getAvatar(),
+                    'kelas' => '',
                     'nowa' => '',
                     'deskripsi' => '',
                     'alamat' => '',
