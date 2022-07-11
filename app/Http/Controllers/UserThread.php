@@ -192,6 +192,53 @@ class UserThread extends Controller
         return array($daftartopbythread, $daftartopbytanggapan);
     }
 
+    public function getpencarian(Request $request)
+    {
+        $q = DB::table('thread')
+            ->select('thread.*', 'users.nama', 'users.gambar')
+            ->leftJoin('users', 'thread.nim', '=', 'users.nim')
+            ->where('judul', 'like', '%' . $request[0] . '%')
+            ->orWhere('isi', 'like', '%' . $request[0] . '%')
+            ->orderBy('thread.date', 'desc')->get();
+        if ($q == null) {
+            return 0;
+        } else {
+            $q2 = DB::table('thread')->select('thread.idt', 'dukungan_thread.pilihan')
+                ->leftJoin('dukungan_thread', 'thread.idt', '=', 'dukungan_thread.idt')
+                ->where('dukungan_thread.nim', Auth::user()->nim)->get()->toArray();
+
+            $daftarthread = [];
+            foreach ($q as $row) {
+                $cari = array_search(
+                    $row->idt,
+                    array_column($q2, 'idt')
+                );
+
+
+                if (strval($cari) == null) {
+                    $pilihan = '';
+                } else {
+                    $pilihan = $q2[$cari]->pilihan;
+                }
+                array_push($daftarthread, [
+                    'idt' => $row->idt,
+                    'nim' => $row->nim,
+                    'gambar' => $row->gambar,
+                    'kategori' => $row->kategori,
+                    'nama' => $row->nama,
+                    'judul' => $row->judul,
+                    'isi' => $row->isi,
+                    'date' => $row->date,
+                    'tdukungan' => $row->tdukungan,
+                    'tmenanggapi' => $row->tmenanggapi,
+                    'pilihan' => $pilihan
+                ]);
+            }
+
+            return response()->json($daftarthread);
+        }
+    }
+
     public function getthread($idt)
     {
         $q = DB::table('thread')

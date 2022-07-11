@@ -35,6 +35,7 @@ Route::group(
 
         Route::post('user/getthreadfilter', [UserThread::class, 'getthreadfilter']);
         Route::get('user/gettopuser', [UserThread::class, 'gettopuser']);
+        Route::post('user/getpencarian', [UserThread::class, 'getpencarian']);
         Route::get('user/getdraftthread/{idd}', [UserThread::class, 'getdraftthread']);
         Route::get('user/getthread', [UserThread::class, 'getthread']);
 

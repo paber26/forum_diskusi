@@ -59,16 +59,13 @@
                     <span class="font-bold text-xl">Beranda</span>
 
                     <form class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2 w-96 flex justify-between">
-                        <input v-model="keywords" class="bg-white w-72 p-1 border-none" placeholder="Masukkan kata yang ingin dicari">
+                        <input v-model="keyword" class="bg-white w-72 p-1 border-none" placeholder="Masukkan kata yang ingin dicari">
                         <button @click.prevent="cari()" class="bg-blue-700 hover:bg-blue-800 focus:ring-4 px-4 py-2 text-white">Cari</button>
                     </form>
 
                 </div>
-                <div class="font-semibold italic mt-3" v-if="daftarthread == '' && iscari == false">
-                    <span>Thread Masih Kosong</span>
-                </div>
-                <div class="font-semibold italic mt-3" v-if="daftarthread == '' && iscari == true">
-                    <span>Hasil {{ keyword }} tidak ditemukan</span>
+                <div class="font-semibold italic mt-3" v-if="hasilcari == ''">
+                    <span>Hasil tidak dapat ditemukan</span>
                 </div>
                 <div v-else class="bg-white w-full px-3 pt-3 rounded-lg mb-3" v-for="thread in daftarthread" :key="thread.idt">
                     <div class="flex justify-between items-start">
@@ -130,16 +127,13 @@ export default {
     data() {
         return {
             daftarthread: '',
-            pencthread: '',
             topuserthread: '',
             topusertanggapan: '',
             fields: {
                 urutan: 'Terbaru',
                 kategori: 'Semua'
             },
-            keywords: '',
             keyword: '',
-            iscari: false,
             hasilcari: ''
         }
     },
@@ -151,6 +145,7 @@ export default {
                 'Authorization': 'Bearer ' + this.user.api_token
             },
         }).then((response) => {
+            console.log(response.data[0])
             this.topuserthread = response.data[0]
             this.topusertanggapan = response.data[1]
         })
@@ -201,7 +196,6 @@ export default {
             })
         },
         filter() {
-            this.iscari = false
             let detail = {
                 'urutan': this.fields.urutan,
                 'kategori': this.fields.kategori
@@ -222,28 +216,7 @@ export default {
             this.$router.push('/user/edit_thread/' + idt)
         },
         cari() {
-            if(this.keywords == '' && this.iscari == false){
-                this.$swal('Masukkan kata kunci pencarian')
-                return
-            }else if(this.keywords == '' && this.iscari == true){
-                this.iscari = false
-                this.filter()
-                return
-            }
-            this.iscari = true
-            this.keyword = this.keywords
-            axios.post('/api/user/getpencarian', this.keyword, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + this.user.api_token
-                },
-            }).then(response => {
-                if(response.data == 0){
-                    this.daftarthread = ''
-                }else{
-                    this.daftarthread = response.data
-                }
-            })
+            this.$router.push('/user/pencarian')
         }
     }
 }
