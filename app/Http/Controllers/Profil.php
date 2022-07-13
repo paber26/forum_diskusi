@@ -148,7 +148,7 @@ class Profil extends Controller
 
     public function getdaftarpengguna()
     {
-        $q = DB::table('users')->get();
+        $q = DB::table('users')->orderBy('nama')->get();
         $daftarpengguna = [];
         foreach ($q as $row) {
             $tthread = DB::table('thread')->where('nim', $row->nim)->count();
@@ -161,6 +161,7 @@ class Profil extends Controller
                 'ttanggapan' => $ttanggapan,
             ]);
         }
+
         return $daftarpengguna;
     }
 }

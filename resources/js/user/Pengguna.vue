@@ -2,6 +2,19 @@
 <div class="flex flex-col items-center w-full">
     <div class="w-5/6 sm:w-2/3 flex flex-col justify-center"><span class="font-bold text-2xl mt-4 mb-3">Semua Pengguna</span>
         <div class="relative overflow-x-auto">
+            <!-- <div class="bg-white w-full p-2 rounded-md mb-2">
+                <label class="font-medium text-sm">Urut Berdasarkan</label>
+                <select v-model="urutan" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5">
+                    <option value="nama" selected>Nama</option>
+                    <option value="thread">Thread Terbanyak</option>
+                    <option value="tanggapan">Tanggapan Terbanyak</option>
+                </select>
+            </div> -->
+            <div class="flex justify-end mb-2">
+                <button @click.prevent="urutkan()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded-sm flex items-center">
+                    <span class="text-sm">Urut Berdasarkan</span>
+                </button>
+            </div>
             <table class="w-full text-left">
                 <thead class="text-base text-gray-700 uppercase bg-blue-300">
                     <tr class="text-center divide-x divide-gray-400">
@@ -45,50 +58,45 @@ export default {
     data() {
         return {
             dpengguna: '',
+            urutan: 'nama'
         }
     },
     mounted() {
-        axios.get('/api/user/getdaftarpengguna', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.user.api_token
-            },
-        }).then((response) => {
-            this.dpengguna = response.data
-        })
-        this.getthreadprofil()
+        this.getdaftarpengguna('nama')
     },
     methods: {
-        getthreadprofil() {
-            axios.get('/api/user/getthreadprofil', {
+        getdaftarpengguna(val) {
+            axios.get('/api/user/getdaftarpengguna/' + val, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then((response) => {
-                this.totalthread = response.data[0]
-                this.daftarthread = response.data[1]
+                if(val == 'nama') this.dpengguna = response.data
+                else if(val == 'thread') this.dpengguna = _.orderBy(this.dpengguna, 'tthread', 'desc')
+                else if(val == 'tanggapan') this.dpengguna = _.orderBy(this.dpengguna, 'ttanggapan', 'desc')
             })
         },
-        tanggapi(idt) {
-            this.$router.push('/user/tanggapi/' + idt)
-        },
-        dukung(idt, pilihan) {
-            let detail = {
-                'idt': idt,
-                'pilihan': pilihan
-            }
-            axios.post('/api/user/dukung/thread', detail, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + this.user.api_token
-                },
-            }).then(
-                this.getthreadprofil()
-            )
-        },
-        lihatprofil(nim){
+        lihatprofil(nim) {
             this.$router.push('/user/profil/' + nim)
+        },
+        urutkan() {
+            this.$swal({
+                title: 'Urut Berdasarkan',
+                input: 'select',
+                inputOptions: {
+                    'nama': 'Nama',
+                    'thread': 'Thread Terbanyak',
+                    'tanggapan': 'Tanggapan Terbanyak'
+                },
+                inputPlaceholder: 'Pilih Urutan',
+                showCancelButton: true,
+                inputValidator: (val) => {
+                    if (val != null) {
+                        this.getdaftarpengguna(val)
+                    }
+                }
+            })
         }
     }
 }

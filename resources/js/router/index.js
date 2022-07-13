@@ -20,7 +20,6 @@ const AdminAkun = require("../admin/Akun.vue").default;
 
 // Bagian User
 const UserBeranda = require("../user/Beranda.vue").default;
-const UserPencarian = require("../user/Pencarian.vue").default;
 const UserBuatThread = require("../user/BuatThread.vue").default;
 const UserEditThread = require("../user/EditThread.vue").default;
 const UserBuatThreadDraft = require("../user/BuatThreadDraft.vue").default;
@@ -53,10 +52,6 @@ const routes = [
     {
         path: "/user",
         component: UserBeranda,
-    },
-    {
-        path: "/user/pencarian",
-        component: UserPencarian,
     },
     {
         path: "/user/petunjuk",

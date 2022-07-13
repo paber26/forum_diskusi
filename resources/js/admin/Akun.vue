@@ -37,19 +37,6 @@
                             </div>
                         </td>
                     </tr>
-                    <!-- <tr class="bg-white border-b divide-x divide-gray-400" v-for="index in daftarakun.length" :key="index.idtn">
-                        <td class="p-3 font-medium text-gray-900 text-center">{{ index }}</td>
-                        <td class="p-3 font-medium text-gray-900">{{ daftarakun[index-1].nama }}</td>
-                        <td class="p-3 font-medium text-gray-900 text-center">{{ daftarakun[index-1].nim }}</td>
-                        <td class="p-3 font-medium text-gray-900 text-center" v-html="daftarakun[index-1].is_admin ? 'Admin' : 'Anggota'"></td>
-                        <td class="p-3">
-                            <div class="flex justify-center">
-                                <button @click.prevent="gantiakses(daftarakun[index-1].nim, daftarakun[index-1].nama)" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded-full flex items-center">
-                                    <span class="text-sm">Ganti Akses</span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -145,13 +132,6 @@ export default {
                             }
                         })
                     }
-                    if (value === 'admin') {
-                        console.log(value)
-                    } else if (value === 'anggota') {
-                        console.log(value)
-                    }
-
-                    console.log('Selesai')
                 }
             })
         }
