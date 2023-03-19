@@ -146,9 +146,18 @@ class Profil extends Controller
         }
     }
 
-    public function getdaftarpengguna()
+    public function getdaftarpengguna($keyword = null)
     {
-        $q = DB::table('users')->orderBy('nama')->get();
+        if ($keyword == null) {
+            $q = DB::table('users')->orderBy('nama')->get();
+        } else {
+            $q = DB::table('users')->orderBy('nama')
+                ->where('nama', 'like', '%' . $keyword . '%')
+                ->orWhere('nim', 'like', '%' . $keyword . '%')
+                ->get();
+        }
+
+        // return 'yes';
         $daftarpengguna = [];
         foreach ($q as $row) {
             $tthread = DB::table('thread')->where('nim', $row->nim)->count();

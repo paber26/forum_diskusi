@@ -130,7 +130,6 @@ export default {
     data() {
         return {
             daftarthread: '',
-            pencthread: '',
             topuserthread: '',
             topusertanggapan: '',
             fields: {
@@ -140,7 +139,6 @@ export default {
             keywords: '',
             keyword: '',
             iscari: false,
-            hasilcari: ''
         }
     },
     mounted() {

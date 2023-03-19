@@ -52,8 +52,6 @@ export default {
         return {
             daftarakun: '',
             daftartanggapan: '',
-            expand: [],
-            isactive: 'thread',
             keyword: ''
         }
     },
@@ -71,42 +69,6 @@ export default {
         }
     },
     methods: {
-        gettanggapan() {
-            axios.get('/api/admin/gettanggapan', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + this.user.api_token
-                },
-            }).then((response) => {
-                this.daftartanggapan = response.data
-                console.log(this.daftartanggapan)
-            })
-        },
-        hapus_tanggapan(idt, idtn) {
-            this.$swal({
-                title: 'Apakah yakin untuk menghapus?',
-                text: "Tindakan ini tidak dapat dikembalikan",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    axios.delete('/api/admin/hapus_tanggapan/' + idt + '/' + idtn, {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer ' + this.user.api_token
-                        },
-                    }).then(response => {
-                        if (response.data == 'Berhasil') {
-                            this.$swal('Berhasil menghapus')
-                            this.gettanggapan()
-                        }
-                    })
-                }
-            })
-        },
         gantiakses(nim, nama) {
             this.$swal({
                 title: 'Pilih Akses Akun',

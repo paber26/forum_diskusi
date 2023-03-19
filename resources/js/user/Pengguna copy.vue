@@ -78,21 +78,32 @@ export default {
         // this.getdaftarpengguna('nama')
     },
     computed:{
-        getdaftarpengguna() {
-            axios.get('/api/user/getdaftarpengguna/' + this.keyword, {
+        getdaftarpengguna(val) {
+            axios.get('/api/user/getdaftarpengguna/' + val, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.user.api_token
                 },
             }).then((response) => {
-                if (this.urutan == 'nama') this.dpengguna = response.data
-                else if (this.urutan == 'thread') this.dpengguna = _.orderBy(this.dpengguna, 'tthread', 'desc')
-                else if (this.urutan == 'tanggapan') this.dpengguna = _.orderBy(this.dpengguna, 'ttanggapan', 'desc')
+                if (val == 'nama') this.dpengguna = response.data
+                else if (val == 'thread') this.dpengguna = _.orderBy(this.dpengguna, 'tthread', 'desc')
+                else if (val == 'tanggapan') this.dpengguna = _.orderBy(this.dpengguna, 'ttanggapan', 'desc')
             })
-            return this.dpengguna
         },
     },
     methods: {
+        // getdaftarpengguna(val) {
+        //     axios.get('/api/user/getdaftarpengguna/' + val, {
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             'Authorization': 'Bearer ' + this.user.api_token
+        //         },
+        //     }).then((response) => {
+        //         if (val == 'nama') this.dpengguna = response.data
+        //         else if (val == 'thread') this.dpengguna = _.orderBy(this.dpengguna, 'tthread', 'desc')
+        //         else if (val == 'tanggapan') this.dpengguna = _.orderBy(this.dpengguna, 'ttanggapan', 'desc')
+        //     })
+        // },
         lihatprofil(nim) {
             this.$router.push('/user/profil/' + nim)
         },
@@ -109,8 +120,7 @@ export default {
                 showCancelButton: true,
                 inputValidator: (val) => {
                     if (val != null) {
-                        // this.getdaftarpengguna(val)
-                        this.urutan = val
+                        this.getdaftarpengguna(val)
                     }
                 }
             })

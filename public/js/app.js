@@ -2118,8 +2118,6 @@ __webpack_require__.r(__webpack_exports__);
     return {
       daftarakun: '',
       daftartanggapan: '',
-      expand: [],
-      isactive: 'thread',
       keyword: ''
     };
   },
@@ -2139,49 +2137,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    gettanggapan: function gettanggapan() {
-      var _this2 = this;
-
-      axios.get('/api/admin/gettanggapan', {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + this.user.api_token
-        }
-      }).then(function (response) {
-        _this2.daftartanggapan = response.data;
-        console.log(_this2.daftartanggapan);
-      });
-    },
-    hapus_tanggapan: function hapus_tanggapan(idt, idtn) {
-      var _this3 = this;
-
-      this.$swal({
-        title: 'Apakah yakin untuk menghapus?',
-        text: "Tindakan ini tidak dapat dikembalikan",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, hapus!'
-      }).then(function (result) {
-        if (result.isConfirmed) {
-          axios["delete"]('/api/admin/hapus_tanggapan/' + idt + '/' + idtn, {
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + _this3.user.api_token
-            }
-          }).then(function (response) {
-            if (response.data == 'Berhasil') {
-              _this3.$swal('Berhasil menghapus');
-
-              _this3.gettanggapan();
-            }
-          });
-        }
-      });
-    },
     gantiakses: function gantiakses(nim, nama) {
-      var _this4 = this;
+      var _this2 = this;
 
       this.$swal({
         title: 'Pilih Akses Akun',
@@ -2198,13 +2155,13 @@ __webpack_require__.r(__webpack_exports__);
             axios.get('/api/admin/gantiakses/' + nim + '/' + value, {
               headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + _this4.user.api_token
+                'Authorization': 'Bearer ' + _this2.user.api_token
               }
             }).then(function (response) {
-              _this4.getakun();
+              _this2.getakun();
 
               if (response.data == 'Berhasil') {
-                _this4.$swal('Berhasil mengubah akses');
+                _this2.$swal('Berhasil mengubah akses');
               }
             });
           }
@@ -3989,7 +3946,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       daftarthread: '',
-      pencthread: '',
       topuserthread: '',
       topusertanggapan: '',
       fields: {
@@ -3998,8 +3954,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       keywords: '',
       keyword: '',
-      iscari: false,
-      hasilcari: ''
+      iscari: false
     };
   },
   mounted: function mounted() {
@@ -5094,30 +5049,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['user'],
   data: function data() {
     return {
       dpengguna: '',
-      urutan: 'nama'
+      urutan: 'nama',
+      keyword: ''
     };
   },
-  mounted: function mounted() {
-    this.getdaftarpengguna('nama');
+  mounted: function mounted() {// this.getdaftarpengguna('nama')
   },
-  methods: {
-    getdaftarpengguna: function getdaftarpengguna(val) {
+  computed: {
+    getdaftarpengguna: function getdaftarpengguna() {
       var _this = this;
 
-      axios.get('/api/user/getdaftarpengguna/' + val, {
+      axios.get('/api/user/getdaftarpengguna/' + this.keyword, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + this.user.api_token
         }
       }).then(function (response) {
-        if (val == 'nama') _this.dpengguna = response.data;else if (val == 'thread') _this.dpengguna = _.orderBy(_this.dpengguna, 'tthread', 'desc');else if (val == 'tanggapan') _this.dpengguna = _.orderBy(_this.dpengguna, 'ttanggapan', 'desc');
+        if (_this.urutan == 'nama') _this.dpengguna = response.data;else if (_this.urutan == 'thread') _this.dpengguna = _.orderBy(_this.dpengguna, 'tthread', 'desc');else if (_this.urutan == 'tanggapan') _this.dpengguna = _.orderBy(_this.dpengguna, 'ttanggapan', 'desc');
       });
-    },
+      return this.dpengguna;
+    }
+  },
+  methods: {
     lihatprofil: function lihatprofil(nim) {
       this.$router.push('/user/profil/' + nim);
     },
@@ -5136,7 +5106,8 @@ __webpack_require__.r(__webpack_exports__);
         showCancelButton: true,
         inputValidator: function inputValidator(val) {
           if (val != null) {
-            _this2.getdaftarpengguna(val);
+            // this.getdaftarpengguna(val)
+            _this2.urutan = val;
           }
         }
       });
@@ -63448,25 +63419,88 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "relative overflow-x-auto" }, [
-        _c("div", { staticClass: "flex justify-end mb-2" }, [
-          _c(
-            "button",
-            {
-              staticClass:
-                "bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded-sm flex items-center",
-              on: {
-                click: function ($event) {
-                  $event.preventDefault()
-                  return _vm.urutkan()
+        _c("div", { staticClass: "flex justify-between items-center" }, [
+          _c("div", { staticClass: "pb-3" }, [
+            _c("div", { staticClass: "relative mt-1" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none",
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "w-5 h-5 text-gray-500 dark:text-gray-400",
+                      attrs: {
+                        fill: "currentColor",
+                        viewBox: "0 0 20 20",
+                        xmlns: "http://www.w3.org/2000/svg",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d: "M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z",
+                          "clip-rule": "evenodd",
+                        },
+                      }),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.keyword,
+                    expression: "keyword",
+                  },
+                ],
+                staticClass:
+                  "bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 pl-10 p-2.5",
+                attrs: {
+                  type: "text",
+                  id: "table-search",
+                  placeholder: "Cari Akun",
+                },
+                domProps: { value: _vm.keyword },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.keyword = $event.target.value
+                  },
+                },
+              }),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "p-1" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded-sm flex items-center",
+                on: {
+                  click: function ($event) {
+                    $event.preventDefault()
+                    return _vm.urutkan()
+                  },
                 },
               },
-            },
-            [
-              _c("span", { staticClass: "text-sm" }, [
-                _vm._v("Urut Berdasarkan"),
-              ]),
-            ]
-          ),
+              [
+                _c("span", { staticClass: "text-sm" }, [
+                  _vm._v("Urut Berdasarkan"),
+                ]),
+              ]
+            ),
+          ]),
         ]),
         _vm._v(" "),
         _c("table", { staticClass: "w-full text-left" }, [
@@ -63474,7 +63508,7 @@ var render = function () {
           _vm._v(" "),
           _c(
             "tbody",
-            _vm._l(_vm.dpengguna.length, function (index) {
+            _vm._l(_vm.getdaftarpengguna, function (pengguna, index) {
               return _c(
                 "tr",
                 {
@@ -63487,32 +63521,30 @@ var render = function () {
                     {
                       staticClass: "p-3 font-medium text-gray-900 text-center",
                     },
-                    [_vm._v(_vm._s(index))]
+                    [_vm._v(_vm._s(index + 1))]
                   ),
                   _vm._v(" "),
                   _c("td", { staticClass: "p-3" }, [
                     _c("img", {
                       staticClass: "rounded-full",
-                      attrs: { src: _vm.dpengguna[index - 1].gambar, alt: "" },
+                      attrs: { src: pengguna.gambar, alt: "" },
                     }),
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "p-3" }, [
-                    _c("span", [_vm._v(_vm._s(_vm.dpengguna[index - 1].nama))]),
+                    _c("span", [_vm._v(_vm._s(pengguna.nama))]),
                     _vm._v(" "),
                     _c("div", { staticClass: "text-xxs" }, [
-                      _vm._v(
-                        "(NIM : " + _vm._s(_vm.dpengguna[index - 1].nim) + ")"
-                      ),
+                      _vm._v("(NIM : " + _vm._s(pengguna.nim) + ")"),
                     ]),
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "p-3 text-center" }, [
-                    _vm._v(_vm._s(_vm.dpengguna[index - 1].tthread)),
+                    _vm._v(_vm._s(pengguna.tthread)),
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "p-3 text-center" }, [
-                    _vm._v(_vm._s(_vm.dpengguna[index - 1].ttanggapan)),
+                    _vm._v(_vm._s(pengguna.ttanggapan)),
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "p-3" }, [
@@ -63524,7 +63556,7 @@ var render = function () {
                         on: {
                           click: function ($event) {
                             $event.preventDefault()
-                            return _vm.lihatprofil(_vm.dpengguna[index - 1].nim)
+                            return _vm.lihatprofil(pengguna.nim)
                           },
                         },
                       },
